@@ -14,6 +14,7 @@ import {
 import { FindAgent, SubAgentOrChild } from "@/constants";
 
 const AgentSetupForm = () => {
+
   const form = useForm<z.infer<typeof AgentSetupSchema>>({
     resolver: zodResolver(AgentSetupSchema),
     defaultValues: {
@@ -68,7 +69,7 @@ const AgentSetupForm = () => {
     <div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          <div className="px-5">
+          <div className="">
             <div className="flex items-center justify-between">
               <h1 className="text-2xl font-bold">Search Criteria</h1>
               <CheckboxForm
@@ -179,8 +180,8 @@ const AgentSetupForm = () => {
                   placeholder="Average"
                 />
               </div>
-              <div>
-                <div className="my-1 flex items-center">
+              <div className="content-end">
+                <div className="hidden my-1 items-center">
                   <h1>Start Date</h1>
                 </div>
                 <DatePickerForm
@@ -269,7 +270,7 @@ const AgentSetupForm = () => {
                 placeholder="111-11-1111"
               />
             </div>
-            <div className="grid grid-cols-3">
+            <div className="grid grid-cols-3 text-sm my-4">
               <CheckboxForm
                 control={form.control}
                 formName="okToPayResid"
@@ -310,7 +311,7 @@ const AgentSetupForm = () => {
               />
             </div>
             <h1 className="my-3 text-2xl font-bold">Reporting</h1>
-            <div className="grid grid-cols-6">
+            <div className="grid grid-cols-3 text-sm text-nowrap my-4">
               <div className="flex items-center">
                 <h1>Opt In To</h1>
               </div>

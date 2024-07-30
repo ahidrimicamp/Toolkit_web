@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const MerchantAccessOneApi = () => {
+const MerchantAccessOneApiTab = () => {
   const pathname = usePathname();
   const tabItems = [
     {
@@ -92,4 +92,4 @@ const MerchantAccessOneApi = () => {
   );
 };
 
-export default MerchantAccessOneApi;
+export default MerchantAccessOneApiTab;

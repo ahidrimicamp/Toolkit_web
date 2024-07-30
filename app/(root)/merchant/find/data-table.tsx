@@ -43,11 +43,6 @@ export default function DataTableMerchant() {
                   Merchant - Find ({item.title})
                 </h1>
                 <MerchantSearch type={item.title} />
-                {/* <ExtremeDataTable
-                  pageSize={10}
-                  data={employees}
-                  columnsToDisplay={["EmployeeID", "FullName", "City", "Country"]}
-                /> */}
                 <DataTable
                   columns={columns}
                   data={employees}

@@ -37,14 +37,9 @@ const page = () => {
 
   return (
     <>
-      <section className="w-full">
-        <h1 className="mb-3 text-2xl text-sky-500">Leasing</h1>
-        <div className="mb-5 min-h-96 w-full rounded-md bg-zinc-800">
-          {/* <ExtremeDataTable
-            pageSize={1}
-            data={leasingTable1}
-            columnsToDisplay={["LeaseNumber", "FundedDate", "Funded$", "TSR", "BuybackDate", "Buyback$", "Score", "Grade", "TSR$", "Term", "Factor"]}
-          /> */}
+      <section className='w-full'>
+        <h1 className='text-2xl text-sky-500 mb-3'>Leasing</h1>
+        <div className='w-full  rounded-md min-h-96 mb-5'>
           <DataTable
             columns={columns1}
             data={leasingTable1}
@@ -52,27 +47,22 @@ const page = () => {
             filteredBy="username"
           />
         </div>
-        <div className="flex w-full gap-5">
-          <div className="min-h-80 rounded-md bg-zinc-800">
-            {/* <ExtremeDataTable
-              pageSize={1}
-              data={leasingTable2}
-              columnsToDisplay={["Order", "OrderDate", "Status"]}
-            /> */}
-            <DataTable
-              columns={columns2}
-              data={leasingTable2}
-              enableColumnFilter={true}
-              filteredBy="username"
-            />
+        <div className='flex gap-5 w-full'>
+          <div className=' rounded-md min-h-80'>
+             <DataTable
+            columns={columns2}
+            data={leasingTable2}
+            enableColumnFilter={true}
+            filteredBy='username'
+          />
           </div>
-          <div className="min-h-80 rounded-md bg-zinc-800">
-            <DataTable
-              columns={columns3}
-              data={leasingTable3}
-              enableColumnFilter={true}
-              filteredBy="username"
-            />
+          <div className=' rounded-md min-h-80'>
+          <DataTable
+            columns={columns3}
+            data={leasingTable3}
+            enableColumnFilter={true}
+            filteredBy='username'
+          />
           </div>
         </div>
       </section>

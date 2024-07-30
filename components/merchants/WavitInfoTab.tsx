@@ -25,7 +25,7 @@ const WavitInfoTab = () => {
       <div className="m-auto inline-flex gap-1 text-nowrap rounded-md bg-gray-200 p-1 dark:bg-zinc-700 dark:text-white">
         {tabItems.map((item) => {
           const isActive =
-            (pathname?.includes(item.value) && item.title.length > 1) ||
+            (pathname?.includes(item.route) && item.title.length > 1) ||
             pathname === item.title;
 
           return (

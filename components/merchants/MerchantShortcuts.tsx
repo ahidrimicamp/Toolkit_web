@@ -41,6 +41,7 @@ const MerchantShortcuts = () => {
   return (
     <section className="w-auto">
       <h1 className="mb-4 text-center text-3xl text-sky-500">Shortcuts</h1>
+      
       <div className="flex w-auto flex-wrap justify-center gap-4 rounded-md text-lg text-sky-500">
         {/* MERCHANT ICON */}
         <div className="flex flex-1 flex-col justify-center rounded-md border border-gray-400 bg-transparent px-2 shadow-md">
@@ -86,6 +87,7 @@ const MerchantShortcuts = () => {
               height={75}
               priority
             />
+            
             <h1 className="justify-center text-nowrap text-black dark:text-white">
               Create Task
             </h1>
@@ -102,6 +104,7 @@ const MerchantShortcuts = () => {
               height={75}
               priority
             />
+            
             <h1 className="justify-center text-nowrap text-black dark:text-white">
               Upload Document
             </h1>

@@ -122,7 +122,8 @@ const page = () => {
       <section className="w-full">
         <h1 className="mb-3 text-2xl text-sky-500">Reject / Collections</h1>
 
-        <div className="mb-5 min-h-96 w-full flex-1 rounded-md bg-zinc-800">
+
+        <div className='w-full flex-1 rounded-md min-h-96 mb-5'>
           <DataTable
             columns={columns1}
             data={rejectCollectionsTable1}
@@ -131,8 +132,8 @@ const page = () => {
           />
         </div>
 
-        <div className="flex gap-2 max-md:flex-wrap">
-          <div className="mb-5 min-h-96 w-full flex-auto rounded-md bg-zinc-800">
+        <div className='flex max-md:flex-wrap gap-2'>
+          <div className='w-full flex-auto rounded-md min-h-96 mb-5'>
             <DataTable
               columns={columns2}
               data={rejectCollectionsTable2}

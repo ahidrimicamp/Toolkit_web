@@ -1,31 +1,18 @@
 import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import AgentContent from "./AgentContent";
+import AgentResidualsContent from "./AgentResidualsContent";
 import { AgentSetupTabs } from "@/constants";
 import AgentSetupForm from "./AgentSetupForm";
+import AgentSetupContent from "./AgentSetupContent";
 
 const AgentSetup = () => {
   return (
-    <div className="grid grid-cols-2">
-      <AgentSetupForm />
-      <Tabs defaultValue="residuals" className="w-full">
-        <TabsList>
-          {AgentSetupTabs.map((tab) => (
-            <TabsTrigger key={tab.id} value={tab.value}>
-              {tab.title}
-            </TabsTrigger>
-          ))}
-        </TabsList>
-        {AgentSetupTabs.map((content) => {
-          return (
-            <TabsContent key={content.id} value={content.value}>
-              <div className="flex">
-                <AgentContent />
-              </div>
-            </TabsContent>
-          );
-        })}
-      </Tabs>
+    <div className="flex max-lg:flex-wrap gap-4">
+      <div className="w-full">
+        <AgentSetupForm />
+      </div>
+
+      <AgentSetupContent/>
     </div>
   );
 };

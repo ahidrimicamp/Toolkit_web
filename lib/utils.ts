@@ -169,6 +169,24 @@ export const AgentSetupSchema = z.object({
   note: z.string(),
 });
 
+export const AgentEquipmentSchema = z.object({
+  copyFromContactInfo: z.boolean(),
+  noShippingEmails: z.boolean(),
+  coCard: z.boolean(),
+  markClosed: z.boolean(),
+  shipPhone: z.string(),
+  shipExt: z.string(),
+  shippingEmail: z.string().email("Invalid email address"),
+  shippingServiceEmail: z.string().email("Invalid email address"),
+  address1: z.string(),
+  address2: z.string(),
+  city: z.string(),
+  state: z.string(),
+  zip: z.string(),
+  cellPhone: z.string(),
+});
+
+
 // Currency format functions
 export const formatCurrency = (
   value: number,

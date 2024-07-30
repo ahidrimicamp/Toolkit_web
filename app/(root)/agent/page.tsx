@@ -34,21 +34,13 @@ const Page = () => {
   const columns = createColumns(ColumnConfig);
   return (
     <div>
-      <Tabs defaultValue="list" className="size-full p-12">
-        <TabsList>
-          {list.map((item) => (
-            <TabsTrigger value={item.value} key={item.id}>
-              {item.title}
-            </TabsTrigger>
-          ))}
-        </TabsList>
-        <TabsContent value="list">
-          <DataTable columns={columns} data={agentData} />
-        </TabsContent>
-        <TabsContent value="setup">
-          <AgentSetup />
-        </TabsContent>
-      </Tabs>
+      <h1 className='text-2xl text-sky-500 mb-3 '>Agent List</h1>
+      <DataTable
+        columns={columns}
+        data={agentData}
+        enableColumnFilter={true}
+        filteredBy="name"
+      />
     </div>
   );
 };

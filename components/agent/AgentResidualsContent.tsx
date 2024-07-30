@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Button } from "../ui/button";
 import RenderComponents from "./fdOmaha";
 
-const AgentContent = () => {
+const AgentResidualsContent = () => {
   const [activeItem, setActiveItem] = useState<string>("");
   const navItems = [
     { id: "1", title: "FD Omaha", value: "fd-omaha" },
@@ -22,7 +22,7 @@ const AgentContent = () => {
   };
   return (
     <div className="flex w-full gap-5">
-      <div className="flex flex-col">
+      <div className="flex flex-col mt-5">
         {navItems.map((item) => {
           const isActive = activeItem === item.value;
           return (
@@ -43,4 +43,4 @@ const AgentContent = () => {
   );
 };
 
-export default AgentContent;
+export default AgentResidualsContent;
