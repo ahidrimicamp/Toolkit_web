@@ -147,6 +147,39 @@ export const merchantMainTabs = [
   },
 ];
 
+export const serviceMainTabs = [
+  {
+    id: 1,
+    title: "Funders",
+    value: "funders",
+    path: "/services",
+  },
+  {
+    id: 2,
+    title: "Merchant",
+    value: "merchant",
+    path: "/services/merchant",
+  },
+  {
+    id: 3,
+    title: "Splits",
+    value: "splits",
+    path: "/services/splits",
+  },
+  {
+    id: 4,
+    title: "Remittances",
+    value: "remittances",
+    path: "/services/remittances",
+  },
+  {
+    id: 5,
+    title: "Reports",
+    value: "reports",
+    path: "/services/reports",
+  },
+];
+
 export const finanialMainTabs = [
   {
     id: 1,
