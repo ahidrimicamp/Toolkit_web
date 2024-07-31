@@ -1,165 +1,56 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 
-import { Form } from "@/components/ui/form";
-import React from "react";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import DataTable from "@/components/Shared/DataTable/DataTable";
+import React, { useState } from "react";
+import { funderList } from "@/constants";
 import {
-  InputForm,
-  SelectForm,
-  TextAreaForm,
-} from "@/components/Shared/InstantForm";
+  ColumnConfig,
+  createColumns,
+} from "@/components/Shared/DataTable/Columns";
+import { DataTypes } from "@/types";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import AddFunder from "@/components/services/AddFunder";
 
-const page = () => {
-  const funderSchema = z.object({
-    funderName: z.string(),
-    referralAgent: z.string(),
-    contactName: z.string(),
-    contactPhone: z.string(),
-    contactEmail: z.string(),
-    address: z.string(),
-    bankName: z.string(),
-    routingNumber: z.string(),
-    accountName: z.string(),
-    fundingFreq: z.string(),
-    currentStatus: z.string(),
-    sendDailyEmails: z.string(),
-    notes: z.string(),
-  });
+const ServiceFunderList = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const form = useForm<z.infer<typeof funderSchema>>({
-    resolver: zodResolver(funderSchema),
-    defaultValues: {
-      funderName: "",
-      referralAgent: "",
-      contactName: "",
-      contactPhone: "",
-      contactEmail: "",
-      address: "",
-      bankName: "",
-      routingNumber: "",
-      accountName: "",
-      fundingFreq: "",
-      currentStatus: "",
-      sendDailyEmails: "",
-      notes: "",
-    },
-  });
-
-  const onSubmit = (values: z.infer<typeof funderSchema>) => {
-    console.log(values);
-  };
-
-  const formMap = [
-    { id: 1, title: "Funder Name", value: "funderName" },
-    { id: 2, title: "Referral Agent", value: "referralAgent" },
-    { id: 3, title: "Contact Name", value: "contactName" },
-    { id: 4, title: "Contact Phone", value: "contactPhone" },
-    { id: 5, title: "Address", value: "address" },
-    { id: 6, title: "Bank Name", value: "bankName" },
-    { id: 7, title: "Routing Number", value: "routingNumber" },
-    { id: 8, title: "Account Name", value: "accountName" },
-    {
-      id: 9,
-      title: "Funding Frequency",
-      value: "fundingFreq",
-      data: [
-        {
-          id: 1,
-          title: "Daily",
-          value: "while",
-        },
-        {
-          id: 2,
-          title: "Once in a while",
-          value: "daily",
-        },
-        {
-          id: 3,
-          title: "Once a year",
-          value: "year",
-        },
-      ],
-    },
-    {
-      id: 10,
-      title: "Current Status",
-      value: "currentStatus",
-      data: [
-        {
-          id: 1,
-          title: "Closed",
-          value: "closed",
-        },
-        {
-          id: 2,
-          title: "Open",
-          value: "closed",
-        },
-      ],
-    },
-    {
-      id: 11,
-      title: "Send Daily Emails",
-      value: "sendDailyEmails",
-      data: [
-        {
-          id: 1,
-          title: "No",
-          value: "no",
-        },
-        {
-          id: 2,
-          title: "Yes",
-          value: "yes",
-        },
-      ],
-    },
-    { id: 12, title: "Notes", value: "notes" },
+  const columnsConfig: ColumnConfig<DataTypes>[] = [
+    { accessorKey: "funderId", header: "ID" },
+    { accessorKey: "funderName", header: "Funder Name" },
+    { accessorKey: "contactName", header: "Contact Name" },
+    { accessorKey: "phone", header: "Phone" },
+    { accessorKey: "email", header: "Email" },
   ];
+
+  const columns = createColumns(columnsConfig);
+
   return (
-    <div className="rounded-r-sm rounded-bl-sm border px-4 py-10 shadow-sm">
-      <div className="grid grid-cols-2 gap-2">
-        <div className="flex flex-col">
-          <p className="text-3xl text-blue-500">Add Funder</p>
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)}>
-              {formMap.map((item) =>
-                item.data ? (
-                  <SelectForm
-                    key={item.id}
-                    control={form.control}
-                    formName={item.value}
-                    label={item.title}
-                    content={item.data}
-                    valueKey="id"
-                    displayKey="title"
-                  />
-                ) : item.value === "address" || item.value === "notes" ? (
-                  <TextAreaForm
-                    key={item.id}
-                    control={form.control}
-                    formName={item.value}
-                    label={item.title}
-                  />
-                ) : (
-                  <InputForm
-                    key={item.id}
-                    control={form.control}
-                    formName={item.value}
-                    label={item.title}
-                  />
-                ),
-              )}
-            </form>
-          </Form>
+    <div className="rounded-r-sm rounded-bl-sm border shadow-sm">
+      <div className="px-5 py-10">
+        <p className="text-3xl text-blue-500">
+          {isOpen ? "Add Funder" : "Funders List"}
+        </p>
+        <div className={cn(isOpen ? "hidden" : "")}>
+          <DataTable
+            columns={columns}
+            data={funderList}
+            enableColumnFilter={true}
+            filteredBy="funderName"
+          />
         </div>
-        <div></div>
+
+        <Button
+          className={cn(isOpen ? "hidden" : "mt-10")}
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          Add New Funder
+        </Button>
+
+        {isOpen && <AddFunder isOpen={isOpen} setIsOpen={setIsOpen} />}
       </div>
     </div>
   );
 };
 
-export default page;
+export default ServiceFunderList;

@@ -514,6 +514,79 @@ export const equipmentList1 = [
   },
 ];
 
+export const funderList: DataTypes[] = [
+  {
+    funderId: 1,
+    funderName: "Funder One",
+    contactName: "John Doe",
+    phone: "123-456-7890",
+    email: "john.doe@example.com",
+  },
+  {
+    funderId: 2,
+    funderName: "Funder Two",
+    contactName: "Jane Smith",
+    phone: "987-654-3210",
+    email: "jane.smith@example.com",
+  },
+  {
+    funderId: 3,
+    funderName: "Funder Three",
+    contactName: "Bob Johnson",
+    phone: "555-123-4567",
+    email: "bob.johnson@example.com",
+  },
+  {
+    funderId: 4,
+    funderName: "Funder Four",
+    contactName: "Alice Brown",
+    phone: "111-222-3333",
+    email: "alice.brown@example.com",
+  },
+  {
+    funderId: 5,
+    funderName: "Funder Five",
+    contactName: "Mike Davis",
+    phone: "444-555-6666",
+    email: "mike.davis@example.com",
+  },
+  {
+    funderId: 6,
+    funderName: "Funder Six",
+    contactName: "Emily Taylor",
+    phone: "777-888-9999",
+    email: "emily.taylor@example.com",
+  },
+  {
+    funderId: 7,
+    funderName: "Funder Seven",
+    contactName: "Kevin White",
+    phone: "222-333-4444",
+    email: "kevin.white@example.com",
+  },
+  {
+    funderId: 8,
+    funderName: "Funder Eight",
+    contactName: "Sarah Lee",
+    phone: "666-777-8888",
+    email: "sarah.lee@example.com",
+  },
+  {
+    funderId: 9,
+    funderName: "Funder Nine",
+    contactName: "David Hall",
+    phone: "999-000-1111",
+    email: "david.hall@example.com",
+  },
+  {
+    funderId: 10,
+    funderName: "Funder Ten",
+    contactName: "Lisa Nguyen",
+    phone: "333-444-5555",
+    email: "lisa.nguyen@example.com",
+  },
+];
+
 export const entryData: DataTypes[] = [
   {
     "P Vendor": "Vendor A",
@@ -1702,8 +1775,6 @@ export const AgentSetupTabs = [
   },
 ];
 
-
-
 export const FindAgent = [
   { id: 1, name: "Average Joe", value: "avgJoe" },
   { id: 2, name: "Martin Joe", value: "marJoe" },
@@ -1764,270 +1835,293 @@ export const summaryItems = [
 
 // Merchant data
 
-const merchantStatusList =
-  [
-    { "id": 1, "name": "ACH Reject", "value": "achReject" },
-    { "id": 2, "name": "Agent Request", "value": "agentRequest" },
-    { "id": 3, "name": "Approved", "value": "approved" },
-    { "id": 4, "name": "Closed", "value": "closed" },
-    { "id": 5, "name": "Closed Location", "value": "closedLocation" },
-    { "id": 6, "name": "Corporate Change (new MID)", "value": "corporateChangeNewMid" },
-    { "id": 7, "name": "Cost of EMV equipment", "value": "costOfEmvEquipment" },
-    { "id": 8, "name": "Customer service related issue", "value": "customerServiceRelatedIssue" },
-    { "id": 9, "name": "Decline", "value": "decline" },
-    { "id": 10, "name": "Deleted", "value": "deleted" },
-    { "id": 11, "name": "Did not agree to terms during verbal", "value": "didNotAgreeToTermsDuringVerbal" },
-    { "id": 12, "name": "Duplicate MID", "value": "duplicateMid" },
-    { "id": 13, "name": "Equipment issues", "value": "equipmentIssues" },
-    { "id": 14, "name": "Equipment not compatible / Does not integrate", "value": "equipmentNotCompatibleDoesNotIntegrate" },
-    { "id": 15, "name": "Fees not disclosed by rep", "value": "feesNotDisclosedByRep" },
-    { "id": 16, "name": "Fees / Rates", "value": "feesRates" },
-    { "id": 17, "name": "Fulfilled contract", "value": "fulfilledContract" },
-    { "id": 18, "name": "Has not used services in months", "value": "hasNotUsedServicesInMonths" },
-    { "id": 19, "name": "Keying error/re-keyed", "value": "keyingErrorReKeyed" },
-    { "id": 20, "name": "Lease buyback", "value": "leaseBuyback" },
-    { "id": 21, "name": "Moved to North", "value": "movedToNorth" },
-    { "id": 22, "name": "Multiple MIDS - Only needs single", "value": "multipleMidsOnlyNeedsSingle" },
-    { "id": 23, "name": "Nacha Rejects (FD Closing)", "value": "nachaRejectsFdClosing" },
-    { "id": 24, "name": "Never authorized/never accepted credit cards", "value": "neverAuthorizedNeverAcceptedCreditCards" },
-    { "id": 25, "name": "New POS", "value": "newPos" },
-    { "id": 26, "name": "Not accepting credit cards", "value": "notAcceptingCreditCards" },
-    { "id": 27, "name": "Not approved for cash advance", "value": "notApprovedForCashAdvance" },
-    { "id": 28, "name": "Not Approved for Lease", "value": "notApprovedForLease" },
-    { "id": 29, "name": "Not using services", "value": "notUsingServices" },
-    { "id": 30, "name": "Other - Refer to Notes", "value": "otherReferToNotes" },
-    { "id": 31, "name": "Out of business", "value": "outOfBusiness" },
-    { "id": 32, "name": "Pending", "value": "pending" },
-    { "id": 33, "name": "Per Data One Request", "value": "perDataOneRequest" },
-    { "id": 34, "name": "Per Mandi", "value": "perMandi" },
-    { "id": 35, "name": "Per Micah Request", "value": "perMicahRequest" },
-    { "id": 36, "name": "Per NPA", "value": "perNpa" },
-    { "id": 37, "name": "Per Russ Request", "value": "perRussRequest" },
-    { "id": 38, "name": "Per Tiffany Request", "value": "perTiffanyRequest" },
-    { "id": 39, "name": "Per UPA", "value": "perUpa" },
-    { "id": 40, "name": "Received", "value": "received" },
-    { "id": 41, "name": "Risk Related Issue", "value": "riskRelatedIssue" },
-    { "id": 42, "name": "Seasonal business", "value": "seasonalBusiness" },
-    { "id": 43, "name": "Sold business", "value": "soldBusiness" },
-    { "id": 44, "name": "Submitted", "value": "submitted" },
-    { "id": 45, "name": "Switched ISO", "value": "switchedIso" },
-    { "id": 46, "name": "Withdrawn", "value": "withdrawn" },
-    { "id": 47, "name": "Withdran App", "value": "withdranApp" }
-  ]
+const merchantStatusList = [
+  { id: 1, name: "ACH Reject", value: "achReject" },
+  { id: 2, name: "Agent Request", value: "agentRequest" },
+  { id: 3, name: "Approved", value: "approved" },
+  { id: 4, name: "Closed", value: "closed" },
+  { id: 5, name: "Closed Location", value: "closedLocation" },
+  { id: 6, name: "Corporate Change (new MID)", value: "corporateChangeNewMid" },
+  { id: 7, name: "Cost of EMV equipment", value: "costOfEmvEquipment" },
+  {
+    id: 8,
+    name: "Customer service related issue",
+    value: "customerServiceRelatedIssue",
+  },
+  { id: 9, name: "Decline", value: "decline" },
+  { id: 10, name: "Deleted", value: "deleted" },
+  {
+    id: 11,
+    name: "Did not agree to terms during verbal",
+    value: "didNotAgreeToTermsDuringVerbal",
+  },
+  { id: 12, name: "Duplicate MID", value: "duplicateMid" },
+  { id: 13, name: "Equipment issues", value: "equipmentIssues" },
+  {
+    id: 14,
+    name: "Equipment not compatible / Does not integrate",
+    value: "equipmentNotCompatibleDoesNotIntegrate",
+  },
+  { id: 15, name: "Fees not disclosed by rep", value: "feesNotDisclosedByRep" },
+  { id: 16, name: "Fees / Rates", value: "feesRates" },
+  { id: 17, name: "Fulfilled contract", value: "fulfilledContract" },
+  {
+    id: 18,
+    name: "Has not used services in months",
+    value: "hasNotUsedServicesInMonths",
+  },
+  { id: 19, name: "Keying error/re-keyed", value: "keyingErrorReKeyed" },
+  { id: 20, name: "Lease buyback", value: "leaseBuyback" },
+  { id: 21, name: "Moved to North", value: "movedToNorth" },
+  {
+    id: 22,
+    name: "Multiple MIDS - Only needs single",
+    value: "multipleMidsOnlyNeedsSingle",
+  },
+  {
+    id: 23,
+    name: "Nacha Rejects (FD Closing)",
+    value: "nachaRejectsFdClosing",
+  },
+  {
+    id: 24,
+    name: "Never authorized/never accepted credit cards",
+    value: "neverAuthorizedNeverAcceptedCreditCards",
+  },
+  { id: 25, name: "New POS", value: "newPos" },
+  {
+    id: 26,
+    name: "Not accepting credit cards",
+    value: "notAcceptingCreditCards",
+  },
+  {
+    id: 27,
+    name: "Not approved for cash advance",
+    value: "notApprovedForCashAdvance",
+  },
+  { id: 28, name: "Not Approved for Lease", value: "notApprovedForLease" },
+  { id: 29, name: "Not using services", value: "notUsingServices" },
+  { id: 30, name: "Other - Refer to Notes", value: "otherReferToNotes" },
+  { id: 31, name: "Out of business", value: "outOfBusiness" },
+  { id: 32, name: "Pending", value: "pending" },
+  { id: 33, name: "Per Data One Request", value: "perDataOneRequest" },
+  { id: 34, name: "Per Mandi", value: "perMandi" },
+  { id: 35, name: "Per Micah Request", value: "perMicahRequest" },
+  { id: 36, name: "Per NPA", value: "perNpa" },
+  { id: 37, name: "Per Russ Request", value: "perRussRequest" },
+  { id: 38, name: "Per Tiffany Request", value: "perTiffanyRequest" },
+  { id: 39, name: "Per UPA", value: "perUpa" },
+  { id: 40, name: "Received", value: "received" },
+  { id: 41, name: "Risk Related Issue", value: "riskRelatedIssue" },
+  { id: 42, name: "Seasonal business", value: "seasonalBusiness" },
+  { id: 43, name: "Sold business", value: "soldBusiness" },
+  { id: 44, name: "Submitted", value: "submitted" },
+  { id: 45, name: "Switched ISO", value: "switchedIso" },
+  { id: 46, name: "Withdrawn", value: "withdrawn" },
+  { id: 47, name: "Withdran App", value: "withdranApp" },
+];
 
+const salesRepList = [
+  { id: 1, name: "John Smith", value: "johnSmith" },
+  { id: 2, name: "Emily Johnson", value: "emilyJohnson" },
+  { id: 3, name: "Michael Brown", value: "michaelBrown" },
+  { id: 4, name: "Jessica Davis", value: "jessicaDavis" },
+  { id: 5, name: "David Wilson", value: "davidWilson" },
+  { id: 6, name: "Sarah Martinez", value: "sarahMartinez" },
+  { id: 7, name: "James Taylor", value: "jamesTaylor" },
+  { id: 8, name: "Laura Anderson", value: "lauraAnderson" },
+  { id: 9, name: "Robert Thomas", value: "robertThomas" },
+  { id: 10, name: "Sophia Lee", value: "sophiaLee" },
+];
 
+const leadSourceList = [
+  { id: 1, name: "Innovatech Solutions", value: "innovatechSolutions" },
+  { id: 2, name: "Blue Horizon Enterprises", value: "blueHorizonEnterprises" },
+  { id: 3, name: "Quantum Dynamics", value: "quantumDynamics" },
+  { id: 4, name: "Pinnacle Innovations", value: "pinnacleInnovations" },
+  { id: 5, name: "Vertex Global", value: "vertexGlobal" },
+  { id: 6, name: "Synergy Networks", value: "synergyNetworks" },
+  { id: 7, name: "Apex Ventures", value: "apexVentures" },
+  { id: 8, name: "NexGen Technologies", value: "nexGenTechnologies" },
+  { id: 9, name: "Summit Strategies", value: "summitStrategies" },
+  { id: 10, name: "Eclipse Enterprises", value: "eclipseEnterprises" },
+];
 
-const salesRepList =
-  [
-    { id: 1, name: "John Smith", value: "johnSmith" },
-    { id: 2, name: "Emily Johnson", value: "emilyJohnson" },
-    { id: 3, name: "Michael Brown", value: "michaelBrown" },
-    { id: 4, name: "Jessica Davis", value: "jessicaDavis" },
-    { id: 5, name: "David Wilson", value: "davidWilson" },
-    { id: 6, name: "Sarah Martinez", value: "sarahMartinez" },
-    { id: 7, name: "James Taylor", value: "jamesTaylor" },
-    { id: 8, name: "Laura Anderson", value: "lauraAnderson" },
-    { id: 9, name: "Robert Thomas", value: "robertThomas" },
-    { id: 10, name: "Sophia Lee", value: "sophiaLee" }
-  ]
+const splitNameList = [
+  { id: 1, name: "Innovatech Solutions", value: "innovatechSolutions" },
+  { id: 2, name: "Blue Horizon Enterprises", value: "blueHorizonEnterprises" },
+];
 
-const leadSourceList =
-  [
-    { id: 1, name: "Innovatech Solutions", value: "innovatechSolutions" },
-    { id: 2, name: "Blue Horizon Enterprises", value: "blueHorizonEnterprises" },
-    { id: 3, name: "Quantum Dynamics", value: "quantumDynamics" },
-    { id: 4, name: "Pinnacle Innovations", value: "pinnacleInnovations" },
-    { id: 5, name: "Vertex Global", value: "vertexGlobal" },
-    { id: 6, name: "Synergy Networks", value: "synergyNetworks" },
-    { id: 7, name: "Apex Ventures", value: "apexVentures" },
-    { id: 8, name: "NexGen Technologies", value: "nexGenTechnologies" },
-    { id: 9, name: "Summit Strategies", value: "summitStrategies" },
-    { id: 10, name: "Eclipse Enterprises", value: "eclipseEnterprises" }
-  ]
+const deployByList = [
+  { id: 1, name: "MiCamp Solutions", value: "micamp" },
+  { id: 2, name: "Agent", value: "Agent" },
+];
 
-const splitNameList =
-  [
-    { id: 1, name: "Innovatech Solutions", value: "innovatechSolutions" },
-    { id: 2, name: "Blue Horizon Enterprises", value: "blueHorizonEnterprises" },
-  ]
+const mccCode = [
+  { id: 1, name: "American Airlines", value: "americanAirlines" },
+  { id: 2, name: "Delta Air Lines", value: "deltaAirLines" },
+  { id: 3, name: "United Airlines", value: "unitedAirlines" },
+  { id: 4, name: "Southwest Airlines", value: "southwestAirlines" },
+  { id: 5, name: "Alaska Airlines", value: "alaskaAirlines" },
+  { id: 6, name: "JetBlue Airways", value: "jetBlueAirways" },
+  { id: 7, name: "Frontier Airlines", value: "frontierAirlines" },
+  { id: 8, name: "Spirit Airlines", value: "spiritAirlines" },
+  { id: 9, name: "Allegiant Air", value: "allegiantAir" },
+  { id: 10, name: "Hawaiian Airlines", value: "hawaiianAirlines" },
+];
 
-const deployByList =
-  [
-    { id: 1, name: "MiCamp Solutions", value: "micamp" },
-    { id: 2, name: "Agent", value: "Agent" },
-  ]
-
-const mccCode =
-  [
-    { id: 1, name: "American Airlines", value: "americanAirlines" },
-    { id: 2, name: "Delta Air Lines", value: "deltaAirLines" },
-    { id: 3, name: "United Airlines", value: "unitedAirlines" },
-    { id: 4, name: "Southwest Airlines", value: "southwestAirlines" },
-    { id: 5, name: "Alaska Airlines", value: "alaskaAirlines" },
-    { id: 6, name: "JetBlue Airways", value: "jetBlueAirways" },
-    { id: 7, name: "Frontier Airlines", value: "frontierAirlines" },
-    { id: 8, name: "Spirit Airlines", value: "spiritAirlines" },
-    { id: 9, name: "Allegiant Air", value: "allegiantAir" },
-    { id: 10, name: "Hawaiian Airlines", value: "hawaiianAirlines" }
-  ]
-
-
-
-export const documentsTable = [
+export const documentsTable: DataTypes[] = [
   {
     DocType: "Bank Statement",
     Historic: "Historic Field",
     DocName: "Statement.pdf",
     FileSize: "500 mb",
-    UploadDateTime: "07/26/2024 11:22 AM",
+    UploadDateTime: new Date("03/11/2015 11:22 AM"),
   },
   {
     DocType: "Identification",
     Historic: "Historic Field",
     DocName: "ID.pdf",
     FileSize: "40 mb",
-    UploadDateTime: "07/26/2024 11:22 AM",
+    UploadDateTime: new Date("08/12/2019 11:22 AM"),
   },
   {
     DocType: "Certification",
     Historic: "Historic Field",
     DocName: "Certification.pdf",
     FileSize: "751 mb",
-    UploadDateTime: "07/26/2024 11:22 AM",
+    UploadDateTime: new Date("09/14/2017 11:22 AM"),
   },
   {
     DocType: "Leasing",
     Historic: "Historic Field",
     DocName: "Leasing.pdf",
     FileSize: "500 mb",
-    UploadDateTime: "07/26/2024 11:22 AM",
+    UploadDateTime: new Date("01/01/2022 11:22 AM"),
   },
-]
-
-
+];
 
 const wavitTransactionsTable = [
   {
     DateTime: "07/29/2024 09:00AM",
     Type: "Cash",
     Invoice: "101",
-    Amount: 42.50,
-    WAVit: 0.00,
-    Total: 42.50,
+    Amount: 42.5,
+    WAVit: 0.0,
+    Total: 42.5,
     CC: "Visa",
     Last4: "1234",
     NameOnCard: "No Name",
     AuthCode: "424242",
-    Tax: 0.00,
-    Tax2: 0.00,
-    Porcentage: 0
+    Tax: 0.0,
+    Tax2: 0.0,
+    Porcentage: 0,
   },
   {
     DateTime: "07/29/2024 09:00AM",
     Type: "Cash",
     Invoice: "101",
-    Amount: 42.50,
-    WAVit: 0.00,
-    Total: 42.50,
+    Amount: 42.5,
+    WAVit: 0.0,
+    Total: 42.5,
     CC: "Visa",
     Last4: "1234",
     NameOnCard: "No Name",
     AuthCode: "424242",
-    Tax: 0.00,
-    Tax2: 0.00,
-    Porcentage: 0
+    Tax: 0.0,
+    Tax2: 0.0,
+    Porcentage: 0,
   },
   {
     DateTime: "07/29/2024 09:00AM",
     Type: "Debit Card",
     Invoice: "101",
-    Amount: 422.50,
-    WAVit: 15.00,
-    Total: 437.50,
+    Amount: 422.5,
+    WAVit: 15.0,
+    Total: 437.5,
     CC: "Visa",
     Last4: "1234",
     NameOnCard: "No Name",
     AuthCode: "424242",
-    Tax: 0.00,
-    Tax2: 0.00,
-    Porcentage: 0
+    Tax: 0.0,
+    Tax2: 0.0,
+    Porcentage: 0,
   },
   {
     DateTime: "07/29/2024 09:00AM",
     Type: "Credit Card",
     Invoice: "101",
     Amount: 31.55,
-    WAVit: 1.40,
-    Total: 42.50,
+    WAVit: 1.4,
+    Total: 42.5,
     CC: "Visa",
     Last4: "1234",
     NameOnCard: "No Name",
     AuthCode: "424242",
-    Tax: 0.00,
-    Tax2: 0.00,
-    Porcentage: 0
+    Tax: 0.0,
+    Tax2: 0.0,
+    Porcentage: 0,
   },
-]
+];
 
 const wavitSettingsTable = [
   {
     Description: "Integrated",
-    Value: "false"
+    Value: "false",
   },
   {
     Description: "ByPass Integration",
-    Value: "null"
+    Value: "null",
   },
   {
     Description: "Bypass PIN",
-    Value: "null"
+    Value: "null",
   },
   {
     Description: "Integration Type",
-    Value: "null"
+    Value: "null",
   },
   {
     Description: "Subscription ID",
-    Value: "null"
+    Value: "null",
   },
   {
     Description: "Department Code",
-    Value: "null"
+    Value: "null",
   },
   {
     Description: "Enterprise Code",
-    Value: "null"
+    Value: "null",
   },
   {
     Description: "Company Number",
-    Value: "null"
+    Value: "null",
   },
   {
     Description: "Server Name",
-    Value: "null"
+    Value: "null",
   },
   {
     Description: "Transaction Type",
-    Value: "Pre-Auth"
+    Value: "Pre-Auth",
   },
   {
     Description: "Force Terms Acceptance",
-    Value: "false"
+    Value: "false",
   },
   {
     Description: "Terms and Conditions Address",
-    Value: "null"
+    Value: "null",
   },
   {
     Description: "Ask Manager Refund Override",
-    Value: "true"
+    Value: "true",
   },
   {
     Description: "Decline Partial Payments",
-    Value: "false"
+    Value: "false",
   },
-]
-
+];
 
 export {
   merchantStatusList,
@@ -2037,10 +2131,8 @@ export {
   deployByList,
   mccCode,
   wavitTransactionsTable,
-  wavitSettingsTable
-
+  wavitSettingsTable,
 };
-
 
 // AGENT DATA
 
@@ -2048,7 +2140,7 @@ export const agentMainTabs = [
   {
     title: "List",
     value: "list",
-    route: "/agent/list",
+    route: "/agent",
   },
   {
     title: "Setup",
@@ -2068,7 +2160,7 @@ export const agentAdjustments = [
     MID: "",
     DBA: "",
     Type: "Residual Adjustment",
-    Amount: 300.00,
+    Amount: 300.0,
     Notes: "Some notes about it.",
   },
   {
@@ -2076,7 +2168,7 @@ export const agentAdjustments = [
     MID: "",
     DBA: "",
     Type: "Other",
-    Amount: 1300.00,
+    Amount: 1300.0,
     Notes: "Some notes about it.",
   },
   {
@@ -2084,7 +2176,7 @@ export const agentAdjustments = [
     MID: "",
     DBA: "",
     Type: "Equipment",
-    Amount: 13290.00,
+    Amount: 13290.0,
     Notes: "Some notes about it.",
   },
   {
@@ -2092,7 +2184,7 @@ export const agentAdjustments = [
     MID: "",
     DBA: "",
     Type: "Bonus",
-    Amount: 42.00,
+    Amount: 42.0,
     Notes: "Some notes about it.",
   },
   {
@@ -2100,30 +2192,29 @@ export const agentAdjustments = [
     MID: "",
     DBA: "",
     Type: "Residual Adjustment",
-    Amount: 300.00,
+    Amount: 300.0,
     Notes: "Some notes about it.",
   },
-]
+];
 
 export const agentEmailList = [
   {
     Name: "leovinci@gmail.com",
-    Email: "Leonardo da Vinci"
+    Email: "Leonardo da Vinci",
   },
   {
     Name: "tony@stark.com",
-    Email: "Tony Stark"
+    Email: "Tony Stark",
   },
   {
     Name: "support@micamp.com",
-    Email: "Micamp Support"
+    Email: "Micamp Support",
   },
   {
     Name: "Joe@gmail.com",
-    Email: "Martin Joe"
+    Email: "Martin Joe",
   },
-]
-
+];
 
 export const reportList1 = [
   {
@@ -2171,4 +2262,4 @@ export const reportList1 = [
     title: "8600/9700",
     value: "8600/9700",
   },
-]
+];
