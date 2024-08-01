@@ -1,5 +1,6 @@
 "use client";
 
+import AddEditSplit from "@/components/services/splitsPage/Add&EditSplit";
 import {
   ColumnConfig,
   createColumns,
@@ -8,6 +9,7 @@ import DataTable from "@/components/Shared/DataTable/DataTable";
 import { DatePickerForm, SelectForm } from "@/components/Shared/InstantForm";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
+import { cn } from "@/lib/utils";
 import { DataTypes } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useState } from "react";
@@ -15,8 +17,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 const ServicesSplits = () => {
-  const [isNew, setIsNew] = useState<boolean>(false);
-  const [isEdit, setIsEdit] = useState<boolean>(false);
+  const [isNewOrEdit, setIsNewOrEdit] = useState<boolean>(false);
 
   const splitFundingSchema = z.object({
     funder: z.string(),
@@ -327,7 +328,7 @@ const ServicesSplits = () => {
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="grid grid-cols-2 gap-5"
+            className={cn(isNewOrEdit ? "hidden" : "grid grid-cols-2 gap-5")}
           >
             <div>
               {renderData.map((data) =>
@@ -362,7 +363,7 @@ const ServicesSplits = () => {
           </form>
         </Form>
 
-        <div className="mt-5">
+        <div className={cn(isNewOrEdit ? "hidden" : "mt-5")}>
           <DataTable columns={columns} data={data} />
           <div className="flex justify-between">
             <div className="mt-5 space-x-5">
@@ -379,9 +380,9 @@ const ServicesSplits = () => {
                     <Button
                       key={index}
                       onClick={
-                        btn.value === "addNew"
-                          ? () => setIsNew(!isNew)
-                          : () => setIsEdit(!isEdit)
+                        btn.value === "addNew" || btn.value === "edit"
+                          ? () => setIsNewOrEdit(!isNewOrEdit)
+                          : () => {}
                       }
                     >
                       {btn.title}
@@ -393,6 +394,13 @@ const ServicesSplits = () => {
             </div>
           </div>
         </div>
+
+        {isNewOrEdit && (
+          <AddEditSplit
+            isNewOrEdit={isNewOrEdit}
+            setIsNewOrEdit={setIsNewOrEdit}
+          />
+        )}
       </div>
     </div>
   );
