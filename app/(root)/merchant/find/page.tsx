@@ -28,23 +28,19 @@ const columns = createColumns(columnsConfig);
 const Page = () => {
   return (
     <>
-      <div className="flex gap-4 2xl:flex-row" >
-
+      <div className="flex gap-4 2xl:flex-row">
         <DataTable
           columns={columns}
           data={employees}
           enableColumnFilter={true}
-          filteredBy='UserID'
+          filteredBy="UserID"
         />
-        <div className="w-full 2xl:w-2/5 justify-center ">
+        <div className="w-full justify-center 2xl:w-2/5">
           <MerchantDetails />
-
         </div>
       </div>
-
     </>
-
-  )
-}
+  );
+};
 
 export default Page;

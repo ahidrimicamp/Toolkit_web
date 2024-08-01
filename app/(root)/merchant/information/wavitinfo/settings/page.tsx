@@ -1,13 +1,16 @@
 "use client";
-import React from 'react'
-import { ContentItem, DataTypes } from "@/types";
+import React from "react";
+import { DataTypes } from "@/types";
 import { wavitSettingsTable } from "@/constants";
-import DataTable from '@/components/Shared/DataTable/DataTable';
-import { ColumnConfig, createColumns } from '@/components/Shared/DataTable/Columns';
+import DataTable from "@/components/Shared/DataTable/DataTable";
+import {
+  ColumnConfig,
+  createColumns,
+} from "@/components/Shared/DataTable/Columns";
 
 const columnsConfig: ColumnConfig<DataTypes>[] = [
   { accessorKey: "Description", header: "Description" },
-  { accessorKey: "Value", header: "Value" }
+  { accessorKey: "Value", header: "Value" },
 ];
 
 const columns = createColumns(columnsConfig);
@@ -21,12 +24,12 @@ const page = () => {
             columns={columns}
             data={wavitSettingsTable}
             enableColumnFilter={true}
-            filteredBy='Documents'
+            filteredBy="Documents"
           />
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default page
+export default page;

@@ -22,7 +22,7 @@ const AgentResidualsContent = () => {
   };
   return (
     <div className="flex w-full gap-5">
-      <div className="flex flex-col mt-5">
+      <div className="mt-5 flex flex-col">
         {navItems.map((item) => {
           const isActive = activeItem === item.value;
           return (

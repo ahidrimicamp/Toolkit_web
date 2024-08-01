@@ -30,10 +30,14 @@ const FDOmaha = () => {
 
   const columns = createColumns(columnsConfig);
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex w-full flex-col">
       <div className="my-5 text-center">
-        <div className="w-full">  
-          <DataTable columns={columns} data={agentData} enableVisibility={true} />
+        <div className="w-full">
+          <DataTable
+            columns={columns}
+            data={agentData}
+            enableVisibility={true}
+          />
         </div>
         <div className="mt-5 grid grid-cols-2 gap-3">
           <div className="grid grid-cols-2">
@@ -113,7 +117,7 @@ const FDNorth = () => {
 
   const columns = createColumns(columnsConfig);
   return (
-    <div className="flex flex-col w-fit">
+    <div className="flex w-fit flex-col">
       <div className="my-5 text-center">
         <DataTable columns={columns} data={agentData} enableVisibility={true} />
         <div className="mt-5 grid grid-cols-2 gap-3">
@@ -321,7 +325,7 @@ const Splits = () => {
     },
   ];
   return (
-    <div className="flex w-full flex-col mt-5">
+    <div className="mt-5 flex w-full flex-col">
       {/* This section's gonna be changing in the future. For now it's just a dummy. */}
       <div className="flex items-center gap-3">
         <p>Split Name</p>

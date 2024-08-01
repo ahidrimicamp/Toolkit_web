@@ -4,9 +4,6 @@ import {
   createColumns,
 } from "@/components/Shared/DataTable/Columns";
 import { DataTypes } from "@/types";
-import DataTable from "@/components/Shared/DataTable/DataTable";
-import { accountStatusTable } from "@/constants";
-
 
 const LastCallLogsPreview = () => {
   const callLogs = [
@@ -35,7 +32,7 @@ const LastCallLogsPreview = () => {
     { accessorKey: "username", header: "User Name" },
     { accessorKey: "notes", header: "Notes" },
   ];
-  
+
   const columns = createColumns(columnsConfig);
   return (
     <div className="mb-3 mt-0 max-h-60 grow overflow-hidden rounded-lg border border-solid border-gray-600 p-4">

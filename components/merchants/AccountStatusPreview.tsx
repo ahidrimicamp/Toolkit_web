@@ -6,26 +6,12 @@ import {
   createColumns,
 } from "@/components/Shared/DataTable/Columns";
 import { DataTypes } from "@/types";
-import DataTable from "@/components/Shared/DataTable/DataTable";
-import { accountStatusTable, activityRecordList  } from "@/constants";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Button } from "@/components/ui/button";
 import { z } from "zod";
-import { newMerchantSchema, cn, formatCurrency } from "@/lib/utils";
+import { newMerchantSchema } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { DatePickerForm, SelectForm, CheckboxForm } from "@/components/Shared/InstantForm";
-
 
 const AccountStatusPreview = () => {
-
   const form = useForm<z.infer<typeof newMerchantSchema>>({
     resolver: zodResolver(newMerchantSchema),
     defaultValues: {
@@ -68,7 +54,6 @@ const AccountStatusPreview = () => {
     console.log(value);
   };
 
-
   const columnsConfig: ColumnConfig<DataTypes>[] = [
     { accessorKey: "Date", header: "Date" },
     { accessorKey: "UserID", header: "User ID" },
@@ -76,7 +61,6 @@ const AccountStatusPreview = () => {
   ];
 
   const columns = createColumns(columnsConfig);
-
 
   return (
     <>

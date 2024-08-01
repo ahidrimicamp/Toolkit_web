@@ -1,22 +1,22 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
-import React from 'react'
+import React from "react";
 import { z } from "zod";
-import { newMerchantSchema, cn, formatCurrency } from "@/lib/utils";
+import { newMerchantSchema } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { Calendar } from '@/components/ui/calendar';
-import { Calendar as CalendarIcon } from "lucide-react";
-import { format } from "date-fns";
-import { ContentItem, DataTypes } from "@/types";
+import { DataTypes } from "@/types";
 import { wavitTransactionsTable } from "@/constants";
-import DataTable from '@/components/Shared/DataTable/DataTable';
-import { ColumnConfig, createColumns } from '@/components/Shared/DataTable/Columns';
-import { Form } from '@/components/ui/form';
-import { CheckboxForm, DatePickerForm } from '@/components/Shared/InstantForm';
-import { Button } from '@/components/ui/button';
+import DataTable from "@/components/Shared/DataTable/DataTable";
+import {
+  ColumnConfig,
+  createColumns,
+} from "@/components/Shared/DataTable/Columns";
+import { Form } from "@/components/ui/form";
+import { CheckboxForm, DatePickerForm } from "@/components/Shared/InstantForm";
+import { Button } from "@/components/ui/button";
 
 const page = () => {
-
   const form = useForm<z.infer<typeof newMerchantSchema>>({
     resolver: zodResolver(newMerchantSchema),
     defaultValues: {
@@ -72,7 +72,7 @@ const page = () => {
     { accessorKey: "AuthCode", header: "Auth Code" },
     { accessorKey: "Tax", header: "Tax" },
     { accessorKey: "Tax2", header: "Tax" },
-    { accessorKey: "Porcentage", header: "%" }
+    { accessorKey: "Porcentage", header: "%" },
   ];
 
   const columns = createColumns(columnsConfig);
@@ -83,12 +83,12 @@ const page = () => {
         <div>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
-
-              <div className=' gap-0 mt-4'>
-
-                <div className='flex flex-row gap-2'>
-                  <div className="flex flex-1 gap-2 content-center justify-end">
-                    <label className="text-sm content-center text-nowrap font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">From Date</label>
+              <div className="mt-4 gap-0">
+                <div className="flex flex-row gap-2">
+                  <div className="flex flex-1 content-center justify-end gap-2">
+                    <label className="content-center text-nowrap text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                      From Date
+                    </label>
                     <DatePickerForm
                       control={form.control}
                       formName="Approval"
@@ -96,8 +96,8 @@ const page = () => {
                       placeholder="mm/dd/2024"
                     />
                   </div>
-                  <div className="flex flex-1 col-auto content-center m-auto self-start">
-                    <div className="content-center text-nowrap justify-start">
+                  <div className="col-auto m-auto flex flex-1 content-center self-start">
+                    <div className="content-center justify-start text-nowrap">
                       <CheckboxForm
                         control={form.control}
                         formName="ChildMID"
@@ -105,19 +105,19 @@ const page = () => {
                         placeholder=""
                       />
                     </div>
-                    <span className="content-center mt-1 text-nowrap">Look for Trouble</span>
+                    <span className="mt-1 content-center text-nowrap">
+                      Look for Trouble
+                    </span>
                   </div>
-                  <div className='flex-1'>
-
-                  </div>
-                  <Button className=" mb-2 mt-2 flex-1 bg-gradient-to-r from-[#14ADD6] to-[#384295] hover:opacity-90 text-white">
+                  <div className="flex-1"></div>
+                  <Button className="my-2 flex-1 bg-gradient-to-r from-[#14ADD6] to-[#384295] text-white hover:opacity-90">
                     Update
                   </Button>
                 </div>
 
-                <div className='flex flex-row gap-2'>
-                  <div className="flex flex-1 gap-2 content-center justify-end">
-                    <label className="text-sm content-center text-nowrap font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                <div className="flex flex-row gap-2">
+                  <div className="flex flex-1 content-center justify-end gap-2">
+                    <label className="content-center text-nowrap text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
                       To Date
                     </label>
                     <DatePickerForm
@@ -127,8 +127,8 @@ const page = () => {
                       placeholder="mm/dd/2024"
                     />
                   </div>
-                  <div className="flex flex-1 col-auto content-center m-auto self-start">
-                    <div className="content-center text-nowrap justify-start">
+                  <div className="col-auto m-auto flex flex-1 content-center self-start">
+                    <div className="content-center justify-start text-nowrap">
                       <CheckboxForm
                         control={form.control}
                         formName="BusinessRetail"
@@ -136,10 +136,12 @@ const page = () => {
                         placeholder=""
                       />
                     </div>
-                    <span className="content-center mt-1 text-nowrap">Look for Debit Business (slow)</span>
+                    <span className="mt-1 content-center text-nowrap">
+                      Look for Debit Business (slow)
+                    </span>
                   </div>
-                  <div className='flex flex-1'>
-                    <div className="content-center text-nowrap justify-start">
+                  <div className="flex flex-1">
+                    <div className="content-center justify-start text-nowrap">
                       <CheckboxForm
                         control={form.control}
                         formName="BusinessEcommerce"
@@ -147,9 +149,11 @@ const page = () => {
                         placeholder=""
                       />
                     </div>
-                    <span className="content-center mt-1 text-nowrap">Save to c:\mcs_toolkit</span>
+                    <span className="mt-1 content-center text-nowrap">
+                      Save to c:\mcs_toolkit
+                    </span>
                   </div>
-                  <Button className=" mb-2 mt-2 flex-1 bg-gradient-to-r from-[#828282] to-[#353535] hover:opacity-90 text-white">
+                  <Button className="my-2 flex-1 bg-gradient-to-r from-[#828282] to-[#353535] text-white hover:opacity-90">
                     Export Table
                   </Button>
                 </div>
@@ -157,19 +161,17 @@ const page = () => {
             </form>
           </Form>
         </div>
-        <div className='w-full'>
+        <div className="w-full">
           <DataTable
             columns={columns}
             data={wavitTransactionsTable}
             enableColumnFilter={true}
-            filteredBy='Documents'
+            filteredBy="Documents"
           />
-
         </div>
-
       </section>
     </>
-  )
-}
+  );
+};
 
-export default page
+export default page;
