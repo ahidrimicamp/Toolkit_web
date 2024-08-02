@@ -85,7 +85,7 @@ const page = () => {
             <span className="text-nowrap">Restaurant</span>
           </div>
         </div>
-        <div className="mb-5 mt-3 size-full flex-1 rounded-md bg-zinc-800">
+        <div className="mb-5 mt-3 size-full flex-1 rounded-md  ">
           <DataTable
             columns={columns}
             data={onboardCheckListTable}

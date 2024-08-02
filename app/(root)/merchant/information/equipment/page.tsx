@@ -106,7 +106,7 @@ const page = () => {
 
         <div className="flex gap-4 max-lg:flex-wrap">
           {/* FIRST COLUMN */}
-          <div className="mb-5 min-h-96 w-fit flex-auto rounded-md bg-zinc-800">
+          <div className="mb-5 min-h-96 w-fit flex-auto rounded-md">
             <DataTable
               columns={columns1}
               data={equipmentTable1}
@@ -153,7 +153,7 @@ const page = () => {
                     </span>
                   </div>
                 </div>
-                <div className="mb-5 min-h-96 w-full flex-1 rounded-md bg-zinc-800">
+                <div className="mb-5 min-h-96 w-full flex-1 rounded-md  ">
                   <DataTable
                     columns={columns2}
                     data={equipmentTable2}
@@ -172,7 +172,7 @@ const page = () => {
                     Send Email
                   </Button>
                 </div>
-                <div className="mb-5 min-h-96 w-full flex-1 rounded-md bg-zinc-800">
+                <div className="mb-5 min-h-96 w-full flex-1 rounded-md  ">
                   <DataTable
                     columns={columns3}
                     data={equipmentTable3}

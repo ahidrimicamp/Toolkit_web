@@ -11,7 +11,7 @@ const layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
         <MerchantInfoSummary/>
         <div className="flex gap-3">
             <MerchantsInformationTab/>
-            <div className="h-auto w-auto grow p-5 mb-0 border border-solid border-gray-400 shadow-md rounded-lg">
+            <div className="h-auto w-auto grow p-5 mb-0 border border-solid border-gray-300 shadow-md rounded-lg">
               {children}
             </div>
         </div>

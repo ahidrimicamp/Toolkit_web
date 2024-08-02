@@ -2139,3 +2139,39 @@ export const reportList1 = [
     value: "8600/9700",
   },
 ]
+
+
+
+// EQUIPMENT DATA
+
+export const equipmentMainTabs = [
+  {
+    title: "Equipment",
+    value: "equipment",
+    route: "/equipment",
+  },
+  {
+    title: "Orders / Payments",
+    value: "ordersPayments",
+    route: "/equipment/ordersPayments",
+  },
+];
+
+
+export const EquipmentTabs = [
+  {
+    id: "1",
+    title: "Lookup",
+    value: "lookup",
+  },
+  {
+    id: "2",
+    title: "Items",
+    value: "items",
+  },
+  {
+    id: "3",
+    title: "Reports",
+    value: "reports",
+  }
+];

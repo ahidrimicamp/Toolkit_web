@@ -73,7 +73,7 @@ const page = () => {
       <section>
         <h1 className="mb-3 text-2xl text-sky-500">Documents</h1>
 
-        <div className="mb-5 mt-3 size-full flex-1 rounded-md bg-zinc-800">
+        <div className="mb-5 mt-3 size-full flex-1 rounded-md  ">
           {/* <ExtremeDataTable
             pageSize={5}
             data={documentsTable}

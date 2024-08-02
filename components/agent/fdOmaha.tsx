@@ -32,7 +32,7 @@ const FDOmaha = () => {
   return (
     <div className="flex flex-col w-full">
       <div className="my-5 text-center">
-        <div className="w-full">  
+        <div className="w-full">
           <DataTable columns={columns} data={agentData} enableVisibility={true} />
         </div>
         <div className="mt-5 grid grid-cols-2 gap-3">
@@ -105,10 +105,7 @@ const FDNorth = () => {
     { accessorKey: "id", header: "ID" },
     { accessorKey: "name", header: "Name" },
     { accessorKey: "email", header: "Email" },
-    { accessorKey: "phone", header: "Phone" },
-    { accessorKey: "department", header: "Department" },
-    { accessorKey: "location", header: "Location" },
-    { accessorKey: "status", header: "Status" },
+    { accessorKey: "phone", header: "Phone" }
   ];
 
   const columns = createColumns(columnsConfig);
@@ -182,6 +179,7 @@ const FDNorth = () => {
 };
 
 const Splits = () => {
+
   const data = [
     {
       id: 1,
@@ -320,30 +318,35 @@ const Splits = () => {
       ],
     },
   ];
+
   return (
-    <div className="flex w-full flex-col mt-5">
+    <div className="flex w-full flex-col mt-5 space-y-4">
       {/* This section's gonna be changing in the future. For now it's just a dummy. */}
-      <div className="flex items-center gap-3">
-        <p>Split Name</p>
-        <Checkbox /> DEFAULT
+      <div className="flex items-center gap-4">
+        <p className="w-1/4 text-end">Split Name</p>
+        <div className="w-3/4 px-2">
+          <Checkbox className="" /> DEFAULT
+        </div>
       </div>
-      <div className="flex items-center gap-3">
-        <p>Sales Rep</p>
-        <Select>
-          <SelectTrigger>
-            <SelectValue placeholder="2G Financial LLC" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="1">Option 1</SelectItem>
-            <SelectItem value="2">Option 2</SelectItem>
-            <SelectItem value="3">Option 3</SelectItem>
-          </SelectContent>
-        </Select>
+      <div className="flex items-center gap-4">
+        <p className="w-1/4 text-end">Sales Rep</p>
+        <div className="w-3/4">
+          <Select>
+            <SelectTrigger>
+              <SelectValue placeholder="2G Financial LLC" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="1">Option 1</SelectItem>
+              <SelectItem value="2">Option 2</SelectItem>
+              <SelectItem value="3">Option 3</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
       </div>
       <div className="my-10">
         {data.map((item) => {
           return (
-            <div key={item.id} className="grid grid-cols-3 gap-3">
+            <div key={item.id} className="grid grid-cols-3 gap-3 my-3">
               <Select>
                 <SelectTrigger>
                   <SelectValue placeholder={item.title} />
