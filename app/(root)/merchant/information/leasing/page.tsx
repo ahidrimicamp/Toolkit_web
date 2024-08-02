@@ -37,9 +37,9 @@ const page = () => {
 
   return (
     <>
-      <section className='w-full'>
-        <h1 className='text-2xl text-sky-500 mb-3'>Leasing</h1>
-        <div className='w-full  rounded-md min-h-96 mb-5'>
+      <section className="w-full">
+        <h1 className="mb-3 text-2xl text-sky-500">Leasing</h1>
+        <div className="mb-5 min-h-96 w-full rounded-md">
           <DataTable
             columns={columns1}
             data={leasingTable1}
@@ -47,22 +47,22 @@ const page = () => {
             filteredBy="username"
           />
         </div>
-        <div className='flex gap-5 w-full'>
-          <div className=' rounded-md min-h-80'>
-             <DataTable
-            columns={columns2}
-            data={leasingTable2}
-            enableColumnFilter={true}
-            filteredBy='username'
-          />
+        <div className="flex w-full gap-5">
+          <div className="min-h-80 rounded-md">
+            <DataTable
+              columns={columns2}
+              data={leasingTable2}
+              enableColumnFilter={true}
+              filteredBy="username"
+            />
           </div>
-          <div className=' rounded-md min-h-80'>
-          <DataTable
-            columns={columns3}
-            data={leasingTable3}
-            enableColumnFilter={true}
-            filteredBy='username'
-          />
+          <div className="min-h-80 rounded-md">
+            <DataTable
+              columns={columns3}
+              data={leasingTable3}
+              enableColumnFilter={true}
+              filteredBy="username"
+            />
           </div>
         </div>
       </section>

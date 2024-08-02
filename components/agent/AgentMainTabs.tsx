@@ -13,18 +13,19 @@ const AgentMainTabs = () => {
           (pathname?.includes(item.route) && item.title.length > 1) ||
           pathname === item.title;
 
-            return (
-                <>
-                    <div className={`${isActive ? " text-sky-500 border-b-8 border-sky-500" : "dark:text-white text-black "} p-3 text-lg hover:bg-slate-200 dark:hover:bg-slate-700`}>
-                        <Link href={item.route}>
-                            <p className="text-pretty">{item.title}</p>
-                        </Link>
-                    </div>  
-                </>
-            )
-        })}
-        
-      </div> 
-  )
-}
+        return (
+          <>
+            <div
+              className={`${isActive ? "border-b-8 border-sky-500 text-sky-500" : "text-black dark:text-white"} p-3 text-lg hover:bg-slate-200 dark:hover:bg-slate-700`}
+            >
+              <Link href={item.route}>
+                <p className="text-pretty">{item.title}</p>
+              </Link>
+            </div>
+          </>
+        );
+      })}
+    </div>
+  );
+};
 export default AgentMainTabs;

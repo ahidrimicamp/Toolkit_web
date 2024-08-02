@@ -25,4 +25,5 @@ export interface DataTableProps<TData> {
   filteredBy?: string;
   enableVisibility?: boolean;
   actionsColumn?: boolean;
+  editFunction?: any;
 }

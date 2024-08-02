@@ -1,4 +1,4 @@
-import DataTable from "@/components/Shared/DataTable/DataGrid";
+import HomeTable from "@/components/Shared/DataTable/HomeTable";
 import SideDetails from "@/components/Shared/DataTable/SideDetails";
 import {
   Card,
@@ -48,7 +48,7 @@ export default function Home() {
           </Card>
         </div>
         {/* Datatable */}
-        <DataTable />
+        <HomeTable />
       </div>
       <div className="hidden sm:block">
         <SideDetails />

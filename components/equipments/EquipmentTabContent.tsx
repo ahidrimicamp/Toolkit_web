@@ -16,8 +16,7 @@ const EquipmentTabContent = () => {
   };
   return (
     <>
-      
-        <Tabs defaultValue="" className="w-full rounded-md p-4">
+        <Tabs defaultValue="lookup" className="w-full rounded-md p-4">
           <TabsList className="">
             {EquipmentTabs.map((tab) => (
               <TabsTrigger onClick={() => handleClick(tab.value)} key={tab.id} value={tab.value}>
@@ -27,7 +26,6 @@ const EquipmentTabContent = () => {
           </TabsList>
           {RenderEquipmentComponents(activeItem || "lookup")}
         </Tabs>
-      
     </>
   );
 };

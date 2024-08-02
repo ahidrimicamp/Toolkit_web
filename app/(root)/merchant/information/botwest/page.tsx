@@ -171,11 +171,11 @@ const page = () => {
             <div className="grid grid-flow-col grid-rows-10 gap-2">
               {itemsList.map((item) => {
                 return (
-                  <div key={item.id} className="m-auto flex w-full gap-4">
-                    <div className="w-2/4 content-center text-end">
+                  <div key={item.id} className="m-auto flex w-3/4 gap-4">
+                    <div className="w-1/3 content-center text-end">
                       <p className="">{item.title}</p>
                     </div>
-                    <div className="w-1/2">
+                    <div className="w-2/3">
                       <InputForm
                         control={form.control}
                         formName="Filter3"

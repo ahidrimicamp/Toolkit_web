@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { Inter as Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/context/ThemeProvider";
-import { DevLicense } from "@/components/DevLicense";
 import { Toaster } from "@/components/ui/toaster";
 
 const inter = Sans({
@@ -34,7 +33,6 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <DevLicense />
           {children}
           <Toaster />
         </ThemeProvider>

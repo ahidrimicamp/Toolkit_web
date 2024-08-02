@@ -10,7 +10,7 @@ const layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
     <>
         <div className="px-12 w-full max-sm:w-fit">
             <EquipmentMainTabs />
-            <div className="h-auto w-auto mb-0 border p-5 border-solid border-gray-300 shadow-md rounded-tr-lg rounded-br-lg rounded-bl-lg">
+            <div className="h-auto w-auto mb-0 border p-2 border-solid border-gray-300 shadow-md rounded-tr-lg rounded-br-lg rounded-bl-lg">
               {children}
             </div>
             <br/>

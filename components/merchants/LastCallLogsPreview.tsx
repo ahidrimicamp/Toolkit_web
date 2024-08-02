@@ -4,9 +4,7 @@ import {
   createColumns,
 } from "@/components/Shared/DataTable/Columns";
 import { DataTypes } from "@/types";
-import DataTable from "@/components/Shared/DataTable/DataTable";
-import { accountStatusTable } from "@/constants";
-
+import DataTable from "../Shared/DataTable/DataTable";
 
 const LastCallLogsPreview = () => {
   const callLogs = [

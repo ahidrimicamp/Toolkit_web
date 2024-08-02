@@ -23,15 +23,14 @@ const FinancialMainTabs = () => {
           pathname === item.path;
 
         return (
-          <>
-            <div
-              className={`${isActive ? "border-b-8 border-sky-500 text-sky-500" : "text-black dark:text-white"} p-3 text-lg`}
-            >
-              <Link href={item.path}>
-                <p className="text-pretty">{item.title}</p>
-              </Link>
-            </div>
-          </>
+          <div
+            key={item.id}
+            className={`${isActive ? "border-b-8 border-sky-500 text-sky-500" : "text-black dark:text-white"} p-3 text-lg`}
+          >
+            <Link href={item.path}>
+              <p className="text-pretty">{item.title}</p>
+            </Link>
+          </div>
         );
       })}
     </div>

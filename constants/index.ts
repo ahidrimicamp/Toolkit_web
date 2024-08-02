@@ -147,6 +147,39 @@ export const merchantMainTabs = [
   },
 ];
 
+export const serviceMainTabs = [
+  {
+    id: 1,
+    title: "Funders",
+    value: "funders",
+    path: "/services",
+  },
+  {
+    id: 2,
+    title: "Merchant",
+    value: "merchant",
+    path: "/services/merchant",
+  },
+  {
+    id: 3,
+    title: "Splits",
+    value: "splits",
+    path: "/services/splits",
+  },
+  {
+    id: 4,
+    title: "Remittances",
+    value: "remittances",
+    path: "/services/remittances",
+  },
+  {
+    id: 5,
+    title: "Reports",
+    value: "reports",
+    path: "/services/reports",
+  },
+];
+
 export const finanialMainTabs = [
   {
     id: 1,
@@ -478,6 +511,79 @@ export const equipmentList1 = [
     id: 4,
     title: "Returned to Manufactor",
     value: "returnedToManufactor",
+  },
+];
+
+export const funderList: DataTypes[] = [
+  {
+    funderId: 1,
+    funderName: "Funder One",
+    contactName: "John Doe",
+    phone: "123-456-7890",
+    email: "john.doe@example.com",
+  },
+  {
+    funderId: 2,
+    funderName: "Funder Two",
+    contactName: "Jane Smith",
+    phone: "987-654-3210",
+    email: "jane.smith@example.com",
+  },
+  {
+    funderId: 3,
+    funderName: "Funder Three",
+    contactName: "Bob Johnson",
+    phone: "555-123-4567",
+    email: "bob.johnson@example.com",
+  },
+  {
+    funderId: 4,
+    funderName: "Funder Four",
+    contactName: "Alice Brown",
+    phone: "111-222-3333",
+    email: "alice.brown@example.com",
+  },
+  {
+    funderId: 5,
+    funderName: "Funder Five",
+    contactName: "Mike Davis",
+    phone: "444-555-6666",
+    email: "mike.davis@example.com",
+  },
+  {
+    funderId: 6,
+    funderName: "Funder Six",
+    contactName: "Emily Taylor",
+    phone: "777-888-9999",
+    email: "emily.taylor@example.com",
+  },
+  {
+    funderId: 7,
+    funderName: "Funder Seven",
+    contactName: "Kevin White",
+    phone: "222-333-4444",
+    email: "kevin.white@example.com",
+  },
+  {
+    funderId: 8,
+    funderName: "Funder Eight",
+    contactName: "Sarah Lee",
+    phone: "666-777-8888",
+    email: "sarah.lee@example.com",
+  },
+  {
+    funderId: 9,
+    funderName: "Funder Nine",
+    contactName: "David Hall",
+    phone: "999-000-1111",
+    email: "david.hall@example.com",
+  },
+  {
+    funderId: 10,
+    funderName: "Funder Ten",
+    contactName: "Lisa Nguyen",
+    phone: "333-444-5555",
+    email: "lisa.nguyen@example.com",
   },
 ];
 
@@ -1669,8 +1775,6 @@ export const AgentSetupTabs = [
   },
 ];
 
-
-
 export const FindAgent = [
   { id: 1, name: "Average Joe", value: "avgJoe" },
   { id: 2, name: "Martin Joe", value: "marJoe" },
@@ -1731,270 +1835,293 @@ export const summaryItems = [
 
 // Merchant data
 
-const merchantStatusList =
-  [
-    { "id": 1, "name": "ACH Reject", "value": "achReject" },
-    { "id": 2, "name": "Agent Request", "value": "agentRequest" },
-    { "id": 3, "name": "Approved", "value": "approved" },
-    { "id": 4, "name": "Closed", "value": "closed" },
-    { "id": 5, "name": "Closed Location", "value": "closedLocation" },
-    { "id": 6, "name": "Corporate Change (new MID)", "value": "corporateChangeNewMid" },
-    { "id": 7, "name": "Cost of EMV equipment", "value": "costOfEmvEquipment" },
-    { "id": 8, "name": "Customer service related issue", "value": "customerServiceRelatedIssue" },
-    { "id": 9, "name": "Decline", "value": "decline" },
-    { "id": 10, "name": "Deleted", "value": "deleted" },
-    { "id": 11, "name": "Did not agree to terms during verbal", "value": "didNotAgreeToTermsDuringVerbal" },
-    { "id": 12, "name": "Duplicate MID", "value": "duplicateMid" },
-    { "id": 13, "name": "Equipment issues", "value": "equipmentIssues" },
-    { "id": 14, "name": "Equipment not compatible / Does not integrate", "value": "equipmentNotCompatibleDoesNotIntegrate" },
-    { "id": 15, "name": "Fees not disclosed by rep", "value": "feesNotDisclosedByRep" },
-    { "id": 16, "name": "Fees / Rates", "value": "feesRates" },
-    { "id": 17, "name": "Fulfilled contract", "value": "fulfilledContract" },
-    { "id": 18, "name": "Has not used services in months", "value": "hasNotUsedServicesInMonths" },
-    { "id": 19, "name": "Keying error/re-keyed", "value": "keyingErrorReKeyed" },
-    { "id": 20, "name": "Lease buyback", "value": "leaseBuyback" },
-    { "id": 21, "name": "Moved to North", "value": "movedToNorth" },
-    { "id": 22, "name": "Multiple MIDS - Only needs single", "value": "multipleMidsOnlyNeedsSingle" },
-    { "id": 23, "name": "Nacha Rejects (FD Closing)", "value": "nachaRejectsFdClosing" },
-    { "id": 24, "name": "Never authorized/never accepted credit cards", "value": "neverAuthorizedNeverAcceptedCreditCards" },
-    { "id": 25, "name": "New POS", "value": "newPos" },
-    { "id": 26, "name": "Not accepting credit cards", "value": "notAcceptingCreditCards" },
-    { "id": 27, "name": "Not approved for cash advance", "value": "notApprovedForCashAdvance" },
-    { "id": 28, "name": "Not Approved for Lease", "value": "notApprovedForLease" },
-    { "id": 29, "name": "Not using services", "value": "notUsingServices" },
-    { "id": 30, "name": "Other - Refer to Notes", "value": "otherReferToNotes" },
-    { "id": 31, "name": "Out of business", "value": "outOfBusiness" },
-    { "id": 32, "name": "Pending", "value": "pending" },
-    { "id": 33, "name": "Per Data One Request", "value": "perDataOneRequest" },
-    { "id": 34, "name": "Per Mandi", "value": "perMandi" },
-    { "id": 35, "name": "Per Micah Request", "value": "perMicahRequest" },
-    { "id": 36, "name": "Per NPA", "value": "perNpa" },
-    { "id": 37, "name": "Per Russ Request", "value": "perRussRequest" },
-    { "id": 38, "name": "Per Tiffany Request", "value": "perTiffanyRequest" },
-    { "id": 39, "name": "Per UPA", "value": "perUpa" },
-    { "id": 40, "name": "Received", "value": "received" },
-    { "id": 41, "name": "Risk Related Issue", "value": "riskRelatedIssue" },
-    { "id": 42, "name": "Seasonal business", "value": "seasonalBusiness" },
-    { "id": 43, "name": "Sold business", "value": "soldBusiness" },
-    { "id": 44, "name": "Submitted", "value": "submitted" },
-    { "id": 45, "name": "Switched ISO", "value": "switchedIso" },
-    { "id": 46, "name": "Withdrawn", "value": "withdrawn" },
-    { "id": 47, "name": "Withdran App", "value": "withdranApp" }
-  ]
+const merchantStatusList = [
+  { id: 1, name: "ACH Reject", value: "achReject" },
+  { id: 2, name: "Agent Request", value: "agentRequest" },
+  { id: 3, name: "Approved", value: "approved" },
+  { id: 4, name: "Closed", value: "closed" },
+  { id: 5, name: "Closed Location", value: "closedLocation" },
+  { id: 6, name: "Corporate Change (new MID)", value: "corporateChangeNewMid" },
+  { id: 7, name: "Cost of EMV equipment", value: "costOfEmvEquipment" },
+  {
+    id: 8,
+    name: "Customer service related issue",
+    value: "customerServiceRelatedIssue",
+  },
+  { id: 9, name: "Decline", value: "decline" },
+  { id: 10, name: "Deleted", value: "deleted" },
+  {
+    id: 11,
+    name: "Did not agree to terms during verbal",
+    value: "didNotAgreeToTermsDuringVerbal",
+  },
+  { id: 12, name: "Duplicate MID", value: "duplicateMid" },
+  { id: 13, name: "Equipment issues", value: "equipmentIssues" },
+  {
+    id: 14,
+    name: "Equipment not compatible / Does not integrate",
+    value: "equipmentNotCompatibleDoesNotIntegrate",
+  },
+  { id: 15, name: "Fees not disclosed by rep", value: "feesNotDisclosedByRep" },
+  { id: 16, name: "Fees / Rates", value: "feesRates" },
+  { id: 17, name: "Fulfilled contract", value: "fulfilledContract" },
+  {
+    id: 18,
+    name: "Has not used services in months",
+    value: "hasNotUsedServicesInMonths",
+  },
+  { id: 19, name: "Keying error/re-keyed", value: "keyingErrorReKeyed" },
+  { id: 20, name: "Lease buyback", value: "leaseBuyback" },
+  { id: 21, name: "Moved to North", value: "movedToNorth" },
+  {
+    id: 22,
+    name: "Multiple MIDS - Only needs single",
+    value: "multipleMidsOnlyNeedsSingle",
+  },
+  {
+    id: 23,
+    name: "Nacha Rejects (FD Closing)",
+    value: "nachaRejectsFdClosing",
+  },
+  {
+    id: 24,
+    name: "Never authorized/never accepted credit cards",
+    value: "neverAuthorizedNeverAcceptedCreditCards",
+  },
+  { id: 25, name: "New POS", value: "newPos" },
+  {
+    id: 26,
+    name: "Not accepting credit cards",
+    value: "notAcceptingCreditCards",
+  },
+  {
+    id: 27,
+    name: "Not approved for cash advance",
+    value: "notApprovedForCashAdvance",
+  },
+  { id: 28, name: "Not Approved for Lease", value: "notApprovedForLease" },
+  { id: 29, name: "Not using services", value: "notUsingServices" },
+  { id: 30, name: "Other - Refer to Notes", value: "otherReferToNotes" },
+  { id: 31, name: "Out of business", value: "outOfBusiness" },
+  { id: 32, name: "Pending", value: "pending" },
+  { id: 33, name: "Per Data One Request", value: "perDataOneRequest" },
+  { id: 34, name: "Per Mandi", value: "perMandi" },
+  { id: 35, name: "Per Micah Request", value: "perMicahRequest" },
+  { id: 36, name: "Per NPA", value: "perNpa" },
+  { id: 37, name: "Per Russ Request", value: "perRussRequest" },
+  { id: 38, name: "Per Tiffany Request", value: "perTiffanyRequest" },
+  { id: 39, name: "Per UPA", value: "perUpa" },
+  { id: 40, name: "Received", value: "received" },
+  { id: 41, name: "Risk Related Issue", value: "riskRelatedIssue" },
+  { id: 42, name: "Seasonal business", value: "seasonalBusiness" },
+  { id: 43, name: "Sold business", value: "soldBusiness" },
+  { id: 44, name: "Submitted", value: "submitted" },
+  { id: 45, name: "Switched ISO", value: "switchedIso" },
+  { id: 46, name: "Withdrawn", value: "withdrawn" },
+  { id: 47, name: "Withdran App", value: "withdranApp" },
+];
 
+const salesRepList = [
+  { id: 1, name: "John Smith", value: "johnSmith" },
+  { id: 2, name: "Emily Johnson", value: "emilyJohnson" },
+  { id: 3, name: "Michael Brown", value: "michaelBrown" },
+  { id: 4, name: "Jessica Davis", value: "jessicaDavis" },
+  { id: 5, name: "David Wilson", value: "davidWilson" },
+  { id: 6, name: "Sarah Martinez", value: "sarahMartinez" },
+  { id: 7, name: "James Taylor", value: "jamesTaylor" },
+  { id: 8, name: "Laura Anderson", value: "lauraAnderson" },
+  { id: 9, name: "Robert Thomas", value: "robertThomas" },
+  { id: 10, name: "Sophia Lee", value: "sophiaLee" },
+];
 
+const leadSourceList = [
+  { id: 1, name: "Innovatech Solutions", value: "innovatechSolutions" },
+  { id: 2, name: "Blue Horizon Enterprises", value: "blueHorizonEnterprises" },
+  { id: 3, name: "Quantum Dynamics", value: "quantumDynamics" },
+  { id: 4, name: "Pinnacle Innovations", value: "pinnacleInnovations" },
+  { id: 5, name: "Vertex Global", value: "vertexGlobal" },
+  { id: 6, name: "Synergy Networks", value: "synergyNetworks" },
+  { id: 7, name: "Apex Ventures", value: "apexVentures" },
+  { id: 8, name: "NexGen Technologies", value: "nexGenTechnologies" },
+  { id: 9, name: "Summit Strategies", value: "summitStrategies" },
+  { id: 10, name: "Eclipse Enterprises", value: "eclipseEnterprises" },
+];
 
-const salesRepList =
-  [
-    { id: 1, name: "John Smith", value: "johnSmith" },
-    { id: 2, name: "Emily Johnson", value: "emilyJohnson" },
-    { id: 3, name: "Michael Brown", value: "michaelBrown" },
-    { id: 4, name: "Jessica Davis", value: "jessicaDavis" },
-    { id: 5, name: "David Wilson", value: "davidWilson" },
-    { id: 6, name: "Sarah Martinez", value: "sarahMartinez" },
-    { id: 7, name: "James Taylor", value: "jamesTaylor" },
-    { id: 8, name: "Laura Anderson", value: "lauraAnderson" },
-    { id: 9, name: "Robert Thomas", value: "robertThomas" },
-    { id: 10, name: "Sophia Lee", value: "sophiaLee" }
-  ]
+const splitNameList = [
+  { id: 1, name: "Innovatech Solutions", value: "innovatechSolutions" },
+  { id: 2, name: "Blue Horizon Enterprises", value: "blueHorizonEnterprises" },
+];
 
-const leadSourceList =
-  [
-    { id: 1, name: "Innovatech Solutions", value: "innovatechSolutions" },
-    { id: 2, name: "Blue Horizon Enterprises", value: "blueHorizonEnterprises" },
-    { id: 3, name: "Quantum Dynamics", value: "quantumDynamics" },
-    { id: 4, name: "Pinnacle Innovations", value: "pinnacleInnovations" },
-    { id: 5, name: "Vertex Global", value: "vertexGlobal" },
-    { id: 6, name: "Synergy Networks", value: "synergyNetworks" },
-    { id: 7, name: "Apex Ventures", value: "apexVentures" },
-    { id: 8, name: "NexGen Technologies", value: "nexGenTechnologies" },
-    { id: 9, name: "Summit Strategies", value: "summitStrategies" },
-    { id: 10, name: "Eclipse Enterprises", value: "eclipseEnterprises" }
-  ]
+const deployByList = [
+  { id: 1, name: "MiCamp Solutions", value: "micamp" },
+  { id: 2, name: "Agent", value: "Agent" },
+];
 
-const splitNameList =
-  [
-    { id: 1, name: "Innovatech Solutions", value: "innovatechSolutions" },
-    { id: 2, name: "Blue Horizon Enterprises", value: "blueHorizonEnterprises" },
-  ]
+const mccCode = [
+  { id: 1, name: "American Airlines", value: "americanAirlines" },
+  { id: 2, name: "Delta Air Lines", value: "deltaAirLines" },
+  { id: 3, name: "United Airlines", value: "unitedAirlines" },
+  { id: 4, name: "Southwest Airlines", value: "southwestAirlines" },
+  { id: 5, name: "Alaska Airlines", value: "alaskaAirlines" },
+  { id: 6, name: "JetBlue Airways", value: "jetBlueAirways" },
+  { id: 7, name: "Frontier Airlines", value: "frontierAirlines" },
+  { id: 8, name: "Spirit Airlines", value: "spiritAirlines" },
+  { id: 9, name: "Allegiant Air", value: "allegiantAir" },
+  { id: 10, name: "Hawaiian Airlines", value: "hawaiianAirlines" },
+];
 
-const deployByList =
-  [
-    { id: 1, name: "MiCamp Solutions", value: "micamp" },
-    { id: 2, name: "Agent", value: "Agent" },
-  ]
-
-const mccCode =
-  [
-    { id: 1, name: "American Airlines", value: "americanAirlines" },
-    { id: 2, name: "Delta Air Lines", value: "deltaAirLines" },
-    { id: 3, name: "United Airlines", value: "unitedAirlines" },
-    { id: 4, name: "Southwest Airlines", value: "southwestAirlines" },
-    { id: 5, name: "Alaska Airlines", value: "alaskaAirlines" },
-    { id: 6, name: "JetBlue Airways", value: "jetBlueAirways" },
-    { id: 7, name: "Frontier Airlines", value: "frontierAirlines" },
-    { id: 8, name: "Spirit Airlines", value: "spiritAirlines" },
-    { id: 9, name: "Allegiant Air", value: "allegiantAir" },
-    { id: 10, name: "Hawaiian Airlines", value: "hawaiianAirlines" }
-  ]
-
-
-
-export const documentsTable = [
+export const documentsTable: DataTypes[] = [
   {
     DocType: "Bank Statement",
     Historic: "Historic Field",
     DocName: "Statement.pdf",
     FileSize: "500 mb",
-    UploadDateTime: "07/26/2024 11:22 AM",
+    UploadDateTime: new Date("03/11/2015 11:22 AM"),
   },
   {
     DocType: "Identification",
     Historic: "Historic Field",
     DocName: "ID.pdf",
     FileSize: "40 mb",
-    UploadDateTime: "07/26/2024 11:22 AM",
+    UploadDateTime: new Date("08/12/2019 11:22 AM"),
   },
   {
     DocType: "Certification",
     Historic: "Historic Field",
     DocName: "Certification.pdf",
     FileSize: "751 mb",
-    UploadDateTime: "07/26/2024 11:22 AM",
+    UploadDateTime: new Date("09/14/2017 11:22 AM"),
   },
   {
     DocType: "Leasing",
     Historic: "Historic Field",
     DocName: "Leasing.pdf",
     FileSize: "500 mb",
-    UploadDateTime: "07/26/2024 11:22 AM",
+    UploadDateTime: new Date("01/01/2022 11:22 AM"),
   },
-]
-
-
+];
 
 const wavitTransactionsTable = [
   {
     DateTime: "07/29/2024 09:00AM",
     Type: "Cash",
     Invoice: "101",
-    Amount: 42.50,
-    WAVit: 0.00,
-    Total: 42.50,
+    Amount: 42.5,
+    WAVit: 0.0,
+    Total: 42.5,
     CC: "Visa",
     Last4: "1234",
     NameOnCard: "No Name",
     AuthCode: "424242",
-    Tax: 0.00,
-    Tax2: 0.00,
-    Porcentage: 0
+    Tax: 0.0,
+    Tax2: 0.0,
+    Porcentage: 0,
   },
   {
     DateTime: "07/29/2024 09:00AM",
     Type: "Cash",
     Invoice: "101",
-    Amount: 42.50,
-    WAVit: 0.00,
-    Total: 42.50,
+    Amount: 42.5,
+    WAVit: 0.0,
+    Total: 42.5,
     CC: "Visa",
     Last4: "1234",
     NameOnCard: "No Name",
     AuthCode: "424242",
-    Tax: 0.00,
-    Tax2: 0.00,
-    Porcentage: 0
+    Tax: 0.0,
+    Tax2: 0.0,
+    Porcentage: 0,
   },
   {
     DateTime: "07/29/2024 09:00AM",
     Type: "Debit Card",
     Invoice: "101",
-    Amount: 422.50,
-    WAVit: 15.00,
-    Total: 437.50,
+    Amount: 422.5,
+    WAVit: 15.0,
+    Total: 437.5,
     CC: "Visa",
     Last4: "1234",
     NameOnCard: "No Name",
     AuthCode: "424242",
-    Tax: 0.00,
-    Tax2: 0.00,
-    Porcentage: 0
+    Tax: 0.0,
+    Tax2: 0.0,
+    Porcentage: 0,
   },
   {
     DateTime: "07/29/2024 09:00AM",
     Type: "Credit Card",
     Invoice: "101",
     Amount: 31.55,
-    WAVit: 1.40,
-    Total: 42.50,
+    WAVit: 1.4,
+    Total: 42.5,
     CC: "Visa",
     Last4: "1234",
     NameOnCard: "No Name",
     AuthCode: "424242",
-    Tax: 0.00,
-    Tax2: 0.00,
-    Porcentage: 0
+    Tax: 0.0,
+    Tax2: 0.0,
+    Porcentage: 0,
   },
-]
+];
 
 const wavitSettingsTable = [
   {
     Description: "Integrated",
-    Value: "false"
+    Value: "false",
   },
   {
     Description: "ByPass Integration",
-    Value: "null"
+    Value: "null",
   },
   {
     Description: "Bypass PIN",
-    Value: "null"
+    Value: "null",
   },
   {
     Description: "Integration Type",
-    Value: "null"
+    Value: "null",
   },
   {
     Description: "Subscription ID",
-    Value: "null"
+    Value: "null",
   },
   {
     Description: "Department Code",
-    Value: "null"
+    Value: "null",
   },
   {
     Description: "Enterprise Code",
-    Value: "null"
+    Value: "null",
   },
   {
     Description: "Company Number",
-    Value: "null"
+    Value: "null",
   },
   {
     Description: "Server Name",
-    Value: "null"
+    Value: "null",
   },
   {
     Description: "Transaction Type",
-    Value: "Pre-Auth"
+    Value: "Pre-Auth",
   },
   {
     Description: "Force Terms Acceptance",
-    Value: "false"
+    Value: "false",
   },
   {
     Description: "Terms and Conditions Address",
-    Value: "null"
+    Value: "null",
   },
   {
     Description: "Ask Manager Refund Override",
-    Value: "true"
+    Value: "true",
   },
   {
     Description: "Decline Partial Payments",
-    Value: "false"
+    Value: "false",
   },
-]
-
+];
 
 export {
   merchantStatusList,
@@ -2004,10 +2131,8 @@ export {
   deployByList,
   mccCode,
   wavitTransactionsTable,
-  wavitSettingsTable
-
+  wavitSettingsTable,
 };
-
 
 // AGENT DATA
 
@@ -2015,7 +2140,7 @@ export const agentMainTabs = [
   {
     title: "List",
     value: "list",
-    route: "/agent/list",
+    route: "/agent",
   },
   {
     title: "Setup",
@@ -2035,7 +2160,7 @@ export const agentAdjustments = [
     MID: "",
     DBA: "",
     Type: "Residual Adjustment",
-    Amount: 300.00,
+    Amount: 300.0,
     Notes: "Some notes about it.",
   },
   {
@@ -2043,7 +2168,7 @@ export const agentAdjustments = [
     MID: "",
     DBA: "",
     Type: "Other",
-    Amount: 1300.00,
+    Amount: 1300.0,
     Notes: "Some notes about it.",
   },
   {
@@ -2051,7 +2176,7 @@ export const agentAdjustments = [
     MID: "",
     DBA: "",
     Type: "Equipment",
-    Amount: 13290.00,
+    Amount: 13290.0,
     Notes: "Some notes about it.",
   },
   {
@@ -2059,7 +2184,7 @@ export const agentAdjustments = [
     MID: "",
     DBA: "",
     Type: "Bonus",
-    Amount: 42.00,
+    Amount: 42.0,
     Notes: "Some notes about it.",
   },
   {
@@ -2067,30 +2192,29 @@ export const agentAdjustments = [
     MID: "",
     DBA: "",
     Type: "Residual Adjustment",
-    Amount: 300.00,
+    Amount: 300.0,
     Notes: "Some notes about it.",
   },
-]
+];
 
 export const agentEmailList = [
   {
     Name: "leovinci@gmail.com",
-    Email: "Leonardo da Vinci"
+    Email: "Leonardo da Vinci",
   },
   {
     Name: "tony@stark.com",
-    Email: "Tony Stark"
+    Email: "Tony Stark",
   },
   {
     Name: "support@micamp.com",
-    Email: "Micamp Support"
+    Email: "Micamp Support",
   },
   {
     Name: "Joe@gmail.com",
-    Email: "Martin Joe"
+    Email: "Martin Joe",
   },
-]
-
+];
 
 export const reportList1 = [
   {
@@ -2138,7 +2262,8 @@ export const reportList1 = [
     title: "8600/9700",
     value: "8600/9700",
   },
-]
+];
+
 
 
 
@@ -2147,7 +2272,7 @@ export const reportList1 = [
 export const equipmentMainTabs = [
   {
     title: "Equipment",
-    value: "equipment",
+    value: "equipments",
     route: "/equipment",
   },
   {
@@ -2168,6 +2293,299 @@ export const EquipmentTabs = [
     id: "2",
     title: "Items",
     value: "items",
+  },
+  {
+    id: "3",
+    title: "Reports",
+    value: "reports",
+  }
+];
+
+export const ModelSelectList = [
+  {
+    id: 1,
+    title: "Clover Flex LTE (Gen 2)",
+    value: "cloverFlexLteGen2",
+  },
+  {
+    id: 2,
+    title: "Clover Flex LTE (Gen 3)",
+    value: "cloverFlexLteGen3",
+  },
+  {
+    id: 3,
+    title: "Clover Flex",
+    value: "cloverFlex",
+  },
+  {
+    id: 4,
+    title: "Dejavoo Gen 1",
+    value: "dejavooGen1",
+  },
+]
+export const ConditionSelectList = [
+  {
+    id: 1,
+    title: "New",
+    value: "new",
+  },
+  {
+    id: 2,
+    title: "Used",
+    value: "used",
+  },
+  {
+    id: 3,
+    title: "Refurbished",
+    value: "refurbished",
+  },
+]
+export const lookupForm = [
+  {
+    id: 1,
+    title: "MID",
+    type: "input",
+    placeholder: "MID",
+    formName: "MID",
+    value: "",
+    
+  },
+  {
+    id: 2,
+    title: "Order ID",
+    type: "input",
+    placeholder: "Order ID",
+    formName: "OrderID",
+    value: "",
+    
+  },
+  {
+    id: 3,
+    title: "Serial #",
+    type: "input",
+    placeholder: "Serial #",
+    formName: "Serial",
+    value: "",
+    
+  },
+  {
+    id: 4,
+    title: "Model",
+    type: "selectBox",
+    placeholder: "Select an option...",
+    formName: "Model",
+    value: "",
+    content: ModelSelectList,
+  },
+  {
+    id: 5,
+    title: "Condition",
+    type: "selectBox",
+    placeholder: "Select a condition...",
+    formName: "Condition",
+    value: "",
+    content: ConditionSelectList,
+  },
+  {
+    id: 6,
+    title: "Show Shelf Items",
+    type: "checkbox",
+    placeholder: "",
+    formName: "ShelfItems",
+    value: "",
+    
+  },
+]
+
+export const LookupTable: DataTypes[] = [
+  {
+    Model: "Clover Mobile with WiFi & 3G",
+    Condition: "New",
+    Serial: "SN12345678",
+    MID: "1234567890",
+    DBA: "MiCamp Solutions",
+    Status: "4 - Shipped",
+    Del: "N",
+    Date: "08/02/2024",
+  },
+  {
+    Model: "Clover Mobile with WiFi & 3G",
+    Condition: "New",
+    Serial: "SN12345678",
+    MID: "1234567890",
+    DBA: "MiCamp Solutions",
+    Status: "4 - Shipped",
+    Del: "N",
+    Date: "08/02/2024",
+  },
+  {
+    Model: "Clover Mobile with WiFi & 3G",
+    Condition: "New",
+    Serial: "SN12345678",
+    MID: "1234567890",
+    DBA: "MiCamp Solutions",
+    Status: "4 - Shipped",
+    Del: "N",
+    Date: "08/02/2024",
+  },
+  {
+    Model: "Clover Lite LTE (Gen 2)",
+    Condition: "New",
+    Serial: "SN12345678",
+    MID: "1234567890",
+    DBA: "MiCamp Solutions",
+    Status: "4 - Shipped",
+    Del: "N",
+    Date: "08/02/2024",
+  },
+]
+
+export const itemsForm = [
+  {
+    id: 1,
+    title: "Model",
+    type: "selectBox",
+    placeholder: "Select a model...",
+    formName: "Model",
+    value: "",
+    content: ModelSelectList ,
+  },
+  {
+    id: 2,
+    title: "ID",
+    type: "input",
+    placeholder: "ID",
+    formName: "Id",
+    value: "",
+  },
+  {
+    id: 3,
+    title: "Description",
+    type: "input",
+    placeholder: "Description",
+    formName: "Description",
+    value: "",
+  },
+  {
+    id: 4,
+    title: "Alias",
+    type: "input",
+    placeholder: "Alias",
+    formName: "Alias",
+    value: "",
+  },
+  {
+    id: 5,
+    title: "Item Type",
+    type: "selectBox",
+    placeholder: "Select a type...",
+    formName: "ItemType",
+    value: "",
+    content: ConditionSelectList,
+  },
+  {
+    id: 6,
+    title: "Style",
+    type: "selectBox",
+    placeholder: "Select a style...",
+    formName: "Style",
+    value: "",
+    content: ConditionSelectList,
+  },
+  {
+    id: 7,
+    title: "Manufacturer",
+    type: "selectBox",
+    placeholder: "Select an Item...",
+    formName: "Manufacturer",
+    value: "",
+    content: ConditionSelectList,
+  },
+  {
+    id: 8,
+    title: "ReorderQty",
+    type: "input",
+    placeholder: "Select an Item...",
+    formName: "ReorderQty",
+    value: "",
+  },
+  {
+    id: 9,
+    title: "Does item have a serial number?",
+    type: "checkbox",
+    placeholder: "",
+    formName: "SerialNumber",
+    value: "",
+  },
+  {
+    id: 10,
+    title: "Take Inventory of this Item",
+    type: "checkbox",
+    placeholder: "Select an Item...",
+    formName: "TakeInventory",
+    value: "",
+  },
+  {
+    id: 11,
+    title: "Physically Shippable",
+    type: "checkbox",
+    placeholder: "",
+    formName: "PhysicallyShippable",
+    value: "",
+  },
+]
+
+export const serialList = [
+  {
+    id: 1,
+    title: "SN123456782",
+    value: "SN123456782",
+  },
+  {
+    id: 2,
+    title: "SN12345678",
+    value: "SN12345678",
+  },
+  {
+    id: 3,
+    title: "SN123456",
+    value: "SN123456",
+  },
+  {
+    id: 4,
+    title: "SN123456251",
+    value: "SN123456251",
+  },
+]
+
+export const sortByList = [
+  {
+    id: 1,
+    title: "Condition",
+    value: "condition",
+  },
+  {
+    id: 2,
+    title: "Date Added",
+    value: "dateAdded",
+  },
+  {
+    id: 3,
+    title: "Serial #",
+    value: "serial",
+  },
+]
+
+export const ordersPaymentsTabs = [
+  {
+    id: "1",
+    title: "Fill Orders",
+    value: "fillOrders",
+  },
+  {
+    id: "2",
+    title: "Recent Orders",
+    value: "recentOrders",
   },
   {
     id: "3",

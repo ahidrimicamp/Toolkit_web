@@ -1,12 +1,14 @@
+import OrdersPaymentsTabContent from '@/components/equipments/OrdersPaymentsTabContent'
 import React from 'react'
 
 const page = () => {
   return (
     <>
-        <section>
-            <h1>orders/payments</h1>
-        </section>
-    
+      <section>
+          <OrdersPaymentsTabContent />
+      
+      </section>
+
     </>
   )
 }

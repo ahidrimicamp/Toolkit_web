@@ -15,7 +15,7 @@ import {
 } from "@/components/Shared/DataTable/Columns";
 import { DataTypes } from "@/types";
 
-export default function DataGrid() {
+export default function HomeTable() {
   const columnsConfig: ColumnConfig<DataTypes>[] = [
     { accessorKey: "id", header: "ID" },
     { accessorKey: "type", header: "Type" },
@@ -34,12 +34,6 @@ export default function DataGrid() {
           <CardDescription>Recent orders from your store.</CardDescription>
         </CardHeader>
         <CardContent>
-          <DataTable columns={columns} data={Orders} />
-          {/* <ExtremeDataTable
-            pageSize={7}
-            data={orders}
-            columnsToDisplay={["id", "type", "status", "date", "amount"]}
-          /> */}
           <DataTable
             columns={columns}
             data={Orders}

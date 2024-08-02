@@ -30,7 +30,7 @@ const FDOmaha = () => {
 
   const columns = createColumns(columnsConfig);
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex w-full flex-col">
       <div className="my-5 text-center">
         <div className="w-full">
           <DataTable columns={columns} data={agentData} enableVisibility={true} />
@@ -110,7 +110,7 @@ const FDNorth = () => {
 
   const columns = createColumns(columnsConfig);
   return (
-    <div className="flex flex-col w-fit">
+    <div className="flex w-fit flex-col">
       <div className="my-5 text-center">
         <DataTable columns={columns} data={agentData} enableVisibility={true} />
         <div className="mt-5 grid grid-cols-2 gap-3">

@@ -67,6 +67,7 @@ export const newMerchantSchema = z.object({
   BusinessMoTo: z.boolean(),
   DeployBy: z.string(),
 });
+
 export const MerchantInfoSchema = z.object({
   MID: z.string(),
   LegalName: z.string(),
@@ -184,6 +185,44 @@ export const AgentEquipmentSchema = z.object({
   state: z.string(),
   zip: z.string(),
   cellPhone: z.string(),
+});
+
+export const newLookupSchema = z.object({
+  MID: z.string(),
+  OrderID: z.string(),
+  Serial: z.string(),
+  Model: z.string(),
+  Condition: z.string(),
+  ShelfItems: z.boolean(),
+});
+
+export const newItemsSchema = z.object({
+  Model: z.string(),
+  Id: z.string(),
+  Description: z.string(),
+  Alias: z.string(),
+  ItemType: z.string(),
+  Style: z.string(),
+  Manufacturer: z.string(),
+  ReorderQty: z.number(),
+  SerialNumber: z.boolean(),
+  TakeInventory: z.boolean(),
+  PhysicallyShippable: z.boolean(),
+  HwPricing: z.number(),
+  DeployFee: z.number(),
+  TaxShipping: z.number(),
+  Total: z.number(),
+  DimensionName: z.string(),
+  DimensionWidth: z.string(),
+  DimensionHeight: z.string(),
+  DimensionLength: z.string(),
+  DimensionWeight: z.string(),
+});
+
+export const newItemDetailSchema = z.object({
+  Condition: z.string(),
+  Serial: z.string(),
+  SortBy: z.string(),
 });
 
 
