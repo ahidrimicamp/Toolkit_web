@@ -10,7 +10,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import EmailReportPages from "@/components/services/reports/EmailReportPages";
+import ReportPages from "@/components/services/reports/ReportPages";
 
 const components: { type: string; title: string; description: string }[] = [
   {
@@ -104,7 +104,21 @@ export default function NavigationMenuDemo() {
           <h1>{activeTitle}</h1>
         </div>
 
-        {activeTitle && <EmailReportPages title={activeTitle} />}
+        {activeTitle && <ReportPages title={activeTitle} />}
+
+        {!activeTitle && (
+          <div className="flex flex-col items-center justify-center">
+            <span className="text-9xl">🤷</span>
+            <p className="mt-5 text-center text-2xl">
+              <span className="text-4xl font-semibold text-blue-500">
+                Oops!
+              </span>{" "}
+              <br />
+              There is nothing to show here. <br /> Please, select something to
+              work on.
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
