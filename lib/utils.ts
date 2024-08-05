@@ -225,6 +225,68 @@ export const newItemDetailSchema = z.object({
   SortBy: z.string(),
 });
 
+export const newEquipmentOrderSchema = z.object({
+  Merchant: z.string(),
+  MID: z.string(),
+  Status: z.string(),
+  Model: z.string(),
+  NoSerial: z.boolean(),
+  Limit: z.boolean(),
+});
+
+export const newUnassignedEquipmentSchema = z.object({
+  Model: z.string(),
+  Condition: z.string(),
+  Serial: z.string(),
+});
+
+export const newRecentOrdersSchema = z.object({
+  FromDate: z.string(),
+  ToDate: z.string(),
+});
+
+// ADMIN SCHEMAS
+export const newRingCentralUtilitySchema = z.object({
+  DataSource: z.string(),
+  Status: z.string(),
+});
+
+export const newLoadProcessingDataSchema = z.object({
+  ProcessingPeriod: z.string(),
+  Status: z.string(),
+});
+
+export const newThirdPartyProcessorsSchema = z.object({
+  Processor: z.string(),
+  MID: z.string(),
+  ResidualDate: z.string(),
+  CalculateAllMonths: z.boolean(),
+});
+
+export const newFirstDataOmahaSchema = z.object({
+  ResidualDate: z.string(),
+  CheckCalculation: z.boolean(),
+  NutraChargeBacks: z.boolean(),
+  DoNotQueryZeroRecords: z.boolean(),
+  CalculateInitialPassOnly: z.boolean(),
+  SkipSysPrins: z.boolean(),
+  From: z.string(),
+  To: z.string(),
+  CalculateIndividualMID: z.string(),
+  Status: z.string(),
+});
+
+export const newAdjustmentCriteriaSchema = z.object({
+  ResidualDate: z.string(),
+  Agent: z.string(),
+  AgentID: z.string(),
+  AdjustType: z.string(),
+  MID: z.string(),
+  DBALegal: z.string(),
+  Processor: z.string(),
+  Amount: z.string(),
+  Notes: z.string(),
+});
 
 // Currency format functions
 export const formatCurrency = (

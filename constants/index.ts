@@ -2593,3 +2593,300 @@ export const ordersPaymentsTabs = [
     value: "reports",
   }
 ];
+
+export const RecentOrderTable = [
+  {
+    DBA: "COFFEE SIP",
+    Date: "08/05/2024",
+    Status: "1 - In Process",
+    MID: "321654987456",
+    Order: "446851",
+    Agent: "The Merchant Hub LLC",
+    Tracking: "277561984651321",
+  },
+  {
+    DBA: "SAMS SERVICE STATION",
+    Date: "08/05/2024",
+    Status: "5 - Completed",
+    MID: "321654987456",
+    Order: "446852",
+    Agent: "Elevated Payments, LLC",
+    Tracking: "3215649123184651",
+  },
+  {
+    DBA: "COFFEE SIP",
+    Date: "08/05/2024",
+    Status: "1 - In Process",
+    MID: "321654987456",
+    Order: "446851",
+    Agent: "The Merchant Hub LLC",
+    Tracking: "277561984651321",
+  },
+  {
+    DBA: "SAMS SERVICE STATION",
+    Date: "08/05/2024",
+    Status: "5 - Completed",
+    MID: "321654987456",
+    Order: "446852",
+    Agent: "Elevated Payments, LLC",
+    Tracking: "3215649123184651",
+  },
+  {
+    DBA: "COFFEE SIP",
+    Date: "08/05/2024",
+    Status: "1 - In Process",
+    MID: "321654987456",
+    Order: "446851",
+    Agent: "The Merchant Hub LLC",
+    Tracking: "277561984651321",
+  },
+  {
+    DBA: "SAMS SERVICE STATION",
+    Date: "08/05/2024",
+    Status: "5 - Completed",
+    MID: "321654987456",
+    Order: "446852",
+    Agent: "Elevated Payments, LLC",
+    Tracking: "3215649123184651",
+  },
+  {
+    DBA: "COFFEE SIP",
+    Date: "08/05/2024",
+    Status: "1 - In Process",
+    MID: "321654987456",
+    Order: "446851",
+    Agent: "The Merchant Hub LLC",
+    Tracking: "277561984651321",
+  },
+  {
+    DBA: "SAMS SERVICE STATION",
+    Date: "08/05/2024",
+    Status: "5 - Completed",
+    MID: "321654987456",
+    Order: "446852",
+    Agent: "Elevated Payments, LLC",
+    Tracking: "3215649123184651",
+  }, 
+]
+
+// ADMIN DATA
+
+export const adminMainTabs = [
+  {
+    title: "Data Imports",
+    value: "dataImports",
+    route: "/admin",
+  },
+  {
+    title: "Residuals",
+    value: "residuals",
+    route: "/admin/residuals",
+  },
+  {
+    title: "Database",
+    value: "database",
+    route: "/admin/database",
+  },
+  {
+    title: "Ad Hoc",
+    value: "adHoc",
+    route: "/admin/adHoc",
+  },
+  {
+    title: "DB Operations",
+    value: "dbOperations",
+    route: "/admin/dbOperations",
+  },
+  {
+    title: "User Admin",
+    value: "userAdmin",
+    route: "/admin/userAdmin",
+  },
+];
+
+export const adminResidualsTabs = [
+  {
+    id: "1",
+    title: "Calculate",
+    value: "calculate",
+  },
+  {
+    id: "2",
+    title: "Adjustments",
+    value: "adjustments",
+  },
+  {
+    id: "3",
+    title: "Reports",
+    value: "reports",
+  },
+  {
+    id: "4",
+    title: "Display Residuals",
+    value: "displayResiduals",
+  },
+];
+
+export const thirdPartyForm = [
+  {
+    id: 1,
+    title: "Processor",
+    type: "selectBox",
+    placeholder: "Select Processor",
+    formName: "Processor",
+    value: "",
+    content: ModelSelectList,
+  },
+  {
+    id: 2,
+    title: "Calculate for individual MID",
+    type: "input",
+    placeholder: "Enter MID",
+    formName: "MID",
+    value: "",
+    
+  },
+  {
+    id: 3,
+    title: "Residual Date",
+    type: "date",
+    placeholder: "",
+    formName: "ResidualDate",
+    value: "",
+    
+  },
+  {
+    id: 4,
+    title: "Model",
+    type: "checkbox",
+    placeholder: "Calculate for all months after stated date",
+    formName: "CalculateAllMonths",
+    value: "",
+
+  },
+]
+
+export const firstDataOmahaForm = [
+  {
+    id: 1,
+    title: "Residual Date",
+    type: "date",
+    placeholder: "",
+    formName: "ResidualDate",
+    value: "",
+
+  },
+  {
+    id: 2,
+    title: "",
+    type: "checkbox",
+    placeholder: "Check if calculation already exists and pass over if it does",
+    formName: "CheckCalculation",
+    value: "",
+    
+  },
+  {
+    id: 3,
+    title: "",
+    type: "checkbox",
+    placeholder: "Pass through Nutra chargebacks",
+    formName: "NutraChargeBacks",
+    value: "",
+    
+  },
+  {
+    id: 4,
+    title: "",
+    type: "checkbox",
+    placeholder: "Do not query zero records",
+    formName: "DoNotQueryZeroRecords",
+    value: "",
+  },
+  {
+    id: 5,
+    title: "",
+    type: "checkbox",
+    placeholder: "Calculate Initial Pass Only",
+    formName: "CalculateInitialPassOnly",
+    value: "",
+  },
+  {
+    id: 6,
+    title: "",
+    type: "checkbox",
+    placeholder: "Skip Certain Sys/Prins",
+    formName: "SkipSysPrins",
+    value: "",
+  },
+  {
+    id: 7,
+    title: "From",
+    type: "input",
+    placeholder: "1",
+    formName: "From",
+    value: "",
+  },
+  {
+    id: 8,
+    title: "To",
+    type: "input",
+    placeholder: "99999",
+    formName: "To",
+    value: "",
+  },
+  {
+    id: 9,
+    title: "Calculate for Individual MID",
+    type: "input",
+    placeholder: "Submit MID in the 16 (trailing digit) format",
+    formName: "CalculateIndividualMID",
+    value: "",
+  },
+  {
+    id: 10,
+    title: "Status",
+    type: "input",
+    placeholder: "Enter the status",
+    formName: "Status",
+    value: "",
+  },
+]
+
+export const adjustmentTable = [
+  {
+    Date: "08/05/2024",
+    MID: "8763921873",
+    DBA: "Example DBA",
+    Agent: "Zero Fee Processing",
+    Type: "Type 1",
+    Amount: "$1.000,0",
+    Notes: "Redirection",
+  },
+  {
+    Date: "08/05/2024",
+    MID: "8763921873",
+    DBA: "Example DBA",
+    Agent: "2G Financial LLC",
+    Type: "Residual Adjustment",
+    Amount: "$1.740,0",
+    Notes: "Redirection",
+  },
+  {
+    Date: "08/05/2024",
+    MID: "8763921873",
+    DBA: "Example DBA",
+    Agent: "Zero Fee Processing",
+    Type: "Residual Adjustment",
+    Amount: "$2.501,0",
+    Notes: "Redirection",
+  },
+  {
+    Date: "08/05/2024",
+    MID: "8763921873",
+    DBA: "Example DBA",
+    Agent: "Woody Enterp.",
+    Type: "Type 1",
+    Amount: "$2.240.0",
+    Notes: "Redirection",
+  },
+]

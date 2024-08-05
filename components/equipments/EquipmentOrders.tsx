@@ -4,9 +4,9 @@ import { ColumnConfig, createColumns } from '../Shared/DataTable/Columns';
 import { DataTypes } from '@/types';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
-import { newLookupSchema } from '@/lib/utils';
+import { newEquipmentOrderSchema } from '@/lib/utils';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { equipmentData, lookupForm, LookupTable, ModelSelectList } from '@/constants';
+import { ConditionSelectList, equipmentData, ModelSelectList } from '@/constants';
 import { CheckboxForm, InputForm, SelectForm } from '../Shared/InstantForm';
 import DataTable from '../Shared/DataTable/DataTable';
 
@@ -33,19 +33,19 @@ const EquipmentOrders = () => {
 
     const columns2 = createColumns(columnsConfig2);
 
-    const form = useForm<z.infer<typeof newLookupSchema>>({
-        resolver: zodResolver(newLookupSchema),
+    const form = useForm<z.infer<typeof newEquipmentOrderSchema>>({
+        resolver: zodResolver(newEquipmentOrderSchema),
         defaultValues: {
+            Merchant: "",
             MID: "",
-            OrderID: "",
-            Serial: "",
+            Status: "",
             Model: "",
-            Condition: "",
-            ShelfItems: false,
+            NoSerial: false,
+            Limit: false,
         },
     });
 
-    const onSubmit = (value: z.infer<typeof newLookupSchema>) => {
+    const onSubmit = (value: z.infer<typeof newEquipmentOrderSchema>) => {
         console.log(value);
     };
 
@@ -65,7 +65,7 @@ const EquipmentOrders = () => {
                                 <div className="w-2/3">
                                     <InputForm
                                         control={form.control}
-                                        formName={""}
+                                        formName={"Merchant"}
                                         label=""
                                         placeholder={"Ex: MiCamp Solutions"}
                                     />
@@ -75,7 +75,7 @@ const EquipmentOrders = () => {
                                 <div className="w-full text-sm">
                                     <CheckboxForm
                                         control={form.control}
-                                        formName={""}
+                                        formName={"NoSerial"}
                                         label=""
                                         placeholder={"Equipment w/ no serial #'s"}
                                     />
@@ -90,7 +90,7 @@ const EquipmentOrders = () => {
                                 <div className="w-2/3">
                                     <InputForm
                                         control={form.control}
-                                        formName={""}
+                                        formName={"MID"}
                                         label=""
                                         placeholder={"129381274612873"}
                                     />
@@ -100,7 +100,7 @@ const EquipmentOrders = () => {
                                 <div className="w-full text-sm">
                                     <CheckboxForm
                                         control={form.control}
-                                        formName={""}
+                                        formName={"Limit"}
                                         label=""
                                         placeholder={"Limit to first 100 merchants"}
                                     />
@@ -115,10 +115,10 @@ const EquipmentOrders = () => {
                             <div className="w-full">
                                 <SelectForm
                                     control={form.control}
-                                    formName=""
+                                    formName="Status"
                                     label=""
-                                    placeholder=""
-                                    content={ModelSelectList}
+                                    placeholder="Select an status..."
+                                    content={ConditionSelectList}
                                     valueKey='id'
                                     displayKey='title'
                                     disabled={false}
@@ -133,9 +133,9 @@ const EquipmentOrders = () => {
                             <div className="w-full">
                                 <SelectForm
                                     control={form.control}
-                                    formName=""
+                                    formName="Model"
                                     label=""
-                                    placeholder=""
+                                    placeholder="Select a model..."
                                     content={ModelSelectList}
                                     valueKey='id'
                                     displayKey='title'

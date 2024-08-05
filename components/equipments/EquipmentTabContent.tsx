@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Button } from "../ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { EquipmentTabs } from "@/constants";
-import RenderEquipmentComponents from "./EquipmentContent";
+import RenderEquipmentComponents from "./EquipmentTabSubContent";
 
 
 const EquipmentTabContent = () => {
@@ -16,7 +16,7 @@ const EquipmentTabContent = () => {
   };
   return (
     <>
-        <Tabs defaultValue="lookup" className="w-full rounded-md p-4">
+        <Tabs defaultValue="lookup" className="w-full text-center rounded-md p-4">
           <TabsList className="">
             {EquipmentTabs.map((tab) => (
               <TabsTrigger onClick={() => handleClick(tab.value)} key={tab.id} value={tab.value}>

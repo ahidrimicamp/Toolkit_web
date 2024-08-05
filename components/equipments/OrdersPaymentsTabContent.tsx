@@ -15,8 +15,8 @@ const OrdersPaymentsTabContent = () => {
   };
   return (
     <>
-      <div className="text-center">
-        <Tabs defaultValue="fillOrders" className="w-full rounded-md p-4 space-y-4">
+      <div className="">
+        <Tabs defaultValue="fillOrders" className="w-full text-center rounded-md p-4 space-y-4">
           <TabsList className="">
             {ordersPaymentsTabs.map((tab) => (
               <TabsTrigger onClick={() => handleClick(tab.value)} key={tab.id} value={tab.value}>

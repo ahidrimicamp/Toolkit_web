@@ -5,11 +5,7 @@ import React, { useState } from "react";
 
 
 const Equipment = () => {
-
-  const [activeItem, setActiveItem] = useState<string>("");
-  const handleClick = (value: string) => {
-    setActiveItem(value);
-  };
+  
   return (
     <>
       <EquipmentTabContent />

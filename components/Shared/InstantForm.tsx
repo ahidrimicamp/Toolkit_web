@@ -206,7 +206,7 @@ export const DatePickerForm = <T extends z.ZodType<any, any>>({
       control={control}
       name={formName}
       render={({ field }) => (
-        <FormItem className="flex flex-col">
+        <FormItem>
           <FormLabel>{label}</FormLabel>
           <FormControl>
             <Popover>
