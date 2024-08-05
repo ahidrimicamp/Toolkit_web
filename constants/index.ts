@@ -87,8 +87,8 @@ export const profileLinks = [
     url: "/profile",
   },
   {
-    title: "Settings",
-    url: "/settings",
+    title: "Tasks",
+    url: "/tasks",
   },
   {
     title: "Logout",
