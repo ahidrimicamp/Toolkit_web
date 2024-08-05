@@ -29,11 +29,13 @@ export const InputForm = <T extends z.ZodType<any, any>>({
   formName,
   label,
   placeholder,
+  type,
 }: {
   control: Control<z.infer<T>>;
   formName: FieldPath<z.infer<T>>;
   label: string;
   placeholder?: string;
+  type?: React.HTMLInputTypeAttribute;
 }) => {
   return (
     <FormField
@@ -48,6 +50,7 @@ export const InputForm = <T extends z.ZodType<any, any>>({
               {...field}
               value={field.value ?? ""}
               onChange={field.onChange}
+              type={type}
             />
           </FormControl>
         </FormItem>

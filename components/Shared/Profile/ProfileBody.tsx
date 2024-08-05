@@ -4,8 +4,15 @@ import { formSchema } from "@/lib/utils";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
-import { Form, FormLabel } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+import { Form } from "@/components/ui/form";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { InputForm } from "../InstantForm";
 
 const ProfileBody = () => {
   const form = useForm<z.infer<typeof formSchema>>({
@@ -25,8 +32,8 @@ const ProfileBody = () => {
   // };
 
   return (
-    <section className="flex-1 lg:max-w-2xl">
-      <div className="space-y-6">
+    <section>
+      <div className="w-full space-y-6">
         <div>
           <h3 className="text-lg font-medium">Profile</h3>
           <p className="text-sm text-muted-foreground">
@@ -37,38 +44,74 @@ const ProfileBody = () => {
           data-orientation="horizontal"
           role="none"
           className="h-px w-full shrink-0 bg-border"
-        ></div>
+        />
 
         <Form {...form}>
           <form className="space-y-5">
-            <div className="space-y-2">
-              <FormLabel className="text-sm">Username</FormLabel>
-              <Input placeholder="example@micamp.com" />
-              <p>This is how others see you</p>
-            </div>
-            <div className="space-y-2">
-              <FormLabel className="text-sm">Email</FormLabel>
-              <Input placeholder="example@micamp.com" />
-              <p>This is your email</p>
-            </div>
-            <div className="space-y-2">
-              <FormLabel className="text-sm">Password</FormLabel>
-              <Input placeholder="**********" type="password" />
-              <p>Do you want to change your password?</p>
-            </div>
-            <div className="mt-3 flex items-center justify-between">
-              <div className="w-80">
-                <FormLabel className="text-sm">Name</FormLabel>
-                <Input placeholder="John" type="text" />
-              </div>
-              <div className="w-80">
-                <FormLabel className="text-sm">Surname</FormLabel>
-                <Input placeholder="Doe" type="text" />
-              </div>
-            </div>
+            <Card>
+              <CardHeader>
+                <CardTitle>Email</CardTitle>
+                <CardDescription>Edit your email here.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <InputForm
+                  control={form.control}
+                  formName="email"
+                  label=""
+                  placeholder="example@micamp.com"
+                  type="email"
+                />
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>Password</CardTitle>
+                <CardDescription>Change your password here.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <InputForm
+                  control={form.control}
+                  formName="password"
+                  label="New Password"
+                  placeholder="**********"
+                  type="password"
+                />
+                <InputForm
+                  control={form.control}
+                  formName="password"
+                  label="Confirm Password"
+                  placeholder="**********"
+                  type="password"
+                />
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>Name</CardTitle>
+                <CardDescription>
+                  Change your name and surname here.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <InputForm
+                  control={form.control}
+                  formName="firstName"
+                  label="Name"
+                  placeholder="Your name"
+                  type="text"
+                />
+                <InputForm
+                  control={form.control}
+                  formName="lastName"
+                  label="Surname"
+                  placeholder="Your surname"
+                  type="text"
+                />
+              </CardContent>
+            </Card>
 
             <div className="flex max-lg:justify-center">
-              <Button>Update profile</Button>
+              <Button type="submit">Update Profile</Button>
             </div>
           </form>
         </Form>

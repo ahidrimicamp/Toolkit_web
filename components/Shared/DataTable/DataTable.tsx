@@ -92,6 +92,7 @@ export default function DataTable<TData>({
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleEditClick = (row: any) => {
     editFunction(row.original);
   };
@@ -144,7 +145,7 @@ export default function DataTable<TData>({
     };
 
     return actionsColumn ? [...columns, actionColumn] : columns;
-  }, [actionsColumn, columns, editFunction]);
+  }, [actionsColumn, columns, handleEditClick]);
 
   const table = useReactTable({
     data,
