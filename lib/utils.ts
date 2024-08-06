@@ -288,6 +288,73 @@ export const newAdjustmentCriteriaSchema = z.object({
   Notes: z.string(),
 });
 
+export const newDisplayResidualsSchema = z.object({
+  ResidualDate: z.string(),
+  PayDay: z.boolean(),
+  PayDaySelection: z.string(),
+  ExcludePayDay: z.boolean(),
+  PayGroup: z.boolean(),
+  PayGroupSelection: z.string(),
+  ExcludePayGroup: z.boolean(),
+  ShowOkToPay: z.boolean(),
+  ExcludeNotOkToPay: z.boolean(),
+  ShowNotOkToPay: z.boolean(),
+  OnlyWithEmails: z.boolean(),
+  OnlyMissingEmails: z.boolean(),
+  ResidualsReportsOptIn: z.boolean(),
+  OnlyWithBankingInfo: z.boolean(),
+  OnlyMissingBankingInfo: z.boolean(),
+  OnlyShowPositiveResiduals: z.boolean(),
+  OnlyShowZeroNegativeResiduals: z.boolean(),
+  OnlyShowPhysicalChecks: z.boolean(),
+  EmailReportsToAgent: z.boolean(),
+  EmailReportsToUser: z.boolean(),
+  EmailReportsToWho: z.boolean(),
+  EmailReportsTo: z.string(),
+});
+
+export const newAuditDetailSchema = z.object({
+  AuditType: z.string(),
+  EntryDate: z.string(),
+  ToDate: z.string(),
+});
+
+export const newAdHocSearchSchema = z.object({
+  ReportName: z.string(),
+  MID: z.string(),
+  FromDate: z.string(),
+  ToDate: z.string(),
+  YearMonth: z.string(),
+  UseAO: z.boolean(),
+  SaveToC: z.boolean(),
+  MIDS: z.string(),
+  User: z.string(),
+  Processor: z.string(),
+  AuditType: z.string(),
+  Agent: z.string(),
+  Phrase: z.string(),
+});
+
+export const newEditUserSchema = z.object({
+  UserId: z.string(),
+  Username: z.string(),
+  Email: z.string(),
+  Extension: z.string(),
+  UserStatus: z.string(),
+  ShowRingCentral: z.boolean(),
+  EnableDarkMode: z.boolean(),
+});
+
+export const newAddNewUserSchema = z.object({
+  UserId: z.string(),
+  Username: z.string(),
+  Email: z.string(),
+  Extension: z.string(),
+  UserStatus: z.string(),
+  ShowRingCentral: z.boolean(),
+  EnableDarkMode: z.boolean(),
+});
+
 // Currency format functions
 export const formatCurrency = (
   value: number,

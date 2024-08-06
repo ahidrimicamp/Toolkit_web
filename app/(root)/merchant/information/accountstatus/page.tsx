@@ -131,7 +131,7 @@ const page = () => {
             {/* BOTTOM ROW */}
             <div className="flex flex-wrap gap-4">
               {/* CARD Overall EMV Compliance */}
-              <div className="flex-auto border border-gray-300 shadow-md rounded-md p-4">
+              <div className="flex-auto border shadow-md rounded-md p-4">
                 <h2>Overall EMV Compliance</h2>
                 <SelectForm
                   control={form.control}
@@ -177,7 +177,7 @@ const page = () => {
 
               </div>
               {/* Card Solid Portfolio Info */}
-              <div className="flex-auto border border-gray-300 shadow-md rounded-md p-4">
+              <div className="flex-auto border shadow-md rounded-md p-4">
                 <h2>Solid Portfolio Info</h2>
                 <div className="flex content-center">
                   <CheckboxForm
@@ -204,7 +204,7 @@ const page = () => {
               </div>
 
               {/* Card Overall Status */}
-              <div className="flex-auto border border-gray-300 shadow-md rounded-md p-4">
+              <div className="flex-auto border shadow-md rounded-md p-4">
 
                 <SelectForm
                   control={form.control}

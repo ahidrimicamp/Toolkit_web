@@ -10,8 +10,8 @@ const AgentMainTabs = () => {
     <div className="mb-0 box-content inline-flex gap-2 rounded-t-lg border border-b-0  px-5">
       {tabs.map((item) => {
         const isActive =
-          (pathname?.includes(item.route) && item.title.length > 1) ||
-          pathname === item.title;
+          (pathname?.includes(item.value) && item.title.length > 1) ||
+          pathname === item.route;
 
         return (
           <>

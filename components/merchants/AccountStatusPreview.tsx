@@ -78,7 +78,7 @@ const AccountStatusPreview = () => {
     <>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          <div className="flex-auto mb-3 mt-0 grow rounded-lg border border-solid border-gray-300 p-4 shadow-md">
+          <div className="flex-auto mb-3 mt-0 grow rounded-lg border  p-4 shadow-md">
             <h1 className="text-3xl text-sky-500">Account Status Preview</h1>
             <div className="flex gap-4">
               <div className='rounded-md flex-auto '>

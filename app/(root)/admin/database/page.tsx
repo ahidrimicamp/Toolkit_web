@@ -1,8 +1,11 @@
+import DatabaseTabContent from '@/components/admin/DatabaseTabContent'
 import React from 'react'
 
 const page = () => {
   return (
-    <div>page</div>
+    <>
+      <DatabaseTabContent/>
+    </>
   )
 }
 

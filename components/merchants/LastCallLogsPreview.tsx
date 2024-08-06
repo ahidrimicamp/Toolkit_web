@@ -36,7 +36,7 @@ const LastCallLogsPreview = () => {
 
   const columns = createColumns(columnsConfig);
   return (
-    <div className="flex-auto mb-3 mt-0  rounded-lg border border-solid border-gray-300 p-4">
+    <div className="flex-auto mb-3 mt-0  rounded-lg border  p-4">
       <h1 className="text-3xl text-sky-500">Last Call Logs Preview</h1>
 
       <div className='rounded-md'>

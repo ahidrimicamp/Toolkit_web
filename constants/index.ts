@@ -32,7 +32,7 @@ export const sidebarLinks: SidebarLink[] = [
   },
   {
     icon: Store,
-    route: "/merchant/find",
+    route: "/merchant",
     desc: "Find MID, Agent, and Processor.",
     label: "Merchant",
     options: ["MID", "Agent", "Processor"],
@@ -128,7 +128,7 @@ export const merchantMainTabs = [
   {
     title: "Find",
     value: "find",
-    route: "/merchant/find",
+    route: "/merchant",
   },
   {
     title: "Summary",
@@ -2888,5 +2888,304 @@ export const adjustmentTable = [
     Type: "Type 1",
     Amount: "$2.240.0",
     Notes: "Redirection",
+  },
+]
+
+export const displayResidualsTable = [
+  {
+    Id: 112,
+    AgentName: "MiCamp Solutions 21st",
+    YesPay: "1",
+    Send: "0",
+    Day: "21",
+    Phys: "0",
+    Group: "",
+    RoutingNo: "654654645",
+    AccountNo: "561123561651",
+    Amount: "$ 1.250,00",
+    RptType: "EXCEL",
+    EmailList: "micamp@support.com",
+  },
+  {
+    Id: 112,
+    AgentName: "MiCamp Solutions 21st",
+    YesPay: "1",
+    Send: "0",
+    Day: "21",
+    Phys: "0",
+    Group: "",
+    RoutingNo: "654654645",
+    AccountNo: "561123561651",
+    Amount: "$ 1.250,00",
+    RptType: "EXCEL",
+    EmailList: "micamp@support.com",
+  },
+  {
+    Id: 112,
+    AgentName: "MiCamp Solutions 21st",
+    YesPay: "1",
+    Send: "0",
+    Day: "21",
+    Phys: "0",
+    Group: "",
+    RoutingNo: "654654645",
+    AccountNo: "561123561651",
+    Amount: "$ 1.250,00",
+    RptType: "EXCEL",
+    EmailList: "micamp@support.com",
+  },
+]
+
+export const adminDatabaseTabs = [
+  {
+    id: "1",
+    title: "Users",
+    value: "users",
+  },
+  {
+    id: "2",
+    title: "Audit",
+    value: "audit",
+  },
+];
+
+export const usersTable = [
+  {
+    Id: 1,
+    Name: "Alice W.",
+    Email: "alice.w@example.com",
+    Roles: "User",
+    Group: "Maintenance",
+    Confirmed: "Yes",
+    Status: "No",
+    LockUnlock: "Unlocked"
+  },
+  {
+    Id: 2,
+    Name: "Brian T.",
+    Email: "brian.t@example.com",
+    Roles: "Manager",
+    Group: "Inventory",
+    Confirmed: "No",
+    Status: "Yes",
+    LockUnlock: "Locked"
+  },
+  {
+    Id: 3,
+    Name: "Catherine L.",
+    Email: "catherine.l@example.com",
+    Roles: "Admin",
+    Group: "Equipment",
+    Confirmed: "Yes",
+    Status: "Yes",
+    LockUnlock: "Unlocked"
+  },
+  {
+    Id: 4,
+    Name: "David M.",
+    Email: "david.m@example.com",
+    Roles: "User",
+    Group: "Logistics",
+    Confirmed: "Yes",
+    Status: "No",
+    LockUnlock: "Locked"
+  },
+  {
+    Id: 5,
+    Name: "Eva J.",
+    Email: "eva.j@example.com",
+    Roles: "Manager",
+    Group: "Sales",
+    Confirmed: "No",
+    Status: "Yes",
+    LockUnlock: "Unlocked"
+  },
+  {
+    Id: 6,
+    Name: "Frank R.",
+    Email: "frank.r@example.com",
+    Roles: "Admin",
+    Group: "Security",
+    Confirmed: "Yes",
+    Status: "Yes",
+    LockUnlock: "Locked"
+  },
+  {
+    Id: 7,
+    Name: "Grace S.",
+    Email: "grace.s@example.com",
+    Roles: "User",
+    Group: "Finance",
+    Confirmed: "No",
+    Status: "No",
+    LockUnlock: "Unlocked"
+  },
+  {
+    Id: 8,
+    Name: "Henry D.",
+    Email: "henry.d@example.com",
+    Roles: "Manager",
+    Group: "Support",
+    Confirmed: "Yes",
+    Status: "Yes",
+    LockUnlock: "Locked"
+  },
+  {
+    Id: 9,
+    Name: "Isabella N.",
+    Email: "isabella.n@example.com",
+    Roles: "Admin",
+    Group: "Training",
+    Confirmed: "Yes",
+    Status: "No",
+    LockUnlock: "Unlocked"
+  },
+  {
+    Id: 10,
+    Name: "Jack P.",
+    Email: "jack.p@example.com",
+    Roles: "User",
+    Group: "Research",
+    Confirmed: "No",
+    Status: "Yes",
+    LockUnlock: "Locked"
+  }
+] 
+
+export const auditTypeSelectList = [
+  {
+    id: 1,
+    title: "ACH Reject",
+    value: "achReject",
+  },
+  {
+    id: 2,
+    title: "Agent",
+    value: "agent",
+  },
+  {
+    id: 3,
+    title: "CF ACH Payment",
+    value: "cfAchPayment",
+  },
+  {
+    id: 4,
+    title: "CF ACH Receipt",
+    value: "cfAchReceipt",
+  },
+  {
+    id: 5,
+    title: "CF Bank Entry",
+    value: "cfBankEntry",
+  },
+  {
+    id: 6,
+    title: "CF Vendor",
+    value: "cfVendor",
+  },
+  {
+    id: 7,
+    title: "Equipment Detail",
+    value: "equipmentDetail",
+  },
+  {
+    id: 8,
+    title: "Equipment Invoice",
+    value: "equipmentInvoice",
+  },
+  {
+    id: 9,
+    title: "Equipment Model",
+    value: "equipmentModel",
+  },
+  {
+    id: 10,
+    title: "Equipment Order",
+    value: "equipmentOrder",
+  },
+  {
+    id: 11,
+    title: "Equipment Pay",
+    value: "equipmentPay",
+  },
+  {
+    id: 12,
+    title: "Jarvis Document",
+    value: "jarvisDocument",
+  },
+  {
+    id: 13,
+    title: "Merchant",
+    value: "merchant",
+  },
+  {
+    id: 14,
+    title: "Merchant BOTW",
+    value: "merchantbotw",
+  },
+  {
+    id: 15,
+    title: "Pay Detail",
+    value: "payDetail",
+  },
+  {
+    id: 16,
+    title: "Print Shipping Label",
+    value: "printShippingLabel",
+  },
+  {
+    id: 17,
+    title: "Reject Detail",
+    value: "rejectDetail",
+  },
+  {
+    id: 18,
+    title: "Shipping Detail",
+    value: "shippingDetail",
+  },
+  {
+    id: 19,
+    title: "Task Detail",
+    value: "taskDetail",
+  },
+  {
+    id: 20,
+    title: "User Login",
+    value: "userLogin",
+  },
+]
+
+export const auditDetailsTable = [
+  {
+    AuditId: "1254",
+    auditTypeSelectList: "",
+    ItemId: "12",
+    Date: "08/06/2024",
+    UserName: "hcosta",
+    TextAuditDescription: "text audit desc text audit desc text audit desc ",
+  },
+  {
+    AuditId: "1254",
+    auditTypeSelectList: "",
+    ItemId: "12",
+    Date: "08/06/2024",
+    UserName: "hcosta",
+    TextAuditDescription: "text audit desc text audit desc text audit desc ",
+  },
+  {
+    AuditId: "1254",
+    auditTypeSelectList: "",
+    ItemId: "12",
+    Date: "08/06/2024",
+    UserName: "hcosta",
+    TextAuditDescription: "text audit desc text audit desc text audit desc ",
+  },
+  {
+    AuditId: "1254",
+    auditTypeSelectList: "",
+    ItemId: "12",
+    Date: "08/06/2024",
+    UserName: "hcosta",
+    TextAuditDescription: "text audit desc text audit desc text audit desc ",
   },
 ]

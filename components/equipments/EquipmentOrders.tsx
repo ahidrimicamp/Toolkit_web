@@ -51,7 +51,7 @@ const EquipmentOrders = () => {
 
     return (
         <>
-            <section className="p-4 border border-gray-300 rounded-md">
+            <section className="p-4 border rounded-md">
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
                         <h1 className="mb-3 text-2xl text-sky-500">Equipment Orders</h1>
