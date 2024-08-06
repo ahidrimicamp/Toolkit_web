@@ -1,7 +1,7 @@
 import React from "react";
 import Theme from "./Theme";
 
-const WelcomeBar = ({ user }: { user: string }) => {
+const WelcomeBar = ({ user }: any) => {
   return (
     <>
       <div className="flex flex-1 items-center justify-between p-12 max-sm:text-center">

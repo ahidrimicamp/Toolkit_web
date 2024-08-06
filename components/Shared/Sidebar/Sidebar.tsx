@@ -9,10 +9,8 @@ import ProfileLogo from "../Profile/ProfileLogo";
 import MobileSideNav from "./MobileNav";
 import ThemeIcon from "@/components/ThemeIcon";
 
-const Sidebar = () => {
+const Sidebar = ({ props }: any) => {
   const pathname = usePathname();
-  const Firstname = "Tony";
-  const Lastname = "Stark";
 
   const role = "admin";
 
@@ -69,7 +67,7 @@ const Sidebar = () => {
           })}
         </div>
 
-        <ProfileLogo Firstname={Firstname} Lastname={Lastname} />
+        <ProfileLogo props={props} />
       </section>
 
       <MobileSideNav />

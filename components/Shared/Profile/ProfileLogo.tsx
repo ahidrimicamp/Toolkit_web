@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
 import {
   DropdownMenu,
@@ -13,23 +13,20 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { profileLinks } from "@/constants";
 
-const ProfileLogo = ({
-  Firstname,
-  Lastname,
-}: {
-  Firstname: string;
-  Lastname: string;
-}) => {
+const ProfileLogo = ({ props }: any) => {
   return (
     <div className="flex cursor-pointer items-center gap-3 rounded-md border p-2 shadow-md">
       <DropdownMenu>
         <DropdownMenuTrigger className="flex w-full outline-none">
           <Avatar>
-            <AvatarFallback>{Firstname[0]}</AvatarFallback>
+            {props?.image && <AvatarImage src={props.image} />}
+            <AvatarFallback>{props.name[0]}</AvatarFallback>
           </Avatar>
           <div className="ml-3 flex flex-col items-start max-2xl:hidden max-sm:flex">
             <h1 className="text-dark200_light900 font-semibold">
-              {Firstname} {Lastname}
+              {props?.firstname && props?.lastname
+                ? `${props.firstname} ${props.lastname}`
+                : props.name}
             </h1>
             <p className="text-dark200_light900 text-[12px]">
               Head of an IT department
