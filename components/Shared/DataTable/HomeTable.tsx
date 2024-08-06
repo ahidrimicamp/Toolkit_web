@@ -38,7 +38,7 @@ export default function HomeTable() {
             columns={columns}
             data={Orders}
             enableColumnFilter={true}
-            filteredBy="username"
+            filteredBy="type"
           />
         </CardContent>
       </Card>

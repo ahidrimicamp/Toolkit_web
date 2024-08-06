@@ -12,7 +12,15 @@ import {
 } from "../Shared/InstantForm";
 import { Button } from "../ui/button";
 
-const NewTask = () => {
+const NewTask = ({
+  type,
+  isOpen,
+  setIsOpen,
+}: {
+  type: string;
+  isOpen?: any;
+  setIsOpen?: any;
+}) => {
   const NewTaskForm = z.object({
     mid: z.string(),
     legalName: z.string(),
@@ -173,9 +181,7 @@ const NewTask = () => {
                       formName={item.value}
                       label={item.title}
                     />
-                  ) : item.isDate ? (
-                    ""
-                  ) : (
+                  ) : item.isDate ? null : (
                     <InputForm
                       key={item.id}
                       control={form.control}
@@ -220,10 +226,20 @@ const NewTask = () => {
                 <Button
                   type="submit"
                   onClick={(e: React.MouseEvent) => e.preventDefault()}
+                  className="w-full"
                 >
                   Save
                 </Button>
-                <Button onClick={(e: React.MouseEvent) => e.preventDefault()}>
+                <Button
+                  onClick={
+                    type === "New"
+                      ? (e: React.MouseEvent) => {
+                          e.preventDefault();
+                        }
+                      : () => setIsOpen(!isOpen)
+                  }
+                  className="w-full"
+                >
                   Cancel
                 </Button>
               </div>

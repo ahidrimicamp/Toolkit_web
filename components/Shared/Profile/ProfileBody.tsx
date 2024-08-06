@@ -30,7 +30,6 @@ const ProfileBody = () => {
   // const onSubmit = (data: z.infer<typeof formSchema>) => {
   //   console.log(data);
   // };
-
   return (
     <section>
       <div className="w-full space-y-6">
