@@ -96,8 +96,8 @@ const page = () => {
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <h1 className='text-2xl text-sky-500 mb-3 '>Account Status</h1>
 
-            <div className='flex gap-3 min-h-80'>
-              <div className='w-2/3 rounded-md'>
+            <div className='flex gap-3 max-xl:flex-wrap'>
+              <div className='flex-auto grid grid-cols-1 overflow-auto rounded-md'>
                 <DataTable
                   columns={columns}
                   data={accountStatusTable}
@@ -105,7 +105,7 @@ const page = () => {
                   filteredBy='UserID' 
                 />
               </div>
-              <div className="w-1/3 p-2 ">
+              <div className="flex-auto p-2 ">
                 <div className='w-full'>
                   <SelectForm
                     control={form.control}

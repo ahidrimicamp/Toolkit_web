@@ -224,7 +224,7 @@ const Adjustments = () => {
               </div>
             </div>
 
-            <div className="flex-auto">
+            <div className="grid grid-cols-1 overflow-auto">
               <DataTable
                 columns={columns}
                 data={adjustmentTable}
@@ -300,7 +300,7 @@ const Reports = () => {
     <>
       <section className="text-start">
         <div className="grid grid-cols-2 mt-5 overflow-auto  max-2xl:grid-cols-1">
-          <Tabs defaultValue="DateType" className="w-fit">
+          <Tabs defaultValue="BeginDate" className="w-fit">
             <TabsList>
               {data.map((tab) => (
                 <TabsTrigger value={tab.value} key={tab.id}>
@@ -471,7 +471,7 @@ const DisplayResiduals = () => {
                     <Button className="w-2/5 mt-4 bg-black hover:opacity-90 text-white">
                       Create ACH File
                     </Button>
-                    <Button className="w-2/5 mt-4 text-wrap bg-black hover:opacity-90 text-white">
+                    <Button className="w-2/5 mt-4 text-xs bg-black hover:opacity-90 text-white">
                       Create Summary Spreadsheet
                     </Button>
                   </div>
@@ -597,7 +597,7 @@ const DisplayResiduals = () => {
 
           </form>
         </Form>
-        <div className="flex-auto ">
+        <div className="grid grid-cols-1 overflow-auto  ">
           <DataTable
             columns={columns}
             data={displayResidualsTable}

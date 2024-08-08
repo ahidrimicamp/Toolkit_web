@@ -39,52 +39,54 @@ const RecentOrdersSection = () => {
 
     return (
         <>
-            <section className='overflow-auto'>
-                <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="">
-                        <div className="flex justify-around max-xl:flex-wrap gap-4">
-                            <div className="flex flex-auto gap-2">
-                                <div className="flex gap-2 content-center">
-                                    <label className="text-nowrap content-center font-medium mt-1">From Date</label>
-                                    <div className="content-center">
-                                        <DatePickerForm
-                                            control={form.control}
-                                            formName="FromDate"
-                                            label=""
-                                            placeholder="mm/dd/2024"
-                                        />
+            <section className="text-start">
+                <div className="grid grid-cols-1 overflow-auto">
+                    <Form {...form}>
+                        <form onSubmit={form.handleSubmit(onSubmit)} className="">
+                            <div className="flex justify-around max-xl:flex-wrap gap-4">
+                                <div className="flex flex-auto gap-2">
+                                    <div className="flex gap-2 content-center">
+                                        <label className="text-nowrap content-center font-medium mt-1">From Date</label>
+                                        <div className="content-center">
+                                            <DatePickerForm
+                                                control={form.control}
+                                                formName="FromDate"
+                                                label=""
+                                                placeholder="mm/dd/2024"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="flex gap-2 content-center">
+                                        <label className="text-nowrap content-center font-medium mt-1">To Date</label>
+                                        <div className="content-center">
+                                            <DatePickerForm
+                                                control={form.control}
+                                                formName="ToDate"
+                                                label=""
+                                                placeholder="mm/dd/2024"
+                                            />
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="flex gap-2 content-center">
-                                    <label className="text-nowrap content-center font-medium mt-1">To Date</label>
-                                    <div className="content-center">
-                                        <DatePickerForm
-                                            control={form.control}
-                                            formName="ToDate"
-                                            label=""
-                                            placeholder="mm/dd/2024"
-                                        />
-                                    </div>
+                                <div className="flex-auto content-center mt-2 text-end">
+                                    <Button className="px-10 bg-gradient-to-r from-[#14ADD6] to-[#384295] hover:opacity-90 text-white">
+                                        + Add New
+                                    </Button>
                                 </div>
                             </div>
-                            <div className="flex-auto content-center mt-2 text-end">
-                                <Button className="px-10 bg-gradient-to-r from-[#14ADD6] to-[#384295] hover:opacity-90 text-white">
-                                    + Add New
-                                </Button>
+                            <div className='grid overflow-auto'>
+                                <DataTable
+                                    columns={columns}
+                                    data={RecentOrderTable}
+                                    enableSorting={true}
+                                    enableColumnFilter={true}
+                                    filteredBy="DBA"
+                                />
                             </div>
-                        </div>
-                        <div className='grid overflow-auto'>
-                            <DataTable
-                                columns={columns}
-                                data={RecentOrderTable}
-                                enableSorting={true}
-                                enableColumnFilter={true}
-                                filteredBy="DBA"
-                            />
-                        </div>
 
-                    </form>
-                </Form>
+                        </form>
+                    </Form>
+                </div>
             </section>
         </>
     )

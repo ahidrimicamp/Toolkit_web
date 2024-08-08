@@ -18,7 +18,7 @@ const AgentSetupContent = () => {
   return (
     <>
       
-        <Tabs defaultValue="residuals" className="w-full col-span-4 border border-solid border-gray-400 rounded-md p-4">
+        <Tabs defaultValue="residuals" className="flex-auto col-span-4 border border-solid border-gray-400 rounded-md p-4">
           <TabsList className="">
             {AgentSetupTabs.map((tab) => (
               <TabsTrigger onClick={() => handleClick(tab.value)} key={tab.id} value={tab.value}>

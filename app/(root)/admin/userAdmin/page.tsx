@@ -31,13 +31,15 @@ const Page = () => {
   return (
     <>
       <div className="flex gap-4 2xl:flex-row">
-        <DataTable
-          columns={columns}
-          data={usersTable}
-          enableColumnFilter={true}
-          filteredBy="UserID"
-        />
-        <div className="w-full justify-center 2xl:w-2/5">
+        <div className="grid grid-cols-1 overflow-auto">
+          <DataTable
+            columns={columns}
+            data={usersTable}
+            enableColumnFilter={true}
+            filteredBy="UserID"
+          />
+        </div>
+        <div className="flex-1 justify-center 2xl:w-2/5">
           <div className="text-end my-4 mr-1">
             <Link href={"/admin/userAdmin/addUser"}>
               <Button type="button" className="">

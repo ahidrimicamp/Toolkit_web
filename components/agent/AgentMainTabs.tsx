@@ -16,7 +16,7 @@ const AgentMainTabs = () => {
         return (
           <>
             <div
-              className={`${isActive ? "border-b-8 border-sky-500 text-sky-500" : "text-black dark:text-white"} p-3 text-lg hover:bg-slate-200 dark:hover:bg-slate-700`}
+              className={`${isActive ? "border-b-8 border-sky-500 text-sky-500 pb-1" : "text-black dark:text-white"} p-3 text-lg hover:bg-slate-200 dark:hover:bg-slate-700`}
             >
               <Link href={item.route}>
                 <p className="text-pretty">{item.title}</p>

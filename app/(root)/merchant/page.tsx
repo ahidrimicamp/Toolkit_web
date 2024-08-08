@@ -29,13 +29,15 @@ const Page = () => {
   return (
     <>
       <div className="flex gap-4 2xl:flex-row">
-        <DataTable
-          columns={columns}
-          data={employees}
-          enableColumnFilter={true}
-          filteredBy="UserID"
-        />
-        <div className="w-full justify-center 2xl:w-2/5">
+        <div className="grid grid-cols-1 flex-auto overflow-auto">
+          <DataTable
+            columns={columns}
+            data={employees}
+            enableColumnFilter={true}
+            filteredBy="UserID"
+          />
+        </div>
+        <div className="flex-auto justify-center 2xl:w-2/5">
           <MerchantDetails />
         </div>
       </div>

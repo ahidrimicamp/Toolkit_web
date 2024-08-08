@@ -84,19 +84,21 @@ const page = () => {
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
               <div className="mt-4 gap-0">
-                <div className="flex flex-row gap-2">
-                  <div className="flex flex-1 content-center justify-end gap-2">
-                    <label className="content-center text-nowrap text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                <div className="grid grid-cols-4 max-lg:grid-cols-1 max-2xl:grid-cols-2 gap-2">
+                  <div className="flex content-center justify-end gap-4">
+                    <label className="w-1/3 content-center text-nowrap text-sm text-end font-medium">
                       From Date
                     </label>
-                    <DatePickerForm
-                      control={form.control}
-                      formName="Approval"
-                      label=""
-                      placeholder="mm/dd/2024"
-                    />
+                    <div className="flex-auto">
+                      <DatePickerForm
+                        control={form.control}
+                        formName="Approval"
+                        label=""
+                        placeholder="mm/dd/2024"
+                      />
+                    </div>
                   </div>
-                  <div className="col-auto m-auto flex flex-1 content-center self-start">
+                  <div className="flex flex-1">
                     <div className="content-center justify-start text-nowrap">
                       <CheckboxForm
                         control={form.control}
@@ -113,21 +115,20 @@ const page = () => {
                   <Button className="my-2 flex-1 bg-gradient-to-r from-[#14ADD6] to-[#384295] text-white hover:opacity-90">
                     Update
                   </Button>
-                </div>
-
-                <div className="flex flex-row gap-2">
-                  <div className="flex flex-1 content-center justify-end gap-2">
-                    <label className="content-center text-nowrap text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                  <div className="flex content-center justify-end gap-4">
+                    <label className="w-1/3 content-center text-nowrap text-sm text-end font-medium">
                       To Date
                     </label>
-                    <DatePickerForm
-                      control={form.control}
-                      formName="Approval"
-                      label=""
-                      placeholder="mm/dd/2024"
-                    />
+                    <div className="flex-auto">
+                      <DatePickerForm
+                        control={form.control}
+                        formName="Approval"
+                        label=""
+                        placeholder="mm/dd/2024"
+                      />
+                    </div>
                   </div>
-                  <div className="col-auto m-auto flex flex-1 content-center self-start">
+                  <div className="flex flex-1">
                     <div className="content-center justify-start text-nowrap">
                       <CheckboxForm
                         control={form.control}
@@ -157,11 +158,13 @@ const page = () => {
                     Export Table
                   </Button>
                 </div>
+
+
               </div>
             </form>
           </Form>
         </div>
-        <div className="w-full">
+        <div className="grid grid-cols-1 overflow-auto">
           <DataTable
             columns={columns}
             data={wavitTransactionsTable}

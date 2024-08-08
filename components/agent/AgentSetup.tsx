@@ -5,7 +5,7 @@ import AgentSetupContent from "./AgentSetupContent";
 const AgentSetup = () => {
   return (
     <div className="flex gap-4 max-lg:flex-wrap">
-      <div className="w-full">
+      <div className="flex-auto">
         <AgentSetupForm />
       </div>
 

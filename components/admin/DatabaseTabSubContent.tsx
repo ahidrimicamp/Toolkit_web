@@ -5,7 +5,7 @@ import {
 } from "@/components/Shared/DataTable/Columns";
 import DataTable from "@/components/Shared/DataTable/DataTable";
 import { Button } from "@/components/ui/button";
-import {  auditDetailsTable, auditTypeSelectList, usersTable } from "@/constants";
+import { auditDetailsTable, auditTypeSelectList, usersTable } from "@/constants";
 import { DataTypes } from "@/types";
 import React from "react";
 import { Form } from "../ui/form";
@@ -41,14 +41,15 @@ const Users = () => {
         <Button className="px-10 font-light mt-2 bg-gradient-to-r from-[#14ADD6] to-[#384295] hover:opacity-90 text-white">
           New User
         </Button>
-
-        <DataTable
-          columns={columns}
-          data={usersTable}
-          enableSorting={true}
-          enableColumnFilter={true}
-          filteredBy="brand"
-        />
+        <div className="grid grid-cols-1 overflow-auto">
+          <DataTable
+            columns={columns}
+            data={usersTable}
+            enableSorting={true}
+            enableColumnFilter={true}
+            filteredBy="brand"
+          />
+        </div>
       </section>
     </>
   )
@@ -87,10 +88,10 @@ const Audit = () => {
 
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className=" gap-2">
-            
-          <h1 className="text-center font-medium text-xl my-5">Audit Detail</h1>
+
+            <h1 className="text-center font-medium text-xl my-5">Audit Detail</h1>
             {/* AUDIT DETAIL FIND */}
-            <div className="w-2/6">
+            <div className="w-3/6">
 
               <div className="m-auto flex w-full gap-4">
                 <div className="w-1/3 content-center text-end mt-2">
@@ -143,13 +144,15 @@ const Audit = () => {
               </div>
             </div>
 
-            <DataTable
-              columns={columns}
-              data={auditDetailsTable}
-              enableSorting={true}
-              enableColumnFilter={true}
-              filteredBy="brand"
-            />
+            <div className="grid grid-cols-1 overflow-auto">
+              <DataTable
+                columns={columns}
+                data={auditDetailsTable}
+                enableSorting={true}
+                enableColumnFilter={true}
+                filteredBy="brand"
+              />
+            </div>
 
           </form>
         </Form>

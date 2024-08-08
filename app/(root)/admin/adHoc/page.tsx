@@ -42,13 +42,15 @@ const page = () => {
           <h2 className="font-semibold text-center mt-5">
             PASO FDO Summary Charge-back Income Expense Acquire Charge-back
           </h2>
-          <DataTable
-            columns={columns1}
-            data={usersTable}
-            enableSorting={true}
-            enableColumnFilter={true}
-            filteredBy="brand"
-          />
+          <div className="grid grid-cols-1 overflow-auto">
+            <DataTable
+              columns={columns1}
+              data={usersTable}
+              enableSorting={true}
+              enableColumnFilter={true}
+              filteredBy="brand"
+            />
+          </div>
         </div>
         <div className="flex-auto">
           <div className="text-end">
@@ -60,18 +62,19 @@ const page = () => {
                 </p>
               </Button>
             </Link>
-
           </div>
           <h2 className="font-semibold text-center mt-5">
             PASO FDO Summary Charge-back Income Expense Charge-back
           </h2>
-          <DataTable
-            columns={columns2}
-            data={usersTable}
-            enableSorting={true}
-            enableColumnFilter={true}
-            filteredBy="brand"
-          />
+          <div className="grid grid-cols-1 overflow-auto">
+            <DataTable
+              columns={columns2}
+              data={usersTable}
+              enableSorting={true}
+              enableColumnFilter={true}
+              filteredBy="brand"
+            />
+          </div>
         </div>
 
       </section>

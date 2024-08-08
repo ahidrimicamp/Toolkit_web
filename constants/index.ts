@@ -316,7 +316,7 @@ export const tabItems = [
     id: "15",
     title: "WAVit Info",
     value: "wavitInfo",
-    route: "/merchant/information/wavitinfo/",
+    route: "/merchant/information/wavitinfo",
     icon: "/infoTabs/info-item.svg",
   },
   {

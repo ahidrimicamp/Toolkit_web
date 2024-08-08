@@ -10,6 +10,7 @@ const layout = async ({
 }: Readonly<{ children: React.ReactNode }>) => {
   const session = await auth();
   const result = await getUserByEmail(session?.user?.email);
+  console.log(result)
   return (
     <div className="flex">
       <Sidebar props={result} />

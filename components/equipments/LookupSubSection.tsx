@@ -92,7 +92,7 @@ const LookupSubSection = () => {
               </div>
 
             </div>
-            <div className="w-fit">
+            <div className="grid grid-cols-1 overflow-auto">
               <DataTable
                 columns={columns}
                 data={LookupTable}

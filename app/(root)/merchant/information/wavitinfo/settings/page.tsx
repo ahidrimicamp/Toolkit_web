@@ -19,12 +19,13 @@ const page = () => {
   return (
     <>
       <section>
-        <div className="w-1/2">
+        <div className="w-1/2 max-xl:w-auto grid grid-cols-1 overflow-auto">
           <DataTable
             columns={columns}
             data={wavitSettingsTable}
             enableColumnFilter={true}
             filteredBy="Documents"
+            actionsColumn={false}
           />
         </div>
       </section>

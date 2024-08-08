@@ -129,7 +129,7 @@ const Lookup = () => {
               </Button>
             </div>
 
-            <div className="w-full text-start overflow-auto">
+            <div className="w-full grid grid-cols-1 text-start overflow-auto">
               <DataTable
                 columns={columns}
                 data={LookupTable}
@@ -426,8 +426,8 @@ const Reports = () => {
     <>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="">
-          <div className="text-start gap-4 flex mt-5 overflow-x-auto max-2xl:grid-cols-1">
-            <div className="w-full ">
+          <div className="text-start gap-4 flex mt-5 max-xl:flex-wrap">
+            <div className="flex-auto ">
               {/* CARD 1 - ORDER REPORTS */}
               <Card className="mt-4 p-4 space-y-4 shadow-md">
                 <h1 className="text-xl font-medium">Order Reports</h1>
@@ -503,41 +503,29 @@ const Reports = () => {
                 </div>
               </Card>
 
-              {/* CARD 2 - OTHERS */}
+              {/* CARD 3 - OTHERS */}
               <Card className="mt-4 p-4 space-y-2 shadow-md">
                 <h1 className="text-xl font-medium">Others</h1>
 
-                  <Button className="w-full bg-gradient-to-r from-[#14ADD6] to-[#384295] hover:opacity-90 text-white">
-                    Master Equipment List
-                  </Button>
-                  <Button className="w-full bg-gradient-to-r from-[#14ADD6] to-[#384295] hover:opacity-90 text-white">
-                    Inventory Summary
-                  </Button>
+                <Button className="w-full bg-gradient-to-r from-[#14ADD6] to-[#384295] hover:opacity-90 text-white">
+                  Master Equipment List
+                </Button>
+                <Button className="w-full bg-gradient-to-r from-[#14ADD6] to-[#384295] hover:opacity-90 text-white">
+                  Inventory Summary
+                </Button>
               </Card>
             </div>
 
 
-            {/* <Tabs defaultValue="DateType" className="size-full">
-          <TabsList>
-            {data.map((tab) => (
-              <TabsTrigger value={tab.value} key={tab.id}>
-                {tab.title}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-          {data.map((tab) => (
-            <TabsContent value={tab.value} key={tab.id}>
-              <EquipmentReportForm type={tab.value} />
-            </TabsContent>
-          ))}
-        </Tabs> */}
-            <DataTable
-              columns={columns}
-              data={equipmentData}
-              enableSorting={true}
-              enableColumnFilter={true}
-              filteredBy="brand"
-            />
+            <div className="grid grid-cols-1 overflow-auto">
+              <DataTable
+                columns={columns}
+                data={equipmentData}
+                enableSorting={true}
+                enableColumnFilter={true}
+                filteredBy="brand"
+              />
+            </div>
           </div>
         </form>
       </Form>
