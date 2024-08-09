@@ -153,7 +153,7 @@ const FinancialBody = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-3 gap-3 px-5 pb-5">
+      <div className="grid grid-cols-3 gap-3 px-5 pb-5 max-lg:grid-cols-1">
         <div className="flex flex-col">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -226,7 +226,9 @@ const FinancialBody = () => {
           </Form>
         </div>
         <div className="flex flex-col">
-          <DataTable columns={columns} data={bodyData} />
+          <div className="grid grid-cols-1 overflow-auto">
+            <DataTable columns={columns} data={bodyData} />
+          </div>
           <div className="my-3 flex justify-between">
             <div>
               <Button>Mark as unprocessed</Button>
@@ -263,9 +265,11 @@ const FinancialBody = () => {
             </div>
           </div>
         </div>
-        <DataTable columns={columns2} data={bodyData} />
+        <div className="grid grid-cols-1 overflow-auto">
+          <DataTable columns={columns2} data={bodyData} />
+        </div>
       </div>
-      <div className="p-5">
+      <div className="p-5 grid grid-cols-1 overflow-auto">
         <DataTable
           columns={columns3}
           data={entryData}

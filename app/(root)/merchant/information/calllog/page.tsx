@@ -26,7 +26,7 @@ const page = () => {
       <section>
         <h1 className="mb-3 text-2xl text-sky-500">Call Log / Tasks</h1>
 
-        <div className="w-full rounded-md  p-2">
+        <div className="grid grid-cols-1 overflow-auto text-nowrap rounded-md  p-2">
           <DataTable
             columns={columns}
             data={callLogsTasks}

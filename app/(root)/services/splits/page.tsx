@@ -356,7 +356,8 @@ const ServicesSplits = () => {
                   control={form.control}
                   formName={date.value}
                   label={date.title}
-                  placeholder={`Select ${date.title}`}
+                  //placeholder={`Select ${date.title}`}
+                  placeholder={`Select Date`}
                 />
               ))}
             </div>
@@ -364,7 +365,9 @@ const ServicesSplits = () => {
         </Form>
 
         <div className={cn(isNewOrEdit ? "hidden" : "mt-5")}>
-          <DataTable columns={columns} data={data} />
+          <div className="grid grid-cols-1 overflow-auto">
+            <DataTable columns={columns} data={data} />
+          </div>
           <div className="flex justify-between">
             <div className="mt-5 space-x-5">
               {renderButton.length > 0 &&
@@ -382,7 +385,7 @@ const ServicesSplits = () => {
                       onClick={
                         btn.value === "addNew" || btn.value === "edit"
                           ? () => setIsNewOrEdit(!isNewOrEdit)
-                          : () => {}
+                          : () => { }
                       }
                     >
                       {btn.title}

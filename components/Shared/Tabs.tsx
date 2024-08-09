@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const MerchantMainTabs = (tabs: string | number | any) => {
+const MainTabs = (tabs: string | number | any) => {
   const pathname = usePathname();
 
   return (
@@ -15,7 +15,7 @@ const MerchantMainTabs = (tabs: string | number | any) => {
         return (
           <>
             <div
-              className={`${isActive ? "border-b-8 border-sky-500 text-sky-500" : "text-black dark:text-white"} p-3 text-lg`}
+              className={`${isActive ? "border-b-8 border-sky-500 text-sky-500 pb-1" : "text-black dark:text-white"} p-3 text-lg`}
             >
               <Link href={item.route}>
                 <p className="text-pretty">{item.title}</p>
@@ -28,4 +28,4 @@ const MerchantMainTabs = (tabs: string | number | any) => {
   );
 };
 
-export default MerchantMainTabs;
+export default MainTabs;

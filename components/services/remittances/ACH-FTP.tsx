@@ -216,7 +216,7 @@ const ACHFTP = ({ type }: { type: string }) => {
         <form onSubmit={form.handleSubmit(onSubmit)}>
           {filteredRenderForm.map((item) => {
             return (
-              <div key={item.id} className="grid grid-cols-[20%_80%]">
+              <div key={item.id} className="grid grid-cols-[20%_80%] max-xl:grid-cols-[50%_50%]">
                 {item.type === "ACHEntries" &&
                   (item.merchants ? (
                     <SelectForm
@@ -309,7 +309,7 @@ const ACHFTP = ({ type }: { type: string }) => {
         </form>
       </Form>
 
-      <div className="mt-5">
+      <div className="mt-5 grid grid-cols-1 overflow-auto">
         <DataTable columns={columns} data={data} />
       </div>
     </div>

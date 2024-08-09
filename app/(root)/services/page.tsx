@@ -28,10 +28,10 @@ const ServiceFunderList = () => {
   return (
     <div className="rounded-r-sm rounded-bl-sm border shadow-sm">
       <div className="px-5 py-10">
-        <p className="text-3xl text-blue-500">
+        <p className="text-3xl text-sky-500">
           {isOpen ? "Add Funder" : "Funders List"}
         </p>
-        <div className={cn(isOpen ? "hidden" : "")}>
+        <div className={cn(isOpen ? "hidden" : "")+ "grid grid-cols-1 overflow-auto" } >
           <DataTable
             columns={columns}
             data={funderList}

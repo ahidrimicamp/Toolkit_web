@@ -14,7 +14,7 @@ const page = () => {
         <div className="w-auto">
           <MerchantInfoSummary/>
 
-          <div className='flex gap-5'>
+          <div className='flex max-lg:flex-wrap gap-5'>
             <AccountStatusPreview/>
             <LastCallLogsPreview/>
           </div>

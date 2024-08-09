@@ -100,7 +100,7 @@ export default function NavigationMenuDemo() {
           </NavigationMenuList>
         </NavigationMenu>
 
-        <div className="py-5 text-3xl text-blue-500">
+        <div className="py-5 text-3xl text-sky-500">
           <h1>{activeTitle}</h1>
         </div>
 

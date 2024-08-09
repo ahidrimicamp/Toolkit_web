@@ -9,7 +9,7 @@ interface Props {
   type?: string;
 }
 
-const EquipmentForm = ({ type }: Props) => {
+const OrderPaymentsReportForm = ({ type }: Props) => {
   const renderContent = () => {
     switch (type) {
       case "DateType":
@@ -204,4 +204,4 @@ const EquipmentForm = ({ type }: Props) => {
   );
 };
 
-export default EquipmentForm;
+export default OrderPaymentsReportForm;
