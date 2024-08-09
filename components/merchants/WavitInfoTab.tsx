@@ -10,7 +10,7 @@ const WavitInfoTab = () => {
       id: "1",
       title: "Transactions",
       value: "transactions",
-      route: "/merchant/information/wavitinfo/transactions",
+      route: "/merchant/information/wavitinfo",
     },
     {
       id: "2",
@@ -25,8 +25,8 @@ const WavitInfoTab = () => {
       <div className="m-auto inline-flex gap-1 text-nowrap rounded-md bg-gray-200 p-1 dark:bg-zinc-700 dark:text-white">
         {tabItems.map((item) => {
           const isActive =
-            (pathname?.includes(item.route) && item.title.length > 1) ||
-            pathname === item.title;
+            (pathname?.includes(item.title) && item.title.length > 1) ||
+            pathname === item.route;
 
           return (
             <Link href={item.route} className="" key={item.title}>

@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import React from "react";
 import { Button } from "@/components/ui/button";
@@ -122,7 +121,7 @@ const page = () => {
       <section className="w-full">
         <h1 className="mb-3 text-2xl text-sky-500">Reject / Collections</h1>
 
-        <div className="mb-5 min-h-96 w-full flex-1 rounded-md">
+        <div className="mb-5 grid grid-cols-1 overflow-auto flex-auto rounded-md">
           <DataTable
             columns={columns1}
             data={rejectCollectionsTable1}
@@ -131,8 +130,8 @@ const page = () => {
           />
         </div>
 
-        <div className="flex gap-2 max-md:flex-wrap">
-          <div className="mb-5 min-h-96 w-full flex-auto rounded-md">
+        <div className="flex gap-4 max-xl:flex-wrap">
+          <div className="mb-5 grid grid-cols-1 overflow-auto flex-auto rounded-md">
             <DataTable
               columns={columns2}
               data={rejectCollectionsTable2}
@@ -140,7 +139,7 @@ const page = () => {
               filteredBy="username"
             />
           </div>
-          <div className="w-2/12">
+          <div className="w-fit">
             <Button className="mb-2 w-full bg-gradient-to-r from-[#14ADD6] to-[#384295] px-10 text-white hover:opacity-90">
               Create New Collection
             </Button>

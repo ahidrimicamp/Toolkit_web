@@ -67,6 +67,7 @@ export const newMerchantSchema = z.object({
   BusinessMoTo: z.boolean(),
   DeployBy: z.string(),
 });
+
 export const MerchantInfoSchema = z.object({
   MID: z.string(),
   LegalName: z.string(),
@@ -186,6 +187,173 @@ export const AgentEquipmentSchema = z.object({
   cellPhone: z.string(),
 });
 
+export const newLookupSchema = z.object({
+  MID: z.string(),
+  OrderID: z.string(),
+  Serial: z.string(),
+  Model: z.string(),
+  Condition: z.string(),
+  ShelfItems: z.boolean(),
+});
+
+export const newItemsSchema = z.object({
+  Model: z.string(),
+  Id: z.string(),
+  Description: z.string(),
+  Alias: z.string(),
+  ItemType: z.string(),
+  Style: z.string(),
+  Manufacturer: z.string(),
+  ReorderQty: z.number(),
+  SerialNumber: z.boolean(),
+  TakeInventory: z.boolean(),
+  PhysicallyShippable: z.boolean(),
+  HwPricing: z.number(),
+  DeployFee: z.number(),
+  TaxShipping: z.number(),
+  Total: z.number(),
+  DimensionName: z.string(),
+  DimensionWidth: z.string(),
+  DimensionHeight: z.string(),
+  DimensionLength: z.string(),
+  DimensionWeight: z.string(),
+});
+
+export const newItemDetailSchema = z.object({
+  Condition: z.string(),
+  Serial: z.string(),
+  SortBy: z.string(),
+});
+
+export const newEquipmentOrderSchema = z.object({
+  Merchant: z.string(),
+  MID: z.string(),
+  Status: z.string(),
+  Model: z.string(),
+  NoSerial: z.boolean(),
+  Limit: z.boolean(),
+});
+
+export const newUnassignedEquipmentSchema = z.object({
+  Model: z.string(),
+  Condition: z.string(),
+  Serial: z.string(),
+});
+
+export const newRecentOrdersSchema = z.object({
+  FromDate: z.string(),
+  ToDate: z.string(),
+});
+
+// ADMIN SCHEMAS
+export const newRingCentralUtilitySchema = z.object({
+  DataSource: z.string(),
+  Status: z.string(),
+});
+
+export const newLoadProcessingDataSchema = z.object({
+  ProcessingPeriod: z.string(),
+  Status: z.string(),
+});
+
+export const newThirdPartyProcessorsSchema = z.object({
+  Processor: z.string(),
+  MID: z.string(),
+  ResidualDate: z.string(),
+  CalculateAllMonths: z.boolean(),
+});
+
+export const newFirstDataOmahaSchema = z.object({
+  ResidualDate: z.string(),
+  CheckCalculation: z.boolean(),
+  NutraChargeBacks: z.boolean(),
+  DoNotQueryZeroRecords: z.boolean(),
+  CalculateInitialPassOnly: z.boolean(),
+  SkipSysPrins: z.boolean(),
+  From: z.string(),
+  To: z.string(),
+  CalculateIndividualMID: z.string(),
+  Status: z.string(),
+});
+
+export const newAdjustmentCriteriaSchema = z.object({
+  ResidualDate: z.string(),
+  Agent: z.string(),
+  AgentID: z.string(),
+  AdjustType: z.string(),
+  MID: z.string(),
+  DBALegal: z.string(),
+  Processor: z.string(),
+  Amount: z.string(),
+  Notes: z.string(),
+});
+
+export const newDisplayResidualsSchema = z.object({
+  ResidualDate: z.string(),
+  PayDay: z.boolean(),
+  PayDaySelection: z.string(),
+  ExcludePayDay: z.boolean(),
+  PayGroup: z.boolean(),
+  PayGroupSelection: z.string(),
+  ExcludePayGroup: z.boolean(),
+  ShowOkToPay: z.boolean(),
+  ExcludeNotOkToPay: z.boolean(),
+  ShowNotOkToPay: z.boolean(),
+  OnlyWithEmails: z.boolean(),
+  OnlyMissingEmails: z.boolean(),
+  ResidualsReportsOptIn: z.boolean(),
+  OnlyWithBankingInfo: z.boolean(),
+  OnlyMissingBankingInfo: z.boolean(),
+  OnlyShowPositiveResiduals: z.boolean(),
+  OnlyShowZeroNegativeResiduals: z.boolean(),
+  OnlyShowPhysicalChecks: z.boolean(),
+  EmailReportsToAgent: z.boolean(),
+  EmailReportsToUser: z.boolean(),
+  EmailReportsToWho: z.boolean(),
+  EmailReportsTo: z.string(),
+});
+
+export const newAuditDetailSchema = z.object({
+  AuditType: z.string(),
+  EntryDate: z.string(),
+  ToDate: z.string(),
+});
+
+export const newAdHocSearchSchema = z.object({
+  ReportName: z.string(),
+  MID: z.string(),
+  FromDate: z.string(),
+  ToDate: z.string(),
+  YearMonth: z.string(),
+  UseAO: z.boolean(),
+  SaveToC: z.boolean(),
+  MIDS: z.string(),
+  User: z.string(),
+  Processor: z.string(),
+  AuditType: z.string(),
+  Agent: z.string(),
+  Phrase: z.string(),
+});
+
+export const newEditUserSchema = z.object({
+  UserId: z.string(),
+  Username: z.string(),
+  Email: z.string(),
+  Extension: z.string(),
+  UserStatus: z.string(),
+  ShowRingCentral: z.boolean(),
+  EnableDarkMode: z.boolean(),
+});
+
+export const newAddNewUserSchema = z.object({
+  UserId: z.string(),
+  Username: z.string(),
+  Email: z.string(),
+  Extension: z.string(),
+  UserStatus: z.string(),
+  ShowRingCentral: z.boolean(),
+  EnableDarkMode: z.boolean(),
+});
 
 // Currency format functions
 export const formatCurrency = (

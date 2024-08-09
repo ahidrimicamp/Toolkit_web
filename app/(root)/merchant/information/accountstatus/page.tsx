@@ -1,26 +1,45 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import React from "react";
+import ExtremeDataTable from '@/components/Shared/DataTable/DataTable'
 import { Button } from "@/components/ui/button";
 import { z } from "zod";
-import { newMerchantSchema } from "@/lib/utils";
+import { newMerchantSchema, cn, formatCurrency } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { DataTypes } from "@/types";
-import { Form } from "@/components/ui/form";
+import { Calendar } from '@/components/ui/calendar';
+import { Calendar as CalendarIcon } from "lucide-react";
+import { format } from "date-fns";
+import { ContentItem, DataTypes } from "@/types";
 import {
-  DatePickerForm,
-  SelectForm,
-  CheckboxForm,
-} from "@/components/Shared/InstantForm";
-import DataTable from "@/components/Shared/DataTable/DataTable";
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import {
-  ColumnConfig,
-  createColumns,
-} from "@/components/Shared/DataTable/Columns";
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
+import { DatePickerForm, SelectForm, CheckboxForm } from "@/components/Shared/InstantForm";
+import DataTable from '@/components/Shared/DataTable/DataTable';
+import { ColumnConfig, createColumns } from '@/components/Shared/DataTable/Columns';
 import { accountStatusTable, activityRecordList } from "@/constants";
 
 const page = () => {
+
+
   const form = useForm<z.infer<typeof newMerchantSchema>>({
     resolver: zodResolver(newMerchantSchema),
     defaultValues: {
@@ -66,7 +85,7 @@ const page = () => {
   const columnsConfig: ColumnConfig<DataTypes>[] = [
     { accessorKey: "Date", header: "Date" },
     { accessorKey: "UserID", header: "User ID" },
-    { accessorKey: "SQL", header: "SQL" },
+    { accessorKey: "SQL", header: "SQL" }
   ];
 
   const columns = createColumns(columnsConfig);
@@ -75,43 +94,44 @@ const page = () => {
       <section>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            <h1 className="mb-3 text-2xl text-sky-500">Account Status</h1>
+            <h1 className='text-2xl text-sky-500 mb-3 '>Account Status</h1>
 
-            <div className="flex min-h-80 gap-3">
-              <div className="w-2/3 rounded-md">
+            <div className='flex gap-3 max-xl:flex-wrap'>
+              <div className='flex-auto grid grid-cols-1 overflow-auto rounded-md'>
                 <DataTable
                   columns={columns}
                   data={accountStatusTable}
                   enableColumnFilter={true}
-                  filteredBy="UserID"
+                  filteredBy='UserID' 
                 />
               </div>
-              <div className="w-1/3 p-2">
-                <div className="w-full">
+              <div className="flex-auto p-2 ">
+                <div className='w-full'>
                   <SelectForm
                     control={form.control}
                     formName="SalesRep"
                     label="Select an Activity to Record"
                     content={activityRecordList}
                     placeholder="Select an Activity..."
-                    valueKey="id"
-                    displayKey="title"
+                    valueKey='id'
+                    displayKey='title'
                     disabled={false}
-                    className="mb-2"
+                    className='mb-2'
                   />
-                  <Button className="my-2 w-full bg-gradient-to-r from-[#14ADD6] to-[#384295] text-white hover:opacity-90">
+                  <Button className="w-full mb-2 mt-2 bg-gradient-to-r from-[#14ADD6] to-[#384295] hover:opacity-90 text-white">
                     SUBMIT
                   </Button>
-                  <Button className="mb-2 w-full bg-gradient-to-r from-[#79CB6C] to-[#285C20] py-5 text-white hover:opacity-90">
+                  <Button className="w-full mb-2 py-5 bg-gradient-to-r from-[#79CB6C] to-[#285C20] hover:opacity-90 text-white">
                     MERCHANT APPROVED
                   </Button>
                 </div>
               </div>
+
             </div>
             {/* BOTTOM ROW */}
             <div className="flex flex-wrap gap-4">
               {/* CARD Overall EMV Compliance */}
-              <div className="flex-auto rounded-md border border-gray-400 p-4 shadow-md">
+              <div className="flex-auto border shadow-md rounded-md p-4">
                 <h2>Overall EMV Compliance</h2>
                 <SelectForm
                   control={form.control}
@@ -119,8 +139,8 @@ const page = () => {
                   label="EMV Status"
                   content={activityRecordList}
                   placeholder="Select an EMV Status..."
-                  valueKey="id"
-                  displayKey="title"
+                  valueKey='id'
+                  displayKey='title'
                   disabled={false}
                   className=""
                 />
@@ -130,15 +150,13 @@ const page = () => {
                   label="Method"
                   content={activityRecordList}
                   placeholder="Select a Method..."
-                  valueKey="id"
-                  displayKey="title"
+                  valueKey='id'
+                  displayKey='title'
                   disabled={false}
                   className=""
                 />
                 <div className="gap-1">
-                  <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                    Compliance Date
-                  </label>
+                  <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Compliance Date</label>
                   <DatePickerForm
                     control={form.control}
                     formName="Approval"
@@ -147,9 +165,7 @@ const page = () => {
                   />
                 </div>
                 <div className="gap-1">
-                  <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                    1-Click Verified
-                  </label>
+                  <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">1-Click Verified</label>
                   <DatePickerForm
                     control={form.control}
                     formName="Approval"
@@ -157,9 +173,11 @@ const page = () => {
                     placeholder="mm/dd/2024"
                   />
                 </div>
+
+
               </div>
               {/* Card Solid Portfolio Info */}
-              <div className="flex-auto rounded-md border border-gray-400 p-4 shadow-md">
+              <div className="flex-auto border shadow-md rounded-md p-4">
                 <h2>Solid Portfolio Info</h2>
                 <div className="flex content-center">
                   <CheckboxForm
@@ -167,14 +185,12 @@ const page = () => {
                     formName="ChildMID"
                     label=""
                     placeholder=""
-                    className="mt-3 content-center items-center align-middle"
+                    className="content-center items-center align-middle mt-3"
                   />
-                  <span className="mt-1 content-center">Child MID</span>
+                  <span className="content-center mt-1">Child MID</span>
                 </div>
                 <div className="gap-1">
-                  <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                    Compliance Date
-                  </label>
+                  <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Compliance Date</label>
                   <DatePickerForm
                     control={form.control}
                     formName="Approval"
@@ -182,30 +198,29 @@ const page = () => {
                     placeholder="mm/dd/2024"
                   />
                 </div>
-                <Button className="my-2 w-full bg-gradient-to-r from-[#14ADD6] to-[#384295] text-white hover:opacity-90">
+                <Button className="w-full mb-2 mt-2 bg-gradient-to-r from-[#14ADD6] to-[#384295] hover:opacity-90 text-white">
                   Go To Sale Detail
                 </Button>
               </div>
 
               {/* Card Overall Status */}
-              <div className="flex-auto rounded-md border border-gray-400 p-4 shadow-md">
+              <div className="flex-auto border shadow-md rounded-md p-4">
+
                 <SelectForm
                   control={form.control}
                   formName="SalesRep"
                   label="Select an Overall Status"
                   content={activityRecordList}
                   placeholder="Select an Overall Status..."
-                  valueKey="id"
-                  displayKey="title"
+                  valueKey='id'
+                  displayKey='title'
                   disabled={false}
                   className=""
                 />
                 {/* GRID Status Dates */}
-                <div className="grid grid-flow-col grid-rows-4 gap-2">
+                <div className='grid grid-rows-4 grid-flow-col gap-2'>
                   <div className="gap-1">
-                    <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                      Received Date
-                    </label>
+                    <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Received Date</label>
                     <DatePickerForm
                       control={form.control}
                       formName="Approval"
@@ -214,9 +229,7 @@ const page = () => {
                     />
                   </div>
                   <div className="gap-1">
-                    <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                      Submitted Date
-                    </label>
+                    <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Submitted Date</label>
                     <DatePickerForm
                       control={form.control}
                       formName="Approval"
@@ -225,9 +238,7 @@ const page = () => {
                     />
                   </div>
                   <div className="gap-1">
-                    <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                      Approval Date
-                    </label>
+                    <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Approval Date</label>
                     <DatePickerForm
                       control={form.control}
                       formName="Approval"
@@ -236,9 +247,7 @@ const page = () => {
                     />
                   </div>
                   <div className="gap-1">
-                    <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                      Decline Date
-                    </label>
+                    <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Decline Date</label>
                     <DatePickerForm
                       control={form.control}
                       formName="Approval"
@@ -247,9 +256,7 @@ const page = () => {
                     />
                   </div>
                   <div className="gap-1">
-                    <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                      Withdrawn Date
-                    </label>
+                    <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Withdrawn Date</label>
                     <DatePickerForm
                       control={form.control}
                       formName="Approval"
@@ -258,9 +265,7 @@ const page = () => {
                     />
                   </div>
                   <div className="gap-1">
-                    <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                      Closed Date
-                    </label>
+                    <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Closed Date</label>
                     <DatePickerForm
                       control={form.control}
                       formName="Approval"
@@ -269,9 +274,7 @@ const page = () => {
                     />
                   </div>
                   <div className="gap-1">
-                    <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                      Reopen Date
-                    </label>
+                    <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Reopen Date</label>
                     <DatePickerForm
                       control={form.control}
                       formName="Approval"
@@ -279,17 +282,18 @@ const page = () => {
                       placeholder="mm/dd/yyyy"
                     />
                   </div>
+
                 </div>
 
-                <div className="mt-4 flex justify-between gap-2">
+                <div className='flex mt-4 justify-between gap-2'>
                   <SelectForm
                     control={form.control}
                     formName="SalesRep"
                     label=""
                     content={activityRecordList}
                     placeholder="Select an Item..."
-                    valueKey="id"
-                    displayKey="title"
+                    valueKey='id'
+                    displayKey='title'
                     disabled={false}
                     className="flex-1"
                   />
@@ -299,8 +303,8 @@ const page = () => {
                     label=""
                     content={activityRecordList}
                     placeholder="Select an Item..."
-                    valueKey="id"
-                    displayKey="title"
+                    valueKey='id'
+                    displayKey='title'
                     disabled={false}
                     className="flex-1"
                   />
@@ -310,17 +314,22 @@ const page = () => {
                     label=""
                     content={activityRecordList}
                     placeholder="Select an Item..."
-                    valueKey="id"
-                    displayKey="title"
+                    valueKey='id'
+                    displayKey='title'
                     disabled={false}
                     className="flex-1"
                   />
                 </div>
+
               </div>
+
             </div>
+
           </form>
         </Form>
       </section>
+
+
     </>
   );
 };

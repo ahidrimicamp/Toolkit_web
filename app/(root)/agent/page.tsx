@@ -33,12 +33,14 @@ const Page = () => {
   return (
     <div>
       <h1 className="mb-3 text-2xl text-sky-500">Agent List</h1>
-      <DataTable
-        columns={columns}
-        data={agentData}
-        enableColumnFilter={true}
-        filteredBy="name"
-      />
+      <div className="grid grid-cols-1 overflow-auto">
+        <DataTable
+          columns={columns}
+          data={agentData}
+          enableColumnFilter={true}
+          filteredBy="name"
+        />
+      </div>
     </div>
   );
 };

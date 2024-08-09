@@ -28,7 +28,7 @@ const AgentResidualsContent = () => {
           return (
             <div key={item.value}>
               <Button
-                className={`${isActive ? "bg-slate-300 text-black shadow-md dark:bg-zinc-800 dark:text-white" : "text-black dark:text-white"} flex w-full items-center justify-start gap-4 rounded-lg bg-transparent p-4`}
+                className={`${isActive ? "bg-slate-300 shadow-md dark:bg-zinc-800 dark:text-white text-sky-500" : "text-black dark:text-white"} flex w-full items-center justify-start gap-4 rounded-lg bg-transparent p-4`}
                 onClick={() => handleClick(item.value)}
                 variant="ghost"
               >
@@ -38,7 +38,10 @@ const AgentResidualsContent = () => {
           );
         })}
       </div>
-      {RenderComponents(activeItem || "fd-omaha")}
+      <div className="grid grid-cols-1 overflow-auto">
+
+        {RenderComponents(activeItem || "fd-omaha")}
+      </div>
     </div>
   );
 };

@@ -23,6 +23,7 @@ import {
 import { DataTypes } from "@/types";
 
 const page = () => {
+
   const form = useForm<z.infer<typeof newMerchantSchema>>({
     resolver: zodResolver(newMerchantSchema),
     defaultValues: {
@@ -106,7 +107,7 @@ const page = () => {
 
         <div className="flex gap-4 max-lg:flex-wrap">
           {/* FIRST COLUMN */}
-          <div className="mb-5 min-h-96 w-fit flex-auto rounded-md bg-zinc-800">
+          <div className="mb-5 grid grid-cols-1 overflow-auto flex-auto rounded-md">
             <DataTable
               columns={columns1}
               data={equipmentTable1}
@@ -122,7 +123,7 @@ const page = () => {
                 className="space-y-8"
               >
                 {/* Activity Row */}
-                <div className="flex gap-2">
+                <div className="flex max-lg:flex-wrap gap-2">
                   <Button className="flex-auto self-end bg-gradient-to-r from-[#C05353] to-[#8F0000] p-1 text-white hover:opacity-90">
                     Delete Order
                   </Button>
@@ -153,7 +154,7 @@ const page = () => {
                     </span>
                   </div>
                 </div>
-                <div className="mb-5 min-h-96 w-full flex-1 rounded-md bg-zinc-800">
+                <div className="mb-5 grid grid-cols-1 overflow-auto flex-auto rounded-md  ">
                   <DataTable
                     columns={columns2}
                     data={equipmentTable2}
@@ -172,7 +173,7 @@ const page = () => {
                     Send Email
                   </Button>
                 </div>
-                <div className="mb-5 min-h-96 w-full flex-1 rounded-md bg-zinc-800">
+                <div className="mb-5 grid grid-cols-1 overflow-auto flex-auto rounded-md  ">
                   <DataTable
                     columns={columns3}
                     data={equipmentTable3}

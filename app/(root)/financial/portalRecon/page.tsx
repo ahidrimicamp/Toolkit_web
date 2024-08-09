@@ -34,12 +34,14 @@ const FinancialPortalRecon = () => {
       <div className="flex flex-col">
         <DatePickerWithRange />
       </div>
-      <DataTable
-        columns={columns}
-        data={entryData}
-        enableColumnFilter={true}
-        filteredBy="P Vendor"
-      />
+      <div className="grid grid-cols-1 overflow-auto">
+        <DataTable
+          columns={columns}
+          data={entryData}
+          enableColumnFilter={true}
+          filteredBy="P Vendor"
+        />
+      </div>
     </div>
   );
 };

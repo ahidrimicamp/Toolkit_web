@@ -112,14 +112,14 @@ const ServiceMerchant = () => {
     <div className="rounded-r-sm rounded-bl-sm border shadow-sm">
       <div className="px-4 py-10">
         <div className="flex flex-col">
-          <p className="text-3xl text-blue-500">
+          <p className="text-3xl text-sky-500">
             {isOpen
               ? "Add New Merchant"
               : isEdit
                 ? "Edit Merchant"
                 : "Merchant List"}
           </p>
-          <div className={cn(isOpen || isEdit ? "hidden" : "")}>
+          <div className={cn(isOpen || isEdit ? "hidden" : "") + "grid grid-cols-1 overflow-auto"}>
             <DataTable
               columns={columns}
               data={data}

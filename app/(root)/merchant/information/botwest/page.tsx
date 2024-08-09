@@ -59,100 +59,101 @@ const page = () => {
     },
     {
       id: 2,
-      title: "Branch Name",
-      type: "input",
-      value: "",
-    },
-    {
-      id: 3,
-      title: "ABA Routing #",
-      type: "input",
-      value: "",
-    },
-    {
-      id: 4,
-      title: "DDA Checking Act. #",
-      type: "input",
-      value: "",
-    },
-    {
-      id: 5,
-      title: "Federal Tax ID #",
-      type: "input",
-      value: "",
-    },
-    {
-      id: 6,
-      title: "Banker",
-      type: "input",
-      value: "",
-    },
-    {
-      id: 7,
-      title: "Division Name",
-      type: "input",
-      value: "",
-    },
-    {
-      id: 8,
-      title: "Region Name",
-      type: "input",
-      value: "",
-    },
-    {
-      id: 9,
-      title: "Segment Name",
-      type: "input",
-      value: "",
-    },
-    {
-      id: 10,
-      title: "Referral Lead #",
-      type: "input",
-      value: "",
-    },
-    {
-      id: 11,
-      title: "Entity",
-      type: "input",
-      value: "",
-    },
-    {
-      id: 12,
-      title: "Client Group",
-      type: "input",
-      value: "",
-    },
-    {
-      id: 13,
       title: "Agent / Rep. Code",
       type: "input",
       value: "",
     },
     {
-      id: 14,
+      id: 3,
+      title: "Branch Name",
+      type: "input",
+      value: "",
+    },
+    {
+      id: 4,
       title: "Branch Code",
       type: "input",
       value: "",
     },
     {
-      id: 15,
+      id: 5,
+      title: "ABA Routing #",
+      type: "input",
+      value: "",
+    },
+    {
+      id: 6,
+      title: "DDA Checking Act. #",
+      type: "input",
+      value: "",
+    },
+    {
+      id: 7,
+      title: "Federal Tax ID #",
+      type: "input",
+      value: "",
+    },
+    {
+      id: 8,
+      title: "Banker",
+      type: "input",
+      value: "",
+    },
+    {
+      id: 9,
       title: "Banker Employee ID",
       type: "input",
       value: "",
     },
     {
-      id: 16,
+      id: 10,
+      title: "Division Name",
+      type: "input",
+      value: "",
+    },
+    {
+      id: 11,
       title: "Division / LOB #",
       type: "input",
       value: "",
     },
     {
-      id: 17,
+      id: 12,
+      title: "Region Name",
+      type: "input",
+      value: "",
+    },
+    {
+      id: 13,
       title: "Region #",
       type: "input",
       value: "",
     },
+    {
+      id: 14,
+      title: "Segment Name",
+      type: "input",
+      value: "",
+    },
+    {
+      id: 15,
+      title: "Referral Lead #",
+      type: "input",
+      value: "",
+    },
+    {
+      id: 16,
+      title: "Entity",
+      type: "input",
+      value: "",
+    },
+    {
+      id: 17,
+      title: "Client Group",
+      type: "input",
+      value: "",
+    },
+ 
   ];
 
   return (
@@ -168,19 +169,19 @@ const page = () => {
               Information
             </h1>
 
-            <div className="grid grid-flow-col grid-rows-10 gap-2">
+            <div className="grid grid-flow-row grid-cols-2 max-lg:grid-cols-1 gap-2">
               {itemsList.map((item) => {
                 return (
                   <div key={item.id} className="m-auto flex w-full gap-4">
-                    <div className="w-2/4 content-center text-end">
-                      <p className="">{item.title}</p>
+                    <div className="w-1/3 content-center text-end">
+                      <p className="max-lg:text-sm">{item.title}</p>
                     </div>
-                    <div className="w-1/2">
+                    <div className="w-2/3">
                       <InputForm
                         control={form.control}
                         formName="Filter3"
                         label=""
-                        placeholder="Enter text..."
+                        placeholder="Enter value"
                       />
                     </div>
                   </div>

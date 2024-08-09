@@ -44,7 +44,7 @@ const MerchantShortcuts = () => {
       
       <div className="flex w-auto flex-wrap justify-center gap-4 rounded-md text-lg text-sky-500">
         {/* MERCHANT ICON */}
-        <div className="flex flex-1 flex-col justify-center rounded-md border border-gray-400 bg-transparent px-2 shadow-md">
+        <div className="flex flex-1 flex-col justify-center rounded-md border bg-transparent px-2 shadow-md">
           <div className="flex justify-center">
             <h1>Merchant</h1>
           </div>
@@ -76,7 +76,7 @@ const MerchantShortcuts = () => {
           </Dialog>
         </div>
 
-        <div className="flex-1 justify-center rounded-md border border-gray-400 bg-transparent p-5 text-center shadow-md">
+        <div className="flex-1 justify-center rounded-md border bg-transparent p-5 text-center shadow-md">
           <h1>Tasks / Logs</h1>
           <div className="">
             <Image
@@ -93,7 +93,7 @@ const MerchantShortcuts = () => {
             </h1>
           </div>
         </div>
-        <div className="flex-1 justify-center rounded-md border border-gray-400 bg-transparent p-5 text-center shadow-md">
+        <div className="flex-1 justify-center rounded-md border bg-transparent p-5 text-center shadow-md">
           <h1>Documents</h1>
           <div className="">
             <Image
@@ -111,7 +111,7 @@ const MerchantShortcuts = () => {
           </div>
         </div>
 
-        <div className="flex-1 justify-center rounded-md border border-gray-400 bg-transparent p-5 text-center shadow-md">
+        <div className="flex-1 justify-center rounded-md border bg-transparent p-5 text-center shadow-md">
           <h1>Equipment</h1>
           <div className="">
             <Image
@@ -128,7 +128,7 @@ const MerchantShortcuts = () => {
           </div>
         </div>
 
-        <div className="flex-1 justify-center rounded-md border border-gray-400 bg-transparent p-5 text-center shadow-md">
+        <div className="flex-1 justify-center rounded-md border bg-transparent p-5 text-center shadow-md">
           <h1>Call Logs</h1>
           <div className="">
             <Image
@@ -145,7 +145,7 @@ const MerchantShortcuts = () => {
           </div>
         </div>
 
-        <div className="flex-1 justify-center rounded-md border border-gray-400 bg-transparent p-5 text-center shadow-md">
+        <div className="flex-1 justify-center rounded-md border bg-transparent p-5 text-center shadow-md">
           <h1>Leasing</h1>
           <div className="">
             <Image

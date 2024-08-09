@@ -32,7 +32,7 @@ export const sidebarLinks: SidebarLink[] = [
   },
   {
     icon: Store,
-    route: "/merchant/find",
+    route: "/merchant",
     desc: "Find MID, Agent, and Processor.",
     label: "Merchant",
     options: ["MID", "Agent", "Processor"],
@@ -128,7 +128,7 @@ export const merchantMainTabs = [
   {
     title: "Find",
     value: "find",
-    route: "/merchant/find",
+    route: "/merchant",
   },
   {
     title: "Summary",
@@ -316,7 +316,7 @@ export const tabItems = [
     id: "15",
     title: "WAVit Info",
     value: "wavitInfo",
-    route: "/merchant/information/wavitinfo/",
+    route: "/merchant/information/wavitinfo",
     icon: "/infoTabs/info-item.svg",
   },
   {
@@ -2263,3 +2263,929 @@ export const reportList1 = [
     value: "8600/9700",
   },
 ];
+
+
+
+
+// EQUIPMENT DATA
+
+export const equipmentMainTabs = [
+  {
+    title: "Equipment",
+    value: "equipments",
+    route: "/equipment",
+  },
+  {
+    title: "Orders / Payments",
+    value: "ordersPayments",
+    route: "/equipment/ordersPayments",
+  },
+];
+
+
+export const EquipmentTabs = [
+  {
+    id: "1",
+    title: "Lookup",
+    value: "lookup",
+  },
+  {
+    id: "2",
+    title: "Items",
+    value: "items",
+  },
+  {
+    id: "3",
+    title: "Reports",
+    value: "reports",
+  }
+];
+
+export const ModelSelectList = [
+  {
+    id: 1,
+    title: "Clover Flex LTE (Gen 2)",
+    value: "cloverFlexLteGen2",
+  },
+  {
+    id: 2,
+    title: "Clover Flex LTE (Gen 3)",
+    value: "cloverFlexLteGen3",
+  },
+  {
+    id: 3,
+    title: "Clover Flex",
+    value: "cloverFlex",
+  },
+  {
+    id: 4,
+    title: "Dejavoo Gen 1",
+    value: "dejavooGen1",
+  },
+]
+export const ConditionSelectList = [
+  {
+    id: 1,
+    title: "New",
+    value: "new",
+  },
+  {
+    id: 2,
+    title: "Used",
+    value: "used",
+  },
+  {
+    id: 3,
+    title: "Refurbished",
+    value: "refurbished",
+  },
+]
+export const lookupForm = [
+  {
+    id: 1,
+    title: "MID",
+    type: "input",
+    placeholder: "MID",
+    formName: "MID",
+    value: "",
+    
+  },
+  {
+    id: 2,
+    title: "Order ID",
+    type: "input",
+    placeholder: "Order ID",
+    formName: "OrderID",
+    value: "",
+    
+  },
+  {
+    id: 3,
+    title: "Serial #",
+    type: "input",
+    placeholder: "Serial #",
+    formName: "Serial",
+    value: "",
+    
+  },
+  {
+    id: 4,
+    title: "Model",
+    type: "selectBox",
+    placeholder: "Select an option...",
+    formName: "Model",
+    value: "",
+    content: ModelSelectList,
+  },
+  {
+    id: 5,
+    title: "Condition",
+    type: "selectBox",
+    placeholder: "Select a condition...",
+    formName: "Condition",
+    value: "",
+    content: ConditionSelectList,
+  },
+  {
+    id: 6,
+    title: "Show Shelf Items",
+    type: "checkbox",
+    placeholder: "",
+    formName: "ShelfItems",
+    value: "",
+    
+  },
+]
+
+export const LookupTable: DataTypes[] = [
+  {
+    Model: "Clover Mobile with WiFi & 3G",
+    Condition: "New",
+    Serial: "SN12345678",
+    MID: "1234567890",
+    DBA: "MiCamp Solutions",
+    Status: "4 - Shipped",
+    Del: "N",
+    Date: "08/02/2024",
+  },
+  {
+    Model: "Clover Mobile with WiFi & 3G",
+    Condition: "New",
+    Serial: "SN12345678",
+    MID: "1234567890",
+    DBA: "MiCamp Solutions",
+    Status: "4 - Shipped",
+    Del: "N",
+    Date: "08/02/2024",
+  },
+  {
+    Model: "Clover Mobile with WiFi & 3G",
+    Condition: "New",
+    Serial: "SN12345678",
+    MID: "1234567890",
+    DBA: "MiCamp Solutions",
+    Status: "4 - Shipped",
+    Del: "N",
+    Date: "08/02/2024",
+  },
+  {
+    Model: "Clover Lite LTE (Gen 2)",
+    Condition: "New",
+    Serial: "SN12345678",
+    MID: "1234567890",
+    DBA: "MiCamp Solutions",
+    Status: "4 - Shipped",
+    Del: "N",
+    Date: "08/02/2024",
+  },
+]
+
+export const itemsForm = [
+  {
+    id: 1,
+    title: "Model",
+    type: "selectBox",
+    placeholder: "Select a model...",
+    formName: "Model",
+    value: "",
+    content: ModelSelectList ,
+  },
+  {
+    id: 2,
+    title: "ID",
+    type: "input",
+    placeholder: "ID",
+    formName: "Id",
+    value: "",
+  },
+  {
+    id: 3,
+    title: "Description",
+    type: "input",
+    placeholder: "Description",
+    formName: "Description",
+    value: "",
+  },
+  {
+    id: 4,
+    title: "Alias",
+    type: "input",
+    placeholder: "Alias",
+    formName: "Alias",
+    value: "",
+  },
+  {
+    id: 5,
+    title: "Item Type",
+    type: "selectBox",
+    placeholder: "Select a type...",
+    formName: "ItemType",
+    value: "",
+    content: ConditionSelectList,
+  },
+  {
+    id: 6,
+    title: "Style",
+    type: "selectBox",
+    placeholder: "Select a style...",
+    formName: "Style",
+    value: "",
+    content: ConditionSelectList,
+  },
+  {
+    id: 7,
+    title: "Manufacturer",
+    type: "selectBox",
+    placeholder: "Select an Item...",
+    formName: "Manufacturer",
+    value: "",
+    content: ConditionSelectList,
+  },
+  {
+    id: 8,
+    title: "ReorderQty",
+    type: "input",
+    placeholder: "Select an Item...",
+    formName: "ReorderQty",
+    value: "",
+  },
+  {
+    id: 9,
+    title: "Does item have a serial number?",
+    type: "checkbox",
+    placeholder: "",
+    formName: "SerialNumber",
+    value: "",
+  },
+  {
+    id: 10,
+    title: "Take Inventory of this Item",
+    type: "checkbox",
+    placeholder: "Select an Item...",
+    formName: "TakeInventory",
+    value: "",
+  },
+  {
+    id: 11,
+    title: "Physically Shippable",
+    type: "checkbox",
+    placeholder: "",
+    formName: "PhysicallyShippable",
+    value: "",
+  },
+]
+
+export const serialList = [
+  {
+    id: 1,
+    title: "SN123456782",
+    value: "SN123456782",
+  },
+  {
+    id: 2,
+    title: "SN12345678",
+    value: "SN12345678",
+  },
+  {
+    id: 3,
+    title: "SN123456",
+    value: "SN123456",
+  },
+  {
+    id: 4,
+    title: "SN123456251",
+    value: "SN123456251",
+  },
+]
+
+export const sortByList = [
+  {
+    id: 1,
+    title: "Condition",
+    value: "condition",
+  },
+  {
+    id: 2,
+    title: "Date Added",
+    value: "dateAdded",
+  },
+  {
+    id: 3,
+    title: "Serial #",
+    value: "serial",
+  },
+]
+
+export const ordersPaymentsTabs = [
+  {
+    id: "1",
+    title: "Fill Orders",
+    value: "fillOrders",
+  },
+  {
+    id: "2",
+    title: "Recent Orders",
+    value: "recentOrders",
+  },
+  {
+    id: "3",
+    title: "Reports",
+    value: "reports",
+  }
+];
+
+export const RecentOrderTable = [
+  {
+    DBA: "COFFEE SIP",
+    Date: "08/05/2024",
+    Status: "1 - In Process",
+    MID: "321654987456",
+    Order: "446851",
+    Agent: "The Merchant Hub LLC",
+    Tracking: "277561984651321",
+  },
+  {
+    DBA: "SAMS SERVICE STATION",
+    Date: "08/05/2024",
+    Status: "5 - Completed",
+    MID: "321654987456",
+    Order: "446852",
+    Agent: "Elevated Payments, LLC",
+    Tracking: "3215649123184651",
+  },
+  {
+    DBA: "COFFEE SIP",
+    Date: "08/05/2024",
+    Status: "1 - In Process",
+    MID: "321654987456",
+    Order: "446851",
+    Agent: "The Merchant Hub LLC",
+    Tracking: "277561984651321",
+  },
+  {
+    DBA: "SAMS SERVICE STATION",
+    Date: "08/05/2024",
+    Status: "5 - Completed",
+    MID: "321654987456",
+    Order: "446852",
+    Agent: "Elevated Payments, LLC",
+    Tracking: "3215649123184651",
+  },
+  {
+    DBA: "COFFEE SIP",
+    Date: "08/05/2024",
+    Status: "1 - In Process",
+    MID: "321654987456",
+    Order: "446851",
+    Agent: "The Merchant Hub LLC",
+    Tracking: "277561984651321",
+  },
+  {
+    DBA: "SAMS SERVICE STATION",
+    Date: "08/05/2024",
+    Status: "5 - Completed",
+    MID: "321654987456",
+    Order: "446852",
+    Agent: "Elevated Payments, LLC",
+    Tracking: "3215649123184651",
+  },
+  {
+    DBA: "COFFEE SIP",
+    Date: "08/05/2024",
+    Status: "1 - In Process",
+    MID: "321654987456",
+    Order: "446851",
+    Agent: "The Merchant Hub LLC",
+    Tracking: "277561984651321",
+  },
+  {
+    DBA: "SAMS SERVICE STATION",
+    Date: "08/05/2024",
+    Status: "5 - Completed",
+    MID: "321654987456",
+    Order: "446852",
+    Agent: "Elevated Payments, LLC",
+    Tracking: "3215649123184651",
+  }, 
+]
+
+// ADMIN DATA
+
+export const adminMainTabs = [
+  {
+    title: "Data Imports",
+    value: "dataImports",
+    route: "/admin",
+  },
+  {
+    title: "Residuals",
+    value: "residuals",
+    route: "/admin/residuals",
+  },
+  {
+    title: "Database",
+    value: "database",
+    route: "/admin/database",
+  },
+  {
+    title: "Ad Hoc",
+    value: "adHoc",
+    route: "/admin/adHoc",
+  },
+  {
+    title: "DB Operations",
+    value: "dbOperations",
+    route: "/admin/dbOperations",
+  },
+  {
+    title: "User Admin",
+    value: "userAdmin",
+    route: "/admin/userAdmin",
+  },
+];
+
+export const adminResidualsTabs = [
+  {
+    id: "1",
+    title: "Calculate",
+    value: "calculate",
+  },
+  {
+    id: "2",
+    title: "Adjustments",
+    value: "adjustments",
+  },
+  {
+    id: "3",
+    title: "Reports",
+    value: "reports",
+  },
+  {
+    id: "4",
+    title: "Display Residuals",
+    value: "displayResiduals",
+  },
+];
+
+export const thirdPartyForm = [
+  {
+    id: 1,
+    title: "Processor",
+    type: "selectBox",
+    placeholder: "Select Processor",
+    formName: "Processor",
+    value: "",
+    content: ModelSelectList,
+  },
+  {
+    id: 2,
+    title: "Calculate for individual MID",
+    type: "input",
+    placeholder: "Enter MID",
+    formName: "MID",
+    value: "",
+    
+  },
+  {
+    id: 3,
+    title: "Residual Date",
+    type: "date",
+    placeholder: "",
+    formName: "ResidualDate",
+    value: "",
+    
+  },
+  {
+    id: 4,
+    title: "Model",
+    type: "checkbox",
+    placeholder: "Calculate for all months after stated date",
+    formName: "CalculateAllMonths",
+    value: "",
+
+  },
+]
+
+export const firstDataOmahaForm = [
+  {
+    id: 1,
+    title: "Residual Date",
+    type: "date",
+    placeholder: "",
+    formName: "ResidualDate",
+    value: "",
+
+  },
+  {
+    id: 2,
+    title: "",
+    type: "checkbox",
+    placeholder: "Check if calculation already exists and pass over if it does",
+    formName: "CheckCalculation",
+    value: "",
+    
+  },
+  {
+    id: 3,
+    title: "",
+    type: "checkbox",
+    placeholder: "Pass through Nutra chargebacks",
+    formName: "NutraChargeBacks",
+    value: "",
+    
+  },
+  {
+    id: 4,
+    title: "",
+    type: "checkbox",
+    placeholder: "Do not query zero records",
+    formName: "DoNotQueryZeroRecords",
+    value: "",
+  },
+  {
+    id: 5,
+    title: "",
+    type: "checkbox",
+    placeholder: "Calculate Initial Pass Only",
+    formName: "CalculateInitialPassOnly",
+    value: "",
+  },
+  {
+    id: 6,
+    title: "",
+    type: "checkbox",
+    placeholder: "Skip Certain Sys/Prins",
+    formName: "SkipSysPrins",
+    value: "",
+  },
+  {
+    id: 7,
+    title: "From",
+    type: "input",
+    placeholder: "1",
+    formName: "From",
+    value: "",
+  },
+  {
+    id: 8,
+    title: "To",
+    type: "input",
+    placeholder: "99999",
+    formName: "To",
+    value: "",
+  },
+  {
+    id: 9,
+    title: "Calculate for Individual MID",
+    type: "input",
+    placeholder: "Submit MID in the 16 (trailing digit) format",
+    formName: "CalculateIndividualMID",
+    value: "",
+  },
+  {
+    id: 10,
+    title: "Status",
+    type: "input",
+    placeholder: "Enter the status",
+    formName: "Status",
+    value: "",
+  },
+]
+
+export const adjustmentTable = [
+  {
+    Date: "08/05/2024",
+    MID: "8763921873",
+    DBA: "Example DBA",
+    Agent: "Zero Fee Processing",
+    Type: "Type 1",
+    Amount: "$1.000,0",
+    Notes: "Redirection",
+  },
+  {
+    Date: "08/05/2024",
+    MID: "8763921873",
+    DBA: "Example DBA",
+    Agent: "2G Financial LLC",
+    Type: "Residual Adjustment",
+    Amount: "$1.740,0",
+    Notes: "Redirection",
+  },
+  {
+    Date: "08/05/2024",
+    MID: "8763921873",
+    DBA: "Example DBA",
+    Agent: "Zero Fee Processing",
+    Type: "Residual Adjustment",
+    Amount: "$2.501,0",
+    Notes: "Redirection",
+  },
+  {
+    Date: "08/05/2024",
+    MID: "8763921873",
+    DBA: "Example DBA",
+    Agent: "Woody Enterp.",
+    Type: "Type 1",
+    Amount: "$2.240.0",
+    Notes: "Redirection",
+  },
+]
+
+export const displayResidualsTable = [
+  {
+    Id: 112,
+    AgentName: "MiCamp Solutions 21st",
+    YesPay: "1",
+    Send: "0",
+    Day: "21",
+    Phys: "0",
+    Group: "",
+    RoutingNo: "654654645",
+    AccountNo: "561123561651",
+    Amount: "$ 1.250,00",
+    RptType: "EXCEL",
+    EmailList: "micamp@support.com",
+  },
+  {
+    Id: 112,
+    AgentName: "MiCamp Solutions 21st",
+    YesPay: "1",
+    Send: "0",
+    Day: "21",
+    Phys: "0",
+    Group: "",
+    RoutingNo: "654654645",
+    AccountNo: "561123561651",
+    Amount: "$ 1.250,00",
+    RptType: "EXCEL",
+    EmailList: "micamp@support.com",
+  },
+  {
+    Id: 112,
+    AgentName: "MiCamp Solutions 21st",
+    YesPay: "1",
+    Send: "0",
+    Day: "21",
+    Phys: "0",
+    Group: "",
+    RoutingNo: "654654645",
+    AccountNo: "561123561651",
+    Amount: "$ 1.250,00",
+    RptType: "EXCEL",
+    EmailList: "micamp@support.com",
+  },
+]
+
+export const adminDatabaseTabs = [
+  {
+    id: "1",
+    title: "Users",
+    value: "users",
+  },
+  {
+    id: "2",
+    title: "Audit",
+    value: "audit",
+  },
+];
+
+export const usersTable = [
+  {
+    Id: 1,
+    Name: "Alice W.",
+    Email: "alice.w@example.com",
+    Roles: "User",
+    Group: "Maintenance",
+    Confirmed: "Yes",
+    Status: "No",
+    LockUnlock: "Unlocked"
+  },
+  {
+    Id: 2,
+    Name: "Brian T.",
+    Email: "brian.t@example.com",
+    Roles: "Manager",
+    Group: "Inventory",
+    Confirmed: "No",
+    Status: "Yes",
+    LockUnlock: "Locked"
+  },
+  {
+    Id: 3,
+    Name: "Catherine L.",
+    Email: "catherine.l@example.com",
+    Roles: "Admin",
+    Group: "Equipment",
+    Confirmed: "Yes",
+    Status: "Yes",
+    LockUnlock: "Unlocked"
+  },
+  {
+    Id: 4,
+    Name: "David M.",
+    Email: "david.m@example.com",
+    Roles: "User",
+    Group: "Logistics",
+    Confirmed: "Yes",
+    Status: "No",
+    LockUnlock: "Locked"
+  },
+  {
+    Id: 5,
+    Name: "Eva J.",
+    Email: "eva.j@example.com",
+    Roles: "Manager",
+    Group: "Sales",
+    Confirmed: "No",
+    Status: "Yes",
+    LockUnlock: "Unlocked"
+  },
+  {
+    Id: 6,
+    Name: "Frank R.",
+    Email: "frank.r@example.com",
+    Roles: "Admin",
+    Group: "Security",
+    Confirmed: "Yes",
+    Status: "Yes",
+    LockUnlock: "Locked"
+  },
+  {
+    Id: 7,
+    Name: "Grace S.",
+    Email: "grace.s@example.com",
+    Roles: "User",
+    Group: "Finance",
+    Confirmed: "No",
+    Status: "No",
+    LockUnlock: "Unlocked"
+  },
+  {
+    Id: 8,
+    Name: "Henry D.",
+    Email: "henry.d@example.com",
+    Roles: "Manager",
+    Group: "Support",
+    Confirmed: "Yes",
+    Status: "Yes",
+    LockUnlock: "Locked"
+  },
+  {
+    Id: 9,
+    Name: "Isabella N.",
+    Email: "isabella.n@example.com",
+    Roles: "Admin",
+    Group: "Training",
+    Confirmed: "Yes",
+    Status: "No",
+    LockUnlock: "Unlocked"
+  },
+  {
+    Id: 10,
+    Name: "Jack P.",
+    Email: "jack.p@example.com",
+    Roles: "User",
+    Group: "Research",
+    Confirmed: "No",
+    Status: "Yes",
+    LockUnlock: "Locked"
+  }
+] 
+
+export const auditTypeSelectList = [
+  {
+    id: 1,
+    title: "ACH Reject",
+    value: "achReject",
+  },
+  {
+    id: 2,
+    title: "Agent",
+    value: "agent",
+  },
+  {
+    id: 3,
+    title: "CF ACH Payment",
+    value: "cfAchPayment",
+  },
+  {
+    id: 4,
+    title: "CF ACH Receipt",
+    value: "cfAchReceipt",
+  },
+  {
+    id: 5,
+    title: "CF Bank Entry",
+    value: "cfBankEntry",
+  },
+  {
+    id: 6,
+    title: "CF Vendor",
+    value: "cfVendor",
+  },
+  {
+    id: 7,
+    title: "Equipment Detail",
+    value: "equipmentDetail",
+  },
+  {
+    id: 8,
+    title: "Equipment Invoice",
+    value: "equipmentInvoice",
+  },
+  {
+    id: 9,
+    title: "Equipment Model",
+    value: "equipmentModel",
+  },
+  {
+    id: 10,
+    title: "Equipment Order",
+    value: "equipmentOrder",
+  },
+  {
+    id: 11,
+    title: "Equipment Pay",
+    value: "equipmentPay",
+  },
+  {
+    id: 12,
+    title: "Jarvis Document",
+    value: "jarvisDocument",
+  },
+  {
+    id: 13,
+    title: "Merchant",
+    value: "merchant",
+  },
+  {
+    id: 14,
+    title: "Merchant BOTW",
+    value: "merchantbotw",
+  },
+  {
+    id: 15,
+    title: "Pay Detail",
+    value: "payDetail",
+  },
+  {
+    id: 16,
+    title: "Print Shipping Label",
+    value: "printShippingLabel",
+  },
+  {
+    id: 17,
+    title: "Reject Detail",
+    value: "rejectDetail",
+  },
+  {
+    id: 18,
+    title: "Shipping Detail",
+    value: "shippingDetail",
+  },
+  {
+    id: 19,
+    title: "Task Detail",
+    value: "taskDetail",
+  },
+  {
+    id: 20,
+    title: "User Login",
+    value: "userLogin",
+  },
+]
+
+export const auditDetailsTable = [
+  {
+    AuditId: "1254",
+    auditTypeSelectList: "",
+    ItemId: "12",
+    Date: "08/06/2024",
+    UserName: "hcosta",
+    TextAuditDescription: "text audit desc text audit desc text audit desc ",
+  },
+  {
+    AuditId: "1254",
+    auditTypeSelectList: "",
+    ItemId: "12",
+    Date: "08/06/2024",
+    UserName: "hcosta",
+    TextAuditDescription: "text audit desc text audit desc text audit desc ",
+  },
+  {
+    AuditId: "1254",
+    auditTypeSelectList: "",
+    ItemId: "12",
+    Date: "08/06/2024",
+    UserName: "hcosta",
+    TextAuditDescription: "text audit desc text audit desc text audit desc ",
+  },
+  {
+    AuditId: "1254",
+    auditTypeSelectList: "",
+    ItemId: "12",
+    Date: "08/06/2024",
+    UserName: "hcosta",
+    TextAuditDescription: "text audit desc text audit desc text audit desc ",
+  },
+]
