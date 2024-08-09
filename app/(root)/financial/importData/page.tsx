@@ -29,7 +29,7 @@ const FinancialImportData = () => {
             <div className="flex flex-col items-center justify-center">
               <Textarea
                 placeholder="Text area..."
-                className="my-5 h-[14vh] w-[650px] resize-none"
+                className="my-5 h-[14vh] w-full resize-none"
               />
               <Button>Import</Button>
             </div>

@@ -23,16 +23,14 @@ const FDOmaha = () => {
     { accessorKey: "name", header: "Name" },
     { accessorKey: "email", header: "Email" },
     { accessorKey: "phone", header: "Phone" },
-    // { accessorKey: "department", header: "Department" },
-    // { accessorKey: "location", header: "Location" },
-    // { accessorKey: "status", header: "Status" },
+
   ];
 
   const columns = createColumns(columnsConfig);
   return (
-    <div className="flex w-full flex-col">
-      <div className="my-5 text-center">
-        <div className="w-full">
+    
+      <div className="my-5 text-center h-auto">
+        <div className="grid grid-cols-1 overflow-auto">
           <DataTable columns={columns} data={agentData} enableVisibility={true} />
         </div>
         <div className="mt-5 grid grid-cols-2 gap-3">
@@ -96,7 +94,7 @@ const FDOmaha = () => {
           </div>
         </div>
       </div>
-    </div>
+    
   );
 };
 
@@ -112,6 +110,7 @@ const FDNorth = () => {
   return (
     <div className="flex w-fit flex-col">
       <div className="my-5 text-center">
+        <div className="grid grid-cols-1 overflow-auto"></div>
         <DataTable columns={columns} data={agentData} enableVisibility={true} />
         <div className="mt-5 grid grid-cols-2 gap-3">
           <div className="grid grid-cols-2">

@@ -76,12 +76,12 @@ const AccountStatusPreview = () => {
 
   return (
     <>
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          <div className="flex-auto mb-3 mt-0 grow rounded-lg border  p-4 shadow-md">
+      <div className="flex-auto mb-3 mt-0 grow rounded-lg border  p-4 shadow-md">
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <h1 className="text-3xl text-sky-500">Account Status Preview</h1>
             <div className="flex gap-4">
-              <div className='rounded-md flex-auto '>
+              <div className='grid grid-cols-1 overflow-auto '>
                 <DataTable
                   columns={columns}
                   data={accountStatusTable}
@@ -106,9 +106,9 @@ const AccountStatusPreview = () => {
                 </Button>
               </div>
             </div>
-          </div>
-        </form>
-      </Form>
+          </form>
+        </Form>
+      </div>
     </>
   );
 };

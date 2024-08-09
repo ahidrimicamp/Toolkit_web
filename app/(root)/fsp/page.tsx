@@ -282,7 +282,7 @@ const FSP = () => {
   return (
     <section className="p-12">
       <div className="rounded-sm border px-4 py-10 shadow-sm">
-        <p className="text-3xl text-blue-500">Search Criteria</p>
+        <p className="text-3xl text-sky-500">Search Criteria</p>
         <div>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -333,7 +333,7 @@ const FSP = () => {
             </form>
           </Form>
 
-          <div className="mt-5">
+          <div className="mt-5 grid grid-cols-1 overflow-auto">
             <DataTable
               columns={columns}
               data={data}

@@ -167,7 +167,7 @@ const FinancialVendors = () => {
 
   return (
     <div className="rounded-r-sm rounded-bl-sm border shadow-sm">
-      <div className="grid grid-cols-2 gap-3 px-4 py-10">
+      <div className="grid grid-cols-2 gap-3 px-4 py-10 max-lg:grid-cols-1">
         <section className="flex flex-col">
           <h1 className="text-3xl text-blue-500">Vendor Edit</h1>
           <Form {...form}>

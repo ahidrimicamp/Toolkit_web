@@ -17,18 +17,18 @@ const AgentSetupContent = () => {
   };
   return (
     <>
-      
-        <Tabs defaultValue="residuals" className="flex-auto col-span-4 border border-solid border-gray-400 rounded-md p-4">
+      <div className="w-auto h-screen">
+        <Tabs defaultValue="residuals" className="flex-auto  border border-solid border-gray-400 rounded-md p-4 ">
           <TabsList className="">
             {AgentSetupTabs.map((tab) => (
               <TabsTrigger onClick={() => handleClick(tab.value)} key={tab.id} value={tab.value}>
-                {tab.title}
+                <p className="text-sm">{tab.title}</p>
               </TabsTrigger>
             ))}
           </TabsList>
           {RenderSetupComponents(activeItem || "residuals")}
         </Tabs>
-      
+      </div>
     </>
   );
 };

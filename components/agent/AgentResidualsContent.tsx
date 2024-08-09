@@ -38,7 +38,10 @@ const AgentResidualsContent = () => {
           );
         })}
       </div>
-      {RenderComponents(activeItem || "fd-omaha")}
+      <div className="grid grid-cols-1 overflow-auto">
+
+        {RenderComponents(activeItem || "fd-omaha")}
+      </div>
     </div>
   );
 };

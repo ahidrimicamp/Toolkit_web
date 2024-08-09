@@ -68,7 +68,7 @@ const AgentSetupForm = () => {
     <div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          <div className="flex-1">
+          
             <div className="flex items-center justify-between">
               <h1 className="text-2xl font-bold">Search Criteria</h1>
               <CheckboxForm
@@ -379,7 +379,7 @@ const AgentSetupForm = () => {
                 placeholder="Notes..."
               />
             </div>
-          </div>
+          
         </form>
       </Form>
     </div>

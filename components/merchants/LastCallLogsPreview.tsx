@@ -39,7 +39,7 @@ const LastCallLogsPreview = () => {
     <div className="flex-auto mb-3 mt-0  rounded-lg border  p-4">
       <h1 className="text-3xl text-sky-500">Last Call Logs Preview</h1>
 
-      <div className='rounded-md'>
+      <div className='grid grid-cols-1 overflow-auto'>
         <DataTable
           columns={columns}
           data={callLogs}
