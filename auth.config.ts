@@ -35,5 +35,4 @@ export default {
       },
     }),
   ],
-  debug: true,
 } satisfies NextAuthConfig;
