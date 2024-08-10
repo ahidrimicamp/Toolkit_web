@@ -912,7 +912,7 @@ export const rejectCollectionsTable2 = [
     InitDate: "07/26/2024",
     ToCollect: "",
     Payments: "",
-    Status: "Wating Payment",
+    Status: "Waiting",
     NextDate: "07/29/2024",
     NextTask: "Note",
   },
@@ -2264,9 +2264,6 @@ export const reportList1 = [
   },
 ];
 
-
-
-
 // EQUIPMENT DATA
 
 export const equipmentMainTabs = [
@@ -2281,7 +2278,6 @@ export const equipmentMainTabs = [
     route: "/equipment/ordersPayments",
   },
 ];
-
 
 export const EquipmentTabs = [
   {
@@ -2298,7 +2294,7 @@ export const EquipmentTabs = [
     id: "3",
     title: "Reports",
     value: "reports",
-  }
+  },
 ];
 
 export const ModelSelectList = [
@@ -2322,7 +2318,7 @@ export const ModelSelectList = [
     title: "Dejavoo Gen 1",
     value: "dejavooGen1",
   },
-]
+];
 export const ConditionSelectList = [
   {
     id: 1,
@@ -2339,7 +2335,7 @@ export const ConditionSelectList = [
     title: "Refurbished",
     value: "refurbished",
   },
-]
+];
 export const lookupForm = [
   {
     id: 1,
@@ -2348,7 +2344,6 @@ export const lookupForm = [
     placeholder: "MID",
     formName: "MID",
     value: "",
-    
   },
   {
     id: 2,
@@ -2357,7 +2352,6 @@ export const lookupForm = [
     placeholder: "Order ID",
     formName: "OrderID",
     value: "",
-    
   },
   {
     id: 3,
@@ -2366,7 +2360,6 @@ export const lookupForm = [
     placeholder: "Serial #",
     formName: "Serial",
     value: "",
-    
   },
   {
     id: 4,
@@ -2393,9 +2386,8 @@ export const lookupForm = [
     placeholder: "",
     formName: "ShelfItems",
     value: "",
-    
   },
-]
+];
 
 export const LookupTable: DataTypes[] = [
   {
@@ -2438,7 +2430,7 @@ export const LookupTable: DataTypes[] = [
     Del: "N",
     Date: "08/02/2024",
   },
-]
+];
 
 export const itemsForm = [
   {
@@ -2448,7 +2440,7 @@ export const itemsForm = [
     placeholder: "Select a model...",
     formName: "Model",
     value: "",
-    content: ModelSelectList ,
+    content: ModelSelectList,
   },
   {
     id: 2,
@@ -2533,7 +2525,7 @@ export const itemsForm = [
     formName: "PhysicallyShippable",
     value: "",
   },
-]
+];
 
 export const serialList = [
   {
@@ -2556,7 +2548,7 @@ export const serialList = [
     title: "SN123456251",
     value: "SN123456251",
   },
-]
+];
 
 export const sortByList = [
   {
@@ -2574,7 +2566,7 @@ export const sortByList = [
     title: "Serial #",
     value: "serial",
   },
-]
+];
 
 export const ordersPaymentsTabs = [
   {
@@ -2591,7 +2583,7 @@ export const ordersPaymentsTabs = [
     id: "3",
     title: "Reports",
     value: "reports",
-  }
+  },
 ];
 
 export const RecentOrderTable = [
@@ -2666,8 +2658,8 @@ export const RecentOrderTable = [
     Order: "446852",
     Agent: "Elevated Payments, LLC",
     Tracking: "3215649123184651",
-  }, 
-]
+  },
+];
 
 // ADMIN DATA
 
@@ -2744,7 +2736,6 @@ export const thirdPartyForm = [
     placeholder: "Enter MID",
     formName: "MID",
     value: "",
-    
   },
   {
     id: 3,
@@ -2753,7 +2744,6 @@ export const thirdPartyForm = [
     placeholder: "",
     formName: "ResidualDate",
     value: "",
-    
   },
   {
     id: 4,
@@ -2762,9 +2752,8 @@ export const thirdPartyForm = [
     placeholder: "Calculate for all months after stated date",
     formName: "CalculateAllMonths",
     value: "",
-
   },
-]
+];
 
 export const firstDataOmahaForm = [
   {
@@ -2774,7 +2763,6 @@ export const firstDataOmahaForm = [
     placeholder: "",
     formName: "ResidualDate",
     value: "",
-
   },
   {
     id: 2,
@@ -2783,7 +2771,6 @@ export const firstDataOmahaForm = [
     placeholder: "Check if calculation already exists and pass over if it does",
     formName: "CheckCalculation",
     value: "",
-    
   },
   {
     id: 3,
@@ -2792,7 +2779,6 @@ export const firstDataOmahaForm = [
     placeholder: "Pass through Nutra chargebacks",
     formName: "NutraChargeBacks",
     value: "",
-    
   },
   {
     id: 4,
@@ -2850,7 +2836,7 @@ export const firstDataOmahaForm = [
     formName: "Status",
     value: "",
   },
-]
+];
 
 export const adjustmentTable = [
   {
@@ -2889,7 +2875,7 @@ export const adjustmentTable = [
     Amount: "$2.240.0",
     Notes: "Redirection",
   },
-]
+];
 
 export const displayResidualsTable = [
   {
@@ -2934,7 +2920,7 @@ export const displayResidualsTable = [
     RptType: "EXCEL",
     EmailList: "micamp@support.com",
   },
-]
+];
 
 export const adminDatabaseTabs = [
   {
@@ -2958,7 +2944,7 @@ export const usersTable = [
     Group: "Maintenance",
     Confirmed: "Yes",
     Status: "No",
-    LockUnlock: "Unlocked"
+    LockUnlock: "Unlocked",
   },
   {
     Id: 2,
@@ -2968,7 +2954,7 @@ export const usersTable = [
     Group: "Inventory",
     Confirmed: "No",
     Status: "Yes",
-    LockUnlock: "Locked"
+    LockUnlock: "Locked",
   },
   {
     Id: 3,
@@ -2978,7 +2964,7 @@ export const usersTable = [
     Group: "Equipment",
     Confirmed: "Yes",
     Status: "Yes",
-    LockUnlock: "Unlocked"
+    LockUnlock: "Unlocked",
   },
   {
     Id: 4,
@@ -2988,7 +2974,7 @@ export const usersTable = [
     Group: "Logistics",
     Confirmed: "Yes",
     Status: "No",
-    LockUnlock: "Locked"
+    LockUnlock: "Locked",
   },
   {
     Id: 5,
@@ -2998,7 +2984,7 @@ export const usersTable = [
     Group: "Sales",
     Confirmed: "No",
     Status: "Yes",
-    LockUnlock: "Unlocked"
+    LockUnlock: "Unlocked",
   },
   {
     Id: 6,
@@ -3008,7 +2994,7 @@ export const usersTable = [
     Group: "Security",
     Confirmed: "Yes",
     Status: "Yes",
-    LockUnlock: "Locked"
+    LockUnlock: "Locked",
   },
   {
     Id: 7,
@@ -3018,7 +3004,7 @@ export const usersTable = [
     Group: "Finance",
     Confirmed: "No",
     Status: "No",
-    LockUnlock: "Unlocked"
+    LockUnlock: "Unlocked",
   },
   {
     Id: 8,
@@ -3028,7 +3014,7 @@ export const usersTable = [
     Group: "Support",
     Confirmed: "Yes",
     Status: "Yes",
-    LockUnlock: "Locked"
+    LockUnlock: "Locked",
   },
   {
     Id: 9,
@@ -3038,7 +3024,7 @@ export const usersTable = [
     Group: "Training",
     Confirmed: "Yes",
     Status: "No",
-    LockUnlock: "Unlocked"
+    LockUnlock: "Unlocked",
   },
   {
     Id: 10,
@@ -3048,9 +3034,9 @@ export const usersTable = [
     Group: "Research",
     Confirmed: "No",
     Status: "Yes",
-    LockUnlock: "Locked"
-  }
-] 
+    LockUnlock: "Locked",
+  },
+];
 
 export const auditTypeSelectList = [
   {
@@ -3153,7 +3139,7 @@ export const auditTypeSelectList = [
     title: "User Login",
     value: "userLogin",
   },
-]
+];
 
 export const auditDetailsTable = [
   {
@@ -3188,4 +3174,4 @@ export const auditDetailsTable = [
     UserName: "hcosta",
     TextAuditDescription: "text audit desc text audit desc text audit desc ",
   },
-]
+];

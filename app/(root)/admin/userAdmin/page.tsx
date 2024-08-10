@@ -1,20 +1,19 @@
 "use client";
 
 import React from "react";
-import { employees, usersTable } from "@/constants";
+import { usersTable } from "@/constants";
 import {
   ColumnConfig,
   createColumns,
 } from "@/components/Shared/DataTable/Columns";
 import { DataTypes } from "@/types";
 import DataTable from "@/components/Shared/DataTable/DataTable";
-import MerchantDetails from "@/components/merchants/MerchantDetails";
+// import MerchantDetails from "@/components/merchants/MerchantDetails";
 import UserDetails from "@/components/admin/UserDetails";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 const Page = () => {
-
   const columnsConfig: ColumnConfig<DataTypes>[] = [
     { accessorKey: "Id", header: "ID" },
     { accessorKey: "Name", header: "Name" },
@@ -40,7 +39,7 @@ const Page = () => {
           />
         </div>
         <div className="flex-1 justify-center 2xl:w-2/5">
-          <div className="text-end my-4 mr-1">
+          <div className="my-4 mr-1 text-end">
             <Link href={"/admin/userAdmin/addUser"}>
               <Button type="button" className="">
                 + Add New User

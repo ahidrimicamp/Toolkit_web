@@ -22,20 +22,18 @@ const page = () => {
   const columns = createColumns(columnsConfig);
 
   return (
-    <>
-      <section>
-        <h1 className="mb-3 text-2xl text-sky-500">Call Log / Tasks</h1>
+    <section>
+      <h1 className="mb-3 text-2xl text-sky-500">Call Log / Tasks</h1>
 
-        <div className="grid grid-cols-1 overflow-auto text-nowrap rounded-md  p-2">
-          <DataTable
-            columns={columns}
-            data={callLogsTasks}
-            enableColumnFilter={true}
-            filteredBy="username"
-          />
-        </div>
-      </section>
-    </>
+      <div className="grid grid-cols-1 overflow-auto text-nowrap rounded-md p-2">
+        <DataTable
+          columns={columns}
+          data={callLogsTasks}
+          enableColumnFilter={true}
+          filteredBy="Username"
+        />
+      </div>
+    </section>
   );
 };
 

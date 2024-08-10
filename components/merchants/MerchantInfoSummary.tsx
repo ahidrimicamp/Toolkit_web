@@ -8,7 +8,7 @@ const MerchantInfoSummary = () => {
       <div className="grid w-auto grid-rows-4 gap-1 p-4 lg:grid-flow-col">
         {summaryItems.map((item) => {
           return (
-            <>
+            <React.Fragment key={item.value}>
               <div className="flex gap-3">
                 <div className="w-1/2 text-end">
                   <p className="font-bold">{item.title}</p>
@@ -17,7 +17,7 @@ const MerchantInfoSummary = () => {
                   <p>{item.value}</p>
                 </div>
               </div>
-            </>
+            </React.Fragment>
           );
         })}
       </div>

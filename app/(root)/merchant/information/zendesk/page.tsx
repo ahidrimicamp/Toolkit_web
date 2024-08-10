@@ -19,19 +19,17 @@ const page = () => {
   const columns = createColumns(columnsConfig);
 
   return (
-    <>
-      <div>
-        <h1 className="mb-3 text-2xl text-sky-500">ZenDesk (1)</h1>
-        <div className="grid grid-cols-1 overflow-auto p-2">
-          <DataTable
-            columns={columns}
-            data={zenDeskTable}
-            enableColumnFilter={true}
-            filteredBy="username"
-          />
-        </div>
+    <div>
+      <h1 className="mb-3 text-2xl text-sky-500">ZenDesk (1)</h1>
+      <div className="grid grid-cols-1 overflow-auto p-2">
+        <DataTable
+          columns={columns}
+          data={zenDeskTable}
+          enableColumnFilter={true}
+          filteredBy="name"
+        />
       </div>
-    </>
+    </div>
   );
 };
 

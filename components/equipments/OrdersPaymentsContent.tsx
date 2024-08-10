@@ -14,13 +14,11 @@ import UnassignedEquipment from "./UnassignedEquipment";
 import RecentOrdersSection from "./RecentOrdersSection";
 
 const FillOrders = () => {
-
   return (
     <>
       <section className="text-start">
-        <div className="flex max-2xl:flex-wrap gap-4">
+        <div className="flex gap-4 max-2xl:flex-wrap">
           <div className="flex-1">
-
             <EquipmentOrders />
           </div>
           <div className="flex-1">
@@ -29,23 +27,20 @@ const FillOrders = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
 const RecentOrders = () => {
-
   return (
     <>
-      <section className="text-start gap-2">
+      <section className="gap-2 text-start">
         <RecentOrdersSection />
       </section>
     </>
-  )
-}
+  );
+};
 
 const Reports = () => {
-
-
   const data = [
     {
       id: 1,
@@ -112,7 +107,7 @@ const Reports = () => {
   return (
     <>
       <section className="text-start">
-        <div className="grid grid-cols-2 mt-5 overflow-auto  max-2xl:grid-cols-1">
+        <div className="mt-5 grid grid-cols-2 overflow-auto max-2xl:grid-cols-1">
           <Tabs defaultValue="DateType" className="size-full">
             <TabsList>
               {data.map((tab) => (
@@ -137,12 +132,11 @@ const Reports = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
 export default function RenderOrdersPaymentsComponents(value: string) {
   switch (value) {
-
     case "fillOrders":
       return <FillOrders />;
     case "recentOrders":

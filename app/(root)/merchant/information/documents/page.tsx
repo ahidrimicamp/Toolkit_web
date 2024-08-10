@@ -73,15 +73,15 @@ const page = () => {
       <section>
         <h1 className="mb-3 text-2xl text-sky-500">Documents</h1>
 
-        <div className="mb-5 mt-3 grid grid-cols-1 overflow-auto flex-auto rounded-md  ">
+        <div className="mb-5 mt-3 grid flex-auto grid-cols-1 overflow-auto rounded-md">
           <DataTable
             columns={columns}
             data={documentsTable}
             enableColumnFilter={true}
-            filteredBy="username"
+            filteredBy="DocName"
           />
         </div>
-        <div className="flex max-xl:flex-wrap justify-between gap-8">
+        <div className="flex justify-between gap-8 max-xl:flex-wrap">
           <div className="flex gap-2">
             <Button className="rounded-full bg-gradient-to-r from-[#14ADD6] to-[#384295] text-white hover:opacity-90">
               +

@@ -7,15 +7,8 @@ import {
 } from "@/components/Shared/DataTable/Columns";
 import { DataTypes } from "@/types";
 import DataTable from "@/components/Shared/DataTable/DataTable";
-import { accountStatusTable, activityRecordList, merchantStatusList } from "@/constants";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { accountStatusTable, activityRecordList } from "@/constants";
+import { Form } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { z } from "zod";
 import { newMerchantSchema } from "@/lib/utils";
@@ -76,32 +69,32 @@ const AccountStatusPreview = () => {
 
   return (
     <>
-      <div className="flex-auto mb-3 mt-0 grow rounded-lg border  p-4 shadow-md">
+      <div className="mb-3 mt-0 flex-auto grow rounded-lg border p-4 shadow-md">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <h1 className="text-3xl text-sky-500">Account Status Preview</h1>
-            <div className="flex gap-4">
-              <div className='grid grid-cols-1 overflow-auto '>
+            <div className="flex gap-4 max-xl:flex-col">
+              <div className="grid grid-cols-1 overflow-auto">
                 <DataTable
                   columns={columns}
                   data={accountStatusTable}
                   enableColumnFilter={true}
-                  filteredBy='UserID'
+                  filteredBy="UserID"
                 />
               </div>
-              <div className="flex-auto mt-10">
+              <div className="mt-10 flex-auto">
                 <SelectForm
                   control={form.control}
                   formName="SalesRep"
                   label="Select an Activity to Record:"
                   content={activityRecordList}
                   placeholder="Select a Status..."
-                  valueKey='id'
-                  displayKey='title'
+                  valueKey="id"
+                  displayKey="title"
                   disabled={false}
                   className=""
                 />
-                <Button className="w-full mb-2 mt-2 bg-gradient-to-r from-[#14ADD6] to-[#384295] hover:opacity-90 text-white">
+                <Button className="my-2 w-full bg-gradient-to-r from-[#14ADD6] to-[#384295] text-white hover:opacity-90">
                   SUBMIT
                 </Button>
               </div>

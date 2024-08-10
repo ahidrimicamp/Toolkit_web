@@ -114,7 +114,7 @@ const EmailReports = ({ title }: { title: string }) => {
 
                   <div>
                     <span className="grid grid-cols-2">
-                      <span className="mt-5 grid grid-cols-[20%_30%] gap-5">
+                      <span className="mt-5 grid grid-cols-2 gap-5">
                         <Button>Send Emails</Button>
                         <div className="gap-2">
                           <Checkbox /> Only send to admin, not funder.
@@ -122,7 +122,7 @@ const EmailReports = ({ title }: { title: string }) => {
                       </span>
                     </span>
                     <span className="grid grid-cols-2">
-                      <span className="mt-5 grid grid-cols-[20%_30%] gap-5">
+                      <span className="mt-5 grid grid-cols-2 gap-5">
                         <Button>Create Report</Button>
                         <div className="gap-2">
                           <Checkbox /> Create manual email.

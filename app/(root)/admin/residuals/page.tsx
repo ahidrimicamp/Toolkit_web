@@ -1,12 +1,8 @@
-import ResidualsTabContent from '@/components/admin/ResidualsTabContent'
-import React from 'react'
+import ResidualsTabContent from "@/components/admin/ResidualsTabContent";
+import React from "react";
 
 const page = () => {
-  return (
-    <>
-      <ResidualsTabContent/>
-    </>
-  )
-}
+  return <ResidualsTabContent />;
+};
 
-export default page
+export default page;

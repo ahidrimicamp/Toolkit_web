@@ -12,10 +12,10 @@ import {
   createColumns,
 } from "@/components/Shared/DataTable/Columns";
 import { DataTypes } from "@/types";
-import { Badge } from "@/components/ui/badge";
+import { Status } from "@/components/Shared/DataTable/CellFormat";
 
 const page = () => {
-  // eslint-disable-next-line no-unused-vars
+  // eslint-disable-next-line no-unused-vars, react-hooks/rules-of-hooks
   const form = useForm<z.infer<typeof newMerchantSchema>>({
     resolver: zodResolver(newMerchantSchema),
     defaultValues: {
@@ -68,29 +68,6 @@ const page = () => {
     }).format(amount);
     return <div className="text-center font-medium">{formatted}</div>;
   };
-  const Status = (row: any) => {
-    const statusValue = row.getValue("price");
-    statusValue.toString();
-    if (statusValue.toLowerCase() === "paid") {
-      return (
-        <Badge variant="success" className="text-center">
-          {statusValue}
-        </Badge>
-      );
-    } else if (statusValue.toLowerCase() === "cancelled") {
-      return (
-        <Badge variant="default" className="text-center">
-          {statusValue}
-        </Badge>
-      );
-    } else {
-      return (
-        <Badge variant="destructive" className="text-center">
-          {statusValue}
-        </Badge>
-      );
-    }
-  };
   const columnsConfig1: ColumnConfig<DataTypes>[] = [
     { accessorKey: "SuspenseDate", header: "Suspense Date" },
     { accessorKey: "CreateDate", header: "Create Date" },
@@ -109,7 +86,20 @@ const page = () => {
     { accessorKey: "InitDate", header: "Init Date" },
     { accessorKey: "ToCollect", header: "To Collect" },
     { accessorKey: "Payments", header: "Payments" },
-    { accessorKey: "Status", header: "Status", cell: Status },
+    {
+      accessorKey: "Status",
+      header: "Status",
+      cell: (value) => (
+        <Status
+          row={value}
+          status={{
+            Success: ["Paid"],
+            Failed: ["Cancelled"],
+            Pending: ["Waiting"],
+          }}
+        />
+      ),
+    },
     { accessorKey: "NextDate", header: "Next Date" },
     { accessorKey: "NextTaks", header: "Next Task" },
   ];
@@ -121,22 +111,22 @@ const page = () => {
       <section className="w-full">
         <h1 className="mb-3 text-2xl text-sky-500">Reject / Collections</h1>
 
-        <div className="mb-5 grid grid-cols-1 overflow-auto flex-auto rounded-md">
+        <div className="mb-5 grid flex-auto grid-cols-1 overflow-auto rounded-md">
           <DataTable
             columns={columns1}
             data={rejectCollectionsTable1}
             enableColumnFilter={true}
-            filteredBy="username"
+            filteredBy="DebitAmount"
           />
         </div>
 
         <div className="flex gap-4 max-xl:flex-wrap">
-          <div className="mb-5 grid grid-cols-1 overflow-auto flex-auto rounded-md">
+          <div className="mb-5 grid flex-auto grid-cols-1 overflow-auto rounded-md">
             <DataTable
               columns={columns2}
               data={rejectCollectionsTable2}
               enableColumnFilter={true}
-              filteredBy="username"
+              filteredBy="Status"
             />
           </div>
           <div className="w-fit">

@@ -1,16 +1,12 @@
-import OrdersPaymentsTabContent from '@/components/equipments/OrdersPaymentsTabContent'
-import React from 'react'
+import OrdersPaymentsTabContent from "@/components/equipments/OrdersPaymentsTabContent";
+import React from "react";
 
 const page = () => {
   return (
-    <>
-      <section>
-          <OrdersPaymentsTabContent />
-      
-      </section>
+    <section>
+      <OrdersPaymentsTabContent />
+    </section>
+  );
+};
 
-    </>
-  )
-}
-
-export default page
+export default page;

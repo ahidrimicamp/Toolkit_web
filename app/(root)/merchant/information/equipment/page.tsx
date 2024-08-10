@@ -23,7 +23,6 @@ import {
 import { DataTypes } from "@/types";
 
 const page = () => {
-
   const form = useForm<z.infer<typeof newMerchantSchema>>({
     resolver: zodResolver(newMerchantSchema),
     defaultValues: {
@@ -105,9 +104,9 @@ const page = () => {
       <section>
         <h1 className="mb-3 text-2xl text-sky-500">Equipment</h1>
 
-        <div className="flex gap-4 max-lg:flex-wrap">
+        <div className="flex gap-4 max-xl:flex-wrap">
           {/* FIRST COLUMN */}
-          <div className="mb-5 grid grid-cols-1 overflow-auto flex-auto rounded-md">
+          <div className="mb-5 grid flex-auto grid-cols-1 overflow-auto rounded-md">
             <DataTable
               columns={columns1}
               data={equipmentTable1}
@@ -123,7 +122,7 @@ const page = () => {
                 className="space-y-8"
               >
                 {/* Activity Row */}
-                <div className="flex max-lg:flex-wrap gap-2">
+                <div className="flex gap-2 max-lg:flex-wrap">
                   <Button className="flex-auto self-end bg-gradient-to-r from-[#C05353] to-[#8F0000] p-1 text-white hover:opacity-90">
                     Delete Order
                   </Button>
@@ -154,7 +153,7 @@ const page = () => {
                     </span>
                   </div>
                 </div>
-                <div className="mb-5 grid grid-cols-1 overflow-auto flex-auto rounded-md  ">
+                <div className="mb-5 grid flex-auto grid-cols-1 overflow-auto rounded-md">
                   <DataTable
                     columns={columns2}
                     data={equipmentTable2}
@@ -173,7 +172,7 @@ const page = () => {
                     Send Email
                   </Button>
                 </div>
-                <div className="mb-5 grid grid-cols-1 overflow-auto flex-auto rounded-md  ">
+                <div className="mb-5 grid flex-auto grid-cols-1 overflow-auto rounded-md">
                   <DataTable
                     columns={columns3}
                     data={equipmentTable3}

@@ -1,3 +1,6 @@
+"use server";
+
+import { signOut } from "@/auth";
 import { db } from "@/lib/database";
 
 export const getUserByEmail = async (email: string) => {
@@ -21,5 +24,13 @@ export const getUserById = async (id: string) => {
     return user;
   } catch (err) {
     console.log(err);
+  }
+};
+
+export const logout = async () => {
+  try {
+    await signOut({ redirectTo: "/sign-in" });
+  } catch (error) {
+    console.log(error);
   }
 };

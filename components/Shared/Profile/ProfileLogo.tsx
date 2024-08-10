@@ -37,9 +37,9 @@ const ProfileLogo = ({ props }: any) => {
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
           <DropdownMenuSeparator />
           {profileLinks.map((item) => (
-            <DropdownMenuItem key={item.title}>
+            <DropdownMenuItem key={item.title} className="cursor-pointer">
               {item.title === "Logout" ? (
-                <span className="cursor-pointer">{item.title}</span>
+                <span>{item.title}</span>
               ) : (
                 <Link href={item.url} className="w-full">
                   {item.title}
