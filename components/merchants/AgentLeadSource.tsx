@@ -59,10 +59,10 @@ const AgentLeadSource = () => {
 
   const columns = createColumns(columnsConfig);
   return (
-    <div className="size-full grow p-4">
+    <section className=" ">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
-          <h1 className="text-3xl text-sky-500">Agent/Lead Source</h1>
+          <h1 className="text-2xl text-sky-500">Agent/Lead Source</h1>
           <div className="grid grid-cols-2 gap-5 max-2xl:grid-cols-1">
             <div className="grid grid-cols-1 gap-3 border-r pr-4 max-2xl:grid-cols-1">
               <h1 className="mt-4 border-b border-gray-600 text-xl font-semibold">
@@ -114,7 +114,7 @@ const AgentLeadSource = () => {
                   label="Split %"
                   placeholder="Split %"
                 />
-                <Button className="col-start-4 bg-green-600">
+                <Button className="col-start-4 max-lg:col-start-3 max-lg:col-span-2 bg-green-600">
                   Clear/Add New
                 </Button>
               </div>
@@ -182,8 +182,8 @@ const AgentLeadSource = () => {
                   <span className="mt-1.5">Rebate Account</span>
                 </div>
               </div>
-              <div className="grid grid-cols-5 gap-3">
-                <Button className="col-start-3 bg-blue-500">Add Agent</Button>
+              <div className="grid grid-cols-4 max-xl:grid-cols-3 gap-3">
+                <Button className="col-start-2 max-xl:col-start-1 bg-blue-500">Add Agent</Button>
                 <Button className="bg-red-500">Delete Agent</Button>
                 <Button className="bg-gray-500">Set Master</Button>
               </div>
@@ -264,7 +264,7 @@ const AgentLeadSource = () => {
           </div>
         </form>
       </Form>
-    </div>
+    </section>
   );
 };
 

@@ -66,12 +66,12 @@ const MerchantInformation = () => {
   
   return (
     <>
-      <div className="size-full grow p-4">
+      <div className="size-full grow ">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <div className="grid grid-cols-2 gap-5 max-2xl:grid-cols-1">
-              <div className="grid auto-cols-fr grid-cols-2 gap-3 border-r pr-4 max-2xl:grid-cols-1">
-                <h1 className="col-span-2 text-3xl text-sky-500">
+              <div className="grid auto-cols-fr grid-cols-2 gap-3 border-r max-2xl:border-none pr-4 max-2xl:grid-cols-1">
+                <h1 className="col-span-2 text-2xl text-sky-500 ">
                   Merchant Information:
                 </h1>
                 <InputForm
@@ -239,7 +239,7 @@ const MerchantInformation = () => {
                   />
                 </div>
               </div>
-              <div className="grid w-2/3 auto-rows-min grid-cols-1 gap-3 max-2xl:grid-cols-1">
+              <div className="grid w-2/3 max-xl:w-full grid-cols-1 gap-3">
                 <h1 className="text-3xl text-sky-500">
                   Other Merchant Information:
                 </h1>
@@ -358,7 +358,7 @@ const MerchantInformation = () => {
               <div className="grid grid-cols-3 gap-3">
                 <Button className="bg-blue-500">Save Changes</Button>
                 <UploadFileBtn />
-                <div className="ml-4 flex items-center">
+                <div className="ml-4 gap-2 flex items-center">
                   <CheckboxForm
                     control={form.control}
                     formName="SeeManager"
@@ -366,7 +366,7 @@ const MerchantInformation = () => {
                     placeholder=""
                     className=""
                   />
-                  <span className="mt-1.5">See Manager</span>
+                  <span className="mt-1.5 text-nowrap">See Manager</span>
                 </div>
               </div>
             </div>
