@@ -27,11 +27,13 @@ const EntryHeader = () => {
     { id: 1, title: "Services", icon: CircleDollarSign },
   ];
   return (
-    <div className="flex w-full items-center justify-between max-lg:flex-wrap">
-      <span className="text-2xl">Vendor Edit</span>
+    <div className="flex w-full items-center justify-between max-xl:flex-col max-xl:flex-wrap max-xl:items-start">
+      <span className="text-2xl text-blue-500 max-xl:mb-5 max-xl:text-4xl">
+        Vendor Edit
+      </span>
       <div className="flex flex-col">
         <span className="mb-2">ACH Portal Tasks</span>
-        <div className="flex max-lg:flex-wrap items-center gap-2">
+        <div className="flex items-center gap-2 max-lg:flex-wrap">
           {ACHPortalBtnRender.map((btn) => (
             <Button key={btn.id} className="flex items-center gap-2">
               {React.createElement(btn.icon)}

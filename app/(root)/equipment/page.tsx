@@ -1,16 +1,10 @@
 "use client";
 
 import EquipmentTabContent from "@/components/equipments/EquipmentTabContent";
-import React, { useState } from "react";
-
+import React from "react";
 
 const Equipment = () => {
-  
-  return (
-    <>
-      <EquipmentTabContent />
-    </> 
-  );
+  return <EquipmentTabContent />;
 };
 
 export default Equipment;

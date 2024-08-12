@@ -84,9 +84,9 @@ const page = () => {
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
               <div className="mt-4 gap-0">
-                <div className="grid grid-cols-4 max-lg:grid-cols-1 max-2xl:grid-cols-2 gap-2">
+                <div className="grid grid-cols-4 gap-2 max-2xl:grid-cols-2 max-lg:grid-cols-1">
                   <div className="flex content-center justify-end gap-4">
-                    <label className="w-1/3 content-center text-nowrap text-sm text-end font-medium">
+                    <label className="w-1/3 content-center text-nowrap text-end text-sm font-medium">
                       From Date
                     </label>
                     <div className="flex-auto">
@@ -116,7 +116,7 @@ const page = () => {
                     Update
                   </Button>
                   <div className="flex content-center justify-end gap-4">
-                    <label className="w-1/3 content-center text-nowrap text-sm text-end font-medium">
+                    <label className="w-1/3 content-center text-nowrap text-end text-sm font-medium">
                       To Date
                     </label>
                     <div className="flex-auto">
@@ -158,8 +158,6 @@ const page = () => {
                     Export Table
                   </Button>
                 </div>
-
-
               </div>
             </form>
           </Form>
@@ -169,7 +167,7 @@ const page = () => {
             columns={columns}
             data={wavitTransactionsTable}
             enableColumnFilter={true}
-            filteredBy="Documents"
+            filteredBy="Type"
           />
         </div>
       </section>

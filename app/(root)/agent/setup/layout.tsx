@@ -1,13 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
-  return (
-    <>
-      <div className='h-auto'>
-        {children}
-      </div>
-    </>
-  )
-}
+  return <div>{children}</div>;
+};
 
-export default layout
+export default layout;

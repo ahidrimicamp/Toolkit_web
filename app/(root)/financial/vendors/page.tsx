@@ -166,8 +166,8 @@ const FinancialVendors = () => {
   const columns = createColumns(columnsConfig);
 
   return (
-    <div className="rounded-r-sm rounded-bl-sm border shadow-sm">
-      <div className="grid grid-cols-2 gap-3 px-4 py-10 max-lg:grid-cols-1">
+    <div className="mb-5 rounded-r-sm rounded-bl-sm border shadow-sm">
+      <div className="grid grid-cols-2 gap-3 px-4 py-10 max-xl:grid-cols-1 max-xl:space-y-5">
         <section className="flex flex-col">
           <h1 className="text-3xl text-blue-500">Vendor Edit</h1>
           <Form {...form}>
@@ -280,6 +280,7 @@ const FinancialVendors = () => {
             </form>
           </Form>
         </section>
+        <hr className="my-5 hidden max-xl:block" />
         <DataTable columns={columns} data={tableData} />
       </div>
     </div>

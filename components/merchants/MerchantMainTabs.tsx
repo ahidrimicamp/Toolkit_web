@@ -14,15 +14,15 @@ const MerchantMainTabs = () => {
           pathname === item.route;
 
         return (
-          <>
+          <React.Fragment key={item.value}>
             <div
-              className={`${isActive ? "border-b-8 border-sky-500 text-sky-500 pb-1" : "text-black dark:text-white"} p-3 text-lg`}
+              className={`${isActive ? "border-b-8 border-sky-500 pb-1 text-sky-500" : "text-black dark:text-white"} p-3 text-lg`}
             >
               <Link href={item.route}>
                 <p className="text-pretty">{item.title}</p>
               </Link>
             </div>
-          </>
+          </React.Fragment>
         );
       })}
     </div>

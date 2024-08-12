@@ -153,7 +153,7 @@ const FinancialBody = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-3 gap-3 px-5 pb-5 max-lg:grid-cols-1">
+      <div className="grid grid-cols-3 gap-3 px-5 pb-5 max-xl:grid-cols-1">
         <div className="flex flex-col">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -225,6 +225,7 @@ const FinancialBody = () => {
             </form>
           </Form>
         </div>
+        <hr className="my-5 hidden max-xl:block" />
         <div className="flex flex-col">
           <div className="grid grid-cols-1 overflow-auto">
             <DataTable columns={columns} data={bodyData} />
@@ -265,11 +266,13 @@ const FinancialBody = () => {
             </div>
           </div>
         </div>
+        <hr className="my-5 hidden max-xl:block" />
         <div className="grid grid-cols-1 overflow-auto">
           <DataTable columns={columns2} data={bodyData} />
         </div>
       </div>
-      <div className="p-5 grid grid-cols-1 overflow-auto">
+      <hr className="my-5 hidden max-xl:block" />
+      <div className="grid grid-cols-1 overflow-auto p-5">
         <DataTable
           columns={columns3}
           data={entryData}

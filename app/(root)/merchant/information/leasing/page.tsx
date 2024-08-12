@@ -39,29 +39,29 @@ const page = () => {
     <>
       <section className="w-full">
         <h1 className="mb-3 text-2xl text-sky-500">Leasing</h1>
-        <div className="mb-5 grid grid-cols-1 overflow-auto w-full rounded-md">
+        <div className="mb-5 grid w-full grid-cols-1 overflow-auto rounded-md">
           <DataTable
             columns={columns1}
             data={leasingTable1}
             enableColumnFilter={true}
-            filteredBy="username"
+            filteredBy="LeaseNumber"
           />
         </div>
-        <div className="flex max-xl:flex-wrap  w-full gap-5">
-          <div className="flex-auto grid grid-cols-1 overflow-auto rounded-md">
+        <div className="flex w-full gap-5 max-xl:flex-wrap">
+          <div className="grid flex-auto grid-cols-1 overflow-auto rounded-md">
             <DataTable
               columns={columns2}
               data={leasingTable2}
               enableColumnFilter={true}
-              filteredBy="username"
+              filteredBy="Status"
             />
           </div>
-          <div className="flex-auto grid grid-cols-1 overflow-auto rounded-md">
+          <div className="grid flex-auto grid-cols-1 overflow-auto rounded-md">
             <DataTable
               columns={columns3}
               data={leasingTable3}
               enableColumnFilter={true}
-              filteredBy="username"
+              filteredBy="MakeModel"
             />
           </div>
         </div>

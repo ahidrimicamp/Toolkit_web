@@ -9,17 +9,13 @@ import { DEFAULT_LOGIN_REDIRECT } from "@/route";
 import { AuthError } from "next-auth";
 import { generateVerificationToken } from "@/lib/tokens";
 import { getUserByEmail } from "@/data/user";
-// import { sendVerificationEmail } from "@/lib/emailSender";
 import axios from "axios";
 
 export const login = async (values: z.infer<typeof SignInSchema>) => {
-  //   Use .safeParse on the schema instance
   const validatedFields = SignInSchema.safeParse(values);
 
-  // Handle the result of the schema instance
   if (!validatedFields.success) {
-    // Validated data is in validatedFields.data
-    return { error: `Invalid fields!` };
+    return { error: "Invalid fields!" };
   }
 
   const { email, password } = validatedFields.data;
@@ -37,11 +33,8 @@ export const login = async (values: z.infer<typeof SignInSchema>) => {
     const verificationToken = await generateVerificationToken(
       existingUser.email,
     );
-    // await sendVerificationEmail(
-    //   verificationToken.email,
-    //   verificationToken.token,
-    // );
-
+    // Uncomment to send verification email
+    // await sendVerificationEmail(verificationToken.email, verificationToken.token);
     return { success: "Confirmation email sent!" };
   }
 
@@ -51,47 +44,39 @@ export const login = async (values: z.infer<typeof SignInSchema>) => {
       password,
       redirectTo: DEFAULT_LOGIN_REDIRECT,
     });
+    return { success: "Login succeeded, welcome back!" };
   } catch (err) {
     if (err instanceof AuthError) {
-      switch (err.type) {
-        case "CredentialsSignin":
-          return { error: "Invalid Credentials!" };
-        default:
-          return { error: "Something went wrong!" };
-      }
+      return {
+        error:
+          err.type === "CredentialsSignin"
+            ? "Invalid Credentials!"
+            : "Something went wrong!",
+      };
     }
-    throw err;
+    console.error("Login error:", err);
+    return { error: "An unexpected error occurred." };
   }
-  return { success: `Login succeeded, welcome back!` };
 };
 
 export const signUp = async (values: z.infer<typeof SignUpSchema>) => {
+  const validatedFields = SignUpSchema.safeParse(values);
+
+  if (!validatedFields.success) {
+    return { error: "Invalid fields!" };
+  }
+
+  const { email, password, firstname, lastname, phone, groupTitle, roleTitle } =
+    validatedFields.data;
+
   try {
-    //   Use .safeParse on the schema instance
-    const validatedFields = SignUpSchema.safeParse(values);
-
-    if (!validatedFields.success) return { error: "Invalid fields!" };
-
-    const {
-      email,
-      password,
-      firstname,
-      lastname,
-      phone,
-      groupTitle,
-      roleTitle,
-    } = validatedFields.data;
-
-    // Hashed the password of the registered users
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    const existingUser = await db.user.findUnique({
-      where: { email },
-    });
+    const existingUser = await db.user.findUnique({ where: { email } });
 
     if (existingUser) {
-      return { error: "This email has been already taken!" };
+      return { error: "This email has already been taken!" };
     }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
 
     const newUser = await db.user.create({
       data: {
@@ -119,26 +104,20 @@ export const signUp = async (values: z.infer<typeof SignUpSchema>) => {
 
     // eslint-disable-next-line no-unused-vars
     const verificationToken = await generateVerificationToken(email);
-    // await sendVerificationEmail(
-    //   verificationToken.email,
-    //   verificationToken.token,
-    // );
+    // Uncomment to send verification email
+    // await sendVerificationEmail(verificationToken.email, verificationToken.token);
 
     // Send the welcome email
-    try {
-      await axios.post("/api/send-email", {
-        to: email,
-        subject: "Welcome to Toolkit web! Please, confirm your email.",
-        text: `Hello ${firstname}, welcome to Toolkit web!`,
-        html: `<p>Hello ${firstname}, welcome to Toolkit web!</p>`,
-      });
-    } catch (emailError) {
-      console.error("Failed to send welcome email:", emailError);
-    }
+    await axios.post("/api/send-email", {
+      to: email,
+      subject: "Welcome to Toolkit web! Please, confirm your email.",
+      text: `Hello ${firstname}, welcome to Toolkit web!`,
+      html: `<p>Hello ${firstname}, welcome to Toolkit web!</p>`,
+    });
 
     return { success: "Yay!! Your user has been created!" };
   } catch (err) {
-    console.log(err);
+    console.error("Sign-up error:", err);
     return { error: "An error occurred during sign-up" };
   }
 };

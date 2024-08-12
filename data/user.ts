@@ -14,8 +14,8 @@ export const getUserById = async (id: string) => {
     const user = await db.user.findUnique({
       where: { id },
       include: {
-        Role: true, // Include the Role relation
-        Group: true, // Include the Group relation
+        role: true, // Include the Role relation
+        group: true, // Include the Group relation
       },
     });
     return user;
