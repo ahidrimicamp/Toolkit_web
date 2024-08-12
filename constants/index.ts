@@ -1732,6 +1732,29 @@ export const AgentSetupFields = [
   },
 ];
 
+export const agentLeadSourceDataTable = [
+  {
+    SalesRep: "Liam Johnson",
+    "Split %": "100%",
+    Master: "XX",
+    "A/M": "",
+    "F/M": "",
+    "A/A": "",
+    R: "",
+    "F/SM": "",
+  },
+  {
+    SalesRep: "Eric Smith",
+    "Split %": "4%",
+    Master: "XX",
+    "A/M": "",
+    "F/M": "",
+    "A/A": "",
+    R: "",
+    "F/SM": "",
+  },
+]
+
 export const AgentSetupTabs = [
   {
     id: "1",

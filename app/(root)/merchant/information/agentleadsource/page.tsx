@@ -1,8 +1,11 @@
+"use client"
+
 import React from 'react'
+import AgentLeadSource from '@/components/merchants/AgentLeadSource'
 
 const page = () => {
   return (
-    <div>Agent / Lead Source</div>
+    <div><AgentLeadSource /></div>
   )
 }
 

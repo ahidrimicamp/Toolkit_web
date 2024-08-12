@@ -122,8 +122,65 @@ export const MerchantInfoSchema = z.object({
   CloverID: z.string(),
 });
 
+export const MerchantSoftwareInstallSchema = z.object({
+  SoftwareAcctNumber: z.string(),
+  POCname: z.string(),
+  POCphone: z.string(),
+  POCemail: z.string(),
+  ISOname: z.string(),
+  ISOcontact: z.string(),
+  ISOphone: z.string(),
+  ISOemail: z.string(),
+  Dealer: z.string(),
+  DealerContact: z.string(),
+  DealerPhone: z.string(),
+  DealerEmail: z.string(),
+  ActiveServiceAgreement: z.boolean(),
+  POSsystem: z.string(),
+  NumberStations: z.number(),
+  MiPointClover: z.boolean(),
+  HasTSLlicense: z.boolean(),
+  MiPointCloverQty: z.number(),
+  MiPointIngencio: z.boolean(),
+  HasPMSlicense: z.boolean(),
+  MiPointIngencioQty: z.number(),
+  RemoteServiceAccess: z.boolean(),
+  Environment: z.string(),
+  GatewayUsername: z.string(),
+  GatewayPassword: z.string(),
+  GatewayKey: z.string(),
+  SupportProvider: z.string(),
+  SupportProgram: z.string(),
+  EffectiveDate: z.date(),
+  InstallationDevices: z.number(),
+  InstallationDevicesPrice: z.number(),
+  InstallationDevicesTotal: z.number(),
+  MonthlyRecurringDevices: z.number(),
+  MonthlyRecurringDevicesPrice: z.number(),
+  MonthlyRecurringDevicesTotal: z.number(),
+  SupportRecurringDevices: z.number(),
+  SupportRecurringDevicesPrice: z.number(),
+  SupportRecurringDevicesTotal: z.number()
+});
 
-
+export const MerchantAgentLeadSourceSchema = z.object({
+  LeadSource: z.string(),
+  SalesVertical: z.string(),
+  Agent: z.string(),
+  SplitPercentage: z.number(),
+  CalcAfterMasterSplit: z.boolean(),
+  CalcAfterAgentPay: z.boolean(),
+  CalcPartOfMaster: z.boolean(),
+  CalcPartOfSubMaster: z.boolean(),
+  AgentIsMaster: z.boolean(),
+  RebateAccount: z.boolean(),
+  ForceNotifMasterAgent: z.boolean(),
+  TotalEffectiveSplit: z.number(),
+  SubAgent: z.string(),
+  Filter: z.string(),
+  DefaultSplits: z.string(),
+  Agent2: z.string(),
+});
 
 
 export const AgentSetupSchema = z.object({

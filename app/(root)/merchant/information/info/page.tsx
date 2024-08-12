@@ -1,7 +1,13 @@
-import React from "react";
+"use client";
+import React from 'react'
+import MerchantInformation from "@/components/merchants/MerchantInformation";
 
 const page = () => {
-  return <div></div>;
-};
+  return (
+    <section>
+    <MerchantInformation />
+    </section>
+  )
+}
 
-export default page;
+export default page

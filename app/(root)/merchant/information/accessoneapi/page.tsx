@@ -2,7 +2,11 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div>Access One API</div>
+    <>
+      <section>
+        <h1 className='text-2xl text-sky-500 mb-3 '>Access One API</h1>
+      </section>
+    </>
   )
 }
 
