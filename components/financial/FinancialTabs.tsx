@@ -25,7 +25,7 @@ const FinancialMainTabs = () => {
         return (
           <div
             key={item.id}
-            className={`${isActive ? "border-b-8 border-sky-500 text-sky-500 pb-1" : "text-black dark:text-white"} p-3 text-lg`}
+            className={`${isActive ? "border-b-8 border-sky-500 pb-1 text-sky-500" : "text-black dark:text-white"} p-3 text-lg`}
           >
             <Link href={item.path}>
               <p className="text-pretty">{item.title}</p>

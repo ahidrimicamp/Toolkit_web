@@ -153,7 +153,6 @@ const page = () => {
       type: "input",
       value: "",
     },
- 
   ];
 
   return (
@@ -169,7 +168,7 @@ const page = () => {
               Information
             </h1>
 
-            <div className="grid grid-flow-row grid-cols-2 max-lg:grid-cols-1 gap-2">
+            <div className="grid grid-flow-row grid-cols-2 gap-2 max-lg:grid-cols-1">
               {itemsList.map((item) => {
                 return (
                   <div key={item.id} className="m-auto flex w-full gap-4">

@@ -23,78 +23,75 @@ const FDOmaha = () => {
     { accessorKey: "name", header: "Name" },
     { accessorKey: "email", header: "Email" },
     { accessorKey: "phone", header: "Phone" },
-
   ];
 
   const columns = createColumns(columnsConfig);
   return (
-    
-      <div className="my-5 text-center h-auto">
-        <div className="grid grid-cols-1 overflow-auto">
-          <DataTable columns={columns} data={agentData} enableVisibility={true} />
+    <div className="my-5 h-auto text-center">
+      <div className="grid grid-cols-1 overflow-auto">
+        <DataTable columns={columns} data={agentData} enableVisibility={true} />
+      </div>
+      <div className="mt-5 grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-2">
+          <p>Schedule A</p>
+          <Select>
+            <SelectTrigger>
+              <SelectValue placeholder="Select an option" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="option1">Option 1</SelectItem>
+              <SelectItem value="option2">Option 2</SelectItem>
+              <SelectItem value="option3">Option 3</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
-        <div className="mt-5 grid grid-cols-2 gap-3">
-          <div className="grid grid-cols-2">
-            <p>Schedule A</p>
-            <Select>
-              <SelectTrigger>
-                <SelectValue placeholder="Select an option" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="option1">Option 1</SelectItem>
-                <SelectItem value="option2">Option 2</SelectItem>
-                <SelectItem value="option3">Option 3</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
 
-          <div className="flex flex-col justify-center gap-2">
-            <Button>Print Schedule A</Button>
-            <Button>Apply Schedule A</Button>
-          </div>
+        <div className="flex flex-col justify-center gap-2">
+          <Button>Print Schedule A</Button>
+          <Button>Apply Schedule A</Button>
+        </div>
 
-          <div className="grid grid-cols-2">
-            <p>Common Name</p>
-            <Select>
-              <SelectTrigger>
-                <SelectValue placeholder="Select Common Name" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="option1">Option 1</SelectItem>
-                <SelectItem value="option2">Option 2</SelectItem>
-                <SelectItem value="option3">Option 3</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-          <div className="flex justify-end">
-            <Button>Add an Item</Button>
-          </div>
-          <div className="grid grid-cols-2">
-            <p>Item Type</p>
-            <Select>
-              <SelectTrigger>
-                <SelectValue placeholder="0" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="option1">1</SelectItem>
-                <SelectItem value="option2">2</SelectItem>
-                <SelectItem value="option3">3</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-          <div className="flex justify-end">
-            <Button>Update Item</Button>
-          </div>
-          <div className="grid grid-cols-2">
-            <p>item Rate</p>
-            <Input placeholder="0" />
-          </div>
-          <div className="flex justify-end">
-            <Button variant={"destructive"}>Delete Item</Button>
-          </div>
+        <div className="grid grid-cols-2">
+          <p>Common Name</p>
+          <Select>
+            <SelectTrigger>
+              <SelectValue placeholder="Select Common Name" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="option1">Option 1</SelectItem>
+              <SelectItem value="option2">Option 2</SelectItem>
+              <SelectItem value="option3">Option 3</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="flex justify-end">
+          <Button>Add an Item</Button>
+        </div>
+        <div className="grid grid-cols-2">
+          <p>Item Type</p>
+          <Select>
+            <SelectTrigger>
+              <SelectValue placeholder="0" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="option1">1</SelectItem>
+              <SelectItem value="option2">2</SelectItem>
+              <SelectItem value="option3">3</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="flex justify-end">
+          <Button>Update Item</Button>
+        </div>
+        <div className="grid grid-cols-2">
+          <p>item Rate</p>
+          <Input placeholder="0" />
+        </div>
+        <div className="flex justify-end">
+          <Button variant={"destructive"}>Delete Item</Button>
         </div>
       </div>
-    
+    </div>
   );
 };
 
@@ -103,7 +100,7 @@ const FDNorth = () => {
     { accessorKey: "id", header: "ID" },
     { accessorKey: "name", header: "Name" },
     { accessorKey: "email", header: "Email" },
-    { accessorKey: "phone", header: "Phone" }
+    { accessorKey: "phone", header: "Phone" },
   ];
 
   const columns = createColumns(columnsConfig);
@@ -178,7 +175,6 @@ const FDNorth = () => {
 };
 
 const Splits = () => {
-
   const data = [
     {
       id: 1,
@@ -319,7 +315,7 @@ const Splits = () => {
   ];
 
   return (
-    <div className="flex w-full flex-col mt-5 space-y-4">
+    <div className="mt-5 flex w-full flex-col space-y-4">
       {/* This section's gonna be changing in the future. For now it's just a dummy. */}
       <div className="flex items-center gap-4">
         <p className="w-1/4 text-end">Split Name</p>
@@ -345,7 +341,7 @@ const Splits = () => {
       <div className="my-10">
         {data.map((item) => {
           return (
-            <div key={item.id} className="grid grid-cols-3 gap-3 my-3">
+            <div key={item.id} className="my-3 grid grid-cols-3 gap-3">
               <Select>
                 <SelectTrigger>
                   <SelectValue placeholder={item.title} />

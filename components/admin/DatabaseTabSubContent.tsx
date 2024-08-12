@@ -5,7 +5,11 @@ import {
 } from "@/components/Shared/DataTable/Columns";
 import DataTable from "@/components/Shared/DataTable/DataTable";
 import { Button } from "@/components/ui/button";
-import { auditDetailsTable, auditTypeSelectList, usersTable } from "@/constants";
+import {
+  auditDetailsTable,
+  auditTypeSelectList,
+  usersTable,
+} from "@/constants";
 import { DataTypes } from "@/types";
 import React from "react";
 import { Form } from "../ui/form";
@@ -13,14 +17,9 @@ import { newAuditDetailSchema } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import {
-  DatePickerForm,
-  SelectForm,
-} from "../Shared/InstantForm";
-
+import { DatePickerForm, SelectForm } from "../Shared/InstantForm";
 
 const Users = () => {
-
   const columnsConfig: ColumnConfig<DataTypes>[] = [
     { accessorKey: "Id", header: "ID" },
     { accessorKey: "Name", header: "Name" },
@@ -36,9 +35,8 @@ const Users = () => {
 
   return (
     <>
-      <section className="text-start w-full">
-
-        <Button className="px-10 font-light mt-2 bg-gradient-to-r from-[#14ADD6] to-[#384295] hover:opacity-90 text-white">
+      <section className="w-full text-start">
+        <Button className="mt-2 bg-gradient-to-r from-[#14ADD6] to-[#384295] px-10 font-light text-white hover:opacity-90">
           New User
         </Button>
         <div className="grid grid-cols-1 overflow-auto">
@@ -52,11 +50,10 @@ const Users = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
 const Audit = () => {
-
   const columnsConfig: ColumnConfig<DataTypes>[] = [
     { accessorKey: "AuditId", header: "Audit ID" },
     { accessorKey: "AuditType", header: "AuditType" },
@@ -84,17 +81,16 @@ const Audit = () => {
 
   return (
     <>
-      <section className=" mt-4 text-start  gap-2">
-
+      <section className="mt-4 gap-2 text-start">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className=" gap-2">
-
-            <h1 className="text-center font-medium text-xl my-5">Audit Detail</h1>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="gap-2">
+            <h1 className="my-5 text-center text-xl font-medium">
+              Audit Detail
+            </h1>
             {/* AUDIT DETAIL FIND */}
             <div className="w-3/6">
-
               <div className="m-auto flex w-full gap-4">
-                <div className="w-1/3 content-center text-end mt-2">
+                <div className="mt-2 w-1/3 content-center text-end">
                   <p className="">Audit Type</p>
                 </div>
                 <div className="w-2/3">
@@ -104,18 +100,18 @@ const Audit = () => {
                     label=""
                     placeholder={"Select Audit Type"}
                     content={auditTypeSelectList}
-                    valueKey='value'
-                    displayKey='title'
+                    valueKey="value"
+                    displayKey="title"
                     disabled={false}
                     className=""
                   />
                 </div>
               </div>
               <div className="m-auto flex w-full gap-4">
-                <div className="w-1/3 content-center text-end mt-2">
+                <div className="mt-2 w-1/3 content-center text-end">
                   <p className="">Entry Date</p>
                 </div>
-                <div className="content-center w-2/3 flex-auto">
+                <div className="w-2/3 flex-auto content-center">
                   <DatePickerForm
                     control={form.control}
                     formName="EntryDate"
@@ -125,10 +121,10 @@ const Audit = () => {
                 </div>
               </div>
               <div className="m-auto flex w-full gap-4">
-                <div className="w-1/3 content-center text-end mt-2">
+                <div className="mt-2 w-1/3 content-center text-end">
                   <p className="">To Date</p>
                 </div>
-                <div className="content-center w-2/3 flex-auto">
+                <div className="w-2/3 flex-auto content-center">
                   <DatePickerForm
                     control={form.control}
                     formName="ToDate"
@@ -138,7 +134,7 @@ const Audit = () => {
                 </div>
               </div>
               <div className="text-end">
-                <Button className="px-10 font-light mt-2 bg-gradient-to-r from-[#14ADD6] to-[#384295] hover:opacity-90 text-white">
+                <Button className="mt-2 bg-gradient-to-r from-[#14ADD6] to-[#384295] px-10 font-light text-white hover:opacity-90">
                   Find
                 </Button>
               </div>
@@ -153,21 +149,18 @@ const Audit = () => {
                 filteredBy="brand"
               />
             </div>
-
           </form>
         </Form>
       </section>
     </>
-  )
-}
+  );
+};
 
 export default function RenderDatabaseComponents(value: string) {
   switch (value) {
-
     case "users":
       return <Users />;
     case "audit":
       return <Audit />;
-
   }
 }
