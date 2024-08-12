@@ -2024,6 +2024,102 @@ export const documentsTable: DataTypes[] = [
   },
 ];
 
+export const merchResidualsTabs = [
+  {
+    id: "1",
+    title: "Raw Data",
+    value: "rawData",
+  },
+  {
+    id: "2",
+    title: "Raw Refunds",
+    value: "rawRefunds",
+  },
+  {
+    id: "3",
+    title: "Residual Payments",
+    value: "residualPayments",
+  },
+  {
+    id: "4",
+    title: "Account Analysis",
+    value: "accountAnalysis",
+  },
+  {
+    id: "4",
+    title: "Enter Adjustments",
+    value: "enterAdjustments",
+  },
+  {
+    id: "4",
+    title: "Calculate Residuals",
+    value: "calculateResiduals",
+  },
+];
+
+export const merchResidualPaymentsTable = [
+  {
+    DataMonth: "2024-08-12",
+    PayMonth: "2024-08-12",
+    Vol: 22.97,
+    Trans: "0",
+    Rev: 393.20,
+    Exp: 0.00,
+    NetInc: 393.20,
+    Split: "22.00%",
+    Adj: "0",
+    Notes: " ",
+  },
+  {
+    DataMonth: "2024-08-12",
+    PayMonth: "2024-08-12",
+    Vol: 22.97,
+    Trans: "0",
+    Rev: 393.20,
+    Exp: 0.00,
+    NetInc: 393.20,
+    Split: "22.00%",
+    Adj: "0",
+    Notes: " ",
+  },
+  {
+    DataMonth: "2024-08-12",
+    PayMonth: "2024-08-12",
+    Vol: 22.97,
+    Trans: "0",
+    Rev: 393.20,
+    Exp: 0.00,
+    NetInc: 393.20,
+    Split: "22.00%",
+    Adj: "0",
+    Notes: " ",
+  },
+  {
+    DataMonth: "2024-08-12",
+    PayMonth: "2024-08-12",
+    Vol: 22.97,
+    Trans: "0",
+    Rev: 393.20,
+    Exp: 0.00,
+    NetInc: 393.20,
+    Split: "22.00%",
+    Adj: "0",
+    Notes: " ",
+  },
+  {
+    DataMonth: "2024-08-12",
+    PayMonth: "2024-08-12",
+    Vol: 22.97,
+    Trans: "0",
+    Rev: 393.20,
+    Exp: 0.00,
+    NetInc: 393.20,
+    Split: "22.00%",
+    Adj: "0",
+    Notes: " ",
+  },
+]
+
 const wavitTransactionsTable = [
   {
     DateTime: "07/29/2024 09:00AM",
