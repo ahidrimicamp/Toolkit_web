@@ -123,7 +123,24 @@ export const MerchantInfoSchema = z.object({
 });
 
 
-
+export const MerchantAgentLeadSourceSchema = z.object({
+  LeadSource: z.string(),
+  SalesVertical: z.string(),
+  Agent: z.string(),
+  SplitPercentage: z.number(),
+  CalcAfterMasterSplit: z.boolean(),
+  CalcAfterAgentPay: z.boolean(),
+  CalcPartOfMaster: z.boolean(),
+  CalcPartOfSubMaster: z.boolean(),
+  AgentIsMaster: z.boolean(),
+  RebateAccount: z.boolean(),
+  ForceNotifMasterAgent: z.boolean(),
+  TotalEffectiveSplit: z.number(),
+  SubAgent: z.string(),
+  Filter: z.string(),
+  DefaultSplits: z.string(),
+  Agent2: z.string(),
+});
 
 
 export const AgentSetupSchema = z.object({
