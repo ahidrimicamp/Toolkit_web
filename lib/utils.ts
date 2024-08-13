@@ -183,6 +183,16 @@ export const MerchantAgentLeadSourceSchema = z.object({
 });
 
 
+export const MerchEnterAdjustmentSchema = z.object({
+  Agent: z.string(),
+  DataDate: z.string(),
+  DisplayDate: z.string(),
+  AdjustType: z.string(),
+  Notes: z.string(),
+  AdjustAmount: z.string(),
+  Split: z.number(),
+});
+
 export const AgentSetupSchema = z.object({
   findAgent: z.string(),
   excludeClosedAgents: z.boolean(),
