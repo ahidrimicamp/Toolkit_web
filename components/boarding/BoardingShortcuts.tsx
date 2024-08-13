@@ -38,7 +38,7 @@ const BoardingShortcuts = () => {
         <div className="flex-1 justify-center rounded-md border p-5 shadow-md space-y-2">
           <h1 className="text-center font-semibold">Merchant Boarding List</h1>
           <Link
-            href={""}
+            href={"/boarding/merchBoarding"}
             className="flex gap-4 px-2">
             <Image
               className="m-auto flex-none"
@@ -57,7 +57,7 @@ const BoardingShortcuts = () => {
         <div className="flex-1 justify-center rounded-md border p-5 shadow-md space-y-2">
           <h1 className="text-center font-semibold">Merchant</h1>
           <Link
-            href={""}
+            href={"/boarding/merch"}
             className="flex gap-4 px-2">
             <Image
               className="m-auto flex-none"
@@ -76,7 +76,7 @@ const BoardingShortcuts = () => {
         <div className="flex-1 justify-center rounded-md border p-5 shadow-md space-y-2">
           <h1 className="text-center  font-semibold">Agent Details List</h1>
           <Link
-            href={""}
+            href={"/boarding/agentDetails"}
             className="flex gap-4 px-2">
             <Image
               className="m-auto flex-none"
@@ -145,7 +145,7 @@ const BoardingShortcuts = () => {
         <div className="flex-1 justify-center rounded-md border p-5 shadow-md space-y-2">
           <h1 className="text-center font-semibold">Support Tickets</h1>
           <Link
-            href={""}
+            href={"/boarding/supportTickets"}
             className="flex gap-4 px-2">
             <Image
               className="m-auto flex-none"

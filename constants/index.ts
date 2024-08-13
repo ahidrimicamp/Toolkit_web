@@ -3347,3 +3347,17 @@ export const boardingMainTabs = [
   },
 
 ];
+
+
+export const supportTicketsTabs = [
+  {
+    id: "1",
+    title: "My Tickets",
+    value: "myTickets",
+  },
+  {
+    id: "2",
+    title: "Solved",
+    value: "solved",
+  },
+];
