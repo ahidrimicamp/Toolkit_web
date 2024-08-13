@@ -63,7 +63,7 @@ const MerchantInformation = () => {
   const onSubmit = (value: z.infer<typeof MerchantInfoSchema>) => {
     console.log(value);
   };
-  
+
   return (
     <>
       <div className="size-full grow ">
@@ -240,7 +240,7 @@ const MerchantInformation = () => {
                 </div>
               </div>
               <div className="grid w-2/3 max-xl:w-full grid-cols-1 gap-3">
-                <h1 className="text-3xl text-sky-500">
+                <h1 className="text-2xl text-sky-500">
                   Other Merchant Information:
                 </h1>
                 <h1 className="border-b border-gray-600 text-xl font-semibold">
@@ -356,7 +356,11 @@ const MerchantInformation = () => {
             </div>
             <div className="mt-8 w-1/2">
               <div className="grid grid-cols-3 gap-3">
-                <Button className="bg-blue-500">Save Changes</Button>
+                <Button
+                  variant={"secondary"}
+                  className="">
+                  Save Changes
+                </Button>
                 <UploadFileBtn />
                 <div className="ml-4 gap-2 flex items-center">
                   <CheckboxForm

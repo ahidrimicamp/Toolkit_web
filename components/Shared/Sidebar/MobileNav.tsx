@@ -94,7 +94,7 @@ const MobileSideNav = () => {
               </div>
 
               <div className="mt-auto">
-                {/* <ProfileLogo Firstname="Tony" Lastname="Stark" /> */}
+                <ProfileLogo Firstname="Tony" Lastname="Stark" />
               </div>
             </SheetDescription>
           </SheetHeader>
