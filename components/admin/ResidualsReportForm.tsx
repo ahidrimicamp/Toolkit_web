@@ -1,7 +1,6 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger } from "../ui/select";
-import { Checkbox } from "../ui/checkbox";
 import { Button } from "../ui/button";
 import DatePickerWithRange from "../Shared/Calender/Calender";
 import { Input } from "../ui/input";
@@ -16,7 +15,9 @@ const ResidualsReportForm = ({ type }: Props) => {
       case "BeginDate":
         return (
           <>
-            <label className="text-sm font-medium leading-none">Begin Date</label>
+            <label className="text-sm font-medium leading-none">
+              Begin Date
+            </label>
             <div className="pb-5 pt-1">
               <DatePickerWithRange />
             </div>
@@ -30,21 +31,22 @@ const ResidualsReportForm = ({ type }: Props) => {
       case "ProcessorAgent":
         return (
           <>
-
-            <label className="text-sm font-medium leading-none">Begin Date</label>
+            <label className="text-sm font-medium leading-none">
+              Begin Date
+            </label>
             <div className="pb-4 pt-1">
               <DatePickerWithRange />
             </div>
 
-            <label className="text-sm font-medium ">Processor</label>
+            <label className="text-sm font-medium">Processor</label>
             <Select>
               <SelectTrigger>Select Processor</SelectTrigger>
               <SelectContent>
                 <SelectItem value={"Test"}>Processor 1</SelectItem>
               </SelectContent>
             </Select>
-            <hr className="border-none my-2" />
-            <label className="text-sm font-medium pt-5">Agent</label>
+            <hr className="my-2 border-none" />
+            <label className="pt-5 text-sm font-medium">Agent</label>
             <Select>
               <SelectTrigger>Select Agent</SelectTrigger>
               <SelectContent>
@@ -54,7 +56,7 @@ const ResidualsReportForm = ({ type }: Props) => {
               </SelectContent>
             </Select>
 
-            <div className="flex w-full mt-4 justify-around">
+            <div className="mt-4 flex w-full justify-around">
               <Button variant="destructive">Reset</Button>
               <Button variant="default">Submit</Button>
             </div>
@@ -63,11 +65,13 @@ const ResidualsReportForm = ({ type }: Props) => {
       case "Agent":
         return (
           <>
-            <label className="text-sm font-medium leading-none">Begin Date</label>
+            <label className="text-sm font-medium leading-none">
+              Begin Date
+            </label>
             <div className="pb-4 pt-1">
               <DatePickerWithRange />
             </div>
-            <label className="text-sm font-medium pt-5">Agent</label>
+            <label className="pt-5 text-sm font-medium">Agent</label>
             <Select>
               <SelectTrigger>Select Agent</SelectTrigger>
               <SelectContent>
@@ -77,7 +81,7 @@ const ResidualsReportForm = ({ type }: Props) => {
               </SelectContent>
             </Select>
 
-            <div className="flex w-full mt-4 justify-around">
+            <div className="mt-4 flex w-full justify-around">
               <Button variant="destructive">Reset</Button>
               <Button variant="default">Submit</Button>
             </div>
@@ -86,11 +90,13 @@ const ResidualsReportForm = ({ type }: Props) => {
       case "Processor":
         return (
           <>
-            <label className="text-sm font-medium leading-none">Begin Date</label>
+            <label className="text-sm font-medium leading-none">
+              Begin Date
+            </label>
             <div className="pb-4 pt-1">
               <DatePickerWithRange />
             </div>
-            <label className="text-sm font-medium pt-5">Processor</label>
+            <label className="pt-5 text-sm font-medium">Processor</label>
             <Select>
               <SelectTrigger>Select Processor</SelectTrigger>
               <SelectContent>
@@ -100,7 +106,7 @@ const ResidualsReportForm = ({ type }: Props) => {
               </SelectContent>
             </Select>
 
-            <div className="flex w-full mt-4 justify-around">
+            <div className="mt-4 flex w-full justify-around">
               <Button variant="destructive">Reset</Button>
               <Button variant="default">Submit</Button>
             </div>
@@ -109,25 +115,21 @@ const ResidualsReportForm = ({ type }: Props) => {
       case "MerchantRawData":
         return (
           <>
-            <label className="text-sm font-medium pt-5">Account Number</label>
+            <label className="pt-5 text-sm font-medium">Account Number</label>
             <div className="pb-3 pt-1">
-              <Input
-                type=""
-                placeholder="Enter Account Number"
-              />
+              <Input type="" placeholder="Enter Account Number" />
             </div>
 
-            <label className="text-sm font-medium leading-none">Residual Month</label>
+            <label className="text-sm font-medium leading-none">
+              Residual Month
+            </label>
             <div className="pb-4 pt-1">
               <DatePickerWithRange />
             </div>
 
-            <label className="text-sm font-medium pt-5">Residual Version</label>
+            <label className="pt-5 text-sm font-medium">Residual Version</label>
             <div className="pb-3 pt-1">
-              <Input
-                type="number"
-                placeholder="Enter Account Number"
-              />
+              <Input type="number" placeholder="Enter Account Number" />
             </div>
             <div className="flex w-full justify-around">
               <Button variant="destructive">Reset</Button>

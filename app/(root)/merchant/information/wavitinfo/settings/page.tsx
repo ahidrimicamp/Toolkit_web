@@ -19,7 +19,7 @@ const page = () => {
   return (
     <>
       <section>
-        <div className="w-1/2 max-xl:w-auto grid grid-cols-1 overflow-auto">
+        <div className="grid w-1/2 grid-cols-1 overflow-auto max-xl:w-auto">
           <DataTable
             columns={columns}
             data={wavitSettingsTable}

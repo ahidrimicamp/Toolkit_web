@@ -3346,11 +3346,16 @@ export const boardingMainTabs = [
 export const leadsTabs = [
   {
     id: "1",
+    title: "MiCamp Leads",
+    value: "miCampLeads",
+  },
+  {
+    id: "2",
     title: "North Leads",
     value: "northLeads",
   },
   {
-    id: "2",
+    id: "3",
     title: "FSP Leads",
     value: "fspLeads",
   },
@@ -3434,7 +3439,7 @@ export const merchantForAgentTable = [
     Id: 2,
     MID: "8201925347",
     DBA: "FIGHTING COLORS",
-    Status: "Approved",
+    Status: "Closed",
     OpenDate: "2024-08-03 12:00",
     ClosedDate: "",
     Processor: "FSP-Fiserv",
@@ -3443,7 +3448,7 @@ export const merchantForAgentTable = [
     Id: 3,
     MID: "820192847",
     DBA: "PUERTO DE LA LIBERTAD",
-    Status: "Approved",
+    Status: "In Progress",
     OpenDate: "2024-08-01 15:00",
     ClosedDate: "",
     Processor: "First Data Omaha",
@@ -3452,7 +3457,7 @@ export const merchantForAgentTable = [
     Id: 4,
     MID: "83011237",
     DBA: "THE ORIGINAL DEL NORTE",
-    Status: "Approved",
+    Status: "Cancelled",
     OpenDate: "2023-02-15 12:00",
     ClosedDate: "",
     Processor: "360 Payments",
@@ -3461,7 +3466,7 @@ export const merchantForAgentTable = [
     Id: 5,
     MID: "820192123",
     DBA: "SUGAR MAKERY INC",
-    Status: "Approved",
+    Status: "Waiting",
     OpenDate: "2022-04-29 12:00",
     ClosedDate: "",
     Processor: "First Data Omaha",
@@ -3523,3 +3528,26 @@ export const northLeadsTable = [
 export const fspLeadsTable = [
 
 ]
+
+export const boardingMerchantTabs = [
+  {
+    id: "1",
+    title: "Merchant Information",
+    value: "merchantInformation",
+  },
+  {
+    id: "2",
+    title: "Equipment Orders",
+    value: "equipmentOrders",
+  },
+  {
+    id: "3",
+    title: "Order New Equipment",
+    value: "orderNewEquipment",
+  },
+  {
+    id: "4",
+    title: "Upload Documents",
+    value: "uploadDocuments",
+  },
+];

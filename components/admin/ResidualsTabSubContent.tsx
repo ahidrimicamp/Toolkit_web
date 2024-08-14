@@ -5,11 +5,19 @@ import {
 } from "@/components/Shared/DataTable/Columns";
 import DataTable from "@/components/Shared/DataTable/DataTable";
 import { Button } from "@/components/ui/button";
-import { adjustmentTable, agentEmailList, displayResidualsTable, ModelSelectList } from "@/constants";
+import {
+  adjustmentTable,
+  agentEmailList,
+  displayResidualsTable,
+  equipmentData,
+} from "@/constants";
 import { DataTypes } from "@/types";
 import React from "react";
 import { Form } from "../ui/form";
-import { newAdjustmentCriteriaSchema, newDisplayResidualsSchema, newRecentOrdersSchema } from "@/lib/utils";
+import {
+  newAdjustmentCriteriaSchema,
+  newDisplayResidualsSchema,
+} from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -20,26 +28,23 @@ import {
   SelectForm,
   TextAreaForm,
 } from "../Shared/InstantForm";
-import { equipmentData } from "@/constants";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ThirdPartyProcessor from "./ThirdPartyProcessors";
 import FirstDataOmaha from "./FirstDataOmaha";
 import ResidualsReportForm from "./ResidualsReportForm";
 
 const Calculate = () => {
-
   return (
     <>
-      <section className="text-start flex gap-2 max-lg:flex-wrap">
+      <section className="flex gap-2 text-start max-lg:flex-wrap">
         <ThirdPartyProcessor />
         <FirstDataOmaha />
       </section>
     </>
-  )
-}
+  );
+};
 
 const Adjustments = () => {
-
   const columnsConfig: ColumnConfig<DataTypes>[] = [
     { accessorKey: "Date", header: "Date" },
     { accessorKey: "MID", header: "MID" },
@@ -73,19 +78,23 @@ const Adjustments = () => {
 
   return (
     <>
-      <section className=" mt-4 text-start max-2xl:flex-wrap gap-2">
-
+      <section className="mt-4 gap-2 text-start max-2xl:flex-wrap">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="flex max-2xl:flex-wrap gap-2">
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="flex gap-2 max-2xl:flex-wrap"
+          >
             {/* ADJUSTMENT CRITERIA CARD */}
             <div className="flex-auto">
-              <h1 className="text-center font-medium text-xl my-5">Adjustment Criteria</h1>
+              <h1 className="my-5 text-center text-xl font-medium">
+                Adjustment Criteria
+              </h1>
 
               <div className="m-auto flex w-full gap-4">
-                <div className="w-1/3 content-center text-end mt-2">
+                <div className="mt-2 w-1/3 content-center text-end">
                   <p className="">Residual Date</p>
                 </div>
-                <div className="content-center w-2/3 flex-auto">
+                <div className="w-2/3 flex-auto content-center">
                   <DatePickerForm
                     control={form.control}
                     formName="ResidualDate"
@@ -95,7 +104,7 @@ const Adjustments = () => {
                 </div>
               </div>
               <div className="m-auto flex w-full gap-4">
-                <div className="w-1/3 content-center text-end mt-2">
+                <div className="mt-2 w-1/3 content-center text-end">
                   <p className="">Agent</p>
                 </div>
                 <div className="w-2/3">
@@ -105,16 +114,16 @@ const Adjustments = () => {
                     label=""
                     placeholder={"Select Agent"}
                     content={agentEmailList}
-                    valueKey='Email'
-                    displayKey='Name'
+                    valueKey="Email"
+                    displayKey="Name"
                     disabled={false}
                     className=""
                   />
                 </div>
               </div>
-              <div className="m-auto flex w-full gap-4 content-center">
+              <div className="m-auto flex w-full content-center gap-4">
                 <p className="w-1/3 content-center text-end">Agent ID</p>
-                <div className="flex gap-2 w-2/3">
+                <div className="flex w-2/3 gap-2">
                   <div className="flex-1">
                     <InputForm
                       control={form.control}
@@ -123,17 +132,17 @@ const Adjustments = () => {
                       placeholder=""
                     />
                   </div>
-                  <Button className="flex-1 mt-2 bg-gradient-to-r from-[#14ADD6] to-[#384295] hover:opacity-90 text-white">
+                  <Button className="mt-2 flex-1 bg-gradient-to-r from-[#14ADD6] to-[#384295] text-white hover:opacity-90">
                     Search
                   </Button>
                 </div>
               </div>
 
-              <hr className="border my-7" />
+              <hr className="my-7 border" />
 
               <div>
                 <div className="m-auto flex w-full gap-4">
-                  <div className="w-1/3 content-center text-end mt-2">
+                  <div className="mt-2 w-1/3 content-center text-end">
                     <p className="">Adjust Type</p>
                   </div>
                   <div className="w-2/3">
@@ -143,15 +152,15 @@ const Adjustments = () => {
                       label=""
                       placeholder={"Select Adjust Type"}
                       content={agentEmailList}
-                      valueKey='Email'
-                      displayKey='Name'
+                      valueKey="Email"
+                      displayKey="Name"
                       disabled={false}
                       className=""
                     />
                   </div>
                 </div>
               </div>
-              <div className="m-auto flex w-full gap-4 content-center">
+              <div className="m-auto flex w-full content-center gap-4">
                 <p className="w-1/3 content-center text-end">MID</p>
                 <div className="w-2/3">
                   <InputForm
@@ -162,12 +171,12 @@ const Adjustments = () => {
                   />
                 </div>
               </div>
-              <div className="text-end m-auto w-full my-3">
-                <Button className="px-8 bg-gradient-to-r from-[#14ADD6] to-[#384295] hover:opacity-90 text-white">
+              <div className="m-auto my-3 w-full text-end">
+                <Button className="bg-gradient-to-r from-[#14ADD6] to-[#384295] px-8 text-white hover:opacity-90">
                   Find / Clear
                 </Button>
               </div>
-              <div className="m-auto flex w-full gap-4 content-center">
+              <div className="m-auto flex w-full content-center gap-4">
                 <p className="w-1/3 content-center text-end">DBA/Legal</p>
                 <div className="w-2/3">
                   <InputForm
@@ -178,7 +187,7 @@ const Adjustments = () => {
                   />
                 </div>
               </div>
-              <div className="m-auto flex w-full gap-4 content-center">
+              <div className="m-auto flex w-full content-center gap-4">
                 <p className="w-1/3 content-center text-end">Processor</p>
                 <div className="w-2/3">
                   <InputForm
@@ -190,8 +199,7 @@ const Adjustments = () => {
                 </div>
               </div>
 
-
-              <div className="m-auto mt-10 flex w-full gap-4 content-center">
+              <div className="m-auto mt-10 flex w-full content-center gap-4">
                 <p className="w-1/3 content-center text-end">Amount</p>
                 <div className="w-2/3">
                   <InputForm
@@ -202,7 +210,7 @@ const Adjustments = () => {
                   />
                 </div>
               </div>
-              <div className="m-auto flex w-full gap-4 content-center">
+              <div className="m-auto flex w-full content-center gap-4">
                 <p className="w-1/3 content-center text-end">Notes</p>
                 <div className="w-2/3">
                   <TextAreaForm
@@ -215,10 +223,10 @@ const Adjustments = () => {
               </div>
 
               <div className="flex justify-center gap-2">
-                <Button className="px-10 my-5 bg-gradient-to-r from-[#14ADD6] to-[#384295] hover:opacity-90 text-white">
+                <Button className="my-5 bg-gradient-to-r from-[#14ADD6] to-[#384295] px-10 text-white hover:opacity-90">
                   Edit
                 </Button>
-                <Button className="px-10 my-5 bg-gradient-to-r from-[#FF3333] to-[#8F0000] hover:opacity-90 text-white">
+                <Button className="my-5 bg-gradient-to-r from-[#FF3333] to-[#8F0000] px-10 text-white hover:opacity-90">
                   Delete
                 </Button>
               </div>
@@ -233,16 +241,14 @@ const Adjustments = () => {
                 filteredBy="brand"
               />
             </div>
-
           </form>
         </Form>
       </section>
     </>
-  )
-}
+  );
+};
 
 const Reports = () => {
-
   const data = [
     {
       id: 1,
@@ -299,7 +305,7 @@ const Reports = () => {
   return (
     <>
       <section className="text-start">
-        <div className="grid grid-cols-2 mt-5 overflow-auto  max-2xl:grid-cols-1">
+        <div className="mt-5 grid grid-cols-2 overflow-auto max-2xl:grid-cols-1">
           <Tabs defaultValue="BeginDate" className="w-fit">
             <TabsList>
               {data.map((tab) => (
@@ -324,11 +330,10 @@ const Reports = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
 const DisplayResiduals = () => {
-
   const columnsConfig: ColumnConfig<DataTypes>[] = [
     { accessorKey: "Id", header: "ID" },
     { accessorKey: "AgentName", header: "Agent Name" },
@@ -377,20 +382,18 @@ const DisplayResiduals = () => {
 
   return (
     <>
-      <section className=" mt-4 text-start  gap-2">
-
+      <section className="mt-4 gap-2 text-start">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className=" gap-2">
-
+          <form onSubmit={form.handleSubmit(onSubmit)} className="gap-2">
             <div className="flex w-full gap-2 max-2xl:flex-wrap">
               {/* FIRST COLUMN */}
               <div className="flex-auto">
                 {/* RESIDUAL DATE */}
                 <div className="flex gap-1">
-                  <div className="w-1/4 pr-3 content-center text-end mt-2">
+                  <div className="mt-2 w-1/4 content-center pr-3 text-end">
                     <p>Residual Date</p>
                   </div>
-                  <div className="content-center w-2/4">
+                  <div className="w-2/4 content-center">
                     <DatePickerForm
                       control={form.control}
                       formName="ResidualDate"
@@ -401,7 +404,7 @@ const DisplayResiduals = () => {
                 </div>
                 {/* PAY DAY */}
                 <div className="flex gap-2">
-                  <div className="m-auto w-1/4 ">
+                  <div className="m-auto w-1/4">
                     <CheckboxForm
                       control={form.control}
                       formName={"PayDay"}
@@ -416,13 +419,13 @@ const DisplayResiduals = () => {
                       label=""
                       placeholder={"Select Pay Day"}
                       content={agentEmailList}
-                      valueKey='Email'
-                      displayKey='Name'
+                      valueKey="Email"
+                      displayKey="Name"
                       disabled={false}
                       className=""
                     />
                   </div>
-                  <div className="m-auto w-1/4 ">
+                  <div className="m-auto w-1/4">
                     <CheckboxForm
                       control={form.control}
                       formName={"ExcludePayDay"}
@@ -433,7 +436,7 @@ const DisplayResiduals = () => {
                 </div>
                 {/* PAY GROUP  */}
                 <div className="flex gap-2">
-                  <div className="m-auto w-1/4 ">
+                  <div className="m-auto w-1/4">
                     <CheckboxForm
                       control={form.control}
                       formName={"PayGroup"}
@@ -448,13 +451,13 @@ const DisplayResiduals = () => {
                       label=""
                       placeholder={"Select Pay Group"}
                       content={agentEmailList}
-                      valueKey='Email'
-                      displayKey='Name'
+                      valueKey="Email"
+                      displayKey="Name"
                       disabled={false}
                       className=""
                     />
                   </div>
-                  <div className="m-auto w-1/4 ">
+                  <div className="m-auto w-1/4">
                     <CheckboxForm
                       control={form.control}
                       formName={"ExcludePayGroup"}
@@ -463,28 +466,25 @@ const DisplayResiduals = () => {
                     />
                   </div>
                 </div>
-                <div className="w-full text-center m-auto">
-                  <Button className="w-4/5 mt-4 bg-gradient-to-r from-[#14ADD6] to-[#384295] hover:opacity-90 text-white">
+                <div className="m-auto w-full text-center">
+                  <Button className="mt-4 w-4/5 bg-gradient-to-r from-[#14ADD6] to-[#384295] text-white hover:opacity-90">
                     Show Residuals
                   </Button>
-                  <div className="flex m-auto justify-center gap-2">
-                    <Button className="w-2/5 mt-4 bg-black hover:opacity-90 text-white">
+                  <div className="m-auto flex justify-center gap-2">
+                    <Button className="mt-4 w-2/5 bg-black text-white hover:opacity-90">
                       Create ACH File
                     </Button>
-                    <Button className="w-2/5 mt-4 text-xs bg-black hover:opacity-90 text-white">
+                    <Button className="mt-4 w-2/5 bg-black text-xs text-white hover:opacity-90">
                       Create Summary Spreadsheet
                     </Button>
                   </div>
                 </div>
-
               </div>
 
               {/* SECOND COLUMN */}
               <div className="flex-auto">
-
-                <h2 className="font-medium text-xl">More Options:</h2>
-                <div className="grid grid-rows-7 grid-flow-col gap-2">
-
+                <h2 className="text-xl font-medium">More Options:</h2>
+                <div className="grid grid-flow-col grid-rows-7 gap-2">
                   {/* Pay Status */}
                   <p className="underline">Pay Status:</p>
                   <CheckboxForm
@@ -506,7 +506,7 @@ const DisplayResiduals = () => {
                     placeholder={"Show NOT OK To Pay"}
                   />
                   {/* BANKING */}
-                  <p className="underline mt-2">Banking:</p>
+                  <p className="mt-2 underline">Banking:</p>
                   <CheckboxForm
                     control={form.control}
                     formName={"OnlyWithBankingInfo"}
@@ -540,7 +540,7 @@ const DisplayResiduals = () => {
                     placeholder={"Residual Reports Opt-In"}
                   />
                   {/* NET INCOME TOTALS */}
-                  <p className="underline mt-2">Net Income Totals:</p>
+                  <p className="mt-2 underline">Net Income Totals:</p>
                   <CheckboxForm
                     control={form.control}
                     formName={"OnlyShowPositiveResiduals"}
@@ -561,14 +561,14 @@ const DisplayResiduals = () => {
                     label={""}
                     placeholder={"Only Show Physical Checks"}
                   />
-                  <Button>
-                    Create Excel Residual Reports
-                  </Button>
+                  <Button>Create Excel Residual Reports</Button>
                   <CheckboxForm
                     control={form.control}
                     formName={"EmailReportsToAgent"}
                     label={""}
-                    placeholder={"Email Reports to AGENT and CC: Residual Emails"}
+                    placeholder={
+                      "Email Reports to AGENT and CC: Residual Emails"
+                    }
                   />
                   <CheckboxForm
                     control={form.control}
@@ -582,22 +582,20 @@ const DisplayResiduals = () => {
                     label={""}
                     placeholder={"Email Reports to ???"}
                   />
-                  
                 </div>
-                <div className="mr-0 ml-auto w-2/5">
-                    <InputForm
-                      control={form.control}
-                      formName={"EmailReportsTo"}
-                      label=""
-                      placeholder="Email to..?"
-                    />
-                  </div>
+                <div className="ml-auto mr-0 w-2/5">
+                  <InputForm
+                    control={form.control}
+                    formName={"EmailReportsTo"}
+                    label=""
+                    placeholder="Email to..?"
+                  />
+                </div>
               </div>
             </div>
-
           </form>
         </Form>
-        <div className="grid grid-cols-1 overflow-auto  ">
+        <div className="grid grid-cols-1 overflow-auto">
           <DataTable
             columns={columns}
             data={displayResidualsTable}
@@ -608,12 +606,11 @@ const DisplayResiduals = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
 export default function RenderResidualsComponents(value: string) {
   switch (value) {
-
     case "calculate":
       return <Calculate />;
     case "adjustments":

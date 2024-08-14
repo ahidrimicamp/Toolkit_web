@@ -74,7 +74,7 @@ const MiCampLeads = () => {
                 data={northLeadsTable}
                 enableSorting={true}
                 enableColumnFilter={true}
-                filteredBy="Name"
+                filteredBy="brand"
               />
             </div>
           </form>
@@ -143,7 +143,7 @@ const NorthLeads = () => {
                 data={northLeadsTable}
                 enableSorting={true}
                 enableColumnFilter={true}
-                filteredBy="Name"
+                filteredBy="brand"
               />
             </div>
           </form>
@@ -212,7 +212,7 @@ const FspLeads = () => {
                 data={fspLeadsTable}
                 enableSorting={true}
                 enableColumnFilter={true}
-                filteredBy="Name"
+                filteredBy="brand"
               />
             </div>
           </form>
@@ -222,7 +222,7 @@ const FspLeads = () => {
   );
 };
 
-export default function RenderLeadsTabComponents(value: string) {
+export default function RenderBoardingMerchantTabComponents(value: string) {
   switch (value) {
     case "miCampLeads":
       return <MiCampLeads />;

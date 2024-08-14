@@ -29,7 +29,7 @@ const Page = () => {
   return (
     <>
       <div className="flex gap-4 2xl:flex-row">
-        <div className="grid grid-cols-1 flex-auto overflow-auto">
+        <div className="grid flex-auto grid-cols-1 overflow-auto">
           <DataTable
             columns={columns}
             data={employees}

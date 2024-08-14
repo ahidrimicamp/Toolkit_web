@@ -6,11 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
-import {
-  CheckboxForm,
-  InputForm,
-  TextAreaForm,
-} from "../Shared/InstantForm";
+import { CheckboxForm, InputForm, TextAreaForm } from "../Shared/InstantForm";
 
 const NewSupportTicket = () => {
   const form = useForm<z.infer<typeof newSupportTicketSchema>>({
@@ -32,15 +28,13 @@ const NewSupportTicket = () => {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <div className="space-y-2">
-
             <InputForm
               control={form.control}
               formName="Subject"
               label="Subject"
               placeholder="Insert a subject"
             />
-            <div className="flex gap-2 items-end">
-
+            <div className="flex items-end gap-2">
               <CheckboxForm
                 control={form.control}
                 formName="Support"
@@ -66,7 +60,6 @@ const NewSupportTicket = () => {
           <div className="flex justify-center max-2xl:justify-center">
             <Button>Create Merchant</Button>
           </div>
-
         </form>
       </Form>
     </div>

@@ -2,11 +2,11 @@
 
 import React, { useState } from "react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {  leadsTabs } from "@/constants";
-import RenderLeadsTabComponents from "./LeadsTabSubContent";
+import { boardingMerchantTabs } from "@/constants";
+import RenderBoardingMerchantTabComponents from "./BoardingMerchantTabSubContent";
 
 
-const LeadsTabContent = () => {
+const BoardingMerchantTabContent = () => {
   const [activeItem, setActiveItem] = useState<string>("");
 
   const handleClick = (value: string) => {
@@ -18,7 +18,7 @@ const LeadsTabContent = () => {
       className="w-full rounded-md p-4 text-center"
     >
       <TabsList>
-        {leadsTabs.map((tab) => (
+        {boardingMerchantTabs.map((tab) => (
           <TabsTrigger
             onClick={() => handleClick(tab.value)}
             key={tab.id}
@@ -28,9 +28,9 @@ const LeadsTabContent = () => {
           </TabsTrigger>
         ))}
       </TabsList>
-      {RenderLeadsTabComponents(activeItem || "miCampLeads")}
+      {RenderBoardingMerchantTabComponents(activeItem || "miCampLeads")}
     </Tabs>
   );
 };
 
-export default LeadsTabContent;
+export default BoardingMerchantTabContent;

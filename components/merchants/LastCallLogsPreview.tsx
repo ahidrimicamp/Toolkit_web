@@ -36,18 +36,17 @@ const LastCallLogsPreview = () => {
 
   const columns = createColumns(columnsConfig);
   return (
-    <div className="flex-auto mb-3 mt-0  rounded-lg border  p-4">
+    <div className="mb-3 mt-0 flex-auto rounded-lg border p-4">
       <h1 className="text-3xl text-sky-500">Last Call Logs Preview</h1>
 
-      <div className='grid grid-cols-1 overflow-auto'>
+      <div className="grid grid-cols-1 overflow-auto">
         <DataTable
           columns={columns}
           data={callLogs}
           enableColumnFilter={true}
-          filteredBy='UserID'
+          filteredBy="UserID"
         />
       </div>
-
     </div>
   );
 };

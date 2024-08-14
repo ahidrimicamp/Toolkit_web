@@ -114,7 +114,7 @@ const AgentLeadSource = () => {
                   label="Split %"
                   placeholder="Split %"
                 />
-                <Button className="col-start-4 max-lg:col-start-3 max-lg:col-span-2 bg-green-600">
+                <Button className="col-start-4 bg-green-600 max-lg:col-span-2 max-lg:col-start-3">
                   Clear/Add New
                 </Button>
               </div>
@@ -182,13 +182,15 @@ const AgentLeadSource = () => {
                   <span className="mt-1.5">Rebate Account</span>
                 </div>
               </div>
-              <div className="grid grid-cols-4 max-xl:grid-cols-3 gap-3">
-                <Button className="col-start-2 max-xl:col-start-1 bg-blue-500">Add Agent</Button>
+              <div className="grid grid-cols-4 gap-3 max-xl:grid-cols-3">
+                <Button className="col-start-2 bg-blue-500 max-xl:col-start-1">
+                  Add Agent
+                </Button>
                 <Button className="bg-red-500">Delete Agent</Button>
                 <Button className="bg-gray-500">Set Master</Button>
               </div>
               <div className="w-full rounded-md p-2">
-              <DataTable
+                <DataTable
                   columns={columns}
                   data={agentLeadSourceDataTable}
                   enableColumnFilter={true}

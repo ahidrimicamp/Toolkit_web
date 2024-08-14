@@ -356,7 +356,6 @@ const ServicesSplits = () => {
                   control={form.control}
                   formName={date.value}
                   label={date.title}
-                  //placeholder={`Select ${date.title}`}
                   placeholder={`Select Date`}
                 />
               ))}
@@ -385,7 +384,7 @@ const ServicesSplits = () => {
                       onClick={
                         btn.value === "addNew" || btn.value === "edit"
                           ? () => setIsNewOrEdit(!isNewOrEdit)
-                          : () => { }
+                          : () => {}
                       }
                     >
                       {btn.title}

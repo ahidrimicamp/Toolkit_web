@@ -5,7 +5,7 @@ import React from "react";
 const layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (
     <div>
-      <section className="flex p-4 w-full items-center justify-center overflow-hidden">
+      <section className="flex w-full items-center justify-center overflow-hidden p-4">
         <div className="flex max-h-fit w-2/3 space-y-6 rounded-lg border p-10 pb-16 shadow-md md:block">
           <Header />
           <div

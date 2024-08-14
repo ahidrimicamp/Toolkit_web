@@ -15,7 +15,6 @@ import {
 } from "../Shared/InstantForm";
 
 const ThirdPartyProcessor = () => {
-
   const form = useForm<z.infer<typeof newThirdPartyProcessorsSchema>>({
     resolver: zodResolver(newThirdPartyProcessorsSchema),
     defaultValues: {
@@ -32,15 +31,15 @@ const ThirdPartyProcessor = () => {
 
   return (
     <>
-      <section className="text-start flex-auto">
+      <section className="flex-auto text-start">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
             {/* Processor Information */}
-            <h1 className="m-auto text-center mt-4 text-xl font-bold">
+            <h1 className="m-auto mt-4 text-center text-xl font-bold">
               Third-Party Processors
             </h1>
 
-            <div className="gap-2 w-3/5 m-auto space-y-2">
+            <div className="m-auto w-3/5 gap-2 space-y-2">
               {thirdPartyForm.map((item) =>
                 item.content ? (
                   <>
@@ -51,14 +50,14 @@ const ThirdPartyProcessor = () => {
                         label={item.title}
                         placeholder={item.placeholder}
                         content={item.content}
-                        valueKey='id'
-                        displayKey='title'
+                        valueKey="id"
+                        displayKey="title"
                         disabled={false}
                         className=""
                       />
                     </div>
                   </>
-                ) : item.type == 'checkbox' ? (
+                ) : item.type === "checkbox" ? (
                   <>
                     <div key={item.id} className="m-auto flex w-full gap-4">
                       <CheckboxForm
@@ -69,9 +68,9 @@ const ThirdPartyProcessor = () => {
                       />
                     </div>
                   </>
-                ) : item.type == 'date' ? (
+                ) : item.type === "date" ? (
                   <>
-                    <div className="content-center flex-auto">
+                    <div className="flex-auto content-center">
                       <DatePickerForm
                         control={form.control}
                         formName="FromDate"
@@ -94,7 +93,7 @@ const ThirdPartyProcessor = () => {
                 ),
               )}
               <div className="text-end">
-                <Button className="px-10 my-5 bg-gradient-to-r from-[#14ADD6] to-[#384295] hover:opacity-90 text-white">
+                <Button className="my-5 bg-gradient-to-r from-[#14ADD6] to-[#384295] px-10 text-white hover:opacity-90">
                   SUBMIT
                 </Button>
               </div>
@@ -103,8 +102,7 @@ const ThirdPartyProcessor = () => {
         </Form>
       </section>
     </>
-  )
-}
+  );
+};
 
-
-export default ThirdPartyProcessor
+export default ThirdPartyProcessor;

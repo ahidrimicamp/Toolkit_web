@@ -84,7 +84,7 @@ export default function MerchantDetails() {
             <div className="font-semibold">Merchant Details</div>
 
             {detailsList.map((item) => {
-              if (item.value == "badge") {
+              if (item.value === "badge") {
                 return (
                   <>
                     <li className="flex items-center justify-between gap-3">

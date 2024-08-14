@@ -6,15 +6,21 @@ import {
 } from "@/components/Shared/DataTable/Columns";
 import DataTable from "@/components/Shared/DataTable/DataTable";
 import { Button } from "@/components/ui/button";
-import { adjustmentTable, mySolvedTicketsTable, myTicketsTable } from "@/constants";
+import {
+  mySolvedTicketsTable,
+  myTicketsTable,
+} from "@/constants";
 import { DataTypes } from "@/types";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog";
-import NewMerchant from "../merchants/NewMerchant";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../ui/dialog";
 import NewSupportTicket from "./NewSupportTicket";
 
-
 const MyTickets = () => {
-
   const columnsConfig: ColumnConfig<DataTypes>[] = [
     { accessorKey: "Id", header: "ID" },
     { accessorKey: "Status", header: "Status" },
@@ -27,23 +33,24 @@ const MyTickets = () => {
 
   return (
     <>
-      <section className=" mt-4 text-start max-2xl:flex-wrap gap-2">
-        <div className="flex justify-between gap-2 items-center mt-10">
-          <h1 className="text-center font-medium text-sky-500 text-xl ">My Tickets</h1>
+      <section className="mt-4 gap-2 text-start max-2xl:flex-wrap">
+        <div className="mt-10 flex items-center justify-between gap-2">
+          <h1 className="text-center text-xl font-medium text-sky-500">
+            My Tickets
+          </h1>
           <Dialog>
             <DialogTrigger>
               <Button variant={"submit"}>+ New Ticket</Button>
             </DialogTrigger>
             <DialogContent className="2xl:[800px] max-lg:max-w-[500px] lg:max-w-[800px]">
               <DialogHeader>
-                <DialogTitle className="text-2xl text-center mb-5 text-sky-500 font-semibold">
+                <DialogTitle className="mb-5 text-center text-2xl font-semibold text-sky-500">
                   Add New Support Ticket
                 </DialogTitle>
                 <NewSupportTicket />
               </DialogHeader>
             </DialogContent>
           </Dialog>
-
         </div>
         <div className="grid grid-cols-1 overflow-auto">
           <DataTable
@@ -56,11 +63,10 @@ const MyTickets = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
 const Solved = () => {
-
   const columnsConfig: ColumnConfig<DataTypes>[] = [
     { accessorKey: "Id", header: "ID" },
     { accessorKey: "Status", header: "Status" },
@@ -73,16 +79,18 @@ const Solved = () => {
 
   return (
     <>
-      <section className=" mt-4 text-start max-2xl:flex-wrap gap-2">
-        <div className="flex justify-between gap-2 items-center mt-10">
-          <h1 className="text-center font-medium text-sky-500 text-xl ">Solved Tickets</h1>
+      <section className="mt-4 gap-2 text-start max-2xl:flex-wrap">
+        <div className="mt-10 flex items-center justify-between gap-2">
+          <h1 className="text-center text-xl font-medium text-sky-500">
+            Solved Tickets
+          </h1>
           <Dialog>
             <DialogTrigger>
               <Button variant={"submit"}>+ New Ticket</Button>
             </DialogTrigger>
             <DialogContent className="2xl:[300px] max-lg:max-w-[300px] lg:max-w-[300px]">
               <DialogHeader>
-                <DialogTitle className="text-2xl text-center mb-5 text-sky-500 font-semibold">
+                <DialogTitle className="mb-5 text-center text-2xl font-semibold text-sky-500">
                   Add New Support Ticket
                 </DialogTitle>
                 <NewSupportTicket />
@@ -101,14 +109,11 @@ const Solved = () => {
         </div>
       </section>
     </>
-  )
-}
-
-
+  );
+};
 
 export default function RenderSupportTabComponents(value: string) {
   switch (value) {
-
     case "myTickets":
       return <MyTickets />;
     case "solved":

@@ -10,8 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { formatCurrency, formatDate, formatRelativeDate } from "@/lib/utils";
+import { formatDate, formatRelativeDate } from "@/lib/utils";
 import { Input } from "../ui/input";
 import { Badge } from "../ui/badge";
 import Link from "next/link";
@@ -52,7 +51,7 @@ export default function UserDetails() {
   ];
   return (
     <>
-      <Card className="w-full overflow-hidden  shadow-md max-sm:hidden sm:hidden 2xl:block">
+      <Card className="w-full overflow-hidden shadow-md max-sm:hidden sm:hidden 2xl:block">
         <CardHeader className="flex flex-row items-start border-b bg-[#d9d9d9]/50 p-2 px-5 dark:bg-[#000000]">
           <div className="grid gap-0.5">
             <CardTitle className="group flex items-center gap-2 text-lg">
@@ -66,7 +65,7 @@ export default function UserDetails() {
             <h2 className="text-2xl text-sky-500">User Information</h2>
 
             {detailsList.map((item) => {
-              if (item.value == "badge") {
+              if (item.value === "badge") {
                 return (
                   <>
                     <li className="flex items-center justify-between gap-3">
@@ -96,7 +95,6 @@ export default function UserDetails() {
                 );
               }
             })}
-
           </div>
         </CardContent>
         <CardFooter className="flex flex-row items-center justify-between border-t bg-[#d9d9d9] px-6 py-3 dark:bg-[#000000]">
@@ -105,7 +103,7 @@ export default function UserDetails() {
           </div>
 
           <Link href={"/admin/userAdmin/editUser"}>
-            <Button type="button" onClick={() => { }}>
+            <Button type="button" onClick={() => {}}>
               Edit User
             </Button>
           </Link>

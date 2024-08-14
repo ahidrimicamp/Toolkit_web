@@ -1,21 +1,15 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { firstDataOmahaForm, thirdPartyForm } from "@/constants";
+import { firstDataOmahaForm } from "@/constants";
 import React from "react";
 import { Form } from "../ui/form";
-import { newFirstDataOmahaSchema, newThirdPartyProcessorsSchema } from "@/lib/utils";
+import { newFirstDataOmahaSchema } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import {
-  CheckboxForm,
-  DatePickerForm,
-  InputForm,
-  SelectForm,
-} from "../Shared/InstantForm";
+import { CheckboxForm, DatePickerForm, InputForm } from "../Shared/InstantForm";
 
 const FirstDataOmaha = () => {
-
   const form = useForm<z.infer<typeof newFirstDataOmahaSchema>>({
     resolver: zodResolver(newFirstDataOmahaSchema),
     defaultValues: {
@@ -38,17 +32,17 @@ const FirstDataOmaha = () => {
 
   return (
     <>
-      <section className="text-start flex-auto">
+      <section className="flex-auto text-start">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
             {/* Processor Information */}
-            <h1 className="m-auto text-center mt-4 text-xl font-bold">
+            <h1 className="m-auto mt-4 text-center text-xl font-bold">
               First Data Omaha
             </h1>
 
-            <div className="gap-2 w-3/5 m-auto space-y-2">
+            <div className="m-auto w-3/5 gap-2 space-y-2">
               {firstDataOmahaForm.map((item) =>
-                item.type == 'checkbox' ? (
+                item.type === "checkbox" ? (
                   <>
                     <div key={item.id} className="m-auto flex w-full gap-4">
                       <CheckboxForm
@@ -59,9 +53,9 @@ const FirstDataOmaha = () => {
                       />
                     </div>
                   </>
-                ) : item.type == 'date' ? (
+                ) : item.type === "date" ? (
                   <>
-                    <div className="content-center flex-auto">
+                    <div className="flex-auto content-center">
                       <DatePickerForm
                         control={form.control}
                         formName="FromDate"
@@ -84,7 +78,7 @@ const FirstDataOmaha = () => {
                 ),
               )}
               <div className="text-end">
-                <Button className="px-10 my-5 bg-gradient-to-r from-[#14ADD6] to-[#384295] hover:opacity-90 text-white">
+                <Button className="my-5 bg-gradient-to-r from-[#14ADD6] to-[#384295] px-10 text-white hover:opacity-90">
                   FDO PASO Single
                 </Button>
               </div>
@@ -93,8 +87,7 @@ const FirstDataOmaha = () => {
         </Form>
       </section>
     </>
-  )
-}
+  );
+};
 
-
-export default FirstDataOmaha
+export default FirstDataOmaha;
