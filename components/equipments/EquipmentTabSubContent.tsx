@@ -6,11 +6,11 @@ import {
 import DataTable from "@/components/Shared/DataTable/DataTable";
 import { Button } from "@/components/ui/button";
 import {
-  itemsForm,
-  ModelSelectList,
   equipmentData,
+  itemsForm,
   lookupForm,
   LookupTable,
+  ModelSelectList,
 } from "@/constants";
 import { DataTypes } from "@/types";
 import React from "react";
@@ -29,6 +29,7 @@ import {
   InputForm,
   SelectForm,
 } from "../Shared/InstantForm";
+
 import LookupSubSection from "./LookupSubSection";
 import { Card } from "../ui/card";
 
@@ -154,6 +155,19 @@ const Lookup = () => {
 };
 
 const Items = () => {
+  // const columnsConfig: ColumnConfig<DataTypes>[] = [
+  //   { accessorKey: "Model", header: "Model" },
+  //   { accessorKey: "Condition", header: "Condition" },
+  //   { accessorKey: "Serial", header: "Serial #" },
+  //   { accessorKey: "MID", header: "MID" },
+  //   { accessorKey: "DBA", header: "DBA" },
+  //   { accessorKey: "Status", header: "Status" },
+  //   { accessorKey: "Del", header: "Del." },
+  //   { accessorKey: "Date", header: "Date" },
+  // ];
+
+  // const columns = createColumns(columnsConfig);
+
   const form = useForm<z.infer<typeof newItemsSchema>>({
     resolver: zodResolver(newItemsSchema),
     defaultValues: {
@@ -351,6 +365,44 @@ const Reports = () => {
     console.log(value);
   };
 
+  // const data = [
+  //   {
+  //     id: 1,
+  //     title: "Date, Type",
+  //     value: "DateType",
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Date, Type, Agent",
+  //     value: "DateTypeAgent",
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "Date",
+  //     value: "Date",
+  //   },
+  //   {
+  //     id: 4,
+  //     title: "Agent",
+  //     value: "SumAgent",
+  //   },
+  //   {
+  //     id: 5,
+  //     title: "Status",
+  //     value: "Status",
+  //   },
+  //   {
+  //     id: 6,
+  //     title: "Process",
+  //     value: "Process",
+  //   },
+  //   {
+  //     id: 7,
+  //     title: "Sales",
+  //     value: "SalesReport",
+  //   },
+  // ];
+
   const Price = (row: any) => {
     const amount = parseFloat(row.getValue("price"));
     const formatted = new Intl.NumberFormat("en-US", {
@@ -383,6 +435,7 @@ const Reports = () => {
           <div className="mt-5 flex gap-4 text-start max-xl:flex-wrap">
             <div className="flex-auto">
               {/* CARD 1 - ORDER REPORTS */}
+
               <Card className="mt-4 space-y-4 p-4 shadow-md">
                 <h1 className="text-xl font-medium">Order Reports</h1>
                 <div className="flex w-full gap-2">

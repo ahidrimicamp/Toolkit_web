@@ -77,8 +77,8 @@ const SoftwareInstall = () => {
 
         <div className="flex size-full grow gap-3 max-xl:flex-col">
           {/* Merchant Information */}
-          <div className="flex-auto rounded-md border p-2 xl:h-screen xl:w-1/3">
-            <h1 className="flex justify-center text-xl font-semibold text-sky-500">
+          <div className="flex-auto rounded-md border p-2 xl:w-1/3">
+            <h1 className="flex justify-center text-xl font-semibold text-blue-500">
               Merchant Information
             </h1>
             <div className="flex content-center gap-3">
@@ -95,7 +95,7 @@ const SoftwareInstall = () => {
               </div>
             </div>
             <div className="mt-3 text-end">
-              <Button className="w-1/3 bg-blue-500">Assign New #</Button>
+              <Button className="w-1/3">Assign New #</Button>
             </div>
             <h1 className="mt-4 border-b border-gray-600 text-xl font-semibold">
               Technical POC
@@ -442,7 +442,7 @@ const SoftwareInstall = () => {
                   <h1 className="flex justify-center text-xl font-semibold text-sky-500">
                     Quick Updates
                   </h1>
-                  <Button className="mt-14 w-11/12 bg-blue-500">
+                  <Button className="mt-14 w-11/12">
                     Update Equipment Status
                   </Button>
                   <Button className="mb-2 mt-20 w-11/12 bg-blue-500">
@@ -454,9 +454,7 @@ const SoftwareInstall = () => {
                   <Button className="mb-2 mt-20 w-11/12 bg-blue-500">
                     Update Billing Information
                   </Button>
-                  <Button className="w-11/12 bg-blue-500">
-                    Setup Support Agreement
-                  </Button>
+                  <Button className="w-11/12">Setup Support Agreement</Button>
                 </div>
               </div>
               {/* Parent of bottom right section */}

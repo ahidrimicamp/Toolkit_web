@@ -50,10 +50,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       if (!existingUser) return token;
 
       // Include role in the token
-      token.role = existingUser.Role; // Adjust according to the Role model
+      token.role = existingUser.role; // Adjust according to the Role model
 
       // Include group in the token
-      token.group = existingUser.Group; // Adjust according to the Group model
+      token.group = existingUser.group; // Adjust according to the Group model
 
       token.firstname = existingUser.firstname; // Adjust according to the User's firstname
 
