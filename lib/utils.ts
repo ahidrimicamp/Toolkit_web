@@ -422,6 +422,53 @@ export const newAddNewUserSchema = z.object({
   EnableDarkMode: z.boolean(),
 });
 
+// BOARDING TOOL SCHEMAS
+
+export const searchMerchantSchema = z.object({
+  MerchantName: z.string(),
+  Agent: z.string(),
+});
+
+export const boardingAgentDetailsSchema = z.object({
+  AgentCompanyName: z.string(),
+  DisplayName: z.string(),
+  FirstName: z.string(),
+  LastName: z.string(),
+  RelationshipManager: z.string(),
+  Address: z.string(),
+  SteApt: z.string(),
+  City: z.string(),
+  State: z.string(),
+  Zip: z.string(),
+  Email: z.string(),
+  RoutingNumber: z.string(),
+  Account: z.string(),
+  NoShippingEmails: z.boolean(),
+  ShippingAddress: z.string(),
+  ShippingAddress2: z.string(),
+  ShippingCity: z.string(),
+  ShippingState: z.string(),
+  ShippingZip: z.string(),
+  ShippingEmails: z.string(),
+});
+
+export const newSupportTicketSchema = z.object({
+  Subject: z.string(),
+  Support: z.boolean(),
+  Sales: z.boolean(),
+  Description: z.string(),
+});
+
+export const newNorthBlindLeadSchema = z.object({
+  Email: z.string(),
+  Name: z.string(),
+});
+
+export const newFspLeadSchema = z.object({
+  Email: z.string(),
+  Name: z.string(),
+});
+
 // Currency format functions
 export const formatCurrency = (
   value: number,

@@ -4,32 +4,7 @@ import { useTheme } from "next-themes";
 import Link from "next/link";
 
 const BoardingShortcuts = () => {
-  const dark = "/icon/colorful/new-merchant-dark.svg";
-  const light = "/icon/colorful/new-merchant-blue.svg";
-  const { theme, systemTheme } = useTheme();
-
-  // eslint-disable-next-line no-unused-vars
-  const [resolvedTheme, setResolvedTheme] = useState<string | undefined>(
-    undefined,
-  );
-
-  useEffect(() => {
-    if (theme === "system") {
-      setResolvedTheme(systemTheme);
-    } else {
-      setResolvedTheme(theme);
-    }
-  }, [theme, systemTheme]);
-
-  const imgSrc =
-    theme === "system"
-      ? systemTheme === "dark"
-        ? light
-        : dark
-      : theme === "light"
-        ? dark
-        : light;
-
+  
   return (
     <section className="w-full">
       <div className="grid grid-cols-3 max-xl:grid-cols-2 max-lg:grid-cols-1 w-3/4 m-auto gap-4 rounded-md text-lg">
@@ -38,7 +13,7 @@ const BoardingShortcuts = () => {
         <div className="flex-1 justify-center rounded-md border p-5 shadow-md space-y-2">
           <h1 className="text-center font-semibold">Merchant Boarding List</h1>
           <Link
-            href={"/boarding/merchBoarding"}
+            href={"/boarding/mBoarding"}
             className="flex gap-4 px-2">
             <Image
               className="m-auto flex-none"
