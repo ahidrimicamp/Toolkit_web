@@ -73,7 +73,7 @@ const SoftwareInstall = () => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
-        <h1 className="mb-3 text-2xl text-blue-500">Software Install</h1>
+        <h1 className="mb-3 text-2xl text-sky-500">Software Install</h1>
 
         <div className="flex size-full grow gap-3 max-xl:flex-col">
           {/* Merchant Information */}
@@ -445,11 +445,13 @@ const SoftwareInstall = () => {
                   <Button className="mt-14 w-11/12">
                     Update Equipment Status
                   </Button>
-                  <Button className="mb-2 mt-20 w-11/12">
+                  <Button className="mb-2 mt-20 w-11/12 bg-blue-500">
                     Migrate to HOLD Status
                   </Button>
-                  <Button className="w-11/12">Migrate to ACTIVE Status</Button>
-                  <Button className="mb-2 mt-20 w-11/12">
+                  <Button className="w-11/12 bg-blue-500">
+                    Migrate to ACTIVE Status
+                  </Button>
+                  <Button className="mb-2 mt-20 w-11/12 bg-blue-500">
                     Update Billing Information
                   </Button>
                   <Button className="w-11/12">Setup Support Agreement</Button>

@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import React from "react";
+import DataTable from "@/components/Shared/DataTable/DataTable";
 import { Button } from "@/components/ui/button";
 import { z } from "zod";
 import { newMerchantSchema } from "@/lib/utils";
@@ -13,7 +14,6 @@ import {
   SelectForm,
   CheckboxForm,
 } from "@/components/Shared/InstantForm";
-import DataTable from "@/components/Shared/DataTable/DataTable";
 import {
   ColumnConfig,
   createColumns,

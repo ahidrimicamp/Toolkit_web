@@ -356,7 +356,6 @@ const ServicesSplits = () => {
                   control={form.control}
                   formName={date.value}
                   label={date.title}
-                  // placeholder={`Select ${date.title}`}
                   placeholder={`Select Date`}
                 />
               ))}

@@ -3312,8 +3312,8 @@ export const boardingMainTabs = [
   },
   {
     title: "Merch. Boarding",
-    value: "merchBoarding",
-    route: "/boarding/merchBoarding",
+    value: "mboarding",
+    route: "/boarding/mBoarding",
   },
   {
     title: "Merchant",
@@ -3340,10 +3340,214 @@ export const boardingMainTabs = [
     value: "docLibrary",
     route: "/boarding/docLibrary",
   },
-  {
-    title: "Residuals",
-    value: "residuals",
-    route: "/boarding/residuals",
-  },
 
+];
+
+export const leadsTabs = [
+  {
+    id: "1",
+    title: "MiCamp Leads",
+    value: "miCampLeads",
+  },
+  {
+    id: "2",
+    title: "North Leads",
+    value: "northLeads",
+  },
+  {
+    id: "3",
+    title: "FSP Leads",
+    value: "fspLeads",
+  },
+];
+
+export const supportTicketsTabs = [
+  {
+    id: "1",
+    title: "My Tickets",
+    value: "myTickets",
+  },
+  {
+    id: "2",
+    title: "Solved",
+    value: "solved",
+  },
+];
+
+export const merchantBoardingListTable = [
+  {
+    BusinessName: "Company Name",
+    LastUpdate: "08/14/2024",
+    City: "Scottsdale",
+    Form: "10",
+    Status: "Approved",
+  },
+  {
+    BusinessName: "Company Name",
+    LastUpdate: "08/14/2024",
+    City: "Scottsdale",
+    Form: "10",
+    Status: "Approved",
+  },
+  {
+    BusinessName: "Company Name",
+    LastUpdate: "08/14/2024",
+    City: "Scottsdale",
+    Form: "10",
+    Status: "Approved",
+  },
+  {
+    BusinessName: "Company Name",
+    LastUpdate: "08/14/2024",
+    City: "Scottsdale",
+    Form: "10",
+    Status: "Approved",
+  },
+  {
+    BusinessName: "Company Name",
+    LastUpdate: "08/14/2024",
+    City: "Scottsdale",
+    Form: "10",
+    Status: "Approved",
+  },
+];
+
+export const agentCompanyNameSelectList = [
+  {
+    id: 1,
+    title: "MiCamp House",
+    value: "miCampHouse",
+  },
+  {
+    id: 2,
+    title: "Other Agent",
+    value: "otherAgent",
+  },
+];
+
+export const merchantForAgentTable = [
+  {
+    Id: 1,
+    MID: "820192847",
+    DBA: "CACTUS CLEANERS",
+    Status: "Approved",
+    OpenDate: "2024-08-09 12:00",
+    ClosedDate: "",
+    Processor: "FSP-TSYS",
+  },
+  {
+    Id: 2,
+    MID: "8201925347",
+    DBA: "FIGHTING COLORS",
+    Status: "Closed",
+    OpenDate: "2024-08-03 12:00",
+    ClosedDate: "",
+    Processor: "FSP-Fiserv",
+  },
+  {
+    Id: 3,
+    MID: "820192847",
+    DBA: "PUERTO DE LA LIBERTAD",
+    Status: "In Progress",
+    OpenDate: "2024-08-01 15:00",
+    ClosedDate: "",
+    Processor: "First Data Omaha",
+  },
+  {
+    Id: 4,
+    MID: "83011237",
+    DBA: "THE ORIGINAL DEL NORTE",
+    Status: "Cancelled",
+    OpenDate: "2023-02-15 12:00",
+    ClosedDate: "",
+    Processor: "360 Payments",
+  },
+  {
+    Id: 5,
+    MID: "820192123",
+    DBA: "SUGAR MAKERY INC",
+    Status: "Waiting",
+    OpenDate: "2022-04-29 12:00",
+    ClosedDate: "",
+    Processor: "First Data Omaha",
+  },
+  {
+    Id: 6,
+    MID: "55002871456",
+    DBA: "LUDWICK EYE",
+    Status: "Approved",
+    OpenDate: "2021-05-09 12:00",
+    ClosedDate: "",
+    Processor: "First Data Omaha",
+  },
+]
+
+export const myTicketsTable = [
+  {
+    Id: 1,
+    Status: "Opened",
+    Subject: "Clover Light (Gen 2)",
+    UpdatedAt: "08/14/2024",
+    Assignee: "Hellyton Costa",
+  },
+  {
+    Id: 2,
+    Status: "In Progress",
+    Subject: "Toolkit Web",
+    UpdatedAt: "08/14/2024",
+    Assignee: "Hellyton Costa",
+  },
+  {
+    Id: 3,
+    Status: "Finished",
+    Subject: "Design Toolkit Web",
+    UpdatedAt: "08/14/2024",
+    Assignee: "Hellyton Costa",
+  },
+]
+
+export const mySolvedTicketsTable = [
+  {
+    Id: 1,
+    Status: "Finished",
+    Subject: "Design Toolkit Web",
+    UpdatedAt: "08/14/2024",
+    Assignee: "Hellyton Costa",
+  },
+]
+
+export const northLeadsTable = [
+  {
+    Id: 1,
+    Email: "tony@stark.com",
+    Name: "Tony Stark",
+    Status: "sent",
+  },
+]
+
+export const fspLeadsTable = [
+
+]
+
+export const boardingMerchantTabs = [
+  {
+    id: "1",
+    title: "Merchant Information",
+    value: "merchantInformation",
+  },
+  {
+    id: "2",
+    title: "Equipment Orders",
+    value: "equipmentOrders",
+  },
+  {
+    id: "3",
+    title: "Order New Equipment",
+    value: "orderNewEquipment",
+  },
+  {
+    id: "4",
+    title: "Upload Documents",
+    value: "uploadDocuments",
+  },
 ];

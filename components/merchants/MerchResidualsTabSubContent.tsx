@@ -5,27 +5,26 @@ import {
 } from "@/components/Shared/DataTable/Columns";
 import DataTable from "@/components/Shared/DataTable/DataTable";
 import { Button } from "@/components/ui/button";
-import { adjustmentTable, agentEmailList, displayResidualsTable, merchResidualPaymentsTable, ModelSelectList } from "@/constants";
+import {
+  adjustmentTable,
+  displayResidualsTable,
+  merchResidualPaymentsTable,
+} from "@/constants";
 import { DataTypes } from "@/types";
 import React from "react";
 import { Form } from "../ui/form";
-import { MerchEnterAdjustmentSchema, newAdjustmentCriteriaSchema, newDisplayResidualsSchema, newRecentOrdersSchema } from "@/lib/utils";
+import { MerchEnterAdjustmentSchema } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import {
-  CheckboxForm,
   DatePickerForm,
   InputForm,
   SelectForm,
   TextAreaForm,
 } from "../Shared/InstantForm";
-import { equipmentData } from "@/constants";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
 
 const RawData = () => {
-
   const columnsConfig: ColumnConfig<DataTypes>[] = [
     { accessorKey: "Date", header: "Date" },
     { accessorKey: "MID", header: "MID" },
@@ -40,7 +39,7 @@ const RawData = () => {
 
   return (
     <>
-      <section className="text-start  gap-2">
+      <section className="gap-2 text-start">
         <div className="grid grid-cols-1 overflow-auto">
           <DataTable
             columns={columns}
@@ -52,23 +51,18 @@ const RawData = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
 const RawRefunds = () => {
-
   return (
     <>
-      <section className=" mt-4 text-start max-2xl:flex-wrap gap-2">
-
-
-      </section>
+      <section className="mt-4 gap-2 text-start max-2xl:flex-wrap"></section>
     </>
-  )
-}
+  );
+};
 
 const ResidualPayments = () => {
-
   const Price = (row: any) => {
     const amount = parseFloat(row.getValue("price"));
     const formatted = new Intl.NumberFormat("en-US", {
@@ -97,8 +91,8 @@ const ResidualPayments = () => {
   return (
     <>
       <section className="text-start">
-        <div className="grid grid-cols-1 mt-5 overflow-auto">
-          <h3 className="text-lg font-bold m-2">Agent: Tony Stark</h3>
+        <div className="mt-5 grid grid-cols-1 overflow-auto">
+          <h3 className="m-2 text-lg font-bold">Agent: Tony Stark</h3>
           <DataTable
             columns={columns}
             data={merchResidualPaymentsTable}
@@ -108,23 +102,18 @@ const ResidualPayments = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
 const AccountAnalysis = () => {
-
-
   return (
     <>
-      <section className=" mt-4 text-start  gap-2">
-
-      </section>
+      <section className="mt-4 gap-2 text-start"></section>
     </>
-  )
-}
+  );
+};
 
 const EnterAdjustments = () => {
-
   const columnsConfig: ColumnConfig<DataTypes>[] = [
     { accessorKey: "Id", header: "ID" },
     { accessorKey: "AgentName", header: "Agent Name" },
@@ -168,8 +157,8 @@ const EnterAdjustments = () => {
 
   return (
     <>
-      <section className="flex max-xl:flex-wrap mt-5 text-start gap-2">
-        <div className="flex-1 grid grid-cols-1 overflow-auto">
+      <section className="mt-5 flex gap-2 text-start max-xl:flex-wrap">
+        <div className="grid flex-1 grid-cols-1 overflow-auto">
           <DataTable
             columns={columns}
             data={displayResidualsTable}
@@ -180,8 +169,10 @@ const EnterAdjustments = () => {
         </div>
         <div className="flex-1">
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3 w-3/4 m-auto">
-
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="m-auto w-3/4 space-y-3"
+            >
               <SelectForm
                 control={form.control}
                 formName="Agent"
@@ -242,8 +233,8 @@ const EnterAdjustments = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
 const CalculateResiduals = () => {
   const columnsConfig: ColumnConfig<DataTypes>[] = [
@@ -280,17 +271,10 @@ const CalculateResiduals = () => {
     console.log(value);
   };
 
-  const AdjustTypeSelect = [
-    { id: 1, name: "Buypass", value: "buypass" },
-    { id: 2, name: "Nashville", value: "nashville" },
-    { id: 3, name: "North", value: "north" },
-    { id: 4, name: "None", value: "none" },
-  ];
-
   return (
     <>
-      <section className="flex max-xl:flex-wrap mt-5 text-start gap-2">
-        <div className="flex-1 grid grid-cols-1 overflow-auto">
+      <section className="mt-5 flex gap-2 text-start max-xl:flex-wrap">
+        <div className="grid flex-1 grid-cols-1 overflow-auto">
           <DataTable
             columns={columns}
             data={displayResidualsTable}
@@ -301,7 +285,10 @@ const CalculateResiduals = () => {
         </div>
         <div className="flex-1">
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3 flex gap-4 items-end justify-center">
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="flex items-end justify-center gap-4 space-y-3"
+            >
               <DatePickerForm
                 control={form.control}
                 formName="ResidualMonth"
@@ -314,11 +301,10 @@ const CalculateResiduals = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 export default function RenderMerchResidualsComponents(value: string) {
   switch (value) {
-
     case "rawData":
       return <RawData />;
     case "rawRefunds":

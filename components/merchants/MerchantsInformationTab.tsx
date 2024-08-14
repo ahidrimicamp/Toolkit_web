@@ -25,9 +25,10 @@ const MerchantsInformationTab = () => {
             >
               <div
                 className={`${
-                  isActive ? "bg-white dark:bg-zinc-950 " : 
-                  "hover:bg-gray-300 text-gray-500 dark:text-gray-400 dark:hover:bg-zinc-800"
-                } mb-1 font-semibold  flex-none rounded p-2 text-center`}
+                  isActive
+                    ? "bg-white dark:bg-zinc-950"
+                    : "text-gray-500 hover:bg-gray-300 dark:text-gray-400 dark:hover:bg-zinc-800"
+                } mb-1 flex-none rounded p-2 text-center font-semibold`}
               >
                 <p className="max-xl:hidden">{item.title}</p>
                 {/* <p className='hidden max-xl:block '>{item.title.charAt(0)}</p> */}
