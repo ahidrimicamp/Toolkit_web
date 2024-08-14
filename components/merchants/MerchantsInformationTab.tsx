@@ -10,7 +10,7 @@ const MerchantsInformationTab = () => {
 
   return (
     <>
-      <div className="h-min flex-none grow-0 justify-items-center text-nowrap rounded bg-gray-200 p-2 dark:bg-zinc-700">
+      <div className="h-min flex-none grow-0 justify-items-center text-nowrap rounded bg-gray-100 p-1.5 dark:bg-zinc-800">
         {tabItems.map((item) => {
           const isActive =
             (pathname?.includes(item.route) && item.title.length > 1) ||
@@ -20,15 +20,14 @@ const MerchantsInformationTab = () => {
             <Link
               href={item.route}
               title={item.title}
-              className={`${isActive ? "bg-zinc-700 text-white" : "bg-gray-300 text-black"}`}
+              className={`${isActive ? " " : ""}`}
               key={item.title}
             >
               <div
                 className={`${
-                  isActive
-                    ? "bg-zinc-700 text-white dark:bg-gray-300 dark:text-black"
-                    : "font-semibold text-black hover:bg-gray-300 dark:text-white dark:hover:bg-zinc-800"
-                } mb-3 flex-none rounded p-2 text-center`}
+                  isActive ? "bg-white dark:bg-zinc-950 " : 
+                  "hover:bg-gray-300 text-gray-500 dark:text-gray-400 dark:hover:bg-zinc-800"
+                } mb-1 font-semibold  flex-none rounded p-2 text-center`}
               >
                 <p className="max-xl:hidden">{item.title}</p>
                 {/* <p className='hidden max-xl:block '>{item.title.charAt(0)}</p> */}

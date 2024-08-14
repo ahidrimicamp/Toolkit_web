@@ -9,7 +9,7 @@ import { adjustmentTable, agentEmailList, displayResidualsTable, merchResidualPa
 import { DataTypes } from "@/types";
 import React from "react";
 import { Form } from "../ui/form";
-import { newAdjustmentCriteriaSchema, newDisplayResidualsSchema, newRecentOrdersSchema } from "@/lib/utils";
+import { MerchEnterAdjustmentSchema, newAdjustmentCriteriaSchema, newDisplayResidualsSchema, newRecentOrdersSchema } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -97,14 +97,13 @@ const ResidualPayments = () => {
   return (
     <>
       <section className="text-start">
-
         <div className="grid grid-cols-1 mt-5 overflow-auto">
+          <h3 className="text-lg font-bold m-2">Agent: Tony Stark</h3>
           <DataTable
             columns={columns}
             data={merchResidualPaymentsTable}
             enableSorting={true}
-            enableColumnFilter={true}
-            filteredBy="DataMonth"
+            enableColumnFilter={false}
           />
         </div>
       </section>
@@ -143,36 +142,24 @@ const EnterAdjustments = () => {
 
   const columns = createColumns(columnsConfig);
 
-  const form = useForm<z.infer<typeof newDisplayResidualsSchema>>({
-    resolver: zodResolver(newDisplayResidualsSchema),
+  const form = useForm<z.infer<typeof MerchEnterAdjustmentSchema>>({
+    resolver: zodResolver(MerchEnterAdjustmentSchema),
     defaultValues: {
-      ResidualDate: "",
-      PayDay: false,
-      ExcludePayDay: false,
-      PayGroup: false,
-      ExcludePayGroup: false,
-      ShowOkToPay: false,
-      ExcludeNotOkToPay: false,
-      ShowNotOkToPay: false,
-      OnlyWithEmails: false,
-      OnlyMissingEmails: false,
-      ResidualsReportsOptIn: false,
-      OnlyWithBankingInfo: false,
-      OnlyMissingBankingInfo: false,
-      OnlyShowPositiveResiduals: false,
-      OnlyShowZeroNegativeResiduals: false,
-      OnlyShowPhysicalChecks: false,
-      EmailReportsToAgent: false,
-      EmailReportsToUser: false,
-      EmailReportsToWho: false,
+      Agent: "",
+      DataDate: "",
+      DisplayDate: "",
+      AdjustType: "",
+      Notes: "",
+      AdjustAmount: "",
+      Split: 0,
     },
   });
 
-  const onSubmit = (value: z.infer<typeof newDisplayResidualsSchema>) => {
+  const onSubmit = (value: z.infer<typeof MerchEnterAdjustmentSchema>) => {
     console.log(value);
   };
 
-  const FrontEndPlatformData = [
+  const AdjustTypeSelect = [
     { id: 1, name: "Buypass", value: "buypass" },
     { id: 2, name: "Nashville", value: "nashville" },
     { id: 3, name: "North", value: "north" },
@@ -182,9 +169,7 @@ const EnterAdjustments = () => {
   return (
     <>
       <section className="flex max-xl:flex-wrap mt-5 text-start gap-2">
-
-
-        <div className="flex-1 grid grid-cols-1 overflow-auto  ">
+        <div className="flex-1 grid grid-cols-1 overflow-auto">
           <DataTable
             columns={columns}
             data={displayResidualsTable}
@@ -199,9 +184,9 @@ const EnterAdjustments = () => {
 
               <SelectForm
                 control={form.control}
-                formName="FrontEndPlatform"
+                formName="Agent"
                 label="Agent"
-                content={FrontEndPlatformData}
+                content={AdjustTypeSelect}
                 placeholder="Select an Agent"
                 valueKey="id"
                 displayKey="name"
@@ -210,21 +195,21 @@ const EnterAdjustments = () => {
               />
               <DatePickerForm
                 control={form.control}
-                formName="Approval"
+                formName="DataDate"
                 label="Data Date"
                 placeholder="Pick a date"
               />
               <DatePickerForm
                 control={form.control}
-                formName="Approval"
+                formName="DisplayDate"
                 label="Display Date"
                 placeholder="Pick a date"
               />
               <SelectForm
                 control={form.control}
-                formName="FrontEndPlatform"
+                formName="AdjustType"
                 label="Adjust Type"
-                content={FrontEndPlatformData}
+                content={AdjustTypeSelect}
                 placeholder="Select Adjust Type"
                 valueKey="id"
                 displayKey="name"
@@ -233,20 +218,20 @@ const EnterAdjustments = () => {
               />
               <TextAreaForm
                 control={form.control}
-                formName="FrontEndMID"
+                formName="Notes"
                 label="Notes"
-                placeholder="List here"
+                placeholder="Add your notes here"
               />
               <InputForm
                 control={form.control}
-                formName="CheckServiceMID"
+                formName="AdjustAmount"
                 label="Adjust Amount"
                 placeholder=""
               />
               <div className="w-1/3">
                 <InputForm
                   control={form.control}
-                  formName="CheckServiceMID"
+                  formName="Split"
                   label="Split %"
                   placeholder=""
                 />
@@ -261,7 +246,6 @@ const EnterAdjustments = () => {
 }
 
 const CalculateResiduals = () => {
-
   const columnsConfig: ColumnConfig<DataTypes>[] = [
     { accessorKey: "Id", header: "ID" },
     { accessorKey: "AgentName", header: "Agent Name" },
@@ -279,45 +263,34 @@ const CalculateResiduals = () => {
 
   const columns = createColumns(columnsConfig);
 
-  const form = useForm<z.infer<typeof newDisplayResidualsSchema>>({
-    resolver: zodResolver(newDisplayResidualsSchema),
+  const form = useForm<z.infer<typeof MerchEnterAdjustmentSchema>>({
+    resolver: zodResolver(MerchEnterAdjustmentSchema),
     defaultValues: {
-      ResidualDate: "",
-      PayDay: false,
-      ExcludePayDay: false,
-      PayGroup: false,
-      ExcludePayGroup: false,
-      ShowOkToPay: false,
-      ExcludeNotOkToPay: false,
-      ShowNotOkToPay: false,
-      OnlyWithEmails: false,
-      OnlyMissingEmails: false,
-      ResidualsReportsOptIn: false,
-      OnlyWithBankingInfo: false,
-      OnlyMissingBankingInfo: false,
-      OnlyShowPositiveResiduals: false,
-      OnlyShowZeroNegativeResiduals: false,
-      OnlyShowPhysicalChecks: false,
-      EmailReportsToAgent: false,
-      EmailReportsToUser: false,
-      EmailReportsToWho: false,
+      Agent: "",
+      DataDate: "",
+      DisplayDate: "",
+      AdjustType: "",
+      Notes: "",
+      AdjustAmount: "",
+      Split: 0,
     },
   });
 
-  const onSubmit = (value: z.infer<typeof newDisplayResidualsSchema>) => {
+  const onSubmit = (value: z.infer<typeof MerchEnterAdjustmentSchema>) => {
     console.log(value);
   };
 
+  const AdjustTypeSelect = [
+    { id: 1, name: "Buypass", value: "buypass" },
+    { id: 2, name: "Nashville", value: "nashville" },
+    { id: 3, name: "North", value: "north" },
+    { id: 4, name: "None", value: "none" },
+  ];
+
   return (
     <>
-      <section className=" mt-4 text-start  gap-2">
-
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className=" gap-2">
-
-          </form>
-        </Form>
-        <div className="grid grid-cols-1 overflow-auto  ">
+      <section className="flex max-xl:flex-wrap mt-5 text-start gap-2">
+        <div className="flex-1 grid grid-cols-1 overflow-auto">
           <DataTable
             columns={columns}
             data={displayResidualsTable}
@@ -325,6 +298,19 @@ const CalculateResiduals = () => {
             enableColumnFilter={true}
             filteredBy="brand"
           />
+        </div>
+        <div className="flex-1">
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3 flex gap-4 items-end justify-center">
+              <DatePickerForm
+                control={form.control}
+                formName="ResidualMonth"
+                label="(Residual Month)"
+                placeholder="Pick a date"
+              />
+              <Button className="bg-blue-500">Enter Adjustment</Button>
+            </form>
+          </Form>
         </div>
       </section>
     </>

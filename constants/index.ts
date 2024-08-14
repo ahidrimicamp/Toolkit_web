@@ -13,6 +13,7 @@ import {
   Headset,
   HandPlatter,
   Home,
+  GlobeLock
 } from "lucide-react";
 import { z } from "zod";
 
@@ -77,6 +78,13 @@ export const sidebarLinks: SidebarLink[] = [
     route: "/admin",
     desc: "Admin panel",
     label: "Admin",
+    options: ["Admin"],
+  },
+  {
+    icon: GlobeLock,
+    route: "/boarding",
+    desc: "Boarding Tool",
+    label: "Boarding",
     options: ["Admin"],
   },
 ];
@@ -3293,4 +3301,49 @@ export const auditDetailsTable = [
     UserName: "hcosta",
     TextAuditDescription: "text audit desc text audit desc text audit desc ",
   },
+];
+
+// BOARDING TOOL DATA
+export const boardingMainTabs = [
+  {
+    title: "Home Page",
+    value: "homePage",
+    route: "/boarding",
+  },
+  {
+    title: "Merch. Boarding",
+    value: "merchBoarding",
+    route: "/boarding/merchBoarding",
+  },
+  {
+    title: "Merchant",
+    value: "merch",
+    route: "/boarding/merch",
+  },
+  {
+    title: "Agent Details",
+    value: "agentDetails",
+    route: "/boarding/agentDetails",
+  },
+  {
+    title: "Leads",
+    value: "leads",
+    route: "/boarding/leads",
+  },
+  {
+    title: "Sup. Tickets",
+    value: "supportTickets",
+    route: "/boarding/supportTickets",
+  },
+  {
+    title: "Doc. Library",
+    value: "docLibrary",
+    route: "/boarding/docLibrary",
+  },
+  {
+    title: "Residuals",
+    value: "residuals",
+    route: "/boarding/residuals",
+  },
+
 ];

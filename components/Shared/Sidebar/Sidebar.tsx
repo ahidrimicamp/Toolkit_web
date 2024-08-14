@@ -52,7 +52,7 @@ const Sidebar = ({ props }: any) => {
               pathname === item.route;
             return (
               <Link
-                className={`${isActive ? "bg-slate-300 shadow-md dark:bg-zinc-800" : ""} flex w-full items-center justify-start gap-4 rounded-lg bg-transparent p-4`}
+                className={`${isActive ? "bg-slate-300 shadow-md dark:bg-zinc-800" : ""} flex w-full items-center justify-start gap-4 rounded-lg bg-transparent p-3`}
                 key={item.label}
                 href={item.route}
               >
