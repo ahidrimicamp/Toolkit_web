@@ -67,10 +67,10 @@ const Sidebar = ({ props }: any) => {
           })}
         </div>
 
-        {/* <ProfileLogo props={props} /> */}
+        <ProfileLogo props={props} />
       </section>
 
-      <MobileSideNav />
+      <MobileSideNav props={props} />
     </>
   );
 };

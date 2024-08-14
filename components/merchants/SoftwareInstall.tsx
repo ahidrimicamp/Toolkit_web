@@ -73,12 +73,12 @@ const SoftwareInstall = () => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
-        <h1 className="text-2xl text-sky-500 mb-3">Software Install</h1>
+        <h1 className="mb-3 text-2xl text-blue-500">Software Install</h1>
 
         <div className="flex size-full grow gap-3 max-xl:flex-col">
           {/* Merchant Information */}
-          <div className="flex-auto rounded-md border p-2 xl:h-screen xl:w-1/3">
-            <h1 className="flex justify-center text-xl font-semibold text-sky-500">
+          <div className="flex-auto rounded-md border p-2 xl:w-1/3">
+            <h1 className="flex justify-center text-xl font-semibold text-blue-500">
               Merchant Information
             </h1>
             <div className="flex content-center gap-3">
@@ -95,7 +95,7 @@ const SoftwareInstall = () => {
               </div>
             </div>
             <div className="mt-3 text-end">
-              <Button className="w-1/3 bg-blue-500">Assign New #</Button>
+              <Button className="w-1/3">Assign New #</Button>
             </div>
             <h1 className="mt-4 border-b border-gray-600 text-xl font-semibold">
               Technical POC
@@ -264,9 +264,9 @@ const SoftwareInstall = () => {
           </div>
 
           {/* Parent of top right section */}
-          <div className="grid grow flex-auto xl:w-2/3">
+          <div className="grid flex-auto grow xl:w-2/3">
             <div className="flex flex-auto flex-col">
-              <div className="grid grid-cols-3 max-2xl:grid-cols-1 gap-3">
+              <div className="grid grid-cols-3 gap-3 max-2xl:grid-cols-1">
                 {/* Platform Information Div */}
                 <div className="col-span-2 rounded-md border p-2">
                   <h1 className="flex justify-center text-xl font-semibold text-sky-500">
@@ -442,21 +442,17 @@ const SoftwareInstall = () => {
                   <h1 className="flex justify-center text-xl font-semibold text-sky-500">
                     Quick Updates
                   </h1>
-                  <Button className="mt-14 w-11/12 bg-blue-500">
+                  <Button className="mt-14 w-11/12">
                     Update Equipment Status
                   </Button>
-                  <Button className="mt-20 mb-2 w-11/12 bg-blue-500">
+                  <Button className="mb-2 mt-20 w-11/12">
                     Migrate to HOLD Status
                   </Button>
-                  <Button className="w-11/12 bg-blue-500">
-                    Migrate to ACTIVE Status
-                  </Button>
-                  <Button className="mt-20 mb-2 w-11/12 bg-blue-500">
+                  <Button className="w-11/12">Migrate to ACTIVE Status</Button>
+                  <Button className="mb-2 mt-20 w-11/12">
                     Update Billing Information
                   </Button>
-                  <Button className="w-11/12 bg-blue-500">
-                    Setup Support Agreement
-                  </Button>
+                  <Button className="w-11/12">Setup Support Agreement</Button>
                 </div>
               </div>
               {/* Parent of bottom right section */}
@@ -500,7 +496,7 @@ const SoftwareInstall = () => {
                   <h1 className="flex justify-center text-xl font-semibold text-sky-500">
                     Current Billing Details
                   </h1>
-                  
+
                   <div className="flex content-center gap-3">
                     <p className="mt-8 w-1/3 content-center text-nowrap text-end">
                       Installation Charges
@@ -510,7 +506,7 @@ const SoftwareInstall = () => {
                         control={form.control}
                         formName="InstallationDevices"
                         label="# Devices"
-                        placeholder="" 
+                        placeholder=""
                       />
                       <InputForm
                         control={form.control}

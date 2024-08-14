@@ -17,7 +17,7 @@ import { sidebarLinks } from "@/constants";
 import { usePathname } from "next/navigation";
 import ProfileLogo from "../Profile/ProfileLogo";
 
-const MobileSideNav = () => {
+const MobileSideNav = ({ props }: any) => {
   const pathname = usePathname();
   const light = "/icon/LogoWhite.png";
   const dark = "/icon/LogoBlack.webp";
@@ -94,7 +94,7 @@ const MobileSideNav = () => {
               </div>
 
               <div className="mt-auto">
-                {/* <ProfileLogo Firstname="Tony" Lastname="Stark" /> */}
+                <ProfileLogo Firstname="Tony" Lastname="Stark" />
               </div>
             </SheetDescription>
           </SheetHeader>
