@@ -40,7 +40,7 @@ const MyTickets = () => {
           </h1>
           <Dialog>
             <DialogTrigger>
-              <Button variant={"submit"}>+ New Ticket</Button>
+              <Button variant={"submit"} className="text-white">+ New Ticket</Button>
             </DialogTrigger>
             <DialogContent className="2xl:[800px] max-lg:max-w-[500px] lg:max-w-[800px]">
               <DialogHeader>
@@ -58,7 +58,7 @@ const MyTickets = () => {
             data={myTicketsTable}
             enableSorting={true}
             enableColumnFilter={true}
-            filteredBy="brand"
+            filteredBy="Assignee"
           />
         </div>
       </section>
@@ -86,7 +86,7 @@ const Solved = () => {
           </h1>
           <Dialog>
             <DialogTrigger>
-              <Button variant={"submit"}>+ New Ticket</Button>
+              <Button variant={"submit"}  className="text-white">+ New Ticket</Button>
             </DialogTrigger>
             <DialogContent className="2xl:[300px] max-lg:max-w-[300px] lg:max-w-[300px]">
               <DialogHeader>
@@ -104,7 +104,7 @@ const Solved = () => {
             data={mySolvedTicketsTable}
             enableSorting={true}
             enableColumnFilter={true}
-            filteredBy="brand"
+            filteredBy="Assignee"
           />
         </div>
       </section>

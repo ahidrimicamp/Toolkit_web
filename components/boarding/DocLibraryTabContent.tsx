@@ -2,23 +2,24 @@
 
 import React, { useState } from "react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { boardingMerchantTabs } from "@/constants";
-import RenderBoardingMerchantTabComponents from "./BoardingMerchantTabSubContent";
+import {  documentLibraryTabs } from "@/constants";
+import RenderDocLibraryTabComponents from "./DocLibraryTabSubContent";
 
-
-const BoardingMerchantTabContent = () => {
+const DocLibraryTabContent = () => {
+  
   const [activeItem, setActiveItem] = useState<string>("");
 
   const handleClick = (value: string) => {
     setActiveItem(value);
   };
+
   return (
     <Tabs
-      defaultValue="merchantInformation"
+      defaultValue="blankMpaAndAddendums"
       className="w-full rounded-md p-4 text-center"
     >
       <TabsList>
-        {boardingMerchantTabs.map((tab) => (
+        {documentLibraryTabs.map((tab) => (
           <TabsTrigger
             onClick={() => handleClick(tab.value)}
             key={tab.id}
@@ -28,9 +29,9 @@ const BoardingMerchantTabContent = () => {
           </TabsTrigger>
         ))}
       </TabsList>
-      {RenderBoardingMerchantTabComponents(activeItem || "merchantInformation")}
+      {RenderDocLibraryTabComponents(activeItem || "blankMpaAndAddendums")}
     </Tabs>
   );
 };
 
-export default BoardingMerchantTabContent;
+export default DocLibraryTabContent;
