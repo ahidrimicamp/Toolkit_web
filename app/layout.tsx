@@ -28,7 +28,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} text-dark_light dark:bg-zinc-900`}>
         <ThemeProvider
-          attribute="className"
+          attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange

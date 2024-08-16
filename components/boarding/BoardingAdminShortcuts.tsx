@@ -6,7 +6,7 @@ const BoardingAdminShortcuts = () => {
     <section className="mb-5 w-full">
       <div className="m-auto grid w-2/4 grid-cols-2 gap-4 rounded-md text-lg max-lg:grid-cols-1">
         {/* EQUIPMENT LIST SHORCUT */}
-        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md">
+        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
           <h1 className="text-center font-semibold">Equipment</h1>
           <div className="flex gap-4 px-2">
             <Image
@@ -32,7 +32,7 @@ const BoardingAdminShortcuts = () => {
           </div>
         </div>
         {/* RESIDUALS SHORCUT */}
-        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md">
+        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
           <h1 className="text-center font-semibold">Residuals</h1>
           <Link href={"/boarding/residuals"} className="flex gap-4 px-2">
             <Image
@@ -49,7 +49,7 @@ const BoardingAdminShortcuts = () => {
           </Link>
         </div>
         {/* MARKETING SHORCUT */}
-        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md">
+        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
           <h1 className="text-center font-semibold">Marketing</h1>
           <Link href={"/boarding/marketing"} className="flex gap-4 px-2">
             <Image
@@ -66,7 +66,7 @@ const BoardingAdminShortcuts = () => {
           </Link>
         </div>
         {/* ADMIN PANEL SHORCUT */}
-        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md">
+        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
           <h1 className="text-center font-semibold">Admin Panel</h1>
           <Link href={""} className="flex gap-4 px-2">
             <Image

@@ -3312,7 +3312,7 @@ export const boardingMainTabs = [
   },
   {
     title: "Merch. Boarding",
-    value: "mboarding",
+    value: "mBoarding",
     route: "/boarding/mBoarding",
   },
   {
@@ -3551,3 +3551,179 @@ export const boardingMerchantTabs = [
     value: "uploadDocuments",
   },
 ];
+
+export const documentLibraryTabs = [
+  {
+    id: "1",
+    title: "Blank MPAs & Addendums",
+    value: "blankMpaAndAddendums",
+  },
+  {
+    id: "2",
+    title: "Change Forms",
+    value: "changeForms",
+  },
+  {
+    id: "3",
+    title: "Equipment Pricing",
+    value: "equipmentPricing",
+  },
+  {
+    id: "4",
+    title: "Upload & Send Docs",
+    value: "uploadAndSendDocs",
+  },
+];
+
+export const blankMPAsAndAddendumsTable = [
+  {
+    Id: 1,
+    FileName: "MiCamp FSP MPA_ With PR Form.pdf",
+    Size: "617835",
+    LastUpdate: "5/20/2024 4:59:01 PM",
+  },
+  {
+    Id: 2,
+    FileName: "Credit Card Auth Form.pdf",
+    Size: "14172",
+    LastUpdate: "1/5/2024 3:29:01 PM",
+  },
+  {
+    Id: 3,
+    FileName: "ACH Authorization Form.pdf",
+    Size: "617835",
+    LastUpdate: "5/20/2024 4:59:01 PM",
+  },
+  {
+    Id: 4,
+    FileName: "Program Request From.pdf",
+    Size: "617835",
+    LastUpdate: "5/20/2024 4:59:01 PM",
+  },
+  {
+    Id: 5,
+    FileName: "Clover Reprovisioning.pdf",
+    Size: "617835",
+    LastUpdate: "5/20/2024 4:59:01 PM",
+  },
+  {
+    Id: 6,
+    FileName: "Omaha Clover Addendum.pdf",
+    Size: "617835",
+    LastUpdate: "5/20/2024 4:59:01 PM",
+  },
+  {
+    Id: 7,
+    FileName: "Prevet Form.pdf",
+    Size: "617835",
+    LastUpdate: "5/20/2024 4:59:01 PM",
+  },
+  {
+    Id: 8,
+    FileName: "Paya Services ACH Check Merchant Agreement.pdf",
+    Size: "617835",
+    LastUpdate: "5/20/2024 4:59:01 PM",
+  },
+  {
+    Id: 9,
+    FileName: "Paya Additional Beneficial Owner Form.pdf",
+    Size: "617835",
+    LastUpdate: "5/20/2024 4:59:01 PM",
+  },
+  {
+    Id: 10,
+    FileName: "North Only Multiple Locations Form v2502.pdf",
+    Size: "617835",
+    LastUpdate: "5/20/2024 4:59:01 PM",
+  },
+]
+
+export const changeFormsTable = [
+  {
+    Id: 1,
+    FileName: "North - Banking Account Update..pdf",
+    Size: "617835",
+    LastUpdate: "5/20/2024 4:59:01 PM",
+  },
+  {
+    Id: 2,
+    FileName: "FSP Pricing and Entitlements.pdf",
+    Size: "14172",
+    LastUpdate: "1/5/2024 3:29:01 PM",
+  },
+  {
+    Id: 3,
+    FileName: "Cancellation Doc.pdf",
+    Size: "617835",
+    LastUpdate: "5/20/2024 4:59:01 PM",
+  },
+  {
+    Id: 4,
+    FileName: "North - Miscellaneous Update.pdf",
+    Size: "617835",
+    LastUpdate: "5/20/2024 4:59:01 PM",
+  },
+  {
+    Id: 5,
+    FileName: "North - Legal Information Update.pdf",
+    Size: "617835",
+    LastUpdate: "5/20/2024 4:59:01 PM",
+  },
+  {
+    Id: 6,
+    FileName: "North - EBT.pdf",
+    Size: "617835",
+    LastUpdate: "5/20/2024 4:59:01 PM",
+  },
+  {
+    Id: 7,
+    FileName: "North - Debit.pdf",
+    Size: "617835",
+    LastUpdate: "5/20/2024 4:59:01 PM",
+  },
+  {
+    Id: 8,
+    FileName: "	FSP Merchant Account Change Form.pdf",
+    Size: "617835",
+    LastUpdate: "5/20/2024 4:59:01 PM",
+  },
+  {
+    Id: 9,
+    FileName: "FSP Bank Change.pdf",
+    Size: "617835",
+    LastUpdate: "5/20/2024 4:59:01 PM",
+  },
+]
+
+export const equipmentPricingTable = [
+  {
+    Id: 1,
+    FileName: "Clover Overview & Saas Fees.pdf",
+    Size: "617835",
+    LastUpdate: "5/20/2024 4:59:01 PM",
+  },
+  {
+    Id: 2,
+    FileName: "Credit Card Auth Form.pdf",
+    Size: "14172",
+    LastUpdate: "1/5/2024 3:29:01 PM",
+  },
+  {
+    Id: 3,
+    FileName: "ACH Authorization Form.pdf",
+    Size: "617835",
+    LastUpdate: "5/20/2024 4:59:01 PM",
+  },
+  {
+    Id: 4,
+    FileName: "Clover Service Plans.pdf",
+    Size: "617835",
+    LastUpdate: "5/20/2024 4:59:01 PM",
+  },
+  {
+    Id: 5,
+    FileName: "Price List - Eff 2023-09-26.pdf",
+    Size: "617835",
+    LastUpdate: "5/20/2024 4:59:01 PM",
+  } 
+]

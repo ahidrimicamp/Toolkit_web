@@ -469,6 +469,29 @@ export const newFspLeadSchema = z.object({
   Name: z.string(),
 });
 
+export const boardingMerchantInfoSchema = z.object({
+  MID: z.string(),
+  LegalName: z.string(),
+  ContactName: z.string(),
+  Address: z.string(),
+  SteApt: z.string(),
+  City: z.string(),
+  State: z.string(),
+  Zip: z.string(),
+  phone1: z.string(),
+  Ext1: z.string(),
+  Phone2: z.string(),
+  Ext2: z.string(),
+  Email: z.string(),
+  DbaLegalName: z.string(),
+  DbaContactName: z.string(),
+  DbaAddress: z.string(),
+  DbaSteApt: z.string(),
+  DbaCity: z.string(),
+  DbaState: z.string(),
+  DbaZip: z.string(),
+});
+
 // Currency format functions
 export const formatCurrency = (
   value: number,
