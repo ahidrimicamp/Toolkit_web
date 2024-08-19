@@ -24,6 +24,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { BusinessTypeSelectList } from "@/constants";
 
 export const InputForm = <T extends z.ZodType<any, any>>({
   control,
@@ -244,5 +245,65 @@ export const DatePickerForm = <T extends z.ZodType<any, any>>({
         </FormItem>
       )}
     />
+  );
+};
+
+export const FormGeneration = ({ formControl, formFields }: any) => {
+  return (
+    <div className="grid grid-cols-2 gap-2">
+      {formFields.map(
+        (item: {
+          content: any;
+          type: string;
+          formName: string;
+          title: string;
+          placeholder?: string | undefined;
+        }) =>
+          item.content ? (
+            <>
+              <div className="w-full items-end">
+                <SelectForm
+                  control={formControl}
+                  formName={item.formName}
+                  label={item.title}
+                  placeholder={item.title}
+                  valueKey={"value"}
+                  content={BusinessTypeSelectList}                  
+                  displayKey="title"
+                />
+              </div>
+            </>
+          ) : item.type === "checkbox" ? (
+            <>
+              <div className="w-full items-end">
+                <CheckboxForm
+                  control={formControl}
+                  formName={item.formName}
+                  label=""
+                  placeholder={item.title}
+                />
+              </div>
+            </>
+          ) : item.type === "datePicker" ? (
+            <div className="w-full">
+              <DatePickerForm
+                control={formControl}
+                formName={item.formName}
+                label={item.title}
+                placeholder={item.placeholder}
+              />
+            </div>
+          ) : (
+            <div className="w-full">
+              <InputForm
+                control={formControl}
+                formName={item.formName}
+                label={item.title}
+                placeholder={item.placeholder}
+              />
+            </div>
+          ),
+      )}
+    </div>
   );
 };

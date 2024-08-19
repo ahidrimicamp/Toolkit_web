@@ -492,6 +492,102 @@ export const boardingMerchantInfoSchema = z.object({
   DbaZip: z.string(),
 });
 
+// This is for the FSP MPA Application
+
+// Merchant Detail TAB form
+export const merchantInformationFspSchema = z.object({
+  // DBA Information Section
+  MerchantName: z.string(),
+  EmailStatements: z.string(),
+  Phone: z.string(),
+  Fax: z.string(),
+  ContactName: z.string(),
+  ContactPhone: z.string(),
+  ContactServicePhone: z.string(),
+  BusinessWebsite: z.string(),
+  DateOpen: z.string(),
+
+  // DBA Address Section
+  Street: z.string(),
+  AddressSearchBar: z.string(),
+  City: z.string(),
+  State: z.string(),
+  PostalCode: z.string(),
+  
+  // LEGAL INFORMATION
+  CorporateLegalName: z.string(),
+  Locations: z.string(),
+  LegalCity: z.string(),
+  LegalState: z.string(),
+  LegalPostalCode: z.string(),
+
+  // TAX INFORMATION
+  UseCorporateLegalName: z.string(),
+  IrsName: z.string(),
+  SICMCC: z.string(),
+  EIN: z.string(),
+  BusinessType: z.string(),
+  TypeOfServicesOffered: z.string(),
+  EinSsn: z.string(),
+  StockSymbol: z.string(),
+  
+  // STATEMENTS INFORMATION
+  MailStatements: z.string(),
+
+  // LOCATION
+  
+  // Building Type
+  BuildingType: z.string(),
+  // Merchant Type
+  MerchantType: z.string(),
+  // Area Zoned 
+  AreaZoned: z.string(),
+  // Squere Footage
+  SquereFootage: z.string(),
+});
+
+// Merchant Detail TAB form
+export const financialInformationFspSchema = z.object({
+  // Bank Information
+  CheckingSavings: z.string(),
+  BankName: z.string(),
+  BankRouting: z.string(),
+  BankAccount: z.string(),
+  // Sales
+  AcceptingVisaMcDiscover: z.string(),
+  hasBeenTerminated: z.string(),
+  Reason: z.string(),
+  // Settings
+  StoreFrontSwipe: z.string(),
+  Internet: z.string(),
+  ManuallyKeyed: z.string(),
+  // TAX INFORMATION
+  UseCorporateLegalName: z.string(),
+  IrsName: z.string(),
+  SICMCC: z.string(),
+  EIN: z.string(),
+  BusinessType: z.string(),
+  TypeOfServicesOffered: z.string(),
+  EinSsn: z.string(),
+  StockSymbol: z.string(),
+  
+  // STATEMENTS INFORMATION
+  MailStatements: z.string(),
+
+  // LOCATION
+  
+  // Building Type
+  BuildingType: z.string(),
+  // Merchant Type
+  MerchantType: z.string(),
+  // Area Zoned 
+  AreaZoned: z.string(),
+  // Squere Footage
+  SquereFootage: z.string(),
+});
+
+
+
 // Currency format functions
 export const formatCurrency = (
   value: number,

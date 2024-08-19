@@ -2463,6 +2463,7 @@ export const ConditionSelectList = [
     value: "refurbished",
   },
 ];
+
 export const lookupForm = [
   {
     id: 1,
@@ -3727,3 +3728,308 @@ export const equipmentPricingTable = [
     LastUpdate: "5/20/2024 4:59:01 PM",
   } 
 ]
+
+export const newFspApplicationTabs = [
+  {
+    id: "1",
+    title: "Merchant Detail",
+    value: "merchantDetail",
+  },
+  {
+    id: "2",
+    title: "Financial Information",
+    value: "financialInformation",
+  },
+  {
+    id: "3",
+    title: "MO/TO Questionarie",
+    value: "moToQuestionaire",
+  },
+  {
+    id: "4",
+    title: "Merchant Owner",
+    value: "merchantOwner",
+  },
+  {
+    id: "5",
+    title: "Pricing Information",
+    value: "pricingInformation",
+  },
+  {
+    id: "6",
+    title: "Programming Request",
+    value: "programmingRequest",
+  },
+];
+
+// This is for the FSP MPA Application
+// Merchant Detail TAB form
+
+export const BusinessTypeSelectList = [
+  {
+    id: 1,
+    title: "Individual/Sole Proprietorship",
+    value: "individualSoleProprietorship",
+  },
+  {
+    id: 2,
+    title: "Partnership",
+    value: "partnership",
+  },
+  {
+    id: 3,
+    title: "Non Profit/Tax Exempt",
+    value: "nonProfitTaxExempt",
+  },
+  {
+    id: 4,
+    title: "Public Corp.",
+    value: "publicCorp",
+  },
+  {
+    id: 5,
+    title: "Private Corp.",
+    value: "privateCorp",
+  },
+  {
+    id: 6,
+    title: "LLC",
+    value: "llc",
+  },
+  {
+    id: 7,
+    title: "Government",
+    value: "government",
+  },
+  {
+    id: 8,
+    title: "Government2",
+    value: "government2",
+  },
+  {
+    id: 9,
+    title: "Government3",
+    value: "government3",
+  },
+];
+
+export const dbaInformationFspForm = [
+  {
+    id: 1,
+    title: "Merchant Name (DBA or Trade Name): *",
+    type: "input",
+    placeholder: "12345",
+    formName: "MerchantName",
+    value: "",
+  },
+  {
+    id: 2,
+    title: "Email Statemments To:",
+    type: "input",
+    placeholder: "Enter a valid Email",
+    formName: "EmailStatements",
+    value: "",
+  },
+  {
+    id: 3,
+    title: "Phone:",
+    type: "input",
+    placeholder: "(___) ___-____",
+    formName: "Phone",
+    value: "",
+  },
+  {
+    id: 4,
+    title: "Fax:",
+    type: "input",
+    placeholder: "(___) ___-____",
+    formName: "Fax",
+    value: "",
+    // content: ModelSelectList,
+  },
+  {
+    id: 5,
+    title: "Contact Name:",
+    type: "input",
+    placeholder: "Contact Name",
+    formName: "ContactName",
+    value: "",
+    // content: ConditionSelectList,
+  },
+  {
+    id: 6,
+    title: "Contact Phone:",
+    type: "input",
+    placeholder: "Contact Phone",
+    formName: "ContactPhone",
+    value: "",
+  },
+  {
+    id: 7,
+    title: "Contact Service Phone:",
+    type: "input",
+    placeholder: "Contact Service Phone",
+    formName: "ContactServicePhone",
+    value: "",
+  },
+  {
+    id: 8,
+    title: "Business website:",
+    type: "input",
+    placeholder: "example.com",
+    formName: "BusinessWebsite",
+    value: "",
+  },
+  {
+    id: 9,
+    title: "Date Open:",
+    type: "datePicker",
+    placeholder: "Select the Date Open",
+    formName: "DateOpen",
+    value: "",
+  },
+];
+
+export const dbaAddressFspForm = [
+  {
+    id: 1,
+    title: "Street: *",
+    type: "input",
+    placeholder: "Enter a valid address",
+    formName: "Address",
+    value: "",
+  },
+  {
+    id: 2,
+    title: "Search for an existent address:",
+    type: "input",
+    placeholder: "Search to auto-fill your address details",
+    formName: "SearchBar",
+    value: "",
+  },
+  {
+    id: 3,
+    title: "City:",
+    type: "input",
+    placeholder: "City",
+    formName: "City",
+    value: "",
+  },
+  {
+    id: 4,
+    title: "State:",
+    type: "input",
+    placeholder: "AZ",
+    formName: "State",
+    value: "",
+    // content: ModelSelectList,
+  },
+  {
+    id: 5,
+    title: "Postal Code:",
+    type: "input",
+    placeholder: "Zip",
+    formName: "PostalCode",
+    value: "",
+    // content: ConditionSelectList,
+  },
+];
+
+export const dbaLegalInformationFspForm = [
+  {
+    id: 1,
+    title: "Corporate Legal Name:",
+    type: "input",
+    placeholder: "Name",
+    formName: "CorporateLegalName",
+    value: "",
+  },
+  {
+    id: 2,
+    title: "# of Locations:",
+    type: "input",
+    placeholder: "Enter a value",
+    formName: "Locations",
+    value: "",
+  },
+  {
+    id: 3,
+    title: "Street:",
+    type: "input",
+    placeholder: "123 North Somewhere",
+    formName: "LegalCity",
+    value: "",
+  },
+  {
+    id: 4,
+    title: "State:",
+    type: "input",
+    placeholder: "AZ",
+    formName: "LegalState",
+    value: "",
+    // content: ModelSelectList,
+  },
+  {
+    id: 5,
+    title: "Postal Code:",
+    type: "input",
+    placeholder: "Zip",
+    formName: "LegalPostalCode",
+    value: "",
+    // content: ConditionSelectList,
+  },
+];
+
+export const dbaTaxInformationFspForm = [
+  {
+    id: 1,
+    title: "IRS Name (As appears on tax return): *",
+    type: "input",
+    placeholder: "Name",
+    formName: "IrsName",
+    value: "",
+  },
+  {
+    id: 2,
+    title: "SICMCC:",
+    type: "input",
+    placeholder: "Enter a value",
+    formName: "SICMCC",
+    value: "",
+  },
+  {
+    id: 3,
+    title: "Ein (Fed Tax ID #) or SS#: *",
+    type: "input",
+    placeholder: "...",
+    formName: "EIN",
+    value: "",
+  },
+  {
+    id: 4,
+    title: "Business Type:",
+    type: "input",
+    placeholder: "Select a business type",
+    formName: "BusinessType",
+    value: "",
+    content: BusinessTypeSelectList,
+  },
+  {
+    id: 5,
+    title: "Type of Service Offered: *",
+    type: "input",
+    placeholder: "Zip",
+    formName: "LegalPostalCode",
+    value: "",
+    // content: ConditionSelectList,
+  },
+  {
+    id: 6,
+    title: "Stock Symbol:",
+    type: "input",
+    placeholder: "Type a symbola",
+    formName: "StockSymbol",
+    value: "",
+    // content: ConditionSelectList,
+  },
+];
