@@ -26,13 +26,18 @@ import {
 } from "@/components/ui/popover";
 import { BusinessTypeSelectList } from "@/constants";
 
-export const InputForm = <T extends z.ZodType<any, any>>({
+export const InputForm = <
+  T extends z.ZodType<any, any>,
+  S extends string | number = string | number,
+>({
   control,
   formName,
   label,
   placeholder,
   type,
   className,
+  state,
+  setState,
 }: {
   control: Control<z.infer<T>>;
   formName: FieldPath<z.infer<T>>;
@@ -40,6 +45,8 @@ export const InputForm = <T extends z.ZodType<any, any>>({
   placeholder?: string;
   type?: React.HTMLInputTypeAttribute;
   className?: string;
+  state?: S;
+  setState?: React.Dispatch<React.SetStateAction<S>>;
 }) => {
   return (
     <FormField
@@ -52,8 +59,17 @@ export const InputForm = <T extends z.ZodType<any, any>>({
             <Input
               placeholder={placeholder}
               {...field}
-              value={field.value ?? ""}
-              onChange={field.onChange}
+              value={state !== undefined ? state : field.value || ""}
+              onChange={(e) => {
+                const value =
+                  type === "number"
+                    ? (Number(e.target.value) as S)
+                    : (e.target.value as S);
+                field.onChange(e);
+                if (setState) {
+                  setState(value);
+                }
+              }}
               type={type}
               className={className}
             />
