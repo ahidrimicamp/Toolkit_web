@@ -20,6 +20,7 @@ import { DataTypes } from "@/types";
 import React from "react";
 import { Form } from "../ui/form";
 import {
+  financialInformationFspSchema,
   merchantInformationFspSchema,
   newItemsSchema,
   newLookupSchema,
@@ -85,53 +86,352 @@ const MerchantDetail = () => {
   };
 
   return (
+    <section className="text-start">
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="">
+          {/* DBA Information Section */}
+          <h1 className="my-5 text-2xl font-bold text-sky-500">
+            DBA Information
+          </h1>
+          <FormGeneration
+            formControl={form.control}
+            formFields={dbaInformationFspForm}
+          />
+
+          {/* DBA Address Section */}
+          <h1 className="my-5 text-2xl font-bold text-sky-500">
+            DBA Address Information
+          </h1>
+          <FormGeneration
+            formControl={form.control}
+            formFields={dbaAddressFspForm}
+          />
+
+          {/* LEGAL INFORMATION Section */}
+          <h1 className="my-5 flex-auto text-2xl font-bold text-sky-500">
+            Legal Information
+          </h1>
+          <div className="mb-2 flex gap-2">
+            <Switch className="flex-none" />
+            <p className="flex-auto">Use Business Address DBA</p>
+          </div>
+          <FormGeneration
+            formControl={form.control}
+            formFields={dbaLegalInformationFspForm}
+          />
+
+          {/* TAX INFORMATION Section */}
+          <h1 className="my-5 flex-auto text-2xl font-bold text-sky-500">
+            Tax Information
+          </h1>
+          <div className="mb-2 flex gap-2">
+            <Switch className="flex-none" />
+            <p className="flex-auto">Use Corporate Legal Name</p>
+          </div>
+          <FormGeneration
+            formControl={form.control}
+            formFields={dbaTaxInformationFspForm}
+          />
+          <div className="flex items-center gap-2">
+            <InputForm
+              control={form.control}
+              formName="EinSsn"
+              label=""
+              type="radio"
+              className="w-fit"
+            />
+            <label className="mt-2">EIN</label>
+            <InputForm
+              control={form.control}
+              formName="EinSsn"
+              label=""
+              type="radio"
+              className="ml-4 w-fit"
+            />
+            <label className="mt-2">SSN</label>
+          </div>
+
+          {/* STATEMENTS INFORMATION SECTION */}
+          <h1 className="my-5 flex-auto text-2xl font-bold text-sky-500">
+            Statements Information
+          </h1>
+          <div className="grid w-3/6 grid-cols-2 gap-0 max-xl:w-full">
+            <div className="flex items-center gap-2">
+              <InputForm
+                control={form.control}
+                formName="MailStatements"
+                label=""
+                type="radio"
+                className="ml-4 w-fit"
+              />
+              <label className="mt-2">Mail Statements to DBA Name</label>
+            </div>
+            <div className="flex items-center gap-2">
+              <InputForm
+                control={form.control}
+                formName="MailStatements"
+                label=""
+                type="radio"
+                className="ml-4 w-fit"
+              />
+              <label className="mt-2">Mail Chargebacks to DBA Name</label>
+            </div>
+            <div className="flex items-center gap-2">
+              <InputForm
+                control={form.control}
+                formName="MailStatements"
+                label=""
+                type="radio"
+                className="ml-4 w-fit"
+              />
+              <label className="mt-2">Mail Statements to Legal Name</label>
+            </div>
+            <div className="flex items-center gap-2">
+              <InputForm
+                control={form.control}
+                formName="MailStatements"
+                label=""
+                type="radio"
+                className="ml-4 w-fit"
+              />
+              <label className="mt-2">Mail Chargebacks to DBA Name</label>
+            </div>
+          </div>
+          <p className="ml-4 text-gray-500">
+            NOTE: Statements are {"'Summary'"} for Cash Discount apps &{" "}
+            {"'Detailed'"}{" "}
+          </p>
+
+          {/* LOCATION SECTION */}
+          <h1 className="my-5 flex-auto text-2xl font-bold text-sky-500">
+            Location Information
+          </h1>
+          <div className="grid grid-cols-4 gap-2">
+            {/* BUILDING TYPE */}
+            <div>
+              <h2 className="text-center text-xl font-semibold">
+                Building Type
+              </h2>
+              <div className="flex items-center gap-2">
+                <InputForm
+                  control={form.control}
+                  formName="BuildingType"
+                  label=""
+                  type="radio"
+                  className="ml-4 w-fit"
+                />
+                <label className="mt-2">Shopping Center</label>
+              </div>
+              <div className="flex items-center gap-2">
+                <InputForm
+                  control={form.control}
+                  formName="BuildingType"
+                  label=""
+                  type="radio"
+                  className="ml-4 w-fit"
+                />
+                <label className="mt-2">Office Building</label>
+              </div>
+              <div className="flex items-center gap-2">
+                <InputForm
+                  control={form.control}
+                  formName="BuildingType"
+                  label=""
+                  type="radio"
+                  className="ml-4 w-fit"
+                />
+                <label className="mt-2">Industrial Building</label>
+              </div>
+              <div className="flex items-center gap-2">
+                <InputForm
+                  control={form.control}
+                  formName="BuildingType"
+                  label=""
+                  type="radio"
+                  className="ml-4 w-fit"
+                />
+                <label className="mt-2">Residence</label>
+              </div>
+            </div>
+            {/* MERCHANT */}
+            <div>
+              <h2 className="text-center text-xl font-semibold">
+                Merchant Type
+              </h2>
+              <div className="flex items-center gap-2">
+                <InputForm
+                  control={form.control}
+                  formName="MerchantType"
+                  label=""
+                  type="radio"
+                  className="ml-4 w-fit"
+                />
+                <label className="mt-2">Owns</label>
+              </div>
+              <div className="flex items-center gap-2">
+                <InputForm
+                  control={form.control}
+                  formName="MerchantType"
+                  label=""
+                  type="radio"
+                  className="ml-4 w-fit"
+                />
+                <label className="mt-2">Rent</label>
+              </div>
+            </div>
+            {/* AREA ZONED */}
+            <div>
+              <h2 className="text-center text-xl font-semibold">Area Zoned</h2>
+              <div className="flex items-center gap-2">
+                <InputForm
+                  control={form.control}
+                  formName="MerchantType"
+                  label=""
+                  type="radio"
+                  className="ml-4 w-fit"
+                />
+                <label className="mt-2">Commercial</label>
+              </div>
+              <div className="flex items-center gap-2">
+                <InputForm
+                  control={form.control}
+                  formName="MerchantType"
+                  label=""
+                  type="radio"
+                  className="ml-4 w-fit"
+                />
+                <label className="mt-2">Residential</label>
+              </div>
+            </div>
+            {/* SQUARE FOOTAGE */}
+            <div>
+              <h2 className="text-center text-xl font-semibold">
+                Square Footage
+              </h2>
+              <div className="flex items-center gap-2">
+                <InputForm
+                  control={form.control}
+                  formName="MerchantType"
+                  label=""
+                  type="radio"
+                  className="ml-4 w-fit"
+                />
+                <label className="mt-2">0 - 1000</label>
+              </div>
+              <div className="flex items-center gap-2">
+                <InputForm
+                  control={form.control}
+                  formName="MerchantType"
+                  label=""
+                  type="radio"
+                  className="ml-4 w-fit"
+                />
+                <label className="mt-2">1000+</label>
+              </div>
+            </div>
+          </div>
+
+          <div className="m-auto text-center">
+            <CustomButtons className="m-auto my-5" btnType="default">
+              Save Changes
+            </CustomButtons>
+          </div>
+        </form>
+      </Form>
+    </section>
+  );
+};
+
+const FinancialInformation = () => {
+  const form = useForm<z.infer<typeof financialInformationFspSchema>>({
+    resolver: zodResolver(financialInformationFspSchema),
+    defaultValues: {
+      CheckingSavings: "",
+      BankName: "",
+      BankRouting: "",
+      BankAccount: "",
+      // Sales
+      AcceptingVisaMcDiscover: "",
+      hasBeenTerminated: "",
+      Reason: "",
+      // Settings
+      StoreFrontSwipe: 0,
+      Internet: 0,
+      ManuallyKeyed: 0,
+      // SERVICE REQUESTED
+      VisaMcAvgTransaction: "",
+      VisaMcHighestTransaction: "",
+      VisaMcGrossMoSales: "",
+      DiscoverAvgTransaction: "",
+      DiscoverHighestTransaction: "",
+      DiscoverGrossMoSales: "",
+      AmexOptBlueAvgTransaction: "",
+      AmexOptBlueHighestTransaction: "",
+      AmexOptBlueGrossMoSales: "",
+      // AMERICAN EXPRESS VOLUME ? 1,000,000 ANNUALLY?
+      AmericaExpressVolume: "",
+      AmericanExpressVolumeAccount: "",
+      // DISCOVER RETAINED
+      DiscoverAccount: "",
+      Visa: false,
+      Mastercard: false,
+      AmericanExpress: false,
+      Discover: false,
+      PayPal: false,
+      EBT: false,
+      CashBenefit: false,
+      FnsAccount: 0,
+      // SEASONAL MERCHANT
+      SeasonalMerchant: false,
+      January: false,
+      February: false,
+      March: false,
+      April: false,
+      May: false,
+      June: false,
+      July: false,
+      August: false,
+      September: false,
+      October: false,
+      November: false,
+      December: false,
+      // DOES THE MERCHANT USE AN INDEPENDENT SERVICE THAT
+      // STORES, MAINTAINS OR TRANSMITS CARDHOLDER INFO?
+      IndependentService: false,
+      IndependentServiceName: "",
+      IndependentServicePhone: "",
+      // DOES MERCHANT USE A FULFILLMENT HOUSE TO FULFILL PRODUCT?
+      UsesFulfillHouse: false,
+      FulfillHouseName: "",
+      FulfillHousePhone: "",
+      // GENERAL SETTINGS
+      OptOut: false,
+      // RETURN POLICY
+      ReturnPolicy: "",
+      PolicyDescription: "",
+    },
+  });
+
+  const onSubmit = (value: z.infer<typeof financialInformationFspSchema>) => {
+    console.log(value);
+  };
+
+  // const bar = document.getElementById('progress');
+  
+  const percentage = 25;
+  const stringTest = `w-[${percentage}%]`;
+
+  // bar?.classList.add(`w-[${percentage}%]`);
+
+  return (
     <>
-      <section className="text-start">
+      <section className="mt-4 text-start">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="">
-            {/* DBA Information Section */}
-            <h1 className="my-5 text-2xl font-bold text-sky-500">
-              DBA Information
+            {/* BANK INFORMATION */}
+            <h1 className="mt-5 text-2xl font-bold text-sky-500">
+              Bank Information
             </h1>
-            <FormGeneration
-              formControl={form.control}
-              formFields={dbaInformationFspForm}
-            />
-
-            {/* DBA Address Section */}
-            <h1 className="my-5 text-2xl font-bold text-sky-500">
-              DBA Address Information
-            </h1>
-            <FormGeneration
-              formControl={form.control}
-              formFields={dbaAddressFspForm}
-            />
-
-            {/* LEGAL INFORMATION Section */}
-            <h1 className="my-5 flex-auto text-2xl font-bold text-sky-500">
-              Legal Information
-            </h1>
-            <div className="mb-2 flex gap-2">
-              <Switch className="flex-none" />
-              <p className="flex-auto">Use Business Address DBA</p>
-            </div>
-            <FormGeneration
-              formControl={form.control}
-              formFields={dbaLegalInformationFspForm}
-            />
-
-            {/* TAX INFORMATION Section */}
-            <h1 className="my-5 flex-auto text-2xl font-bold text-sky-500">
-              Tax Information
-            </h1>
-            <div className="mb-2 flex gap-2">
-              <Switch className="flex-none" />
-              <p className="flex-auto">Use Corporate Legal Name</p>
-            </div>
-            <FormGeneration
-              formControl={form.control}
-              formFields={dbaTaxInformationFspForm}
-            />
             <div className="flex items-center gap-2">
               <InputForm
                 control={form.control}
@@ -150,376 +450,129 @@ const MerchantDetail = () => {
               />
               <label className="mt-2">SSN</label>
             </div>
-
-            {/* STATEMENTS INFORMATION SECTION */}
-            <h1 className="my-5 flex-auto text-2xl font-bold text-sky-500">
-              Statements Information
-            </h1>
-            <div className="grid w-3/6 grid-cols-2 gap-0">
-              <div className="flex items-center gap-2">
-                <InputForm
-                  control={form.control}
-                  formName="MailStatements"
-                  label=""
-                  type="radio"
-                  className="ml-4 w-fit"
-                />
-                <label className="mt-2">Mail Statements to DBA Name</label>
-              </div>
-              <div className="flex items-center gap-2">
-                <InputForm
-                  control={form.control}
-                  formName="MailStatements"
-                  label=""
-                  type="radio"
-                  className="ml-4 w-fit"
-                />
-                <label className="mt-2">Mail Chargebacks to DBA Name</label>
-              </div>
-              <div className="flex items-center gap-2">
-                <InputForm
-                  control={form.control}
-                  formName="MailStatements"
-                  label=""
-                  type="radio"
-                  className="ml-4 w-fit"
-                />
-                <label className="mt-2">Mail Statements to Legal Name</label>
-              </div>
-              <div className="flex items-center gap-2">
-                <InputForm
-                  control={form.control}
-                  formName="MailStatements"
-                  label=""
-                  type="radio"
-                  className="ml-4 w-fit"
-                />
-                <label className="mt-2">Mail Chargebacks to DBA Name</label>
-              </div>
-            </div>
-            <p className="ml-4 text-gray-500">
-              NOTE: Statements are {"'Summary'"} for Cash Discount apps &{" "}
-              {"'Detailed'"}{" "}
-            </p>
-
-            {/* LOCATION SECTION */}
-            <h1 className="my-5 flex-auto text-2xl font-bold text-sky-500">
-              Location Information
-            </h1>
             <div className="grid grid-cols-4 gap-2">
-              {/* BUILDING TYPE */}
-              <div>
-                <h2 className="text-center text-xl font-semibold">
-                  Building Type
-                </h2>
-                <div className="flex items-center gap-2">
-                  <InputForm
-                    control={form.control}
-                    formName="BuildingType"
-                    label=""
-                    type="radio"
-                    className="ml-4 w-fit"
-                  />
-                  <label className="mt-2">Shopping Center</label>
-                </div>
-                <div className="flex items-center gap-2">
-                  <InputForm
-                    control={form.control}
-                    formName="BuildingType"
-                    label=""
-                    type="radio"
-                    className="ml-4 w-fit"
-                  />
-                  <label className="mt-2">Office Building</label>
-                </div>
-                <div className="flex items-center gap-2">
-                  <InputForm
-                    control={form.control}
-                    formName="BuildingType"
-                    label=""
-                    type="radio"
-                    className="ml-4 w-fit"
-                  />
-                  <label className="mt-2">Industrial Building</label>
-                </div>
-                <div className="flex items-center gap-2">
-                  <InputForm
-                    control={form.control}
-                    formName="BuildingType"
-                    label=""
-                    type="radio"
-                    className="ml-4 w-fit"
-                  />
-                  <label className="mt-2">Residence</label>
-                </div>
+              <div className="col-span-2">
+                <InputForm
+                  control={form.control}
+                  formName="BankName"
+                  label="Bank Name: *"
+                  placeholder="Type your bank name"
+                  className=""
+                />
               </div>
-              {/* MERCHANT */}
-              <div>
-                <h2 className="text-center text-xl font-semibold">
-                  Merchant Type
-                </h2>
-                <div className="flex items-center gap-2">
-                  <InputForm
-                    control={form.control}
-                    formName="MerchantType"
-                    label=""
-                    type="radio"
-                    className="ml-4 w-fit"
-                  />
-                  <label className="mt-2">Owns</label>
-                </div>
-                <div className="flex items-center gap-2">
-                  <InputForm
-                    control={form.control}
-                    formName="MerchantType"
-                    label=""
-                    type="radio"
-                    className="ml-4 w-fit"
-                  />
-                  <label className="mt-2">Rent</label>
-                </div>
-              </div>
-              {/* AREA ZONED */}
-              <div>
-                <h2 className="text-center text-xl font-semibold">
-                  Area Zoned
-                </h2>
-                <div className="flex items-center gap-2">
-                  <InputForm
-                    control={form.control}
-                    formName="MerchantType"
-                    label=""
-                    type="radio"
-                    className="ml-4 w-fit"
-                  />
-                  <label className="mt-2">Commercial</label>
-                </div>
-                <div className="flex items-center gap-2">
-                  <InputForm
-                    control={form.control}
-                    formName="MerchantType"
-                    label=""
-                    type="radio"
-                    className="ml-4 w-fit"
-                  />
-                  <label className="mt-2">Residential</label>
-                </div>
-              </div>
-              {/* SQUARE FOOTAGE */}
-              <div>
-                <h2 className="text-center text-xl font-semibold">
-                  Square Footage
-                </h2>
-                <div className="flex items-center gap-2">
-                  <InputForm
-                    control={form.control}
-                    formName="MerchantType"
-                    label=""
-                    type="radio"
-                    className="ml-4 w-fit"
-                  />
-                  <label className="mt-2">0 - 1000</label>
-                </div>
-                <div className="flex items-center gap-2">
-                  <InputForm
-                    control={form.control}
-                    formName="MerchantType"
-                    label=""
-                    type="radio"
-                    className="ml-4 w-fit"
-                  />
-                  <label className="mt-2">1000+</label>
-                </div>
-              </div>
+              <InputForm
+                control={form.control}
+                formName="BankRouting"
+                label="Bank Routing #: *"
+                placeholder="#"
+                className="col-auto"
+              />
+              <InputForm
+                control={form.control}
+                formName="BankAccounting"
+                label="Bank Accounting #: *"
+                placeholder="#"
+                className="col-auto"
+              />
             </div>
-
-            <div className="m-auto text-center">
-              <CustomButtons className="m-auto my-5" btnType="default">
-                Save Changes
-              </CustomButtons>
+            {/* SALES INFORMATION */}
+            <h1 className="mt-5 text-2xl font-bold text-sky-500">Sales</h1>
+            <p className="mt-5">
+              Currently Accepting Visa/mastercard/Discover/AMEX?
+            </p>
+            <div className="mt-0 flex items-center gap-2">
+              <InputForm
+                control={form.control}
+                formName="as"
+                label=""
+                type="radio"
+                className="mt-0 w-fit"
+              />
+              <label className="mt-2">Yes</label>
+              <InputForm
+                control={form.control}
+                formName="EinSsn"
+                label=""
+                type="radio"
+                className="ml-4 mt-0 w-fit"
+              />
+              <label className="mt-2">No</label>
+            </div>
+            <p className="mt-5">
+              Has merchant/owner/prioncipals ever been terminated from accepting
+              payment cards?
+            </p>
+            <div className="mt-0 flex items-center gap-2">
+              <InputForm
+                control={form.control}
+                formName="as"
+                label=""
+                type="radio"
+                className="mt-0 w-fit"
+              />
+              <label className="mt-2">Yes</label>
+              <InputForm
+                control={form.control}
+                formName="EinSsn"
+                label=""
+                type="radio"
+                className="ml-4 mt-0 w-fit"
+              />
+              <label className="mt-2">No</label>
+            </div>
+            <InputForm
+              control={form.control}
+              formName="Reason"
+              label="Reason:"
+              placeholder="Type your reason."
+              className="w-1/2"
+            />
+            {/* SETTINGS INFORMATION */}
+            <h1 className="mt-5 text-2xl font-bold text-sky-500">Settings</h1>
+            <p className="my-3">
+              Sales Distribution - Fil the sales distribution of each category
+              to add up to 100
+            </p>
+            <div className="m-auto grid w-3/4 grid-cols-3 gap-2">
+              <InputForm
+                control={form.control}
+                formName="BankName"
+                label="Store Front / Swipe: *"
+                type="number"
+                placeholder="Type your bank name"
+                className=""
+              />
+              <InputForm
+                control={form.control}
+                formName="BankRouting"
+                label="Internet: *"
+                type="number"
+                placeholder="#"
+                className=""
+              />
+              <InputForm
+                control={form.control}
+                formName="BankAccounting"
+                label="Manually Keyed: *"
+                type="number"
+                placeholder="#"
+                className=""
+              />
+            </div>
+            <div className="m-auto my-3 w-3/4 rounded-full bg-gray-200 dark:bg-gray-700">
+              <div
+                id="progress"
+                className={
+                  `rounded-full bg-blue-600 p-0.5 text-center text-xs font-medium leading-none text-blue-100 ` +
+                  stringTest
+                }
+              >
+                {percentage}%
+              </div>
             </div>
           </form>
         </Form>
-      </section>
-    </>
-  );
-};
 
-const FinancialInformation = () => {
-  const form = useForm<z.infer<typeof newItemsSchema>>({
-    resolver: zodResolver(newItemsSchema),
-    defaultValues: {
-      Model: "",
-      Id: "",
-      Description: "",
-      Alias: "",
-      ItemType: "",
-      Style: "",
-      Manufacturer: "",
-      ReorderQty: 0,
-      SerialNumber: false,
-      TakeInventory: false,
-      PhysicallyShippable: false,
-      HwPricing: 0,
-      DeployFee: 0,
-      TaxShipping: 0,
-      Total: 0,
-      DimensionName: "",
-      DimensionWidth: "",
-      DimensionHeight: "",
-      DimensionLength: "",
-      DimensionWeight: "",
-    },
-  });
-
-  const onSubmit = (value: z.infer<typeof newItemsSchema>) => {
-    console.log(value);
-  };
-
-  return (
-    <>
-      <section className="mt-4 flex gap-2 text-start max-2xl:flex-wrap">
-        <div className="flex-1 p-1">
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
-              {/* Items Form */}
-              <div className="space-y-1 max-lg:grid-flow-row">
-                {itemsForm.map((item) =>
-                  item.content ? (
-                    <>
-                      <div key={item.id} className="m-auto flex w-3/4 gap-4">
-                        <div className="mt-2 w-1/3 content-center text-end">
-                          <p className="">{item.title}</p>
-                        </div>
-                        <div className="w-full">
-                          <SelectForm
-                            control={form.control}
-                            formName={item.formName}
-                            label=""
-                            placeholder={item.placeholder}
-                            content={item.content}
-                            valueKey="id"
-                            displayKey="title"
-                          />
-                        </div>
-                      </div>
-                    </>
-                  ) : item.type === "checkbox" ? (
-                    <>
-                      <div key={item.id} className="m-auto flex w-3/4 gap-4">
-                        <div className="w-1/3 content-center text-end">
-                          <p className=""></p>
-                        </div>
-                        <div className="w-full">
-                          <CheckboxForm
-                            control={form.control}
-                            formName={item.formName}
-                            label=""
-                            placeholder={item.title}
-                          />
-                        </div>
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <div key={item.id} className="m-auto flex w-3/4 gap-4">
-                        <div className="w-1/3 content-center text-end">
-                          <p className="">{item.title}</p>
-                        </div>
-                        <div className="w-2/3">
-                          <InputForm
-                            control={form.control}
-                            formName={item.formName}
-                            label=""
-                            placeholder={item.placeholder}
-                          />
-                        </div>
-                      </div>
-                    </>
-                  ),
-                )}
-                <div className="flex w-full flex-auto">
-                  <div className="m-auto mt-2 flex gap-4">
-                    <InputForm
-                      control={form.control}
-                      formName={"HwPricing"}
-                      label={"Hardware Pricing"}
-                      placeholder={"$"}
-                    />
-                    <InputForm
-                      control={form.control}
-                      formName={"DeployFee"}
-                      label={"Deploy Fee"}
-                      placeholder={"$"}
-                    />
-                    <InputForm
-                      control={form.control}
-                      formName={"TaxShipping"}
-                      label={"Tax and Shipping"}
-                      placeholder={"$"}
-                    />
-                    <InputForm
-                      control={form.control}
-                      formName={"Total"}
-                      label={"Total"}
-                      placeholder={"$"}
-                    />
-                  </div>
-                </div>
-                <div className="flex w-full">
-                  <div key={11} className="m-auto mt-2 flex flex-1 gap-4">
-                    <div className="w-2/4 grow">
-                      <InputForm
-                        control={form.control}
-                        formName={"DimensionName"}
-                        label={"Dimension Name"}
-                        placeholder={"Name"}
-                      />
-                    </div>
-                    <div className="grid grid-cols-3 gap-2">
-                      <InputForm
-                        control={form.control}
-                        formName={"DimensionLength"}
-                        label={"Dimension Length"}
-                        placeholder={""}
-                      />
-                      <InputForm
-                        control={form.control}
-                        formName={"DimensionWidth"}
-                        label={"Dimension Width"}
-                        placeholder={""}
-                      />
-                      <InputForm
-                        control={form.control}
-                        formName={"DimensionHeight"}
-                        label={"Dimension Height"}
-                        placeholder={""}
-                      />
-                      <InputForm
-                        control={form.control}
-                        formName={"DimensionWeight"}
-                        label={"Dimension Weight"}
-                        placeholder={""}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex justify-center gap-2">
-                <Button className="my-5 bg-gradient-to-r from-[#14ADD6] to-[#384295] px-10 text-white hover:opacity-90">
-                  Add New
-                </Button>
-                <Button className="my-5 bg-gradient-to-r from-[#14ADD6] to-[#384295] px-10 text-white hover:opacity-90">
-                  Copy
-                </Button>
-                <Button className="my-5 bg-gradient-to-r from-[#14ADD6] to-[#384295] px-10 text-white hover:opacity-90">
-                  Save
-                </Button>
-              </div>
-            </form>
-          </Form>
-        </div>
         <div className="flex-1"></div>
       </section>
     </>

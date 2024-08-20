@@ -3734,31 +3734,37 @@ export const newFspApplicationTabs = [
     id: "1",
     title: "Merchant Detail",
     value: "merchantDetail",
+    abbreviation: "MD"
   },
   {
     id: "2",
     title: "Financial Information",
     value: "financialInformation",
+    abbreviation: "FI"
   },
   {
     id: "3",
     title: "MO/TO Questionarie",
     value: "moToQuestionaire",
+    abbreviation: "MQ"
   },
   {
     id: "4",
     title: "Merchant Owner",
     value: "merchantOwner",
+    abbreviation: "MO"
   },
   {
     id: "5",
     title: "Pricing Information",
     value: "pricingInformation",
+    abbreviation: "PI"
   },
   {
     id: "6",
     title: "Programming Request",
     value: "programmingRequest",
+    abbreviation: "PR"
   },
 ];
 
