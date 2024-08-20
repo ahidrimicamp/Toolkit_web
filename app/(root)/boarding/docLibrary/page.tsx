@@ -1,10 +1,11 @@
+import DocLibraryTabContent from '@/components/boarding/DocLibraryTabContent'
 import React from 'react'
 
 const page = () => {
   return (
-    <>
-        Page
-    </>
+  <div>
+    <DocLibraryTabContent/>
+  </div>
   )
 }
 

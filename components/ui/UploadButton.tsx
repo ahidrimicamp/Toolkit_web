@@ -34,7 +34,7 @@ const UploadFileBtn = () => {
     <div>
       <div
         {...getRootProps()}
-        className="cursor-pointer rounded-md border border-blue-500 bg-blue-500 pb-0.5 text-sm font-semibold text-white hover:bg-white hover:text-blue-500 dark:text-slate-200"
+        className="cursor-pointer rounded-md border border-blue-500 bg-blue-500 px-10 pb-0.5 text-sm font-semibold text-white hover:bg-white hover:text-blue-500 dark:text-slate-200"
       >
         <Input {...getInputProps()} />
         <div className="flex flex-col items-center">

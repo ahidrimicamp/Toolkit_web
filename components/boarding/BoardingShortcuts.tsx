@@ -6,7 +6,7 @@ const BoardingShortcuts = () => {
     <section className="w-full">
       <div className="m-auto grid w-3/4 grid-cols-3 gap-4 rounded-md text-lg max-xl:grid-cols-2 max-lg:grid-cols-1">
         {/* MERCHANT BOARDING LIST SHORCUT */}
-        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md">
+        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
           <h1 className="text-center font-semibold">Merchant Boarding List</h1>
           <Link href={"/boarding/mBoarding"} className="flex gap-4 px-2">
             <Image
@@ -23,7 +23,7 @@ const BoardingShortcuts = () => {
           </Link>
         </div>
         {/* MERCHANT SHORCUT */}
-        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md">
+        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
           <h1 className="text-center font-semibold">Merchant</h1>
           <Link href={"/boarding/merch"} className="flex gap-4 px-2">
             <Image
@@ -40,7 +40,7 @@ const BoardingShortcuts = () => {
           </Link>
         </div>
         {/* AGENT DETAILS SHORCUT */}
-        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md">
+        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
           <h1 className="text-center font-semibold">Agent Details List</h1>
           <Link href={"/boarding/agentDetails"} className="flex gap-4 px-2">
             <Image
@@ -57,7 +57,7 @@ const BoardingShortcuts = () => {
           </Link>
         </div>
         {/* DOCUMENT LIBRARY SHORCUT */}
-        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md">
+        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
           <h1 className="text-center font-semibold">Document Library</h1>
           <div className="flex gap-4 px-2">
             <Image
@@ -93,7 +93,7 @@ const BoardingShortcuts = () => {
           </div>
         </div>
         {/* LEADS SHORCUT */}
-        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md">
+        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
           <h1 className="text-center font-semibold">Leads</h1>
           <div className="flex gap-4 px-2">
             <Image
@@ -119,7 +119,7 @@ const BoardingShortcuts = () => {
           </div>
         </div>
         {/* SUPPORT TICKETS SHORCUT */}
-        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md">
+        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
           <h1 className="text-center font-semibold">Support Tickets</h1>
           <Link href={"/boarding/supportTickets"} className="flex gap-4 px-2">
             <Image
