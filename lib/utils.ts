@@ -475,6 +475,131 @@ export const boardingMerchantInfoSchema = z.object({
   DbaZip: z.string(),
 });
 
+// This is for the FSP MPA Application
+
+// Merchant Detail TAB form
+export const merchantInformationFspSchema = z.object({
+  // DBA Information Section
+  MerchantName: z.string(),
+  EmailStatements: z.string(),
+  Phone: z.string(),
+  Fax: z.string(),
+  ContactName: z.string(),
+  ContactPhone: z.string(),
+  ContactServicePhone: z.string(),
+  BusinessWebsite: z.string(),
+  DateOpen: z.string(),
+
+  // DBA Address Section
+  Street: z.string(),
+  AddressSearchBar: z.string(),
+  City: z.string(),
+  State: z.string(),
+  PostalCode: z.string(),
+  
+  // LEGAL INFORMATION
+  CorporateLegalName: z.string(),
+  Locations: z.string(),
+  LegalCity: z.string(),
+  LegalState: z.string(),
+  LegalPostalCode: z.string(),
+
+  // TAX INFORMATION
+  UseCorporateLegalName: z.string(),
+  IrsName: z.string(),
+  SICMCC: z.string(),
+  EIN: z.string(),
+  BusinessType: z.string(),
+  TypeOfServicesOffered: z.string(),
+  EinSsn: z.string(),
+  StockSymbol: z.string(),
+  
+  // STATEMENTS INFORMATION
+  MailStatements: z.string(),
+
+  // LOCATION
+  
+  // Building Type
+  BuildingType: z.string(),
+  // Merchant Type
+  MerchantType: z.string(),
+  // Area Zoned 
+  AreaZoned: z.string(),
+  // Squere Footage
+  SquereFootage: z.string(),
+});
+
+// FINANCIAL INFORMATION TAB FORM
+export const financialInformationFspSchema = z.object({
+  // Bank Information
+  CheckingSavings: z.string(),
+  BankName: z.string(),
+  BankRouting: z.string(),
+  BankAccount: z.string(),
+  // Sales
+  AcceptingVisaMcDiscover: z.string(),
+  hasBeenTerminated: z.string(),
+  Reason: z.string(),
+  // Settings
+  StoreFrontSwipe: z.number(),
+  Internet: z.number(),
+  ManuallyKeyed: z.number(),
+  // SERVICE REQUESTED
+  VisaMcAvgTransaction: z.string(),
+  VisaMcHighestTransaction: z.string(),
+  VisaMcGrossMoSales: z.string(),
+  DiscoverAvgTransaction: z.string(),
+  DiscoverHighestTransaction: z.string(),
+  DiscoverGrossMoSales: z.string(),
+  AmexOptBlueAvgTransaction: z.string(),
+  AmexOptBlueHighestTransaction: z.string(),
+  AmexOptBlueGrossMoSales: z.string(),
+  // AMERICAN EXPRESS VOLUME ? 1,000,000 ANNUALLY? 
+  AmericaExpressVolume: z.string(),
+  AmericanExpressVolumeAccount: z.string(),
+  // DISCOVER RETAINED
+  DiscoverAccount: z.string(),
+  Visa: z.boolean(),
+  Mastercard: z.boolean(),
+  AmericanExpress: z.boolean(),
+  Discover: z.boolean(),
+  PayPal: z.boolean(),
+  EBT: z.boolean(),
+  CashBenefit: z.boolean(),
+  FnsAccount: z.number(),
+  // SEASONAL MERCHANT
+  SeasonalMerchant: z.boolean(),
+  January: z.boolean(),
+  February: z.boolean(),
+  March: z.boolean(),
+  April: z.boolean(),
+  May: z.boolean(),
+  June: z.boolean(),
+  July: z.boolean(),
+  August: z.boolean(),
+  September: z.boolean(),
+  October: z.boolean(),
+  November: z.boolean(),
+  December: z.boolean(),
+  // DOES THE MERCHANT USE AN INDEPENDENT SERVICE THAT
+  // STORES, MAINTAINS OR TRANSMITS CARDHOLDER INFO?
+  IndependentService: z.boolean(),
+  IndependentServiceName: z.string(),
+  IndependentServicePhone: z.string(),
+  // DOES MERCHANT USE A FULFILLMENT HOUSE TO FULFILL PRODUCT?
+  UsesFulfillHouse: z.boolean(),
+  FulfillHouseName: z.string(),
+  FulfillHousePhone: z.string(),
+  // GENERAL SETTINGS
+  OptOut: z.boolean(),
+  // RETURN POLICY
+  ReturnPolicy: z.string(),
+  PolicyDescription: z.string(),
+
+});
+
+
+
 // Currency format functions
 export const formatCurrency = (
   value: number,

@@ -70,8 +70,8 @@ export default function MerchantDetails() {
   ];
   return (
     <>
-      <Card className="w-full overflow-hidden border-gray-400 shadow-md max-sm:hidden sm:hidden 2xl:block">
-        <CardHeader className="flex flex-row items-start border-b border-gray-400 bg-[#d9d9d9]/50 p-2 px-5 dark:bg-[#000000]">
+      <Card className="w-full overflow-hidden border shadow-md max-sm:hidden sm:hidden 2xl:block">
+        <CardHeader className="flex flex-row items-start border-b bg-gray-100 p-2 px-5 dark:bg-black">
           <div className="grid gap-0.5">
             <CardTitle className="group flex items-center gap-2 text-lg">
               Merchant Details
@@ -79,7 +79,7 @@ export default function MerchantDetails() {
             <CardDescription>Date: {currentDate}</CardDescription>
           </div>
         </CardHeader>
-        <CardContent className="p-6 text-sm">
+        <CardContent className="bg-transparent p-6 text-sm">
           <div className="grid gap-3">
             <div className="font-semibold">Merchant Details</div>
 
@@ -115,7 +115,7 @@ export default function MerchantDetails() {
               }
             })}
 
-            <Separator className="my-2 bg-gray-400" />
+            <Separator className="my-2 border" />
 
             <div className="w-full">
               <ul className="grid grid-cols-3 gap-3">
@@ -154,7 +154,7 @@ export default function MerchantDetails() {
             </div>
           </div>
         </CardContent>
-        <CardFooter className="flex flex-row items-center justify-between border-t border-gray-400 bg-[#d9d9d9] px-6 py-3 dark:bg-[#000000]">
+        <CardFooter className="flex flex-row items-center justify-between border-t bg-gray-100 px-6 py-3 dark:bg-black">
           <div className="text-xs text-muted-foreground">
             Updated {formatRelativeDate(new Date())}
           </div>
