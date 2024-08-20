@@ -12,27 +12,25 @@ const NewFSPTabContent = () => {
     setActiveItem(value);
   };
   return (
-    <>
-      <Tabs
-        defaultValue="merchantDetail"
-        className="w-full rounded-md p-4 text-center"
-      >
-        <TabsList className="">
-          {newFspApplicationTabs.map((tab) => (
-            <TabsTrigger
-              onClick={() => handleClick(tab.value)}
-              key={tab.id}
-              value={tab.value}
-              title={tab.title}
-            >
-              <p className="hidden max-xl:block">{tab.abbreviation}</p>
-              <p className="max-xl:hidden">{tab.title}</p>
-            </TabsTrigger>
-          ))}
-        </TabsList>
-        {RenderNewFspComponents(activeItem || "merchantDetail")}
-      </Tabs>
-    </>
+    <Tabs
+      defaultValue="merchantDetail"
+      className="w-full rounded-md p-4 text-center"
+    >
+      <TabsList className="">
+        {newFspApplicationTabs.map((tab) => (
+          <TabsTrigger
+            onClick={() => handleClick(tab.value)}
+            key={tab.id}
+            value={tab.value}
+            title={tab.title}
+          >
+            <p className="hidden max-xl:block">{tab.abbreviation}</p>
+            <p className="max-xl:hidden">{tab.title}</p>
+          </TabsTrigger>
+        ))}
+      </TabsList>
+      {RenderNewFspComponents(activeItem || "merchantDetail")}
+    </Tabs>
   );
 };
 

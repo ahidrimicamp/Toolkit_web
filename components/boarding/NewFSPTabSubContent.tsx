@@ -17,7 +17,7 @@ import {
   ModelSelectList,
 } from "@/constants";
 import { DataTypes } from "@/types";
-import React from "react";
+import React, { useState } from "react";
 import { Form } from "../ui/form";
 import {
   financialInformationFspSchema,
@@ -39,6 +39,7 @@ import {
 import { Card } from "../ui/card";
 import CustomButtons from "../Shared/CustomButtons";
 import { Switch } from "../ui/switch";
+import { Progress } from "@/components/ui/progress";
 
 // testing an automatic tool to generate the forms
 
@@ -416,151 +417,187 @@ const FinancialInformation = () => {
     console.log(value);
   };
 
-  // const bar = document.getElementById('progress');
-  
-  const percentage = 25;
-  const stringTest = `w-[${percentage}%]`;
+  const [front, setFront] = useState<number>(0);
+  const [interest, setInterest] = useState<number>(0);
+  const [manually, setManually] = useState<number>(0);
+  // eslint-disable-next-line no-unused-vars
+  const [lastModify, setlastModify] = useState<
+    "front" | "interest" | "manually"
+  >("front");
 
-  // bar?.classList.add(`w-[${percentage}%]`);
+  const adjustValues = (
+    currentField: "front" | "interest" | "manually",
+    value: number,
+  ) => {
+    if (currentField === "front") {
+      setFront(value);
+    } else if (currentField === "interest") {
+      setInterest(value);
+    } else {
+      setManually(value);
+    }
+
+    const total =
+      (currentField === "front" ? value : front) +
+      (currentField === "interest" ? value : interest) +
+      (currentField === "manually" ? value : manually);
+
+    if (total > 100) {
+      const diff = total - 100;
+      const adjustValue = value - diff;
+
+      if (currentField === "front") {
+        setFront(adjustValue);
+      } else if (currentField === "interest") {
+        setInterest(adjustValue);
+      } else {
+        setManually(adjustValue);
+      }
+    }
+
+    setlastModify(currentField);
+  };
 
   return (
-    <>
-      <section className="mt-4 text-start">
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="">
-            {/* BANK INFORMATION */}
-            <h1 className="mt-5 text-2xl font-bold text-sky-500">
-              Bank Information
-            </h1>
-            <div className="flex items-center gap-2">
-              <InputForm
-                control={form.control}
-                formName="EinSsn"
-                label=""
-                type="radio"
-                className="w-fit"
-              />
-              <label className="mt-2">EIN</label>
-              <InputForm
-                control={form.control}
-                formName="EinSsn"
-                label=""
-                type="radio"
-                className="ml-4 w-fit"
-              />
-              <label className="mt-2">SSN</label>
-            </div>
-            <div className="grid grid-cols-4 gap-2">
-              <div className="col-span-2">
-                <InputForm
-                  control={form.control}
-                  formName="BankName"
-                  label="Bank Name: *"
-                  placeholder="Type your bank name"
-                  className=""
-                />
-              </div>
-              <InputForm
-                control={form.control}
-                formName="BankRouting"
-                label="Bank Routing #: *"
-                placeholder="#"
-                className="col-auto"
-              />
-              <InputForm
-                control={form.control}
-                formName="BankAccounting"
-                label="Bank Accounting #: *"
-                placeholder="#"
-                className="col-auto"
-              />
-            </div>
-            {/* SALES INFORMATION */}
-            <h1 className="mt-5 text-2xl font-bold text-sky-500">Sales</h1>
-            <p className="mt-5">
-              Currently Accepting Visa/mastercard/Discover/AMEX?
-            </p>
-            <div className="mt-0 flex items-center gap-2">
-              <InputForm
-                control={form.control}
-                formName="as"
-                label=""
-                type="radio"
-                className="mt-0 w-fit"
-              />
-              <label className="mt-2">Yes</label>
-              <InputForm
-                control={form.control}
-                formName="EinSsn"
-                label=""
-                type="radio"
-                className="ml-4 mt-0 w-fit"
-              />
-              <label className="mt-2">No</label>
-            </div>
-            <p className="mt-5">
-              Has merchant/owner/prioncipals ever been terminated from accepting
-              payment cards?
-            </p>
-            <div className="mt-0 flex items-center gap-2">
-              <InputForm
-                control={form.control}
-                formName="as"
-                label=""
-                type="radio"
-                className="mt-0 w-fit"
-              />
-              <label className="mt-2">Yes</label>
-              <InputForm
-                control={form.control}
-                formName="EinSsn"
-                label=""
-                type="radio"
-                className="ml-4 mt-0 w-fit"
-              />
-              <label className="mt-2">No</label>
-            </div>
+    <section className="mt-4 text-start">
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)}>
+          {/* BANK INFORMATION */}
+          <h1 className="mt-5 text-2xl font-bold text-sky-500">
+            Bank Information
+          </h1>
+          <div className="flex items-center gap-2">
             <InputForm
               control={form.control}
-              formName="Reason"
-              label="Reason:"
-              placeholder="Type your reason."
-              className="w-1/2"
+              formName="EinSsn"
+              label=""
+              type="radio"
+              className="w-fit"
             />
-            {/* SETTINGS INFORMATION */}
-            <h1 className="mt-5 text-2xl font-bold text-sky-500">Settings</h1>
-            <p className="my-3">
-              Sales Distribution - Fil the sales distribution of each category
-              to add up to 100
-            </p>
-            <div className="m-auto grid w-3/4 grid-cols-3 gap-2">
+            <label className="mt-2">EIN</label>
+            <InputForm
+              control={form.control}
+              formName="EinSsn"
+              label=""
+              type="radio"
+              className="ml-4 w-fit"
+            />
+            <label className="mt-2">SSN</label>
+          </div>
+          <div className="grid grid-cols-4 gap-2">
+            <div className="col-span-2">
               <InputForm
                 control={form.control}
                 formName="BankName"
-                label="Store Front / Swipe: *"
-                type="number"
+                label="Bank Name: *"
                 placeholder="Type your bank name"
                 className=""
               />
-              <InputForm
-                control={form.control}
-                formName="BankRouting"
-                label="Internet: *"
-                type="number"
-                placeholder="#"
-                className=""
-              />
-              <InputForm
-                control={form.control}
-                formName="BankAccounting"
-                label="Manually Keyed: *"
-                type="number"
-                placeholder="#"
-                className=""
-              />
             </div>
-            <div className="m-auto my-3 w-3/4 rounded-full bg-gray-200 dark:bg-gray-700">
-              <div
+            <InputForm
+              control={form.control}
+              formName="BankRouting"
+              label="Bank Routing #: *"
+              placeholder="#"
+              className="col-auto"
+            />
+            <InputForm
+              control={form.control}
+              formName="BankAccounting"
+              label="Bank Accounting #: *"
+              placeholder="#"
+              className="col-auto"
+            />
+          </div>
+          {/* SALES INFORMATION */}
+          <h1 className="mt-5 text-2xl font-bold text-sky-500">Sales</h1>
+          <p className="mt-5">
+            Currently Accepting Visa/mastercard/Discover/AMEX?
+          </p>
+          <div className="mt-0 flex items-center gap-2">
+            <InputForm
+              control={form.control}
+              formName="as"
+              label=""
+              type="radio"
+              className="mt-0 w-fit"
+            />
+            <label className="mt-2">Yes</label>
+            <InputForm
+              control={form.control}
+              formName="EinSsn"
+              label=""
+              type="radio"
+              className="ml-4 mt-0 w-fit"
+            />
+            <label className="mt-2">No</label>
+          </div>
+          <p className="mt-5">
+            Has merchant/owner/prioncipals ever been terminated from accepting
+            payment cards?
+          </p>
+          <div className="mt-0 flex items-center gap-2">
+            <InputForm
+              control={form.control}
+              formName="as"
+              label=""
+              type="radio"
+              className="mt-0 w-fit"
+            />
+            <label className="mt-2">Yes</label>
+            <InputForm
+              control={form.control}
+              formName="EinSsn"
+              label=""
+              type="radio"
+              className="ml-4 mt-0 w-fit"
+            />
+            <label className="mt-2">No</label>
+          </div>
+          <InputForm
+            control={form.control}
+            formName="Reason"
+            label="Reason:"
+            placeholder="Type your reason."
+            className="w-1/2"
+          />
+          {/* SETTINGS INFORMATION */}
+          <h1 className="mt-5 text-2xl font-bold text-sky-500">Settings</h1>
+          <p className="my-3">
+            Sales Distribution - Fil the sales distribution of each category to
+            add up to 100
+          </p>
+          <div className="m-auto grid w-3/4 grid-cols-3 gap-2">
+            <InputForm
+              control={form.control}
+              formName="StoreFrontSwipe"
+              label="Store Front / Swipe: *"
+              type="number"
+              placeholder="Type your bank name"
+              state={front}
+              setState={(value) => adjustValues("front", Number(value))}
+            />
+            <InputForm
+              control={form.control}
+              formName="Internet"
+              label="Internet: *"
+              type="number"
+              placeholder="#"
+              state={interest}
+              setState={(value) => adjustValues("interest", Number(value))}
+            />
+            <InputForm
+              control={form.control}
+              formName="ManuallyKeyed"
+              label="Manually Keyed: *"
+              type="number"
+              placeholder="#"
+              state={manually}
+              setState={(value) => adjustValues("manually", Number(value))}
+            />
+          </div>
+          <div className="m-auto my-3 w-3/4 rounded-full bg-gray-200 dark:bg-gray-700">
+            {/* <div
                 id="progress"
                 className={
                   `rounded-full bg-blue-600 p-0.5 text-center text-xs font-medium leading-none text-blue-100 ` +
@@ -568,14 +605,16 @@ const FinancialInformation = () => {
                 }
               >
                 {percentage}%
-              </div>
-            </div>
-          </form>
-        </Form>
+              </div> */}
+            <Progress value={front + interest + manually}>
+              Progress: {front + interest + manually}%
+            </Progress>
+          </div>
+        </form>
+      </Form>
 
-        <div className="flex-1"></div>
-      </section>
-    </>
+      <div className="flex-1"></div>
+    </section>
   );
 };
 

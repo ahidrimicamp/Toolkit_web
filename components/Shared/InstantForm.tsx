@@ -26,13 +26,18 @@ import {
 } from "@/components/ui/popover";
 import { BusinessTypeSelectList } from "@/constants";
 
-export const InputForm = <T extends z.ZodType<any, any>>({
+export const InputForm = <
+  T extends z.ZodType<any, any>,
+  S extends string | number = string | number,
+>({
   control,
   formName,
   label,
   placeholder,
   type,
   className,
+  state,
+  setState,
 }: {
   control: Control<z.infer<T>>;
   formName: FieldPath<z.infer<T>>;
@@ -40,6 +45,8 @@ export const InputForm = <T extends z.ZodType<any, any>>({
   placeholder?: string;
   type?: React.HTMLInputTypeAttribute;
   className?: string;
+  state?: S;
+  setState?: React.Dispatch<React.SetStateAction<S>>;
 }) => {
   return (
     <FormField
@@ -52,8 +59,17 @@ export const InputForm = <T extends z.ZodType<any, any>>({
             <Input
               placeholder={placeholder}
               {...field}
-              value={field.value ?? ""}
-              onChange={field.onChange}
+              value={state !== undefined ? state : field.value || ""}
+              onChange={(e) => {
+                const value =
+                  type === "number"
+                    ? (Number(e.target.value) as S)
+                    : (e.target.value as S);
+                field.onChange(e);
+                if (setState) {
+                  setState(value);
+                }
+              }}
               type={type}
               className={className}
             />
@@ -260,32 +276,28 @@ export const FormGeneration = ({ formControl, formFields }: any) => {
           placeholder?: string | undefined;
         }) =>
           item.content ? (
-            <>
-              <div className="w-full items-end">
-                <SelectForm
-                  control={formControl}
-                  formName={item.formName}
-                  label={item.title}
-                  placeholder={item.title}
-                  valueKey={"value"}
-                  content={BusinessTypeSelectList}                  
-                  displayKey="title"
-                />
-              </div>
-            </>
+            <div className="w-full items-end" key={item.title}>
+              <SelectForm
+                control={formControl}
+                formName={item.formName}
+                label={item.title}
+                placeholder={item.title}
+                valueKey={"value"}
+                content={BusinessTypeSelectList}
+                displayKey="title"
+              />
+            </div>
           ) : item.type === "checkbox" ? (
-            <>
-              <div className="w-full items-end">
-                <CheckboxForm
-                  control={formControl}
-                  formName={item.formName}
-                  label=""
-                  placeholder={item.title}
-                />
-              </div>
-            </>
+            <div className="w-full items-end" key={item.title}>
+              <CheckboxForm
+                control={formControl}
+                formName={item.formName}
+                label=""
+                placeholder={item.title}
+              />
+            </div>
           ) : item.type === "datePicker" ? (
-            <div className="w-full">
+            <div className="w-full" key={item.title}>
               <DatePickerForm
                 control={formControl}
                 formName={item.formName}
@@ -294,7 +306,7 @@ export const FormGeneration = ({ formControl, formFields }: any) => {
               />
             </div>
           ) : (
-            <div className="w-full">
+            <div className="w-full" key={item.title}>
               <InputForm
                 control={formControl}
                 formName={item.formName}
