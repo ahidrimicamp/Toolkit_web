@@ -57,7 +57,7 @@
     "next-auth": "^5.0.0-beta.18",
     "next-themes": "^0.3.0",
     "nodemailer": "^6.9.13",
-    "npx": "^10.2.2",
+    "npx": "^3.0.0",
     "process": "^0.11.10",
     "progress": "^2.0.3",
     "react": "^18.3.1",

@@ -276,7 +276,7 @@ export const FormGeneration = ({ formControl, formFields }: any) => {
           placeholder?: string | undefined;
         }) =>
           item.content ? (
-            <div className="w-full items-end" key={item.title}>
+            <div key={item.title} className="w-full items-end">
               <SelectForm
                 control={formControl}
                 formName={item.formName}
@@ -288,7 +288,7 @@ export const FormGeneration = ({ formControl, formFields }: any) => {
               />
             </div>
           ) : item.type === "checkbox" ? (
-            <div className="w-full items-end" key={item.title}>
+            <div key={item.title} className="w-full items-end">
               <CheckboxForm
                 control={formControl}
                 formName={item.formName}
@@ -297,7 +297,7 @@ export const FormGeneration = ({ formControl, formFields }: any) => {
               />
             </div>
           ) : item.type === "datePicker" ? (
-            <div className="w-full" key={item.title}>
+            <div key={item.title} className="w-full">
               <DatePickerForm
                 control={formControl}
                 formName={item.formName}
@@ -306,7 +306,7 @@ export const FormGeneration = ({ formControl, formFields }: any) => {
               />
             </div>
           ) : (
-            <div className="w-full" key={item.title}>
+            <div key={item.title} className="w-full">
               <InputForm
                 control={formControl}
                 formName={item.formName}
@@ -315,6 +315,89 @@ export const FormGeneration = ({ formControl, formFields }: any) => {
               />
             </div>
           ),
+      )}
+    </div>
+  );
+};
+
+export const FormGenerationGrid3Cols = ({ formControl, formFields }: any) => {
+  return (
+    <div className="grid grid-cols-3 items-end gap-2">
+      {formFields.map(
+        (item: {
+          content: any;
+          type: string;
+          formName: string;
+          title: string;
+          placeholder?: string | undefined;
+        }) =>
+          item.content ? (
+            <div key={item.title} className="w-full items-end">
+              <SelectForm
+                control={formControl}
+                formName={item.formName}
+                label={item.title}
+                placeholder={item.title}
+                valueKey={"value"}
+                content={BusinessTypeSelectList}
+                displayKey="title"
+              />
+            </div>
+          ) : item.type === "checkbox" ? (
+            <div key={item.title} className="w-full items-end">
+              <CheckboxForm
+                control={formControl}
+                formName={item.formName}
+                label=""
+                placeholder={item.title}
+              />
+            </div>
+          ) : item.type === "datePicker" ? (
+            <div key={item.title} className="w-full">
+              <DatePickerForm
+                control={formControl}
+                formName={item.formName}
+                label={item.title}
+                placeholder={item.placeholder}
+              />
+            </div>
+          ) : (
+            <div key={item.title} className="w-full">
+              <InputForm
+                control={formControl}
+                formName={item.formName}
+                label={item.title}
+                placeholder={item.placeholder}
+              />
+            </div>
+          ),
+      )}
+    </div>
+  );
+};
+
+export const YesNoFormGeneration = ({ formControl, formFields }: any) => {
+  return (
+    <div className="flex w-1/2 items-end gap-6">
+      {formFields.map(
+        (item: {
+          content: any;
+          type: string;
+          formName: string;
+          title: string;
+          placeholder?: string | undefined;
+        }) => (
+          <div key={item.title} className="flex items-center gap-2">
+            <InputForm
+              control={formControl}
+              formName={item.formName}
+              label=""
+              type="radio"
+              className="w-fit"
+            />
+            <label className="mt-2">{item.title}</label>
+          </div>
+        ),
       )}
     </div>
   );

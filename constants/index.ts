@@ -4039,3 +4039,280 @@ export const dbaTaxInformationFspForm = [
     // content: ConditionSelectList,
   },
 ];
+
+export const serviceRequestedFspForm = [
+  {
+    id: 1,
+    title: "Visa/MC Avg. Transaction: *",
+    type: "input",
+    placeholder: "0.00",
+    formName: "VisaMcAvgTransaction",
+    value: "",
+  },
+  {
+    id: 2,
+    title: "Visa/MC Highest Transaction:",
+    type: "input",
+    placeholder: "0.00",
+    formName: "VisaMcHighestTransaction",
+    value: "",
+  },
+  {
+    id: 3,
+    title: "Visa/MC Gross Mo. Sales: *",
+    type: "input",
+    placeholder: "0.00",
+    formName: "VisaMcGrossMoSales",
+    value: "",
+  },
+  {
+    id: 4,
+    title: "Discover Avg. Transaction: *",
+    type: "input",
+    placeholder: "0.00",
+    formName: "DiscoverAvgTransaction",
+    value: "",
+  },
+  {
+    id: 5,
+    title: "Discover Highest Transaction:",
+    type: "input",
+    placeholder: "0.00",
+    formName: "DiscoverHighestTransaction",
+    value: "",
+  },
+  {
+    id: 6,
+    title: "Discover Gross Mo. Sales: *",
+    type: "input",
+    placeholder: "0.00",
+    formName: "DiscoverGrossMoSales",
+    value: "",
+  },
+  {
+    id: 7,
+    title: "Amex Opt. Blue Avg. Transaction: *",
+    type: "input",
+    placeholder: "0.00",
+    formName: "AmexOptBlueAvgTransaction",
+    value: "",
+  },
+  {
+    id: 8,
+    title: "Amex Opt. Blue Highest Transaction:",
+    type: "input",
+    placeholder: "0.00",
+    formName: "AmexOptBlueHighestTransaction",
+    value: "",
+  },
+  {
+    id: 9,
+    title: "Amex Opt. Blue Gross Mo. Sales: *",
+    type: "input",
+    placeholder: "0.00",
+    formName: "AmexOptBlueGrossMoSales",
+    value: "",
+  },
+];
+
+export const cardTypesNotToAcceptFspForm = [
+  {
+    id: 1,
+    title: "Visa",
+    type: "ratio",
+    formName: "Visa",
+    value: "",
+  },
+  {
+    id: 2,
+    title: "MasterCard",
+    type: "ratio",
+    formName: "Mastercard",
+    value: "",
+  },
+  {
+    id: 3,
+    title: "American Express",
+    type: "ratio",
+    formName: "AmericanExpress",
+    value: "",
+  },
+  {
+    id: 4,
+    title: "Discover",
+    type: "ratio",
+    formName: "Discover",
+    value: "",
+  },
+  {
+    id: 5,
+    title: "PayPal",
+    type: "ratio",
+    formName: "PayPal",
+    value: "",
+  },
+];
+
+export const seasonalMonthsFspForm = [
+  {
+    id: 1,
+    formName: "January",
+  },
+  {
+    id: 2,
+    formName: "February",
+  },
+  {
+    id: 3,
+    formName: "March",
+  },
+  {
+    id: 4,
+    formName: "April",
+  },
+  {
+    id: 5,
+    formName: "May",
+  },
+  {
+    id: 6,
+    formName: "June",
+  },
+  {
+    id: 7,
+    formName: "July",
+  },
+  {
+    id: 8,
+    formName: "August",
+  },
+  {
+    id: 9,
+    formName: "September",
+  },
+  {
+    id: 10,
+    formName: "October",
+  },
+  {
+    id: 11,
+    formName: "November",
+  },
+  {
+    id: 12,
+    formName: "December",
+  },
+  
+];
+
+export const returnPolicyFspForm = [
+  {
+    id: 1,
+    formName: "fullRefund",
+    title: "FULL REFUND",
+  },
+  {
+    id: 2,
+    formName: "exchangeOnly",
+    title: "EXCHANGE ONLY",
+  },
+  {
+    id: 3,
+    formName: "none",
+    title: "NONE",
+  },
+  {
+    id: 4,
+    formName: "describe",
+    title: "DESCRIBE",
+  },
+];
+
+export const bankingInformationFspForm = [
+  {
+    id: 1,
+    formName: "CheckingSavings",
+    title: "Checking",
+  },
+  {
+    id: 2,
+    formName: "CheckingSavings",
+    title: "Savings",
+  },
+];
+
+export const acceptingVisaMcDiscoverFspForm = [
+  {
+    id: 1,
+    formName: "AcceptingVisaMcDiscover",
+    title: "Yes",
+  },
+  {
+    id: 2,
+    formName: "AcceptingVisaMcDiscover",
+    title: "No",
+  },
+];
+
+export const hasBeenTerminatedFspForm = [
+  {
+    id: 1,
+    formName: "hasBeenTerminated",
+    title: "Yes",
+  },
+  {
+    id: 2,
+    formName: "hasBeenTerminated",
+    title: "No",
+  },
+];
+
+export const americaExpressVolumeFspForm = [
+  {
+    id: 1,
+    formName: "AmericaExpressVolume",
+    title: "Yes",
+  },
+  {
+    id: 2,
+    formName: "AmericaExpressVolume",
+    title: "No",
+  },
+];
+
+export const seasonalMerchantFspForm = [
+  {
+    id: 1,
+    formName: "SeasonalMerchant",
+    title: "Yes",
+  },
+  {
+    id: 2,
+    formName: "SeasonalMerchant",
+    title: "No",
+  },
+];
+export const independentServiceFspForm = [
+  {
+    id: 1,
+    formName: "IndependentService",
+    title: "Yes",
+  },
+  {
+    id: 2,
+    formName: "IndependentService",
+    title: "No",
+  },
+];
+export const usesFulfillHouseFspForm = [
+  {
+    id: 1,
+    formName: "UsesFulfillHouse",
+    title: "Yes",
+  },
+  {
+    id: 2,
+    formName: "UsesFulfillHouse",
+    title: "No",
+  },
+];
