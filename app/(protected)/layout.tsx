@@ -2,7 +2,9 @@ import Header from "@/components/Shared/Profile/Header";
 import SideProfileBar from "@/components/Shared/Profile/SideProfileBar";
 import React from "react";
 
-const layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
+const layout = async ({
+  children,
+}: Readonly<{ children: React.ReactNode }>) => {
   return (
     <div>
       <section className="flex w-full items-center justify-center overflow-hidden p-4">

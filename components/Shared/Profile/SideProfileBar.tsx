@@ -5,15 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { profileLinks } from "@/constants";
 import ProfileFooter from "./ProfileFooter";
-import { signOut } from "next-auth/react";
-
-const handleSignOut = () => {
-  try {
-    signOut({ callbackUrl: "/sign-in" });
-  } catch (error) {
-    console.log(error);
-  }
-};
+import { signOut } from "@/constants/actions/user.action";
 
 const SideProfileBar = () => {
   const pathname = usePathname();
@@ -31,7 +23,7 @@ const SideProfileBar = () => {
                 <div
                   key={item.title}
                   className={`${isActive ? "bg-slate-200 dark:bg-zinc-800" : "hover:bg-slate-100 hover:dark:bg-zinc-700"} w-full cursor-pointer rounded-md p-3 font-semibold`}
-                  onClick={handleSignOut}
+                  onClick={() => signOut()}
                 >
                   {item.title}
                 </div>

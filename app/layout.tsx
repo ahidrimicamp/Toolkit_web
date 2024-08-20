@@ -12,14 +12,17 @@ const inter = Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Toolkit",
+  title: {
+    default: "Toolkit",
+    template: "%s | Toolkit",
+  },
   description: "A Toolkit web for everyone",
   icons: {
     icon: "/icon/Chain-smol.png",
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

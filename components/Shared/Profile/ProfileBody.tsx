@@ -1,6 +1,7 @@
+"use client";
+
 import React from "react";
 import { z } from "zod";
-import { formSchema } from "@/lib/utils";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
@@ -13,23 +14,33 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { InputForm } from "../InstantForm";
+import { UserUpdate } from "@/constants/actions/user.action";
+import { UpdateUserSchema } from "@/schemas";
+import { useToast } from "@/components/ui/use-toast";
 
-const ProfileBody = () => {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+const ProfileBody = ({ user }: any) => {
+  const { toast } = useToast();
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const form = useForm<z.infer<typeof UpdateUserSchema>>({
+    resolver: zodResolver(UpdateUserSchema),
     defaultValues: {
-      email: "",
+      id: user.id,
+      email: user.email || "",
       password: "",
-      firstName: "",
-      lastName: "",
-      phone: "",
-      group: "",
+      username: user.username || "",
+      phone: user.phoneNumber || "",
     },
   });
 
-  // const onSubmit = (data: z.infer<typeof formSchema>) => {
-  //   console.log(data);
-  // };
+  const onSubmit = async (data: z.infer<typeof UpdateUserSchema>) => {
+    console.log(data);
+    await UserUpdate(data);
+
+    toast({
+      title: "Successfully Updated",
+      description: "Your user information has been successfully updated.",
+    });
+  };
   return (
     <section>
       <div className="w-full space-y-6">
@@ -46,7 +57,7 @@ const ProfileBody = () => {
         />
 
         <Form {...form}>
-          <form className="space-y-5">
+          <form className="space-y-5" onSubmit={form.handleSubmit(onSubmit)}>
             <Card>
               <CardHeader>
                 <CardTitle>Email</CardTitle>
@@ -59,6 +70,21 @@ const ProfileBody = () => {
                   label=""
                   placeholder="example@micamp.com"
                   type="email"
+                />
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>Username</CardTitle>
+                <CardDescription>Edit your username here.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <InputForm
+                  control={form.control}
+                  formName="username"
+                  label=""
+                  placeholder="Your username"
+                  type="text"
                 />
               </CardContent>
             </Card>
@@ -86,25 +112,18 @@ const ProfileBody = () => {
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle>Name</CardTitle>
+                <CardTitle>Phone Number</CardTitle>
                 <CardDescription>
-                  Change your name and surname here.
+                  Change your phone number here.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <InputForm
                   control={form.control}
-                  formName="firstName"
-                  label="Name"
-                  placeholder="Your name"
-                  type="text"
-                />
-                <InputForm
-                  control={form.control}
-                  formName="lastName"
-                  label="Surname"
-                  placeholder="Your surname"
-                  type="text"
+                  formName="phone"
+                  label="Phone Number"
+                  placeholder="Your phone number"
+                  type="tel"
                 />
               </CardContent>
             </Card>
