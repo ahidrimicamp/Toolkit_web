@@ -12,14 +12,17 @@ const inter = Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Toolkit",
+  title: {
+    default: "Toolkit",
+    template: "%s | Toolkit",
+  },
   description: "A Toolkit web for everyone",
   icons: {
     icon: "/icon/Chain-smol.png",
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -28,7 +31,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} text-dark_light dark:bg-zinc-900`}>
         <ThemeProvider
-          attribute="className"
+          attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange

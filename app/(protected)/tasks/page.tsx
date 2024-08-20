@@ -73,8 +73,6 @@ const Protected = () => {
       status: "Completed",
     },
   ];
-
-  console.log(isOpen);
   return (
     <div className="flex w-full flex-wrap space-x-10">
       <div className={cn(isOpen ? "hidden" : "w-full p-4")}>
