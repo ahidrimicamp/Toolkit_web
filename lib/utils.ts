@@ -535,7 +535,7 @@ export const financialInformationFspSchema = z.object({
   CheckingSavings: z.string(),
   BankName: z.string(),
   BankRouting: z.string(),
-  BankAccount: z.string(),
+  BankAccounting: z.string(),
   // Sales
   AcceptingVisaMcDiscover: z.string(),
   hasBeenTerminated: z.string(),
