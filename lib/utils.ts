@@ -489,21 +489,18 @@ export const merchantInformationFspSchema = z.object({
   ContactServicePhone: z.string(),
   BusinessWebsite: z.string(),
   DateOpen: z.string(),
-
   // DBA Address Section
   Street: z.string(),
   AddressSearchBar: z.string(),
   City: z.string(),
   State: z.string(),
   PostalCode: z.string(),
-  
   // LEGAL INFORMATION
   CorporateLegalName: z.string(),
   Locations: z.string(),
   LegalCity: z.string(),
   LegalState: z.string(),
   LegalPostalCode: z.string(),
-
   // TAX INFORMATION
   UseCorporateLegalName: z.string(),
   IrsName: z.string(),
@@ -513,12 +510,9 @@ export const merchantInformationFspSchema = z.object({
   TypeOfServicesOffered: z.string(),
   EinSsn: z.string(),
   StockSymbol: z.string(),
-  
   // STATEMENTS INFORMATION
   MailStatements: z.string(),
-
   // LOCATION
-  
   // Building Type
   BuildingType: z.string(),
   // Merchant Type
@@ -595,10 +589,201 @@ export const financialInformationFspSchema = z.object({
   // RETURN POLICY
   ReturnPolicy: z.string(),
   PolicyDescription: z.string(),
-
 });
 
+// MO/TO QUESTIONAIRE TAB FORM
+export const moToQuestionaireFspSchema = z.object({
+  // What percent of sales are to
+  BusinessPercentage: z.number(),
+  IndividualsPercentage: z.number(),
+  // Methods of Marketing
+  MktNewspapersMagazine: z.string(),
+  MktOutboundTelemarketing: z.string(),
+  MktMail: z.string(),
+  MktInternet: z.string(),
+  MktTelevisionRadio: z.string(),
+  MktOther: z.string(),
+  MktOtherDescription: z.string(),
+  // Who enters Card Information Into the Processing System
+  CardInfoWhoEnters: z.string(),
+  CardInfoOtherDescription: z.string(),
+  // Do you own your own Product/Inventory (if no, wehere is inventory stored)
+  OwnProd: z.boolean(),
+  OwnProdBusinessOther: z.string(),
+  OwnProdOtherDescription: z.string(),
+  // Who processes the order
+  WhoProcesses: z.string(),
+  ProcessorOtherDescription: z.string(),
+  // Product Shipped By (Shipped Via)
+  ShippedBy: z.string(),
+  ShippedOtherDescription: z.string(),
+  // Who ships product
+  WhoShips: z.string(),
+  DaysToShip: z.string(),
+  // Delivery Receipt Requested
+  DeliveryReceiptRequested: z.boolean(),
+  // Is the payment Encrypted By SSL or Better?
+  IsPaymentEncrypted: z.boolean(),
+  Certificate: z.string(),
+  CertificateIssuer: z.string(),
+  ExpirationDate: z.date(),
+  IndividualShared: z.boolean(),
+});
 
+// MERCHANT OWNER
+export const merchantOwnerFspSchema = z.object({
+  // Has merchant/owner/principals ever filed for bankruptcy
+  HasFiledForBankruptcy: z.boolean(),
+  Account: z.number(),
+});
+
+// ADD NEW MERCHANT OWNER FORM
+export const addMerchantOwnerFspSchema = z.object({
+  // Has merchant/owner/principals ever filed for bankruptcy
+  PrimaryOwner: z.boolean(),
+  FirstName: z.string(),
+  MiddleName: z.string(),
+  LastName: z.string(),
+  DateOfBirth: z.date(),
+  Ownership: z.number(),
+  CellNumber: z.number(),
+  SSN: z.number(),
+  MerchantAgreesSms: z.boolean(),
+  TitleDocuSign: z.string(),
+  EmailDocuSign: z.string(),
+  // Address Information
+  Address: z.string(),
+  City: z.string(),
+  State: z.string(),
+  PostalCode: z.number(),
+  DriverLicense: z.number(),
+  DriverLicenseState: z.string(),
+});
+
+// ADD NEW MERCHANT OWNER FORM
+export const pricingInformationFspSchema = z.object({
+  // Has merchant/owner/principals ever filed for bankruptcy
+  PassTrueInterchange: z.boolean(),
+  PassDuesAndAssesments: z.string(),
+  PricingType: z.string(),
+  // TIERED
+  CreditQual: z.number(),
+  MidCreditQual: z.number(),
+  NonCreditQual: z.number(),
+  NonPinDebitNonQual: z.number(),
+  NonPinDebitMidQual: z.number(),
+  NonPinDebitNonQual2: z.number(),
+  AmexCreditQual: z.number(),
+  AmexMidCreditQual: z.number(),
+  AmexNonCreditQual: z.number(),
+  PayPalDCFee: z.number(),
+  // INTERCHANGE PLUS
+  GrossNet: z.string(),
+  ViMcDiscRate: z.number(),
+  ViMcdiscNonPinDebitRate: z.number(),
+  AmexDCRate: z.number(),
+  PaypalDCRate: z.number(),
+  // FLAT RATE
+  DcRate: z.number(),
+  UseDefaultRate: z.boolean(),
+  DefaultRate: z.number(),
+  ViMcDiscFee: z.number(),
+  ViMcDiscNonPinDebitDCRate: z.number(),
+  AmexDcRate2: z.number(),
+  PayPalDcRate2: z.number(),
+  // SWIPED / NON-SWIPED (Fiserv only)  
+  SwipedRate: z.number(),
+  NonSwipedRate: z.number(),  
+  // --
+  PinDebit: z.boolean(),
+  PinDebitDcRate: z.number(),
+  PinDebitAuthRate: z.number(),
+  // DISCOUNT COLLECTED FREQUENCY
+  DailyMonthly: z.string(),
+  // OTHER PRICING INFORMATION
+  PciFrequency: z.string(),
+  Audio: z.string(),
+  AuthrizationFee: z.number(),
+  EbtCashItemFee: z.number(),
+  StatementFee: z.number(),
+  MonthlyMinimumFee: z.number(),
+  PciFee: z.number(),
+  AddressVerification: z.number(),
+  EftFoodItemFee: z.number(),
+  CustomerServiceFee: z.number(),
+  TinInvalidFee: z.number(),
+  VoiceAuthorization: z.number(),
+  ReturnedTransaction: z.number(),
+  OnlineReporting: z.number(),
+  AchRejectFee: z.number(),
+  ApplicationFee: z.number(),
+  AudioResponse: z.number(),
+  RegulatoryProductFee: z.number(),
+  ChargebackFee: z.number(),
+  EarlyTerminationFee: z.number(),
+  VoiceAddressVerification: z.number(),
+  WirelessFee: z.number(),
+  RetrievalFee: z.number(),
+  MerchantFee: z.number(),
+  BatchHeaderFee: z.number(),
+  SoftwareFee: z.number(),
+  PciNonComplianceFee: z.number(),
+  SalesTrasactionFee: z.number(),
+  EquipmentFee: z.number(),
+  OtherFeeDescription: z.string(),
+  OtherFee: z.number(),
+});
+
+// PROGRAMMING REQUEST FORM
+export const programmingRequestFspSchema = z.object({
+  // Account Information
+  SalesRepresentative: z.string(),
+  SalesPhoneNumber: z.string(),
+  // POS Provider Name
+  FileBuildVarOnly: z.boolean(),
+  PosProviderName: z.string(),
+  // WAVIit App Only
+  Invoicing: z.boolean(),
+  InvoicingNumberRequired: z.boolean(),
+  QrScan: z.boolean(),
+  // Connection Type
+  EthernetInternet: z.boolean(),
+  WirelessSim: z.boolean(),
+  DialUp: z.boolean(),
+  WiFi: z.boolean(),
+  // Clover Only
+  NeedMenuOrInventory: z.boolean(),
+  HowCashDiscountApplied: z.string(),
+  // File build Information
+  BuildType: z.string(),
+  Pbx: z.boolean(),
+  Wavit: z.boolean(),
+  PinDebit: z.boolean(),
+  AutoClose: z.boolean(),
+  AutoCloseTime: z.string(),
+  TipLine: z.boolean(),
+  TipLineType: z.string(),
+  Server: z.boolean(),
+  SuggestedTipPercentages: z.string(),
+  SalesTax: z.number(),
+  MessageToTheBoarding: z.string(),
+  // Shipping Information
+  ShipTo: z.string(),
+  ShipName: z.string(),
+  ShipPriority: z.string(),
+  UseLegalBusinessAddress: z.boolean(),
+  UseBusinessAddressDba: z.boolean(),
+  UseAgentAddress: z.boolean(),
+  NoAddress: z.boolean(),
+  ShipAddress: z.string(),
+  ShipCity: z.string(),
+  ShipState: z.string(),
+  ShipPostalCode: z.string(),
+  ShipPhone: z.string(),
+  ShipEmail: z.string(),
+  // Billing Information
+  BillTo: z.string(),
+});
 
 // Currency format functions
 export const formatCurrency = (
