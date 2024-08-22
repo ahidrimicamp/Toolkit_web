@@ -87,6 +87,12 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import AddNewMerchantOwner from "./AddNewMerchantOwner";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const MerchantDetail = () => {
   const form = useForm<z.infer<typeof merchantInformationFspSchema>>({
@@ -1196,141 +1202,173 @@ const PricingInformation = () => {
               formFields={passDuesAssessmentsFspForm}
             />
           </div>
+
           {/* TIERED */}
-          <div className="my-2 w-full rounded-md border px-4 pb-2">
-            <div className="flex gap-2">
-              <InputForm
-                control={form.control}
-                formName="PricingType"
-                label=""
-                type="radio"
-                placeholder=""
-                className="flex-none"
-              />
-              <h2 className="mt-1 flex-auto content-center text-2xl font-semibold text-sky-500">
-                TIERED
-              </h2>
-            </div>
-            <div className="my-2 gap-4">
-              <p className="mt-3 text-nowrap text-center max-xl:col-span-2">
-                Vi/MC/Disc D/C Rate:
-              </p>
-              <FormGeneration
-                formControl={form.control}
-                formFields={viMcDiscRateFspForm}
-                gridCols={"3"}
-              />
-            </div>
-            <div className="my-2 gap-4">
-              <p className="mt-5 text-nowrap text-center max-xl:col-span-2">
-                Amex D/C Rate:
-              </p>
-              <FormGeneration
-                formControl={form.control}
-                formFields={amexDcRateFspForm}
-                gridCols={"3"}
-              />
-            </div>
-            <div className="my-2 gap-4">
-              <p className="mt-5 text-nowrap text-center max-xl:col-span-2">
-                PayPal D/C Fee:
-              </p>
-              <InputForm
-                control={form.control}
-                formName="PayPalDCFee"
-                label=""
-                placeholder="%"
-                className="m-auto w-1/3"
-                type="number"
-              />
-            </div>
-          </div>
+          <Accordion type="single" collapsible>
+            <AccordionItem value="item-1">
+              <AccordionTrigger>TIERED</AccordionTrigger>
+              <AccordionContent>
+                <div className="my-2 w-full rounded-md border px-4 pb-2">
+                  <div className="flex gap-2">
+                    <InputForm
+                      control={form.control}
+                      formName="PricingType"
+                      label=""
+                      type="radio"
+                      placeholder=""
+                      className="flex-none"
+                    />
+                    <h2 className="mt-1 flex-auto content-center text-2xl font-semibold text-sky-500">
+                      TIERED
+                    </h2>
+                  </div>
+                  <div className="my-2 gap-4">
+                    <p className="mt-3 text-nowrap text-center max-xl:col-span-2">
+                      Vi/MC/Disc D/C Rate:
+                    </p>
+                    <FormGeneration
+                      formControl={form.control}
+                      formFields={viMcDiscRateFspForm}
+                      gridCols={"3"}
+                    />
+                  </div>
+                  <div className="my-2 gap-4">
+                    <p className="mt-5 text-nowrap text-center max-xl:col-span-2">
+                      Amex D/C Rate:
+                    </p>
+                    <FormGeneration
+                      formControl={form.control}
+                      formFields={amexDcRateFspForm}
+                      gridCols={"3"}
+                    />
+                  </div>
+                  <div className="my-2 gap-4">
+                    <p className="mt-5 text-nowrap text-center max-xl:col-span-2">
+                      PayPal D/C Fee:
+                    </p>
+                    <InputForm
+                      control={form.control}
+                      formName="PayPalDCFee"
+                      label=""
+                      placeholder="%"
+                      className="m-auto w-1/3"
+                      type="number"
+                    />
+                  </div>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+
           {/* INTERCHANGE PLUS */}
-          <div className="my-2 w-full rounded-md border px-4 pb-2">
-            <div className="flex gap-2">
-              <InputForm
-                control={form.control}
-                formName="PricingType"
-                label=""
-                type="radio"
-                placeholder=""
-                className="flex-none"
-              />
-              <h2 className="mt-1 flex-auto content-center text-2xl font-semibold text-sky-500">
-                INTERCHANGE PLUS
-              </h2>
-            </div>
-            <FormGenerationRadio
-              formControl={form.control}
-              formFields={grossNetFspForm}
-            />
-            <FormGeneration
-              formControl={form.control}
-              formFields={interchangePlusRatesFspForm}
-              gridCols={"4"}
-            />
-          </div>
+          <Accordion type="single" collapsible>
+            <AccordionItem value="item-1">
+              <AccordionTrigger>INTERCHANGE PLUS</AccordionTrigger>
+              <AccordionContent>
+                <div className="my-2 w-full rounded-md border px-4 pb-2">
+                  <div className="flex gap-2">
+                    <InputForm
+                      control={form.control}
+                      formName="PricingType"
+                      label=""
+                      type="radio"
+                      placeholder=""
+                      className="flex-none"
+                    />
+                    <h2 className="mt-1 flex-auto content-center text-2xl font-semibold text-sky-500">
+                      INTERCHANGE PLUS
+                    </h2>
+                  </div>
+                  <FormGenerationRadio
+                    formControl={form.control}
+                    formFields={grossNetFspForm}
+                  />
+                  <FormGeneration
+                    formControl={form.control}
+                    formFields={interchangePlusRatesFspForm}
+                    gridCols={"4"}
+                  />
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+
           {/* FLAX RATE */}
-          <div className="my-2 w-full rounded-md border px-4 pb-2">
-            <div className="flex gap-2">
-              <InputForm
-                control={form.control}
-                formName="PricingType"
-                label=""
-                type="radio"
-                placeholder=""
-                className="flex-none"
-              />
-              <h2 className="mt-1 flex-auto content-center text-2xl font-semibold text-sky-500">
-                FLAX RATE
-              </h2>
-            </div>
-            <div className="my-3 flex items-end justify-center gap-2">
-              <InputForm
-                control={form.control}
-                formName="DcRate"
-                label="D/C Rate (% Converter):"
-                placeholder="#"
-                className="flex-auto"
-              />
-              <Switch className="mb-2 flex-none" />
-              <InputForm
-                control={form.control}
-                formName="DefaultRate"
-                label="Use Default Rate:"
-                placeholder="3.3816"
-                className="flex-auto"
-              />
-            </div>
-            <FormGeneration
-              formControl={form.control}
-              formFields={flatRateFspForm}
-              gridCols={"4"}
-            />
-          </div>
+          <Accordion type="single" collapsible>
+            <AccordionItem value="item-1">
+              <AccordionTrigger>FLAX RATE</AccordionTrigger>
+              <AccordionContent>
+                <div className="my-2 w-full rounded-md border px-4 pb-2">
+                  <div className="flex gap-2">
+                    <InputForm
+                      control={form.control}
+                      formName="PricingType"
+                      label=""
+                      type="radio"
+                      placeholder=""
+                      className="flex-none"
+                    />
+                    <h2 className="mt-1 flex-auto content-center text-2xl font-semibold text-sky-500">
+                      FLAX RATE
+                    </h2>
+                  </div>
+                  <div className="my-3 flex items-end justify-center gap-2">
+                    <InputForm
+                      control={form.control}
+                      formName="DcRate"
+                      label="D/C Rate (% Converter):"
+                      placeholder="#"
+                      className="flex-auto"
+                    />
+                    <Switch className="mb-2 flex-none" />
+                    <InputForm
+                      control={form.control}
+                      formName="DefaultRate"
+                      label="Use Default Rate:"
+                      placeholder="3.3816"
+                      className="flex-auto"
+                    />
+                  </div>
+                  <FormGeneration
+                    formControl={form.control}
+                    formFields={flatRateFspForm}
+                    gridCols={"4"}
+                  />
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+
           {/* SWIPED / NON-SWIPED */}
-          <div className="my-2 w-full rounded-md border px-4 pb-2">
-            <div className="flex gap-2">
-              <InputForm
-                control={form.control}
-                formName="PricingType"
-                label=""
-                type="radio"
-                placeholder=""
-                className="flex-none"
-              />
-              <h2 className="mt-1 flex-auto content-center text-2xl font-semibold text-sky-500">
-                SWIPED / NON-SWIPED (Fiserv Only)
-              </h2>
-            </div>
-            <FormGeneration
-              formControl={form.control}
-              formFields={swipedNonSwipedFspForm}
-              gridCols={"3"}
-            />
-          </div>
+          <Accordion type="single" collapsible>
+            <AccordionItem value="item-1">
+              <AccordionTrigger>SWIPED / NON-SWIPED</AccordionTrigger>
+              <AccordionContent>
+                <div className="my-2 w-full rounded-md border px-4 pb-2">
+                  <div className="flex gap-2">
+                    <InputForm
+                      control={form.control}
+                      formName="PricingType"
+                      label=""
+                      type="radio"
+                      placeholder=""
+                      className="flex-none"
+                    />
+                    <h2 className="mt-1 flex-auto content-center text-2xl font-semibold text-sky-500">
+                      SWIPED / NON-SWIPED (Fiserv Only)
+                    </h2>
+                  </div>
+                  <FormGeneration
+                    formControl={form.control}
+                    formFields={swipedNonSwipedFspForm}
+                    gridCols={"3"}
+                  />
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
           {/* PIN DEBIT CARD */}
-          <div className="flex gap-2">
+          <div className="mt-5 flex gap-2">
             <div className="w-1/2 flex-auto rounded-md border px-4 pb-2">
               <CheckboxForm
                 control={form.control}
@@ -1375,7 +1413,6 @@ const PricingInformation = () => {
               </div>
             </div>
           </div>
-
           {/* OTHER PRICING INFORMATION */}
           <div>
             <h1 className="mt-5 flex gap-2 text-2xl font-bold text-sky-500">
@@ -1406,7 +1443,6 @@ const PricingInformation = () => {
               gridCols={"3"}
             />
           </div>
-
           {/* BUTTON SAVE CHANGES */}
           <div className="m-auto text-center">
             <CustomButtons className="m-auto my-5" btnType="default">
@@ -1528,9 +1564,10 @@ const ProgrammingRequest = () => {
             <FormGeneration
               formControl={form.control}
               formFields={connectionTypeFspForm}
-              gridCols={"4"}
+              gridCols={"1"}
             />
           </div>
+
           <div className="mt-10 flex gap-2 max-2xl:flex-wrap">
             {/* FILE BUILDING INFORMATION */}
             <div className="w-full">
