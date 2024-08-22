@@ -4025,7 +4025,7 @@ export const dbaTaxInformationFspForm = [
     title: "Type of Service Offered: *",
     type: "input",
     placeholder: "Zip",
-    formName: "LegalPostalCode",
+    formName: "TypeOfServicesOffered",
     value: "",
     // content: ConditionSelectList,
   },
@@ -4208,22 +4208,22 @@ export const seasonalMonthsFspForm = [
 export const returnPolicyFspForm = [
   {
     id: 1,
-    formName: "fullRefund",
+    formName: "ReturnPolicy",
     title: "FULL REFUND",
   },
   {
     id: 2,
-    formName: "exchangeOnly",
+    formName: "ReturnPolicy",
     title: "EXCHANGE ONLY",
   },
   {
     id: 3,
-    formName: "none",
+    formName: "ReturnPolicy",
     title: "NONE",
   },
   {
     id: 4,
-    formName: "describe",
+    formName: "ReturnPolicy",
     title: "DESCRIBE",
   },
 ];
@@ -4292,6 +4292,7 @@ export const seasonalMerchantFspForm = [
     title: "No",
   },
 ];
+
 export const independentServiceFspForm = [
   {
     id: 1,
@@ -4304,6 +4305,7 @@ export const independentServiceFspForm = [
     title: "No",
   },
 ];
+
 export const usesFulfillHouseFspForm = [
   {
     id: 1,
@@ -4314,5 +4316,1032 @@ export const usesFulfillHouseFspForm = [
     id: 2,
     formName: "UsesFulfillHouse",
     title: "No",
+  },
+];
+
+// MO/TO QUESTIONAIRE
+export const whatPercentSalesFspForm = [
+  {
+    id: 1,
+    formName: "BusinessPercentage",
+    title: "Businesses: *",
+  },
+  {
+    id: 2,
+    formName: "IndividualsPercentage",
+    title: "Individuals: *",
+  },
+];
+
+export const marketingMethodsFspForm = [
+  {
+    id: 1,
+    formName: "MktNewspapersMagazine",
+    title: "Newspapers/Magazine",
+  },
+  {
+    id: 2,
+    formName: "MktMail",
+    title: "Mail",
+  },
+  {
+    id: 3,
+    formName: "MktTelevisionRadio",
+    title: "Television/Radio",
+  },
+  {
+    id: 4,
+    formName: "MktOutboundTelemarketing",
+    title: "Outbound Telemarketing Sales",
+  },
+  {
+    id: 5,
+    formName: "MktInternet",
+    title: "Internet",
+  },
+  {
+    id: 6,
+    formName: "MktOther",
+    title: "Other",
+  },
+];
+
+export const whoEntersCardInfoFspForm = [
+  {
+    id: 1,
+    formName: "CardInfoWhoEnters",
+    title: "Merchant",
+    type: "radio",
+    placeholder: "Merchant",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "CardInfoWhoEnters",
+    title: "Fullfilment Center",
+    type: "radio",
+    placeholder: "Fullfilment Center",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "CardInfoWhoEnters",
+    title: "Consumer",
+    type: "radio",
+    placeholder: "Consumer",
+    value: "",
+  },
+  {
+    id: 4,
+    formName: "CardInfoWhoEnters",
+    title: "Other",
+    type: "radio",
+    placeholder: "Other",
+    value: "",
+  },
+  {
+    id: 5,
+    formName: "CardInfoOtherDescription",
+    title: "",
+    type: "input",
+    placeholder: "Other",
+    value: "",
+  },
+];
+
+export const ownProdFspForm = [
+  {
+    id: 1,
+    formName: "OwnProd",
+    title: "Yes",
+    type: "radio",
+    placeholder: "Yes",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "OwnProd",
+    title: "No",
+    type: "radio",
+    placeholder: "No",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "OwnProdBusinessOther",
+    title: "Business",
+    type: "radio",
+    placeholder: "Business",
+    value: "",
+  },
+  {
+    id: 4,
+    formName: "OwnProdBusinessOther",
+    title: "Other",
+    type: "radio",
+    placeholder: "Other",
+    value: "",
+  },
+  {
+    id: 5,
+    formName: "OwnProdOtherDescription",
+    title: "",
+    type: "input",
+    placeholder: "Other",
+    value: "",
+  },
+];
+
+export const whoProcessesFspForm = [
+  {
+    id: 1,
+    formName: "WhoProcesses",
+    title: "Merchant",
+    type: "radio",
+    placeholder: "Merchant",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "WhoProcesses",
+    title: "Fullfilment Center",
+    type: "radio",
+    placeholder: "Fullfilment Center",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "WhoProcesses",
+    title: "Other",
+    type: "radio",
+    placeholder: "Other",
+    value: "",
+  },
+
+  {
+    id: 4,
+    formName: "ProcessorOtherDescription",
+    title: "",
+    type: "input",
+    placeholder: "Other",
+    value: "",
+  },
+];
+
+export const shippedByFspForm = [
+  {
+    id: 1,
+    formName: "ShippedBy",
+    title: "US Mail",
+    type: "radio",
+    placeholder: "US Mail",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "ShippedBy",
+    title: "Other",
+    type: "radio",
+    placeholder: "Other",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "ShippedOtherDescription",
+    title: "",
+    type: "input",
+    placeholder: "Other",
+    value: "",
+  },
+];
+
+export const whoShipsFspForm = [
+  {
+    id: 1,
+    formName: "WhoShips",
+    title: "Merchant",
+    type: "radio",
+    placeholder: "Merchant",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "WhoShips",
+    title: "Fullfilment Center",
+    type: "radio",
+    placeholder: "Fullfilment Center",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "DaysToShip",
+    title: "After Auth, Days to Ship",
+    type: "input",
+    placeholder: "Days to Ship",
+    value: "",
+  },
+];
+
+export const deliveryReceiptRequestedFspForm = [
+  {
+    id: 1,
+    formName: "DeliveryReceiptRequested",
+    title: "Yes",
+    type: "radio",
+    placeholder: "Yes",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "DeliveryReceiptRequested",
+    title: "No",
+    type: "radio",
+    placeholder: "No",
+    value: "",
+  },
+];
+
+export const isPaymentEncryptedFspForm = [
+  {
+    id: 1,
+    formName: "IsPaymentEncrypted",
+    title: "Yes",
+  },
+  {
+    id: 2,
+    formName: "IsPaymentEncrypted",
+    title: "No",
+  },
+];
+
+export const individualSharedFspForm = [
+  {
+    id: 1,
+    formName: "IndividualShared",
+    title: "Individual",
+  },
+  {
+    id: 2,
+    formName: "IndividualShared",
+    title: "Shared",
+  },
+];
+
+export const certificatesFspForm = [
+  {
+    id: 1,
+    formName: "Certificate",
+    title: "Certificate #:",
+    type: "input",
+    placeholder: "#",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "CertificateIssuer",
+    title: "Certificate Issuer:",
+    type: "input",
+    placeholder: "Certificate Issuer",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "ExpirationDate",
+    title: "Exp Date:",
+    type: "datePicker",
+    placeholder: "Select a date",
+    value: "",
+  },
+];
+
+// Merchant Owner TAB
+export const hasFiledForBankruptcyFspForm = [
+  {
+    id: 1,
+    formName: "HasFiledForBankruptcy",
+    title: "Yes",
+  },
+  {
+    id: 2,
+    formName: "HasFiledForBankruptcy",
+    title: "No",
+  },
+];
+
+export const OwnersTable: DataTypes[] = [
+  {
+    OwnerName: "Jimmy Page",
+    Ownership: "55%",
+    CellNumber: "12345678",
+    Notes: "This is the main owner",  
+  },
+  {
+    OwnerName: "Ringo Star",
+    Ownership: "30%",
+    CellNumber: "12345678",
+    Notes: "This is the secondary owner",  
+  },
+];
+
+export const addNewMerchantOwnerBasicFspForm = [
+  {
+    id: 1,
+    formName: "FirstName",
+    title: "First Name: *",
+    type: "input",
+    placeholder: "First Name",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "MiddleName",
+    title: "Middle Name: *",
+    type: "input",
+    placeholder: "Middle Name",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "LastName",
+    title: "Last Name: *",
+    type: "input",
+    placeholder: "Last Name",
+    value: "",
+  },
+  {
+    id: 4,
+    formName: "DateOfBirth",
+    title: "Date Of Birth #: *",
+    type: "datePicker",
+    placeholder: "#",
+    value: "",
+  },
+  {
+    id: 5,
+    formName: "Ownership",
+    title: "Ownership %: *",
+    type: "input",
+    placeholder: "%",
+    value: "",
+  },
+  {
+    id: 6,
+    formName: "CellNumber",
+    title: "Cell Number: (used for DocuSign)*",
+    type: "input",
+    placeholder: "(___) ____-_____",
+    value: "",
+  },
+  {
+    id: 7,
+    formName: "SSN",
+    title: "SSN: *",
+    type: "input",
+    placeholder: "*",
+    value: "",
+  },
+];
+
+export const addNewMerchantOwnerAddressFspForm = [
+  {
+    id: 1,
+    formName: "Address",
+    title: "Address: *",
+    type: "input",
+    placeholder: "123 North Somewhere",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "City",
+    title: "City: *",
+    type: "input",
+    placeholder: "Scottsdale",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "State",
+    title: "State: *",
+    type: "input",
+    placeholder: "Arizona",
+    value: "",
+  },
+  {
+    id: 4,
+    formName: "PostalCode",
+    title: "Postal Code: *",
+    type: "input",
+    placeholder: "ZipCode",
+    value: "",
+  },
+  {
+    id: 5,
+    formName: "DriverLicense",
+    title: "Driver's License #: *",
+    type: "input",
+    placeholder: "License Number ",
+    value: "",
+  },
+  {
+    id: 6,
+    formName: "DriverLicenseState",
+    title: "Driver's License State: *",
+    type: "input",
+    placeholder: "Arizona",
+    value: "",
+  },
+];
+
+
+// PRICING INFORMATION TAB
+export const passThroughInterchangeFspForm = [
+  {
+    id: 1,
+    formName: "PassTrueInterchange",
+    title: "Yes",
+  },
+  {
+    id: 2,
+    formName: "PassTrueInterchange",
+    title: "No",
+  },
+];
+
+export const passDuesAssessmentsFspForm = [
+  {
+    id: 1,
+    formName: "PassDuesAndAssesments",
+    title: "Yes",
+  },
+  {
+    id: 2,
+    formName: "PassDuesAndAssesments",
+    title: "No",
+  },
+];
+
+export const viMcDiscRateFspForm = [
+  {
+    id: 1,
+    formName: "CreditQual",
+    title: "Credit Qual",
+    type: "number",
+    placeholder: "%",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "MidCreditQual",
+    title: "Mid Credit Qual",
+    type: "number",
+    placeholder: "%",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "NonCreditQual",
+    title: "Non Credit Qual",
+    type: "number",
+    placeholder: "%",
+    value: "",
+  },
+  {
+    id: 4,
+    formName: "NonPinDebitNonQual",
+    title: "Non PIN Debit Non Qual",
+    type: "number",
+    placeholder: "%",
+    value: "",
+  },
+  {
+    id: 5,
+    formName: "NonPinDebitMidQual",
+    title: "Non PIN Debit Mid Qual",
+    type: "number",
+    placeholder: "%",
+    value: "",
+  },
+  {
+    id: 6,
+    formName: "NonPinDebitNonQual2",
+    title: "Non PIN Debit Non Qual ",
+    type: "number",
+    placeholder: "%",
+    value: "",
+  },
+];
+
+export const amexDcRateFspForm = [
+  {
+    id: 1,
+    formName: "AmexCreditQual",
+    title: "Credit Qual",
+    type: "number",
+    placeholder: "%",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "AmexMidCreditQual",
+    title: "Mid Credit Qual",
+    type: "number",
+    placeholder: "%",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "AmexNonCreditQual",
+    title: "Non Credit Qual",
+    type: "number",
+    placeholder: "%",
+    value: "",
+  },
+];
+
+export const grossNetFspForm = [
+  {
+    id: 1,
+    formName: "GrossNet",
+    title: "GROSS",
+  },
+  {
+    id: 2,
+    formName: "GrossNet",
+    title: "NET",
+  },
+];
+
+export const interchangePlusRatesFspForm = [
+  {
+    id: 1,
+    formName: "ViMcDiscRate",
+    title: "Vi/MC/Disc D/C Rate",
+    type: "number",
+    placeholder: "%",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "ViMcdiscNonPinDebitRate",
+    title: "Vi/MC/Disc Non-Pin Debit D/C Rate",
+    type: "number",
+    placeholder: "%",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "AmexDCRate",
+    title: "AMEX D/C Rate",
+    type: "number",
+    placeholder: "%",
+    value: "",
+  },
+  {
+    id: 4,
+    formName: "PaypalDCRate",
+    title: "PayPal D/C Rate",
+    type: "number",
+    placeholder: "%",
+    value: "",
+  },
+];
+
+export const flatRateFspForm = [
+  {
+    id: 1,
+    formName: "ViMcDiscFee",
+    title: "Vi/MC/Disc D/C Fee",
+    type: "number",
+    placeholder: "%",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "ViMcDiscNonPinDebitDCRate",
+    title: "Vi/MC/Disc Non-Pin Debit D/C Rate",
+    type: "number",
+    placeholder: "%",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "AmexDcRate2",
+    title: "AMEX D/C Rate",
+    type: "number",
+    placeholder: "%",
+    value: "",
+  },
+  {
+    id: 4,
+    formName: "PaypalDCRate",
+    title: "PayPal D/C Rate",
+    type: "number",
+    placeholder: "%",
+    value: "",
+  },
+];
+
+export const swipedNonSwipedFspForm = [
+  {
+    id: 1,
+    formName: "SwipedRate",
+    title: "Swiped Rate:",
+    type: "number",
+    placeholder: "%",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "NonSwipedRate",
+    title: "Non-Swiped Rate",
+    type: "number",
+    placeholder: "%",
+    value: "",
+  },
+];
+
+export const pinDebitFspForm = [
+  {
+    id: 1,
+    formName: "PinDebitDcRate",
+    title: "PIN Debit D/C Rate:",
+    type: "number",
+    placeholder: "%",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "PinDebitAuthRate",
+    title: "PIN Debit Auth Rate",
+    type: "number",
+    placeholder: "%",
+    value: "",
+  },
+];
+
+export const otherPricingInformationFspForm = [
+    {
+      id: 3,
+      formName: "AuthrizationFee",
+      title: "Authorization Fee:",
+      type: "number",
+      placeholder: "$0.00",
+      value: ""
+    },
+    {
+      id: 4,
+      formName: "EbtCashItemFee",
+      title: "EBT Cash Item Fee:",
+      type: "number",
+      placeholder: "$0.00",
+      value: ""
+    },
+    {
+      id: 5,
+      formName: "StatementFee",
+      title: "Statement Fee:",
+      type: "number",
+      placeholder: "$0.00",
+      value: ""
+    },
+    {
+      id: 6,
+      formName: "MonthlyMinimumFee",
+      title: "Monthly Minimum Fee:",
+      type: "number",
+      placeholder: "$0.00",
+      value: ""
+    },
+    {
+      id: 7,
+      formName: "PciFee",
+      title: "PCI Fee:",
+      type: "number",
+      placeholder: "$0.00",
+      value: ""
+    },
+    {
+      id: 8,
+      formName: "AddressVerification",
+      title: "Address Verification:",
+      type: "number",
+      placeholder: "$0.00",
+      value: ""
+    },
+    {
+      id: 9,
+      formName: "EftFoodItemFee",
+      title: "EFT Food Item Fee:",
+      type: "number",
+      placeholder: "$0.00",
+      value: ""
+    },
+    {
+      id: 10,
+      formName: "CustomerServiceFee",
+      title: "Customer Service Fee:",
+      type: "number",
+      placeholder: "$0.00",
+      value: ""
+    },
+    {
+      id: 11,
+      formName: "TinInvalidFee",
+      title: "TIN Invalid Fee:",
+      type: "number",
+      placeholder: "$0.00",
+      value: ""
+    },
+    {
+      id: 12,
+      formName: "VoiceAuthorization",
+      title: "Voice Authorization:",
+      type: "number",
+      placeholder: "$0.00",
+      value: ""
+    },
+    {
+      id: 13,
+      formName: "ReturnedTransaction",
+      title: "Returned Transaction:",
+      type: "number",
+      placeholder: "$0.00",
+      value: ""
+    },
+    {
+      id: 14,
+      formName: "OnlineReporting",
+      title: "Online Reporting:",
+      type: "number",
+      placeholder: "$0.00",
+      value: ""
+    },
+    {
+      id: 15,
+      formName: "AchRejectFee",
+      title: "ACH Reject Fee:",
+      type: "number",
+      placeholder: "$0.00",
+      value: ""
+    },
+    {
+      id: 16,
+      formName: "ApplicationFee",
+      title: "Application Fee:",
+      type: "number",
+      placeholder: "$0.00",
+      value: ""
+    },
+    {
+      id: 17,
+      formName: "AudioResponse",
+      title: "Audio Response:",
+      type: "number",
+      placeholder: "$0.00",
+      value: ""
+    },
+    {
+      id: 18,
+      formName: "RegulatoryProductFee",
+      title: "Regulatory Product Fee:",
+      type: "number",
+      placeholder: "$0.00",
+      value: ""
+    },
+    {
+      id: 19,
+      formName: "ChargebackFee",
+      title: "Chargeback Fee:",
+      type: "number",
+      placeholder: "$0.00",
+      value: ""
+    },
+    {
+      id: 20,
+      formName: "EarlyTerminationFee",
+      title: "Early Termination Fee:",
+      type: "number",
+      placeholder: "$0.00",
+      value: ""
+    },
+    {
+      id: 21,
+      formName: "VoiceAddressVerification",
+      title: "Voice Address Verification:",
+      type: "number",
+      placeholder: "$0.00",
+      value: ""
+    },
+    {
+      id: 22,
+      formName: "WirelessFee",
+      title: "Wireless Fee:",
+      type: "number",
+      placeholder: "$0.00",
+      value: ""
+    },
+    {
+      id: 23,
+      formName: "RetrievalFee",
+      title: "Retrieval Fee:",
+      type: "number",
+      placeholder: "$0.00",
+      value: ""
+    },
+    {
+      id: 24,
+      formName: "MerchantFee",
+      title: "Merchant Fee:",
+      type: "number",
+      placeholder: "$0.00",
+      value: ""
+    },
+    {
+      id: 25,
+      formName: "BatchHeaderFee",
+      title: "Batch Header Fee:",
+      type: "number",
+      placeholder: "$0.00",
+      value: ""
+    },
+    {
+      id: 26,
+      formName: "SoftwareFee",
+      title: "Software Fee:",
+      type: "number",
+      placeholder: "$0.00",
+      value: ""
+    },
+    {
+      id: 27,
+      formName: "PciNonComplianceFee",
+      title: "PCI Non-Compliance Fee:",
+      type: "number",
+      placeholder: "$0.00",
+      value: ""
+    },
+    {
+      id: 28,
+      formName: "SalesTrasactionFee",
+      title: "Sales Transaction Fee:",
+      type: "number",
+      placeholder: "$0.00",
+      value: ""
+    },
+    {
+      id: 29,
+      formName: "EquipmentFee",
+      title: "Equipment Fee:",
+      type: "number",
+      placeholder: "$0.00",
+      value: ""
+    },
+    {
+      id: 30,
+      formName: "OtherFeeDescription",
+      title: "Other Fee Description:",
+      type: "string",
+      placeholder: "",
+      value: ""
+    },
+    {
+      id: 31,
+      formName: "OtherFee",
+      title: "Other Fee:",
+      type: "number",
+      placeholder: "$0.00",
+      value: ""
+    },
+]
+
+export const pciFrequencyFspForm = [
+  {
+    id: 1,
+    formName: "PciFrequency",
+    title: "Daily (default)",
+  },
+  {
+    id: 2,
+    formName: "PciFrequency",
+    title: "Monthly",
+  },
+];
+
+export const audioFspForm = [
+  {
+    id: 1,
+    formName: "Audio",
+    title: "Monthly Merchant Fee",
+  },
+  {
+    id: 2,
+    formName: "Audio",
+    title: "Annual Merchant Fee",
+  },
+];
+
+// PROGRAMMING REQUEST FORM TAB
+
+export const equipmentInformationFspForm: DataTypes[] = [
+  {
+    id: 1,
+    quantity: "Laptop",
+    manufacturer: "Dell",
+    model: "XPS 15",
+  },
+  {
+    id: 2,
+    quantity: "Laptop",
+    manufacturer: "Dell",
+    model: "XPS 15",
+  },
+  {
+    id: 3,
+    quantity: "Laptop",
+    manufacturer: "Dell",
+    model: "XPS 15",
+  },
+];
+
+export const accountInformationFspForm = [
+  {
+    id: 1,
+    title: "Sales Representative",
+    type: "selectBox",
+    placeholder: "Select a Representative",
+    formName: "SalesRepresentative",
+    value: "",
+    content: ModelSelectList,
+  },
+  {
+    id: 2,
+    title: "Sales Phone Number",
+    type: "input",
+    placeholder: "(___) ____-_____",
+    formName: "SalesPhoneNumber",
+    value: "",
+  },
+];
+
+export const wavitAppOnlyFspForm = [
+  {
+    id: 1,
+    formName: "Invoicing",
+    title: "Invoicing",
+    type: "checkbox",
+    placeholder: "Invoicing",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "InvoicingNumberRequired",
+    title: "Invoice Number Field Required",
+    type: "checkbox",
+    placeholder: "Invoice Number Field Required",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "QrScan",
+    title: "QR Scan",
+    type: "checkbox",
+    placeholder: "QR Scan",
+    value: "",
+  },
+];
+
+export const connectionTypeFspForm = [
+  {
+    id: 1,
+    formName: "EthernetInternet",
+    title: "Ethernet / Internet (IP)",
+    type: "checkbox",
+    placeholder: "Ethernet / Internet (IP)",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "WirelessSim",
+    title: "Wireless / Sim (Cellular)",
+    type: "checkbox",
+    placeholder: "Wireless / Sim (Cellular)",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "DialUp",
+    title: "Dial Up",
+    type: "checkbox",
+    placeholder: "Dial Up",
+    value: "",
+  },
+  {
+    id: 4,
+    formName: "WiFi",
+    title: "Wi-Fi",
+    type: "checkbox",
+    placeholder: "Wi-Fi",
+    value: "",
   },
 ];

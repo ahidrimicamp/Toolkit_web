@@ -1,3 +1,5 @@
+/* eslint-disable tailwindcss/classnames-order */
+/* eslint-disable tailwindcss/no-custom-classname */
 "use client";
 import React, { useState } from "react";
 import { z } from "zod";
@@ -264,9 +266,15 @@ export const DatePickerForm = <T extends z.ZodType<any, any>>({
   );
 };
 
-export const FormGeneration = ({ formControl, formFields }: any) => {
+/**
+ * @formControl formControl - Used for the (form.control) parameter.
+ * @formFields - Receive a const with the configuration of your form,
+ * how many fields and the type of the fields (radio, checkbox, input..).
+ * @gridCols A string with a number of how many cols you want on the form.
+ *  */
+export const FormGeneration = ({ formControl, formFields, gridCols }: any) => {
   return (
-    <div className="grid grid-cols-2 gap-2">
+    <div className={`grid grid-cols-${gridCols} gap-2 max-xl:grid-cols-2`}>
       {formFields.map(
         (item: {
           content: any;
@@ -305,62 +313,28 @@ export const FormGeneration = ({ formControl, formFields }: any) => {
                 placeholder={item.placeholder}
               />
             </div>
-          ) : (
-            <div key={item.title} className="w-full">
+          ) : item.type === "radio" ? (
+            <div key={item.title} className="flex w-full gap-2">
               <InputForm
-                control={formControl}
-                formName={item.formName}
-                label={item.title}
-                placeholder={item.placeholder}
-              />
-            </div>
-          ),
-      )}
-    </div>
-  );
-};
-
-export const FormGenerationGrid3Cols = ({ formControl, formFields }: any) => {
-  return (
-    <div className="grid grid-cols-3 items-end gap-2">
-      {formFields.map(
-        (item: {
-          content: any;
-          type: string;
-          formName: string;
-          title: string;
-          placeholder?: string | undefined;
-        }) =>
-          item.content ? (
-            <div key={item.title} className="w-full items-end">
-              <SelectForm
-                control={formControl}
-                formName={item.formName}
-                label={item.title}
-                placeholder={item.title}
-                valueKey={"value"}
-                content={BusinessTypeSelectList}
-                displayKey="title"
-              />
-            </div>
-          ) : item.type === "checkbox" ? (
-            <div key={item.title} className="w-full items-end">
-              <CheckboxForm
                 control={formControl}
                 formName={item.formName}
                 label=""
-                placeholder={item.title}
-              />
-            </div>
-          ) : item.type === "datePicker" ? (
-            <div key={item.title} className="w-full">
-              <DatePickerForm
-                control={formControl}
-                formName={item.formName}
-                label={item.title}
+                type="radio"
+                className="w-fit"
                 placeholder={item.placeholder}
               />
+              <span className="mt-2 content-center">{item.placeholder}</span>
             </div>
+          ) : item.type === "number" ? (
+            <InputForm
+              key={item.title}
+              control={formControl}
+              formName={item.formName}
+              label={item.title}
+              type={item.type}
+              className=""
+              placeholder={item.placeholder}
+            />
           ) : (
             <div key={item.title} className="w-full">
               <InputForm
@@ -376,9 +350,13 @@ export const FormGenerationGrid3Cols = ({ formControl, formFields }: any) => {
   );
 };
 
-export const YesNoFormGeneration = ({ formControl, formFields }: any) => {
+export const FormGenerationRadio = ({
+  formControl,
+  formFields,
+  className,
+}: any) => {
   return (
-    <div className="flex w-1/2 items-end gap-6">
+    <div className={`my-2 flex w-1/2 items-end gap-6 ${className}`}>
       {formFields.map(
         (item: {
           content: any;
@@ -393,11 +371,49 @@ export const YesNoFormGeneration = ({ formControl, formFields }: any) => {
               formName={item.formName}
               label=""
               type="radio"
-              className="w-fit"
+              className="size-fit"
             />
             <label className="mt-2">{item.title}</label>
           </div>
         ),
+      )}
+    </div>
+  );
+};
+
+export const FormGenerationRadioGrid = ({ formControl, formFields }: any) => {
+  return (
+    <div className="grid grid-cols-2 gap-2">
+      {formFields.map(
+        (item: {
+          content: any;
+          type: string;
+          formName: string;
+          title: string;
+          placeholder?: string | undefined;
+        }) =>
+          item.type === "radio" ? (
+            <div key={item.title} className="flex w-full gap-2">
+              <InputForm
+                control={formControl}
+                formName={item.formName}
+                label=""
+                type="radio"
+                className="w-fit"
+                placeholder={item.placeholder}
+              />
+              <span className="mt-2 content-center">{item.placeholder}</span>
+            </div>
+          ) : (
+            <div key={item.title} className="col-span-2 w-full">
+              <InputForm
+                control={formControl}
+                formName={item.formName}
+                label={item.title}
+                placeholder={item.placeholder}
+              />
+            </div>
+          ),
       )}
     </div>
   );
