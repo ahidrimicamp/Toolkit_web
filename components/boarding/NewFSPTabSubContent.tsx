@@ -14,6 +14,7 @@ import {
   bankingInformationFspForm,
   cardTypesNotToAcceptFspForm,
   certificatesFspForm,
+  cloverOnlyFspForm,
   connectionTypeFspForm,
   dbaAddressFspForm,
   dbaInformationFspForm,
@@ -44,6 +45,8 @@ import {
   serverFspForm,
   serviceRequestedFspForm,
   shippedByFspForm,
+  ShipPriorityFspForm,
+  shipToFspForm,
   swipedNonSwipedFspForm,
   tipLineFspForm,
   usesFulfillHouseFspForm,
@@ -63,6 +66,7 @@ import {
   merchantOwnerFspSchema,
   moToQuestionaireFspSchema,
   pricingInformationFspSchema,
+  programmingRequestFspSchema,
 } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -1456,12 +1460,53 @@ const PricingInformation = () => {
 };
 
 const ProgrammingRequest = () => {
-  const form = useForm<z.infer<typeof pricingInformationFspSchema>>({
-    resolver: zodResolver(pricingInformationFspSchema),
-    defaultValues: {},
+  
+  const form = useForm<z.infer<typeof programmingRequestFspSchema>>({
+    resolver: zodResolver(programmingRequestFspSchema),
+    defaultValues: {
+    SalesRepresentative: "",
+    SalesPhoneNumber: "",
+    FileBuildVarOnly: false,
+    PosProviderName: "",
+    Invoicing: false,
+    InvoicingNumberRequired: false,
+    QrScan: false,
+    EthernetInternet: false,
+    WirelessSim: false,
+    DialUp: false,
+    WiFi: false,
+    NeedMenuOrInventory: false,
+    HowCashDiscountApplied: "",
+    BuildType: "",
+    Pbx: false,
+    Wavit: false,
+    PinDebit: false,
+    AutoClose: false,
+    AutoCloseTime: "",
+    TipLine: false,
+    TipLineType: "",
+    Server: false,
+    SuggestedTipPercentages: "",
+    SalesTax: 0,
+    MessageToTheBoarding: "",
+    ShipTo: "",
+    ShipName: "",
+    ShipPriority: "",
+    UseLegalBusinessAddress: false,
+    UseBusinessAddressDba: false,
+    UseAgentAddress: false,
+    NoAddress: false,
+    ShipAddress: "",
+    ShipCity: "",
+    ShipState: "",
+    ShipPostalCode: "",
+    ShipPhone: "",
+    ShipEmail: "",
+    BillTo: "",
+  },
   });
 
-  const onSubmit = (value: z.infer<typeof pricingInformationFspSchema>) => {
+  const onSubmit = (value: z.infer<typeof programmingRequestFspSchema>) => {
     console.log(value);
   };
 
@@ -1561,10 +1606,20 @@ const ProgrammingRequest = () => {
             <h1 className="my-2 gap-2 text-2xl font-bold text-sky-500">
               (CLOVER ONLY)
             </h1>
+            <CheckboxForm
+              control={form.control}
+              formName="NeedMenuOrInventory"
+              label=""
+              placeholder="Check here if the merchant need a menu or inventory"
+              className=""
+            />
+            <p className="mt-5 text-xl text-sky-500">
+              How will the cash discount be applied?
+            </p>
             <FormGeneration
               formControl={form.control}
-              formFields={connectionTypeFspForm}
-              gridCols={"1"}
+              formFields={cloverOnlyFspForm}
+              gridCols={"2"}
             />
           </div>
 
@@ -1620,7 +1675,7 @@ const ProgrammingRequest = () => {
                   className=""
                 />
               </div>
-              {/* Auto Close */}
+              {/* Tip Line */}
               <div className="flex items-center gap-2">
                 <CheckboxForm
                   control={form.control}
@@ -1648,6 +1703,7 @@ const ProgrammingRequest = () => {
                 />
               </div>
             </div>
+            {/* Suggested Tip Percentages */}
             <div className="w-full">
               <div className="flex gap-2">
                 <div className="flex-auto">
@@ -1674,6 +1730,35 @@ const ProgrammingRequest = () => {
                 formName="MessageToTheBoarding"
                 label="Message to the Boarding / file build team (155 characters max): *"
                 placeholder="Type your message..."
+              />
+            </div>
+          </div>
+
+          {/* DBA ADDRESS INFORMATION */}
+          <h1 className="mb-2 mt-5 gap-2 text-2xl font-bold text-sky-500">
+            DBA Address Information
+          </h1>
+          <p className="mt-4">Ship To:</p>
+          <FormGenerationRadio
+            formControl={form.control}
+            formFields={shipToFspForm}
+            className={"w-full"}
+          />
+          <div className="flex gap-10">
+            <div className="flex-auto">
+              <InputForm
+                control={form.control}
+                formName="ShipName"
+                label="Name: *"
+                placeholder="Name"
+                className=""
+              />
+            </div>
+            <div className="flex-auto content-end">
+              <FormGeneration
+                formControl={form.control} 
+                formFields={ShipPriorityFspForm}
+                gridCols={"6"}
               />
             </div>
           </div>
