@@ -17,6 +17,8 @@ export const ProfileSchema = z.object({
   phone: requiredString.min(3).max(10),
 });
 
+export type ProfileValues = z.infer<typeof ProfileSchema>;
+
 export const newMerchantSchema = z.object({
   MID: requiredString,
   LegalName: requiredString,
@@ -51,6 +53,8 @@ export const newMerchantSchema = z.object({
   BusinessMoTo: z.boolean(),
   DeployBy: requiredString,
 });
+
+export type newMerchantValues = z.infer<typeof ProfileSchema>;
 
 export const MerchantInfoSchema = z.object({
   MID: requiredString,
@@ -106,6 +110,8 @@ export const MerchantInfoSchema = z.object({
   CloverID: requiredString,
 });
 
+export type MerchantInfoValues = z.infer<typeof MerchantInfoSchema>;
+
 export const MerchantSoftwareInstallSchema = z.object({
   SoftwareAcctNumber: requiredString,
   POCname: requiredString,
@@ -147,6 +153,10 @@ export const MerchantSoftwareInstallSchema = z.object({
   SupportRecurringDevicesTotal: requiredNumber,
 });
 
+export type MerchantSoftwareInstallValues = z.infer<
+  typeof MerchantSoftwareInstallSchema
+>;
+
 export const MerchantAgentLeadSourceSchema = z.object({
   LeadSource: requiredString,
   SalesVertical: requiredString,
@@ -166,6 +176,10 @@ export const MerchantAgentLeadSourceSchema = z.object({
   Agent2: requiredString,
 });
 
+export type MerchantAgentLeadSourceValues = z.infer<
+  typeof MerchantAgentLeadSourceSchema
+>;
+
 export const MerchEnterAdjustmentSchema = z.object({
   Agent: requiredString,
   DataDate: requiredString,
@@ -175,6 +189,10 @@ export const MerchEnterAdjustmentSchema = z.object({
   AdjustAmount: requiredString,
   Split: requiredNumber,
 });
+
+export type MerchEnterAdjustmentValues = z.infer<
+  typeof MerchEnterAdjustmentSchema
+>;
 
 export const AgentSetupSchema = z.object({
   findAgent: requiredString,
@@ -220,6 +238,8 @@ export const AgentSetupSchema = z.object({
   note: requiredString,
 });
 
+export type AgentSetupValues = z.infer<typeof AgentSetupSchema>;
+
 export const AgentEquipmentSchema = z.object({
   copyFromContactInfo: z.boolean(),
   noShippingEmails: z.boolean(),
@@ -237,6 +257,8 @@ export const AgentEquipmentSchema = z.object({
   cellPhone: requiredString,
 });
 
+export type AgentEquipmentValues = z.infer<typeof AgentEquipmentSchema>;
+
 export const newLookupSchema = z.object({
   MID: requiredString,
   OrderID: requiredString,
@@ -245,6 +267,8 @@ export const newLookupSchema = z.object({
   Condition: requiredString,
   ShelfItems: z.boolean(),
 });
+
+export type newLookupValues = z.infer<typeof newLookupSchema>;
 
 export const newItemsSchema = z.object({
   Model: requiredString,
@@ -269,11 +293,15 @@ export const newItemsSchema = z.object({
   DimensionWeight: requiredString,
 });
 
+export type newItemsValues = z.infer<typeof newItemsSchema>;
+
 export const newItemDetailSchema = z.object({
   Condition: requiredString,
   Serial: requiredString,
   SortBy: requiredString,
 });
+
+export type newItemDetailValues = z.infer<typeof newItemDetailSchema>;
 
 export const newEquipmentOrderSchema = z.object({
   Merchant: requiredString,
@@ -517,7 +545,7 @@ export const merchantInformationFspSchema = z.object({
   BuildingType: z.string(),
   // Merchant Type
   MerchantType: z.string(),
-  // Area Zoned 
+  // Area Zoned
   AreaZoned: z.string(),
   // Squere Footage
   SquereFootage: z.string(),
@@ -548,7 +576,7 @@ export const financialInformationFspSchema = z.object({
   AmexOptBlueAvgTransaction: z.string(),
   AmexOptBlueHighestTransaction: z.string(),
   AmexOptBlueGrossMoSales: z.string(),
-  // AMERICAN EXPRESS VOLUME ? 1,000,000 ANNUALLY? 
+  // AMERICAN EXPRESS VOLUME ? 1,000,000 ANNUALLY?
   AmericaExpressVolume: z.string(),
   AmericanExpressVolumeAccount: z.string(),
   // DISCOVER RETAINED
@@ -691,9 +719,9 @@ export const pricingInformationFspSchema = z.object({
   ViMcDiscNonPinDebitDCRate: z.number(),
   AmexDcRate2: z.number(),
   PayPalDcRate2: z.number(),
-  // SWIPED / NON-SWIPED (Fiserv only)  
+  // SWIPED / NON-SWIPED (Fiserv only)
   SwipedRate: z.number(),
-  NonSwipedRate: z.number(),  
+  NonSwipedRate: z.number(),
   // --
   PinDebit: z.boolean(),
   PinDebitDcRate: z.number(),
