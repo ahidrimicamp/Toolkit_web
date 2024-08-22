@@ -5345,3 +5345,110 @@ export const connectionTypeFspForm = [
     value: "",
   },
 ];
+export const cloverOnlyFspForm = [
+  {
+    id: 1,
+    formName: "HowCashDiscountApplied",
+    title: "Ethernet / Internet (IP)",
+    type: "radio",
+    placeholder: "Ethernet / Internet (IP)",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "WirelessSim",
+    title: "Wireless / Sim (Cellular)",
+    type: "checkbox",
+    placeholder: "Wireless / Sim (Cellular)",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "DialUp",
+    title: "Dial Up",
+    type: "checkbox",
+    placeholder: "Dial Up",
+    value: "",
+  },
+  {
+    id: 4,
+    formName: "WiFi",
+    title: "Wi-Fi",
+    type: "checkbox",
+    placeholder: "Wi-Fi",
+    value: "",
+  },
+];
+
+export const fileBuildInformationFspForm = [
+  {
+    id: 1,
+    formName: "BuildType",
+    title: "Retail",
+    type: "radio",
+    placeholder: "Retail",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "BuildType",
+    title: "Restaurant",
+    type: "radio",
+    placeholder: "Restaurant",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "BuildType",
+    title: "MO/TO",
+    type: "radio",
+    placeholder: "MO/TO",
+    value: "",
+  },
+  {
+    id: 4,
+    formName: "BuildType",
+    title: "eCommerce",
+    type: "radio",
+    placeholder: "eCommerce",
+    value: "",
+  },
+];
+
+export const tipLineFspForm = [
+  {
+    id: 1,
+    formName: "TipLineType",
+    title: "Tip at time of sale",
+    type: "radio",
+    placeholder: "Tip at time of sale",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "TipLineType",
+    title: "Tip on receipt",
+    type: "radio",
+    placeholder: "Tip on receipt",
+    value: "",
+  },
+];
+
+export const serverFspForm = [
+  {
+    id: 1,
+    formName: "Server",
+    title: "Yes",
+    type: "radio",
+    placeholder: "Yes",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "Server",
+    title: "No",
+    type: "radio",
+    placeholder: "No",
+    value: "",
+  },
+];

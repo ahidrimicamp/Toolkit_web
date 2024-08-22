@@ -21,6 +21,7 @@ import {
   dbaTaxInformationFspForm,
   deliveryReceiptRequestedFspForm,
   equipmentInformationFspForm,
+  fileBuildInformationFspForm,
   flatRateFspForm,
   grossNetFspForm,
   hasBeenTerminatedFspForm,
@@ -40,9 +41,11 @@ import {
   returnPolicyFspForm,
   seasonalMerchantFspForm,
   seasonalMonthsFspForm,
+  serverFspForm,
   serviceRequestedFspForm,
   shippedByFspForm,
   swipedNonSwipedFspForm,
+  tipLineFspForm,
   usesFulfillHouseFspForm,
   viMcDiscRateFspForm,
   wavitAppOnlyFspForm,
@@ -70,6 +73,7 @@ import {
   FormGenerationRadioGrid,
   InputForm,
   FormGenerationRadio,
+  TextAreaForm,
 } from "../Shared/InstantForm";
 import CustomButtons from "../Shared/CustomButtons";
 import { Switch } from "../ui/switch";
@@ -1463,7 +1467,7 @@ const ProgrammingRequest = () => {
             formFields={accountInformationFspForm}
             gridCols={"3"}
           />
-          <div className="grid grid-cols-1 overflow-auto">
+          <div className="my-2 grid grid-cols-1 overflow-auto">
             <DataTable
               columns={columns}
               data={equipmentInformationFspForm}
@@ -1507,7 +1511,7 @@ const ProgrammingRequest = () => {
             {/* CONNECTION TYPE */}
             <div className="my-2 w-full rounded-md border px-4 pb-2">
               <h1 className="my-2 gap-2 text-2xl font-bold text-sky-500">
-              CONNECTION TYPE
+                CONNECTION TYPE
               </h1>
               <FormGeneration
                 formControl={form.control}
@@ -1518,15 +1522,124 @@ const ProgrammingRequest = () => {
           </div>
           {/* CLOVER ONLY */}
           <div className="my-2 w-full rounded-md border px-4 pb-2">
-              <h1 className="my-2 gap-2 text-2xl font-bold text-sky-500">
+            <h1 className="my-2 gap-2 text-2xl font-bold text-sky-500">
               (CLOVER ONLY)
-              </h1>
-              <FormGeneration
+            </h1>
+            <FormGeneration
+              formControl={form.control}
+              formFields={connectionTypeFspForm}
+              gridCols={"4"}
+            />
+          </div>
+          <div className="mt-10 flex gap-2 max-2xl:flex-wrap">
+            {/* FILE BUILDING INFORMATION */}
+            <div className="w-full">
+              <h2 className="gap-2 text-xl font-semibold">
+                File Build Information
+              </h2>
+              <FormGenerationRadio
                 formControl={form.control}
-                formFields={connectionTypeFspForm}
-                gridCols={"1"}
+                formFields={fileBuildInformationFspForm}
+                className={"w-full"}
+              />
+              <CheckboxForm
+                control={form.control}
+                formName="Pbx"
+                label=""
+                placeholder="PBX"
+                className=""
+              />
+              <CheckboxForm
+                control={form.control}
+                formName="Wavit"
+                label=""
+                placeholder="WAVit"
+                className=""
+              />
+              <CheckboxForm
+                control={form.control}
+                formName="PinDebit"
+                label=""
+                placeholder="Pin Debit"
+                className=""
+              />
+              {/* Auto Close */}
+              <div className="flex items-center gap-2">
+                <CheckboxForm
+                  control={form.control}
+                  formName="AutoClose"
+                  label=""
+                  placeholder="Auto Close"
+                  className=""
+                />
+                <p className="mt-3 px-2 text-sm">
+                  If Auto Close checked, What Time?
+                </p>
+                <InputForm
+                  control={form.control}
+                  formName="AutoCloseTime"
+                  label=""
+                  placeholder="Time"
+                  className=""
+                />
+              </div>
+              {/* Auto Close */}
+              <div className="flex items-center gap-2">
+                <CheckboxForm
+                  control={form.control}
+                  formName="TipLine"
+                  label=""
+                  placeholder="Tip Line"
+                  className="text-nowrap"
+                />
+                <p className="mt-3 text-nowrap px-2 text-sm">
+                  If tip line checked, choose one:
+                </p>
+                <FormGenerationRadio
+                  formControl={form.control}
+                  formFields={tipLineFspForm}
+                  className={"w-full"}
+                />
+              </div>
+              {/* SERVER */}
+              <div className="flex items-center gap-2">
+                <p className="mt-3 px-7">Server:</p>
+                <FormGenerationRadio
+                  formControl={form.control}
+                  formFields={serverFspForm}
+                  className={"w-full"}
+                />
+              </div>
+            </div>
+            <div className="w-full">
+              <div className="flex gap-2">
+                <div className="flex-auto">
+                  <InputForm
+                    control={form.control}
+                    formName="SuggestedTipPercentages"
+                    label="Suggested tip percentages:"
+                    placeholder="#"
+                    className="flex-1"
+                  />
+                </div>
+                <div className="flex-auto">
+                  <InputForm
+                    control={form.control}
+                    formName="SalesTax"
+                    label="Sales Tax %:"
+                    placeholder="#"
+                    className=""
+                  />
+                </div>
+              </div>
+              <TextAreaForm
+                control={form.control}
+                formName="MessageToTheBoarding"
+                label="Message to the Boarding / file build team (155 characters max): *"
+                placeholder="Type your message..."
               />
             </div>
+          </div>
         </div>
       </form>
     </Form>
