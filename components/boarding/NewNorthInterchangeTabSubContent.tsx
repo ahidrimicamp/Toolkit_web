@@ -14,16 +14,14 @@ import {
   bankingInformationFspForm,
   billToFspForm,
   cardTypesNotToAcceptFspForm,
-  certificatesFspForm,
   cloverOnlyFspForm,
   connectionTypeFspForm,
-  dbaAddressFspForm,
+  dbaAddressInterForm,
   dbaAddressShipFspForm,
-  dbaInformationFspForm,
+  dbaInformationInterForm,
   dbaLegalInformationFspForm,
   dbaSelectionFspForm,
   dbaTaxInformationFspForm,
-  deliveryReceiptRequestedFspForm,
   equipmentInformationFspForm,
   fileBuildInformationFspForm,
   flatRateFspForm,
@@ -31,13 +29,9 @@ import {
   hasBeenTerminatedFspForm,
   hasFiledForBankruptcyFspForm,
   independentServiceFspForm,
-  individualSharedFspForm,
   interchangePlusRatesFspForm,
-  isPaymentEncryptedFspForm,
-  marketingMethodsFspForm,
   otherPricingInformationFspForm,
   OwnersTable,
-  ownProdFspForm,
   passDuesAssessmentsFspForm,
   passThroughInterchangeFspForm,
   pciFrequencyFspForm,
@@ -47,7 +41,6 @@ import {
   seasonalMonthsFspForm,
   serverFspForm,
   serviceRequestedFspForm,
-  shippedByFspForm,
   shipPriorityFspForm,
   shipToFspForm,
   swipedNonSwipedFspForm,
@@ -55,19 +48,14 @@ import {
   usesFulfillHouseFspForm,
   viMcDiscRateFspForm,
   wavitAppOnlyFspForm,
-  whatPercentSalesFspForm,
-  whoEntersCardInfoFspForm,
-  whoProcessesFspForm,
-  whoShipsFspForm,
 } from "@/constants";
 import { DataTypes } from "@/types";
 import React, { useState } from "react";
 import { Form } from "../ui/form";
 import {
   financialInformationFspSchema,
-  merchantInformationFspSchema,
+  merchantInformationInterSchema,
   merchantOwnerFspSchema,
-  moToQuestionaireFspSchema,
   pricingInformationFspSchema,
   programmingRequestFspSchema,
 } from "@/lib/utils";
@@ -77,7 +65,6 @@ import { z } from "zod";
 import {
   CheckboxForm,
   FormGeneration,
-  FormGenerationRadioGrid,
   InputForm,
   FormGenerationRadio,
   TextAreaForm,
@@ -104,45 +91,37 @@ import {
 import { Input } from "../ui/input";
 
 const MerchantDetail = () => {
-  const form = useForm<z.infer<typeof merchantInformationFspSchema>>({
-    resolver: zodResolver(merchantInformationFspSchema),
+  const form = useForm<z.infer<typeof merchantInformationInterSchema>>({
+    resolver: zodResolver(merchantInformationInterSchema),
     defaultValues: {
-      MerchantName: "",
-      EmailStatements: "",
+      ClientsBusinessName: "",
       Phone: "",
+      CustomerServicePhone: "",
       Fax: "",
-      ContactName: "",
-      ContactPhone: "",
-      ContactServicePhone: "",
-      BusinessWebsite: "",
-      DateOpen: "",
+      EmailStatements: "",
+      CustomerServiceEmail: "",
+      AlsoPrintAndMailStatements: false,
       Street: "",
       AddressSearchBar: "",
       City: "",
       State: "",
       PostalCode: "",
-      CorporateLegalName: "",
-      Locations: "",
+      UseBusinessAddressDBA: false,
+      LegalContactName: "",
+      LegalContactFax: "",
+      LegalContactPhone: "",
+      LegalContactEmail: "",
+      LegalBusinessName: "",
+      LegalStartDate: new Date() || null || undefined,
+      LegalBusinessWebsite: "",
+      LegalAddress: "",
       LegalCity: "",
       LegalState: "",
       LegalPostalCode: "",
-      UseCorporateLegalName: "",
-      IrsName: "",
-      SICMCC: "",
-      EIN: "",
-      BusinessType: "",
-      TypeOfServicesOffered: "",
-      EinSsn: "",
-      StockSymbol: "",
-      MailStatements: "",
-      BuildingType: "",
-      MerchantType: "",
-      AreaZoned: "",
-      SquereFootage: "",
     },
   });
 
-  const onSubmit = (value: z.infer<typeof merchantInformationFspSchema>) => {
+  const onSubmit = (value: z.infer<typeof merchantInformationInterSchema>) => {
     console.log(value);
   };
 
@@ -156,17 +135,19 @@ const MerchantDetail = () => {
           </h1>
           <FormGeneration
             formControl={form.control}
-            formFields={dbaInformationFspForm}
+            formFields={dbaInformationInterForm}
             gridCols={"2"}
           />
-
+          <p className="my-2">
+            {"NOTE: Statements are 'Summary' for Cash Discount Apps & 'Detailed' for Others."}
+          </p>
           {/* DBA Address Section */}
           <h1 className="my-5 text-2xl font-bold text-sky-500">
             DBA Address Information
           </h1>
           <FormGeneration
             formControl={form.control}
-            formFields={dbaAddressFspForm}
+            formFields={dbaAddressInterForm}
             gridCols={"2"}
           />
 
@@ -841,182 +822,6 @@ const FinancialInformation = () => {
   );
 };
 
-const MoToQuestionaire = () => {
-  const form = useForm<z.infer<typeof moToQuestionaireFspSchema>>({
-    resolver: zodResolver(moToQuestionaireFspSchema),
-    defaultValues: {
-      BusinessPercentage: 0,
-      IndividualsPercentage: 0,
-      MktNewspapersMagazine: "",
-      MktOutboundTelemarketing: "",
-      MktMail: "",
-      MktInternet: "",
-      MktTelevisionRadio: "",
-      MktOther: "",
-      MktOtherDescription: "",
-      CardInfoWhoEnters: "",
-      CardInfoOtherDescription: "",
-      OwnProd: false,
-      OwnProdBusinessOther: "",
-      OwnProdOtherDescription: "",
-      WhoProcesses: "",
-      ProcessorOtherDescription: "",
-      ShippedBy: "",
-      ShippedOtherDescription: "",
-      WhoShips: "",
-      DaysToShip: "",
-      DeliveryReceiptRequested: false,
-      IsPaymentEncrypted: false,
-      Certificate: "",
-      CertificateIssuer: "",
-      IndividualShared: false,
-    },
-  });
-
-  const onSubmit = (value: z.infer<typeof moToQuestionaireFspSchema>) => {
-    console.log(value);
-  };
-
-  return (
-    <section className="w-full">
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="text-start">
-          {/* MO/TO QUESTIONAIRE */}
-          <h1 className="mt-5 flex gap-2 text-2xl font-bold">
-            MO/TO QUESTIONAIRE
-            <span className="flex-auto content-end text-sm font-normal text-black dark:text-white">
-              {"(required if 'Store Front/Swipe' less than 70%)"}
-            </span>
-          </h1>
-          <h1 className="mt-5 flex gap-2 text-2xl font-bold text-sky-500">
-            What Percent of Sales Are To
-            <span className="flex-auto content-end text-sm font-normal text-black dark:text-white">
-              {"* Must add up to 100"}
-            </span>
-          </h1>
-          <FormGeneration
-            formControl={form.control}
-            formFields={whatPercentSalesFspForm}
-            gridCols={"2"}
-          />
-          {/* METHODS OF MARKETING */}
-          <h1 className="mt-5 flex gap-2 text-2xl font-bold text-sky-500">
-            Methods of Marketing
-          </h1>
-          <div className="grid w-3/4 grid-cols-3 gap-2 max-xl:grid-cols-1">
-            {marketingMethodsFspForm.map((item) => {
-              return (
-                <div key={item.title} className="items-center gap-2">
-                  <CheckboxForm
-                    control={form.control}
-                    formName={item.formName}
-                    label=""
-                    placeholder={item.title}
-                  />
-                </div>
-              );
-            })}
-          </div>
-          {/* PROCESSOR CONFIGURATION */}
-          <h1 className="mt-5 flex gap-2 text-2xl font-bold text-sky-500">
-            Processor Configuration
-          </h1>
-          <div className="grid grid-cols-2 gap-4 max-lg:grid-cols-1">
-            {/* WHO ENTERS CARD INFORMATION */}
-            <div className="col-span-1 content-end">
-              <h1 className="mt-5 flex gap-2 text-xl font-semibold">
-                Who enters Card Information Into the Processing System
-              </h1>
-              <FormGenerationRadioGrid
-                formControl={form.control}
-                formFields={whoEntersCardInfoFspForm}
-              />
-            </div>
-            <div className="col-span-1 content-end">
-              <h1 className="mt-5 flex gap-2 text-xl font-semibold">
-                Do you own your own Product/Inventory (if no, Where is inventory
-                stored)
-              </h1>
-              <FormGenerationRadioGrid
-                formControl={form.control}
-                formFields={ownProdFspForm}
-              />
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-4 max-lg:grid-cols-1">
-            {/* WHO PROCESSES THE ORDER */}
-            <div className="col-span-1 content-end">
-              <h1 className="mt-5 flex gap-2 text-xl font-semibold">
-                Who Processes the Order
-              </h1>
-              <FormGenerationRadioGrid
-                formControl={form.control}
-                formFields={whoProcessesFspForm}
-              />
-            </div>
-            <div className="col-span-1">
-              <h1 className="mt-5 flex gap-2 text-xl font-semibold">
-                Product Shipped By (Shipped Via)
-              </h1>
-              <FormGenerationRadioGrid
-                formControl={form.control}
-                formFields={shippedByFspForm}
-              />
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-4 max-lg:grid-cols-1">
-            {/* WHO SHIPS PRODUCT */}
-            <div className="col-span-1 content-end">
-              <h1 className="mt-5 flex gap-2 text-xl font-semibold">
-                Who Ships Product
-              </h1>
-              <FormGenerationRadioGrid
-                formControl={form.control}
-                formFields={whoShipsFspForm}
-              />
-            </div>
-            <div className="col-span-1">
-              <h1 className="mt-5 flex gap-2 text-xl font-semibold">
-                Delivery Receipt Request
-              </h1>
-              <FormGenerationRadioGrid
-                formControl={form.control}
-                formFields={deliveryReceiptRequestedFspForm}
-              />
-            </div>
-          </div>
-          {/* IF CARD INFORMATION IS TAKEN */}
-          <h1 className="mt-5 flex gap-2 text-xl font-semibold">
-            If Card Information is Taken Over The Internet, Is Payment Encrypted
-            By SSL or better?
-          </h1>
-          <FormGenerationRadio
-            formControl={form.control}
-            formFields={isPaymentEncryptedFspForm}
-          />
-
-          <FormGeneration
-            formControl={form.control}
-            formFields={certificatesFspForm}
-            gridCols={"3"}
-          />
-          <FormGenerationRadio
-            formControl={form.control}
-            formFields={individualSharedFspForm}
-          />
-
-          {/* BUTTON SAVE CHANGES */}
-          <div className="m-auto text-center">
-            <CustomButtons className="m-auto my-5" btnType="default">
-              Save Changes
-            </CustomButtons>
-          </div>
-        </form>
-      </Form>
-    </section>
-  );
-};
-
 const MerchantOwner = () => {
   const columnsConfig: ColumnConfig<DataTypes>[] = [
     { accessorKey: "OwnerName", header: "Owner Name" },
@@ -1108,7 +913,357 @@ const MerchantOwner = () => {
   );
 };
 
-const PricingInformation = () => {
+const ProgrammingRequest = () => {
+  const form = useForm<z.infer<typeof programmingRequestFspSchema>>({
+    resolver: zodResolver(programmingRequestFspSchema),
+    defaultValues: {
+      SalesRepresentative: "",
+      SalesPhoneNumber: "",
+      FileBuildVarOnly: false,
+      PosProviderName: "",
+      Invoicing: false,
+      InvoicingNumberRequired: false,
+      QrScan: false,
+      EthernetInternet: false,
+      WirelessSim: false,
+      DialUp: false,
+      WiFi: false,
+      NeedMenuOrInventory: false,
+      HowCashDiscountApplied: "",
+      BuildType: "",
+      Pbx: false,
+      Wavit: false,
+      PinDebit: false,
+      AutoClose: false,
+      AutoCloseTime: "",
+      TipLine: false,
+      TipLineType: "",
+      Server: false,
+      SuggestedTipPercentages: "",
+      SalesTax: 0,
+      MessageToTheBoarding: "",
+      ShipTo: "",
+      ShipName: "",
+      ShipPriority: "",
+      UseExistingAddress: "",
+      ShipAddress: "",
+      ShipCity: "",
+      ShipState: "",
+      ShipPostalCode: "",
+      ShipPhone: "",
+      ShipEmail: "",
+      BillTo: "",
+    },
+  });
+
+  const onSubmit = (value: z.infer<typeof programmingRequestFspSchema>) => {
+    console.log(value);
+  };
+
+  const Price = (row: any) => {
+    const amount = parseFloat(row.getValue("price"));
+    const formatted = new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    }).format(amount);
+
+    return <div className="text-right font-medium">{formatted}</div>;
+  };
+
+  const columnsConfig: ColumnConfig<DataTypes>[] = [
+    { accessorKey: "id", header: "ID" },
+    { accessorKey: "name", header: "Name" },
+    { accessorKey: "brand", header: "Brand" },
+    { accessorKey: "model", header: "Model" },
+    { accessorKey: "purchaseDate", header: "Purchase" },
+    { accessorKey: "warrantyExpiration", header: "Warranty Expiration" },
+    { accessorKey: "status", header: "Status" },
+    { accessorKey: "location", header: "Location" },
+    { accessorKey: "assignedTo", header: "Assigned" },
+    { accessorKey: "price", header: "Price", cell: Price },
+  ];
+
+  const columns = createColumns(columnsConfig);
+
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="">
+        <div className="mt-5 text-start">
+          {/* ACCOUNT INFORMATION */}
+          <h1 className="my-5 flex gap-2 text-2xl font-bold text-sky-500">
+            Account Information
+          </h1>
+          <FormGeneration
+            formControl={form.control}
+            formFields={accountInformationFspForm}
+            gridCols={"3"}
+          />
+          <div className="my-2 grid grid-cols-1 overflow-auto">
+            <DataTable
+              columns={columns}
+              data={equipmentInformationFspForm}
+              enableSorting={true}
+              enableColumnFilter={false}
+              filteredBy=""
+            />
+          </div>
+          <div className="mb-3 mt-10">
+            <CheckboxForm
+              control={form.control}
+              formName="FileBuildVarOnly"
+              label=""
+              placeholder="File Build / VAR Only (Agent Provides Equipment, Nothing Ships)"
+              className=""
+            />
+          </div>
+          <InputForm
+            control={form.control}
+            formName="PosProviderName"
+            label="POS Provider Name"
+            placeholder=""
+            className="my-3 w-1/3"
+          />
+          <div className="mt-3 flex gap-2 max-xl:flex-wrap">
+            {/* WAVIT APP ONLY */}
+            <div className="my-2 w-full rounded-md border px-4 pb-2">
+              <h1 className="mt-2 gap-2 text-2xl font-bold text-sky-500">
+                WAVIT APP ONLY
+              </h1>
+              <p className="text-xl text-sky-500">
+                NOTE: Works only on PAZ A920 on TSYS or CLOVER without inventory
+              </p>
+              <p>(Check all that apply)</p>
+              <FormGeneration
+                formControl={form.control}
+                formFields={wavitAppOnlyFspForm}
+                gridCols={"1"}
+              />
+            </div>
+            {/* CONNECTION TYPE */}
+            <div className="my-2 w-full rounded-md border px-4 pb-2">
+              <h1 className="my-2 gap-2 text-2xl font-bold text-sky-500">
+                CONNECTION TYPE
+              </h1>
+              <FormGeneration
+                formControl={form.control}
+                formFields={connectionTypeFspForm}
+                gridCols={"1"}
+              />
+            </div>
+          </div>
+          {/* CLOVER ONLY */}
+          <div className="my-2 w-full rounded-md border px-4 pb-2">
+            <h1 className="my-2 gap-2 text-2xl font-bold text-sky-500">
+              (CLOVER ONLY)
+            </h1>
+            <CheckboxForm
+              control={form.control}
+              formName="NeedMenuOrInventory"
+              label=""
+              placeholder="Check here if the merchant need a menu or inventory"
+              className=""
+            />
+            <p className="mt-5 text-xl text-sky-500">
+              How will the cash discount be applied?
+            </p>
+            <FormGeneration
+              formControl={form.control}
+              formFields={cloverOnlyFspForm}
+              gridCols={"2"}
+            />
+          </div>
+
+          <div className="mt-10 flex gap-2 max-2xl:flex-wrap">
+            {/* FILE BUILDING INFORMATION */}
+            <div className="w-full">
+              <h2 className="gap-2 text-xl font-semibold">
+                File Build Information
+              </h2>
+              <FormGenerationRadio
+                formControl={form.control}
+                formFields={fileBuildInformationFspForm}
+                className={"w-full"}
+              />
+              <CheckboxForm
+                control={form.control}
+                formName="Pbx"
+                label=""
+                placeholder="PBX"
+                className=""
+              />
+              <CheckboxForm
+                control={form.control}
+                formName="Wavit"
+                label=""
+                placeholder="WAVit"
+                className=""
+              />
+              <CheckboxForm
+                control={form.control}
+                formName="PinDebit"
+                label=""
+                placeholder="Pin Debit"
+                className=""
+              />
+              {/* Auto Close */}
+              <div className="flex items-center gap-2">
+                <CheckboxForm
+                  control={form.control}
+                  formName="AutoClose"
+                  label=""
+                  placeholder="Auto Close"
+                  className=""
+                />
+                <p className="mt-3 px-2 text-sm">
+                  If Auto Close checked, What Time?
+                </p>
+                <InputForm
+                  control={form.control}
+                  formName="AutoCloseTime"
+                  label=""
+                  placeholder="Time"
+                  className=""
+                />
+              </div>
+              {/* Tip Line */}
+              <div className="flex items-center gap-2">
+                <CheckboxForm
+                  control={form.control}
+                  formName="TipLine"
+                  label=""
+                  placeholder="Tip Line"
+                  className="text-nowrap"
+                />
+                <p className="mt-3 text-nowrap px-2 text-sm">
+                  If tip line checked, choose one:
+                </p>
+                <FormGenerationRadio
+                  formControl={form.control}
+                  formFields={tipLineFspForm}
+                  className={"w-full"}
+                />
+              </div>
+              {/* SERVER */}
+              <div className="flex items-center gap-2">
+                <p className="mt-3 px-7">Server:</p>
+                <FormGenerationRadio
+                  formControl={form.control}
+                  formFields={serverFspForm}
+                  className={"w-full"}
+                />
+              </div>
+            </div>
+            {/* Suggested Tip Percentages */}
+            <div className="w-full">
+              <div className="flex gap-2">
+                <div className="flex-auto">
+                  <InputForm
+                    control={form.control}
+                    formName="SuggestedTipPercentages"
+                    label="Suggested tip percentages:"
+                    placeholder="#"
+                    className="flex-1"
+                  />
+                </div>
+                <div className="flex-auto">
+                  <InputForm
+                    control={form.control}
+                    formName="SalesTax"
+                    label="Sales Tax %:"
+                    placeholder="#"
+                    className=""
+                  />
+                </div>
+              </div>
+              <TextAreaForm
+                control={form.control}
+                formName="MessageToTheBoarding"
+                label="Message to the Boarding / file build team (155 characters max): *"
+                placeholder="Type your message..."
+              />
+            </div>
+          </div>
+
+          {/* DBA ADDRESS INFORMATION */}
+          <h1 className="mb-2 mt-5 gap-2 text-2xl font-bold text-sky-500">
+            DBA Address Information
+          </h1>
+          <p className="mt-4">Ship To:</p>
+          <FormGenerationRadio
+            formControl={form.control}
+            formFields={shipToFspForm}
+            className={"w-full"}
+          />
+          <div className="flex gap-10">
+            <div className="flex-auto">
+              <InputForm
+                control={form.control}
+                formName="ShipName"
+                label="Name: *"
+                placeholder="Name"
+                className=""
+              />
+            </div>
+            <div className="flex-auto content-end">
+              <FormGeneration
+                formControl={form.control}
+                formFields={shipPriorityFspForm}
+                gridCols={"6"}
+              />
+            </div>
+          </div>
+          {/* DBA Address Selection */}
+          <div className="my-7 flex justify-center gap-10 max-xl:flex-wrap">
+            {dbaSelectionFspForm.map((item) => {
+              return (
+                <SwitchForm
+                  control={form.control}
+                  formName={item.formName}
+                  label={item.title}
+                  className=""
+                  key={item.id}
+                />
+              );
+            })}
+          </div>
+          <Input
+            name="Search Address"
+            title="Search Address"
+            placeholder="Search here to auto-fill your address details"
+            className="my-2 w-1/2"
+          />
+          <FormGeneration
+            formControl={form.control}
+            formFields={dbaAddressShipFspForm}
+            gridCols={"2"}
+          />
+        </div>
+        {/* Billing Information */}
+        <h1 className="mb-2 mt-5 gap-2 text-start text-2xl font-bold text-sky-500">
+          Billing Information
+        </h1>
+        <p className="text-start">Bill To:</p>
+        <FormGenerationRadio
+          formControl={form.control}
+          formFields={billToFspForm}
+          className=""
+        />
+        <div className="flex justify-start gap-2">
+          <Button className="my-5">View Bank ACH</Button>
+          <Button className="my-5">View CC ACH</Button>
+        </div>
+        {/* SAVE CHANGES BUTTON */}
+        <div className="m-auto text-center">
+          <CustomButtons className="m-auto my-5" btnType="default">
+            Save Changes
+          </CustomButtons>
+        </div>
+      </form>
+    </Form>
+  );
+};
+
+const NorthInformation = () => {
   const form = useForm<z.infer<typeof pricingInformationFspSchema>>({
     resolver: zodResolver(pricingInformationFspSchema),
     defaultValues: {
@@ -1462,376 +1617,17 @@ const PricingInformation = () => {
   );
 };
 
-const ProgrammingRequest = () => {
-  const [activeSwitchId, setActiveSwitchId] = useState<string | number>();
-  const form = useForm<z.infer<typeof programmingRequestFspSchema>>({
-    resolver: zodResolver(programmingRequestFspSchema),
-    defaultValues: {
-      SalesRepresentative: "",
-      SalesPhoneNumber: "",
-      FileBuildVarOnly: false,
-      PosProviderName: "",
-      Invoicing: false,
-      InvoicingNumberRequired: false,
-      QrScan: false,
-      EthernetInternet: false,
-      WirelessSim: false,
-      DialUp: false,
-      WiFi: false,
-      NeedMenuOrInventory: false,
-      HowCashDiscountApplied: "",
-      BuildType: "",
-      Pbx: false,
-      Wavit: false,
-      PinDebit: false,
-      AutoClose: false,
-      AutoCloseTime: "",
-      TipLine: false,
-      TipLineType: "",
-      Server: false,
-      SuggestedTipPercentages: "",
-      SalesTax: 0,
-      MessageToTheBoarding: "",
-      ShipTo: "",
-      ShipName: "",
-      ShipPriority: "",
-      UseExistingAddress: "",
-      ShipAddress: "",
-      ShipCity: "",
-      ShipState: "",
-      ShipPostalCode: "",
-      ShipPhone: "",
-      ShipEmail: "",
-      BillTo: "",
-    },
-  });
-
-  const onSubmit = (value: z.infer<typeof programmingRequestFspSchema>) => {
-    console.log(value);
-  };
-
-  const Price = (row: any) => {
-    const amount = parseFloat(row.getValue("price"));
-    const formatted = new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    }).format(amount);
-
-    return <div className="text-right font-medium">{formatted}</div>;
-  };
-
-  const columnsConfig: ColumnConfig<DataTypes>[] = [
-    { accessorKey: "id", header: "ID" },
-    { accessorKey: "name", header: "Name" },
-    { accessorKey: "brand", header: "Brand" },
-    { accessorKey: "model", header: "Model" },
-    { accessorKey: "purchaseDate", header: "Purchase" },
-    { accessorKey: "warrantyExpiration", header: "Warranty Expiration" },
-    { accessorKey: "status", header: "Status" },
-    { accessorKey: "location", header: "Location" },
-    { accessorKey: "assignedTo", header: "Assigned" },
-    { accessorKey: "price", header: "Price", cell: Price },
-  ];
-
-  const columns = createColumns(columnsConfig);
-
-  const handleToggle = (id: string | number) => {
-    console.log(id);
-    setActiveSwitchId((prevId) => (prevId === id ? undefined : id));
-  };
-
-  return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
-        <div className="mt-5 text-start">
-          {/* ACCOUNT INFORMATION */}
-          <h1 className="my-5 flex gap-2 text-2xl font-bold text-sky-500">
-            Account Information
-          </h1>
-          <FormGeneration
-            formControl={form.control}
-            formFields={accountInformationFspForm}
-            gridCols={"3"}
-          />
-          <div className="my-2 grid grid-cols-1 overflow-auto">
-            <DataTable
-              columns={columns}
-              data={equipmentInformationFspForm}
-              enableSorting={true}
-              enableColumnFilter={false}
-              filteredBy=""
-            />
-          </div>
-          <div className="mb-3 mt-10">
-            <CheckboxForm
-              control={form.control}
-              formName="FileBuildVarOnly"
-              label=""
-              placeholder="File Build / VAR Only (Agent Provides Equipment, Nothing Ships)"
-              className=""
-            />
-          </div>
-          <InputForm
-            control={form.control}
-            formName="PosProviderName"
-            label="POS Provider Name"
-            placeholder=""
-            className="my-3 w-1/3"
-          />
-          <div className="mt-3 flex gap-2 max-xl:flex-wrap">
-            {/* WAVIT APP ONLY */}
-            <div className="my-2 w-full rounded-md border px-4 pb-2">
-              <h1 className="mt-2 gap-2 text-2xl font-bold text-sky-500">
-                WAVIT APP ONLY
-              </h1>
-              <p className="text-xl text-sky-500">
-                NOTE: Works only on PAZ A920 on TSYS or CLOVER without inventory
-              </p>
-              <p>(Check all that apply)</p>
-              <FormGeneration
-                formControl={form.control}
-                formFields={wavitAppOnlyFspForm}
-                gridCols={"1"}
-              />
-            </div>
-            {/* CONNECTION TYPE */}
-            <div className="my-2 w-full rounded-md border px-4 pb-2">
-              <h1 className="my-2 gap-2 text-2xl font-bold text-sky-500">
-                CONNECTION TYPE
-              </h1>
-              <FormGeneration
-                formControl={form.control}
-                formFields={connectionTypeFspForm}
-                gridCols={"1"}
-              />
-            </div>
-          </div>
-          {/* CLOVER ONLY */}
-          <div className="my-2 w-full rounded-md border px-4 pb-2">
-            <h1 className="my-2 gap-2 text-2xl font-bold text-sky-500">
-              (CLOVER ONLY)
-            </h1>
-            <CheckboxForm
-              control={form.control}
-              formName="NeedMenuOrInventory"
-              label=""
-              placeholder="Check here if the merchant need a menu or inventory"
-              className=""
-            />
-            <p className="mt-5 text-xl text-sky-500">
-              How will the cash discount be applied?
-            </p>
-            <FormGeneration
-              formControl={form.control}
-              formFields={cloverOnlyFspForm}
-              gridCols={"2"}
-            />
-          </div>
-
-          <div className="mt-10 flex gap-2 max-2xl:flex-wrap">
-            {/* FILE BUILDING INFORMATION */}
-            <div className="w-full">
-              <h2 className="gap-2 text-xl font-semibold">
-                File Build Information
-              </h2>
-              <FormGenerationRadio
-                formControl={form.control}
-                formFields={fileBuildInformationFspForm}
-                className={"w-full"}
-              />
-              <CheckboxForm
-                control={form.control}
-                formName="Pbx"
-                label=""
-                placeholder="PBX"
-                className=""
-              />
-              <CheckboxForm
-                control={form.control}
-                formName="Wavit"
-                label=""
-                placeholder="WAVit"
-                className=""
-              />
-              <CheckboxForm
-                control={form.control}
-                formName="PinDebit"
-                label=""
-                placeholder="Pin Debit"
-                className=""
-              />
-              {/* Auto Close */}
-              <div className="flex items-center gap-2">
-                <CheckboxForm
-                  control={form.control}
-                  formName="AutoClose"
-                  label=""
-                  placeholder="Auto Close"
-                  className=""
-                />
-                <p className="mt-3 px-2 text-sm">
-                  If Auto Close checked, What Time?
-                </p>
-                <InputForm
-                  control={form.control}
-                  formName="AutoCloseTime"
-                  label=""
-                  placeholder="Time"
-                  className=""
-                />
-              </div>
-              {/* Tip Line */}
-              <div className="flex items-center gap-2">
-                <CheckboxForm
-                  control={form.control}
-                  formName="TipLine"
-                  label=""
-                  placeholder="Tip Line"
-                  className="text-nowrap"
-                />
-                <p className="mt-3 text-nowrap px-2 text-sm">
-                  If tip line checked, choose one:
-                </p>
-                <FormGenerationRadio
-                  formControl={form.control}
-                  formFields={tipLineFspForm}
-                  className={"w-full"}
-                />
-              </div>
-              {/* SERVER */}
-              <div className="flex items-center gap-2">
-                <p className="mt-3 px-7">Server:</p>
-                <FormGenerationRadio
-                  formControl={form.control}
-                  formFields={serverFspForm}
-                  className={"w-full"}
-                />
-              </div>
-            </div>
-            {/* Suggested Tip Percentages */}
-            <div className="w-full">
-              <div className="flex gap-2">
-                <div className="flex-auto">
-                  <InputForm
-                    control={form.control}
-                    formName="SuggestedTipPercentages"
-                    label="Suggested tip percentages:"
-                    placeholder="#"
-                    className="flex-1"
-                  />
-                </div>
-                <div className="flex-auto">
-                  <InputForm
-                    control={form.control}
-                    formName="SalesTax"
-                    label="Sales Tax %:"
-                    placeholder="#"
-                    className=""
-                  />
-                </div>
-              </div>
-              <TextAreaForm
-                control={form.control}
-                formName="MessageToTheBoarding"
-                label="Message to the Boarding / file build team (155 characters max): *"
-                placeholder="Type your message..."
-              />
-            </div>
-          </div>
-
-          {/* DBA ADDRESS INFORMATION */}
-          <h1 className="mb-2 mt-5 gap-2 text-2xl font-bold text-sky-500">
-            DBA Address Information
-          </h1>
-          <p className="mt-4">Ship To:</p>
-          <FormGenerationRadio
-            formControl={form.control}
-            formFields={shipToFspForm}
-            className={"w-full"}
-          />
-          <div className="flex gap-10">
-            <div className="flex-auto">
-              <InputForm
-                control={form.control}
-                formName="ShipName"
-                label="Name: *"
-                placeholder="Name"
-                className=""
-              />
-            </div>
-            <div className="flex-auto content-end">
-              <FormGeneration
-                formControl={form.control}
-                formFields={shipPriorityFspForm}
-                gridCols={"5"}
-              />
-            </div>
-          </div>
-          {/* DBA Address Selection */}
-          <div className="my-5 flex justify-center gap-6">
-            {dbaSelectionFspForm.map((item) => (
-              <SwitchForm
-                key={item.id}
-                control={form.control}
-                formName={item.formName}
-                label={item.title}
-                id={item.id}
-                isActive={activeSwitchId === item.id}
-                onToggle={handleToggle}
-              />
-            ))}
-          </div>
-
-          <Input
-            name="Search Address"
-            title="Search Address"
-            placeholder="Search here to auto-fill your address details"
-            className="my-2 w-1/2"
-          />
-          <FormGeneration
-            formControl={form.control}
-            formFields={dbaAddressShipFspForm}
-            gridCols={"2"}
-          />
-        </div>
-        {/* Billing Information */}
-        <h1 className="mb-2 mt-5 gap-2 text-start text-2xl font-bold text-sky-500">
-          Billing Information
-        </h1>
-        <p className="text-start">Bill To:</p>
-        <FormGenerationRadio
-          formControl={form.control}
-          formFields={billToFspForm}
-          className=""
-        />
-        <div className="flex justify-start gap-2">
-          <Button className="my-5">View Bank ACH</Button>
-          <Button className="my-5">View CC ACH</Button>
-        </div>
-        {/* SAVE CHANGES BUTTON */}
-        <div className="m-auto text-center">
-          <CustomButtons className="m-auto my-5" btnType="default">
-            Save Changes
-          </CustomButtons>
-        </div>
-      </form>
-    </Form>
-  );
-};
-
-export default function RenderNewFspComponents(value: string) {
+export default function RenderNorthInterchangeComponents(value: string) {
   switch (value) {
     case "merchantDetail":
       return <MerchantDetail />;
     case "financialInformation":
       return <FinancialInformation />;
-    case "moToQuestionaire":
-      return <MoToQuestionaire />;
     case "merchantOwner":
       return <MerchantOwner />;
-    case "pricingInformation":
-      return <PricingInformation />;
     case "programmingRequest":
       return <ProgrammingRequest />;
+    case "northDetails":
+      return <NorthInformation />;
   }
 }

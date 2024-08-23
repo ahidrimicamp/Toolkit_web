@@ -319,7 +319,7 @@ export const SwitchForm = <T extends z.ZodType<any, any>>({
  * how many fields and the type of the fields (radio, checkbox, input..).
  * @gridCols A string with a number of how many cols you want on the form.
  *  */
-export const FormGeneration = ({ formControl, formFields, gridCols }: any) => {
+export const FormGeneration = ({ formControl, formFields, gridCols }: any ) => {
   return (
     <div className={`grid grid-cols-${gridCols} gap-2 max-xl:grid-cols-2`}>
       {formFields.map(

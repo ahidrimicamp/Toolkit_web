@@ -5345,37 +5345,38 @@ export const connectionTypeFspForm = [
     value: "",
   },
 ];
+
 export const cloverOnlyFspForm = [
   {
     id: 1,
     formName: "HowCashDiscountApplied",
-    title: "Ethernet / Internet (IP)",
+    title: "WAVit APP",
     type: "radio",
-    placeholder: "Ethernet / Internet (IP)",
+    placeholder: "WAVit APP (Merchant does NOT need menu or inventory)",
     value: "",
   },
   {
     id: 2,
-    formName: "WirelessSim",
-    title: "Wireless / Sim (Cellular)",
-    type: "checkbox",
-    placeholder: "Wireless / Sim (Cellular)",
+    formName: "HowCashDiscountApplied",
+    title: "Dual Pricing APP",
+    type: "radio",
+    placeholder: "Dual Pricing APP (Merchant is using menu or inventory)",
     value: "",
   },
   {
     id: 3,
-    formName: "DialUp",
-    title: "Dial Up",
-    type: "checkbox",
-    placeholder: "Dial Up",
+    formName: "HowCashDiscountApplied",
+    title: "Additional charge",
+    type: "radio",
+    placeholder: "Additional charge (manually)",
     value: "",
   },
   {
     id: 4,
-    formName: "WiFi",
-    title: "Wi-Fi",
-    type: "checkbox",
-    placeholder: "Wi-Fi",
+    formName: "HowCashDiscountApplied",
+    title: "None",
+    type: "radio",
+    placeholder: "None of the above",
     value: "",
   },
 ];
@@ -5450,5 +5451,296 @@ export const serverFspForm = [
     type: "radio",
     placeholder: "No",
     value: "",
+  },
+];
+
+export const shipToFspForm = [
+  {
+    id: 1,
+    formName: "ShipTo",
+    title: "Rep",
+    type: "radio",
+    placeholder: "Rep",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "ShipTo",
+    title: "Business",
+    type: "radio",
+    placeholder: "Business",
+    value: "",
+  },
+];
+
+export const shipPriorityFspForm = [
+  {
+    id: 1,
+    formName: "ShipPriority",
+    title: "Ground",
+    type: "radio",
+    placeholder: "Ground",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "ShipPriority",
+    title: "2 Day",
+    type: "radio",
+    placeholder: "2 Day",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "ShipPriority",
+    title: "3 Day",
+    type: "radio",
+    placeholder: "3 Day",
+    value: "",
+  },
+  {
+    id: 4,
+    formName: "ShipPriority",
+    title: "Standard",
+    type: "radio",
+    placeholder: "Standard",
+    value: "",
+  },
+  {
+    id: 4,
+    formName: "ShipPriority",
+    title: "Priority",
+    type: "radio",
+    placeholder: "Priority",
+    value: "",
+  },
+];
+
+export const dbaSelectionFspForm = [
+  {
+    id: 1,
+    formName: "UseExistingAddress",
+    title: "Use Business Address",
+    placeholder: "Use Business Address",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "UseExistingAddress",
+    title: "Use Business Address DBA",
+    placeholder: "Use Business Address DBA",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "UseExistingAddress",
+    title: "Use Agent Address",
+    placeholder: "Use Agent Address",
+    value: "",
+  },
+  {
+    id: 4,
+    formName: "UseExistingAddress",
+    title: "No Address",
+    placeholder: "No Address",
+    value: "",
+  },
+];
+
+export const dbaAddressShipFspForm = [
+  {
+    id: 1,
+    formName: "ShipAddress",
+    title: "Street: *",
+    type: "input",
+    placeholder: "123 North Somewhere",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "ShipCity",
+    title: "City: *",
+    type: "input",
+    placeholder: "Scottsdale",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "ShipState",
+    title: "State: *",
+    type: "input",
+    placeholder: "AZ",
+    value: "",
+  },
+  {
+    id: 4,
+    formName: "ShipPostalCode",
+    title: "Postal Code: *",
+    type: "input",
+    placeholder: "ZipCode",
+    value: "",
+  },
+  {
+    id: 5,
+    formName: "ShipPhone",
+    title: "Contact Name: *",
+    type: "input",
+    placeholder: "Contact Name",
+    value: "",
+  },
+  {
+    id: 6,
+    formName: "ShipEmail",
+    title: "Contact Phone: *",
+    type: "input",
+    placeholder: "(___) ___-____",
+    value: "",
+  },
+];
+
+export const billToFspForm = [
+  {
+    id: 1,
+    formName: "BillTo",
+    title: "Rep",
+  },
+  {
+    id: 2,
+    formName: "BillTo",
+    title: "Merchant (must include signed forms)",
+  },
+];
+
+// New First Data NORTH Interchange 2502-2 APPLICATION DATA
+
+export const newInterchangeApplicationTabs = [
+  {
+    id: "1",
+    title: "Merchant Detail",
+    value: "merchantDetail",
+    abbreviation: "MD"
+  },
+  {
+    id: "2",
+    title: "Financial Information",
+    value: "financialInformation",
+    abbreviation: "FI"
+  },
+  {
+    id: "3",
+    title: "Merchant Owner",
+    value: "merchantOwner",
+    abbreviation: "MO"
+  },
+  {
+    id: "4",
+    title: "Programming Request",
+    value: "programmingRequest",
+    abbreviation: "PR"
+  },
+  {
+    id: "5",
+    title: "North Details",
+    value: "northDetails",
+    abbreviation: "ND"
+  },
+];
+
+
+export const dbaInformationInterForm = [
+  {
+    id: 1,
+    title: "Clients Business Name DBA: *",
+    type: "input",
+    placeholder: "",
+    formName: "ClientsBusinessName",
+    value: "",
+  },
+  {
+    id: 2,
+    title: "Phone:",
+    type: "number",
+    placeholder: "Enter a valid Email",
+    formName: "Phone",
+    value: "",
+  },
+  {
+    id: 3,
+    title: "Customer Service Phone:",
+    type: "number",
+    placeholder: "(___) ___-____",
+    formName: "CustomerServicePhone",
+    value: "",
+  },
+  {
+    id: 4,
+    title: "Fax:",
+    type: "number",
+    placeholder: "(___) ___-____",
+    formName: "Fax",
+    value: "",
+    // content: ModelSelectList,
+  },
+  {
+    id: 5,
+    title: "Email Statements To:",
+    type: "input",
+    placeholder: "example@email.com",
+    formName: "EmailStatements",
+    value: "",
+    // content: ConditionSelectList,
+  },
+  {
+    id: 6,
+    title: "Customer Service Email:",
+    type: "input",
+    placeholder: "example@email.com",
+    formName: "CustomerServiceEmail",
+    value: "",
+  },
+  {
+    id: 7,
+    title: "Also Print and Mail Statements.",
+    type: "checkbox",
+    placeholder: "Also Print and Mail Statements.",
+    formName: "AlsoPrintAndMailStatements",
+    value: "",
+  },
+];
+
+export const dbaAddressInterForm = [
+  {
+    id: 1,
+    title: "Street: *",
+    type: "input",
+    placeholder: "Enter a valid address",
+    formName: "Street",
+    value: "",
+  },
+  {
+    id: 2,
+    title: "City:",
+    type: "input",
+    placeholder: "City",
+    formName: "City",
+    value: "",
+  },
+  {
+    id: 3,
+    title: "State:",
+    type: "input",
+    placeholder: "AZ",
+    formName: "State",
+    value: "",
+    // content: ModelSelectList,
+  },
+  {
+    id: 4,
+    title: "Postal Code:",
+    type: "input",
+    placeholder: "Zip",
+    formName: "PostalCode",
+    value: "",
+    // content: ConditionSelectList,
   },
 ];
