@@ -5472,7 +5472,8 @@ export const shipToFspForm = [
     value: "",
   },
 ];
-export const ShipPriorityFspForm = [
+
+export const shipPriorityFspForm = [
   {
     id: 1,
     formName: "ShipPriority",
@@ -5511,6 +5512,41 @@ export const ShipPriorityFspForm = [
     title: "Priority",
     type: "radio",
     placeholder: "Priority",
+    value: "",
+  },
+];
+
+export const dbaSelectionFspForm = [
+  {
+    id: 1,
+    formName: "UseExistingAddress",
+    title: "Use Business Address",
+    type: "switch",
+    placeholder: "Use Business Address",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "UseExistingAddress",
+    title: "Use Business Address DBA",
+    type: "switch",
+    placeholder: "Use Business Address DBA",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "UseExistingAddress",
+    title: "Use Agent Address",
+    type: "switch",
+    placeholder: "Use Agent Address",
+    value: "",
+  },
+  {
+    id: 4,
+    formName: "UseExistingAddress",
+    title: "No Address",
+    type: "switch",
+    placeholder: "No Address",
     value: "",
   },
 ];

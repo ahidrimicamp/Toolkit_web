@@ -19,6 +19,7 @@ import {
   dbaAddressFspForm,
   dbaInformationFspForm,
   dbaLegalInformationFspForm,
+  dbaSelectionFspForm,
   dbaTaxInformationFspForm,
   deliveryReceiptRequestedFspForm,
   equipmentInformationFspForm,
@@ -45,7 +46,7 @@ import {
   serverFspForm,
   serviceRequestedFspForm,
   shippedByFspForm,
-  ShipPriorityFspForm,
+  shipPriorityFspForm,
   shipToFspForm,
   swipedNonSwipedFspForm,
   tipLineFspForm,
@@ -1035,73 +1036,71 @@ const MerchantOwner = () => {
   };
 
   return (
-    <>
-      <section className="text-start">
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="">
-            {/* OWNERS */}
-            <h1 className="mt-5 flex gap-2 text-2xl font-bold text-sky-500">
-              Owners
-            </h1>
-            <p className="font-normal">
-              * All signers must be collectively own at least 25% of the company
-              to continue.
-            </p>
-            {/* MODAL ADD NEW MERCHANT OWNER */}
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button
-                  className={
-                    "my-5 flex-1 bg-gradient-to-r from-[#14ADD6] to-[#384295] text-white hover:opacity-90"
-                  }
-                >
-                  + Add New Owner
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="2xl:[1200px] max-lg:max-w-[500px] lg:max-w-[800px]">
-                <DialogHeader>
-                  <DialogTitle className="text-center text-2xl font-semibold text-sky-500">
-                    Add New Merchant Owner
-                  </DialogTitle>
-                  <AddNewMerchantOwner />
-                </DialogHeader>
-                <DialogDescription />
-              </DialogContent>
-            </Dialog>
-            <div className="grid w-full grid-cols-1 overflow-auto text-start">
-              <DataTable
-                columns={columns}
-                data={OwnersTable}
-                enableSorting={true}
-                enableColumnFilter={false}
-                filteredBy=""
-              />
-            </div>
-            {/* HAS MERCHANT EVER FILED FOR BANKRUPTCY? */}
-            <h1 className="mt-5 flex gap-2 text-xl font-semibold">
-              Has merchant/owner/principals ever filed for bankruptcy?
-            </h1>
-            <FormGenerationRadio
-              formControl={form.control}
-              formFields={hasFiledForBankruptcyFspForm}
+    <section className="text-start">
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="">
+          {/* OWNERS */}
+          <h1 className="mt-5 flex gap-2 text-2xl font-bold text-sky-500">
+            Owners
+          </h1>
+          <p className="font-normal">
+            * All signers must be collectively own at least 25% of the company
+            to continue.
+          </p>
+          {/* MODAL ADD NEW MERCHANT OWNER */}
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button
+                className={
+                  "my-5 flex-1 bg-gradient-to-r from-[#14ADD6] to-[#384295] text-white hover:opacity-90"
+                }
+              >
+                + Add New Owner
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="2xl:[1200px] max-lg:max-w-[500px] lg:max-w-[800px]">
+              <DialogHeader>
+                <DialogTitle className="text-center text-2xl font-semibold text-sky-500">
+                  Add New Merchant Owner
+                </DialogTitle>
+                <AddNewMerchantOwner />
+              </DialogHeader>
+              <DialogDescription />
+            </DialogContent>
+          </Dialog>
+          <div className="grid w-full grid-cols-1 overflow-auto text-start">
+            <DataTable
+              columns={columns}
+              data={OwnersTable}
+              enableSorting={true}
+              enableColumnFilter={false}
+              filteredBy=""
             />
-            <InputForm
-              control={form.control}
-              formName="Account"
-              label="Account #:"
-              placeholder="#"
-              className="w-1/2"
-            />
-            {/* BUTTON SAVE CHANGES */}
-            <div className="m-auto text-center">
-              <CustomButtons className="m-auto my-5" btnType="default">
-                Save Changes
-              </CustomButtons>
-            </div>
-          </form>
-        </Form>
-      </section>
-    </>
+          </div>
+          {/* HAS MERCHANT EVER FILED FOR BANKRUPTCY? */}
+          <h1 className="mt-5 flex gap-2 text-xl font-semibold">
+            Has merchant/owner/principals ever filed for bankruptcy?
+          </h1>
+          <FormGenerationRadio
+            formControl={form.control}
+            formFields={hasFiledForBankruptcyFspForm}
+          />
+          <InputForm
+            control={form.control}
+            formName="Account"
+            label="Account #:"
+            placeholder="#"
+            className="w-1/2"
+          />
+          {/* BUTTON SAVE CHANGES */}
+          <div className="m-auto text-center">
+            <CustomButtons className="m-auto my-5" btnType="default">
+              Save Changes
+            </CustomButtons>
+          </div>
+        </form>
+      </Form>
+    </section>
   );
 };
 
@@ -1460,50 +1459,46 @@ const PricingInformation = () => {
 };
 
 const ProgrammingRequest = () => {
-  
   const form = useForm<z.infer<typeof programmingRequestFspSchema>>({
     resolver: zodResolver(programmingRequestFspSchema),
     defaultValues: {
-    SalesRepresentative: "",
-    SalesPhoneNumber: "",
-    FileBuildVarOnly: false,
-    PosProviderName: "",
-    Invoicing: false,
-    InvoicingNumberRequired: false,
-    QrScan: false,
-    EthernetInternet: false,
-    WirelessSim: false,
-    DialUp: false,
-    WiFi: false,
-    NeedMenuOrInventory: false,
-    HowCashDiscountApplied: "",
-    BuildType: "",
-    Pbx: false,
-    Wavit: false,
-    PinDebit: false,
-    AutoClose: false,
-    AutoCloseTime: "",
-    TipLine: false,
-    TipLineType: "",
-    Server: false,
-    SuggestedTipPercentages: "",
-    SalesTax: 0,
-    MessageToTheBoarding: "",
-    ShipTo: "",
-    ShipName: "",
-    ShipPriority: "",
-    UseLegalBusinessAddress: false,
-    UseBusinessAddressDba: false,
-    UseAgentAddress: false,
-    NoAddress: false,
-    ShipAddress: "",
-    ShipCity: "",
-    ShipState: "",
-    ShipPostalCode: "",
-    ShipPhone: "",
-    ShipEmail: "",
-    BillTo: "",
-  },
+      SalesRepresentative: "",
+      SalesPhoneNumber: "",
+      FileBuildVarOnly: false,
+      PosProviderName: "",
+      Invoicing: false,
+      InvoicingNumberRequired: false,
+      QrScan: false,
+      EthernetInternet: false,
+      WirelessSim: false,
+      DialUp: false,
+      WiFi: false,
+      NeedMenuOrInventory: false,
+      HowCashDiscountApplied: "",
+      BuildType: "",
+      Pbx: false,
+      Wavit: false,
+      PinDebit: false,
+      AutoClose: false,
+      AutoCloseTime: "",
+      TipLine: false,
+      TipLineType: "",
+      Server: false,
+      SuggestedTipPercentages: "",
+      SalesTax: 0,
+      MessageToTheBoarding: "",
+      ShipTo: "",
+      ShipName: "",
+      ShipPriority: "",
+      UseExistingAddress: "",
+      ShipAddress: "",
+      ShipCity: "",
+      ShipState: "",
+      ShipPostalCode: "",
+      ShipPhone: "",
+      ShipEmail: "",
+      BillTo: "",
+    },
   });
 
   const onSubmit = (value: z.infer<typeof programmingRequestFspSchema>) => {
@@ -1756,11 +1751,22 @@ const ProgrammingRequest = () => {
             </div>
             <div className="flex-auto content-end">
               <FormGeneration
-                formControl={form.control} 
-                formFields={ShipPriorityFspForm}
+                formControl={form.control}
+                formFields={shipPriorityFspForm}
                 gridCols={"6"}
               />
             </div>
+          </div>
+          {/* DBA Address Selection */}
+          <div className="my-7 flex justify-center gap-10 max-xl:flex-wrap">
+            {dbaSelectionFspForm.map((item) => {
+              return (
+                <div key={item.id} className="flex gap-2">
+                  <Switch />
+                  <p className="text-nowrap px-2">{item.title}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </form>
