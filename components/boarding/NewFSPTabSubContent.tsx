@@ -1457,6 +1457,7 @@ const PricingInformation = () => {
 };
 
 const ProgrammingRequest = () => {
+  const [activeSwitchId, setActiveSwitchId] = useState<string | number>();
   const form = useForm<z.infer<typeof pricingInformationFspSchema>>({
     resolver: zodResolver(pricingInformationFspSchema),
     defaultValues: {},
@@ -1491,9 +1492,14 @@ const ProgrammingRequest = () => {
 
   const columns = createColumns(columnsConfig);
 
+  const handleToggle = (id: string | number) => {
+    console.log(id);
+    setActiveSwitchId((prevId) => (prevId === id ? undefined : id));
+  };
+
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="">
+      <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className="mt-5 text-start">
           {/* ACCOUNT INFORMATION */}
           <h1 className="my-5 flex gap-2 text-2xl font-bold text-sky-500">
@@ -1679,11 +1685,19 @@ const ProgrammingRequest = () => {
             </div>
           </div>
 
-          <SwitchForm
-            control={form.control}
-            formName="ShipPriority"
-            label="Use DBA Address"
-          />
+          <div className="flex justify-between">
+            {[1, 2, 3, 4].map((id) => (
+              <SwitchForm
+                key={id}
+                control={form.control}
+                formName={id.toString()}
+                label="Use DBA Address"
+                id={id}
+                isActive={activeSwitchId === id}
+                onToggle={handleToggle}
+              />
+            ))}
+          </div>
         </div>
       </form>
     </Form>
