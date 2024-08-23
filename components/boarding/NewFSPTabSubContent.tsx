@@ -74,6 +74,7 @@ import {
   InputForm,
   FormGenerationRadio,
   TextAreaForm,
+  SwitchForm,
 } from "../Shared/InstantForm";
 import CustomButtons from "../Shared/CustomButtons";
 import { Switch } from "../ui/switch";
@@ -1677,6 +1678,12 @@ const ProgrammingRequest = () => {
               />
             </div>
           </div>
+
+          <SwitchForm
+            control={form.control}
+            formName="ShipPriority"
+            label="Use DBA Address"
+          />
         </div>
       </form>
     </Form>
