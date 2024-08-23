@@ -272,11 +272,17 @@ export const SwitchForm = <T extends z.ZodType<any, any>>({
   formName,
   label,
   className,
+  id,
+  isActive,
+  onToggle,
 }: {
   control: Control<z.infer<T>>;
   formName: FieldPath<z.infer<T>>;
   label: string;
   className?: string;
+  id?: string | number;
+  isActive?: boolean;
+  onToggle?: (id: string | number) => void;
 }) => {
   return (
     <FormField
@@ -285,7 +291,18 @@ export const SwitchForm = <T extends z.ZodType<any, any>>({
       render={({ field }) => {
         return (
           <div className={cn("flex items-center space-x-5", className)}>
-            <Switch onChange={field.onChange} value={field.value} />
+            <Switch
+              checked={isActive}
+              onChange={(e) => {
+                e.stopPropagation();
+              }}
+              value={field.value}
+              onClick={() => {
+                if (id !== undefined && onToggle) {
+                  onToggle(id);
+                }
+              }}
+            />
             <span>{label}</span>
           </div>
         );

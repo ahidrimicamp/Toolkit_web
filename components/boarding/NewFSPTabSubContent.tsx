@@ -1463,6 +1463,7 @@ const PricingInformation = () => {
 };
 
 const ProgrammingRequest = () => {
+  const [activeSwitchId, setActiveSwitchId] = useState<string | number>();
   const form = useForm<z.infer<typeof programmingRequestFspSchema>>({
     resolver: zodResolver(programmingRequestFspSchema),
     defaultValues: {
@@ -1534,9 +1535,14 @@ const ProgrammingRequest = () => {
 
   const columns = createColumns(columnsConfig);
 
+  const handleToggle = (id: string | number) => {
+    console.log(id);
+    setActiveSwitchId((prevId) => (prevId === id ? undefined : id));
+  };
+
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="">
+      <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className="mt-5 text-start">
           {/* ACCOUNT INFORMATION */}
           <h1 className="my-5 flex gap-2 text-2xl font-bold text-sky-500">
@@ -1757,24 +1763,25 @@ const ProgrammingRequest = () => {
               <FormGeneration
                 formControl={form.control}
                 formFields={shipPriorityFspForm}
-                gridCols={"6"}
+                gridCols={"5"}
               />
             </div>
           </div>
           {/* DBA Address Selection */}
-          <div className="my-7 flex justify-center gap-10 max-xl:flex-wrap">
-            {dbaSelectionFspForm.map((item) => {
-              return (
-                <SwitchForm
-                  control={form.control}
-                  formName={item.formName}
-                  label={item.title}
-                  className=""
-                  key={item.id}
-                />
-              );
-            })}
+          <div className="my-5 flex justify-center gap-6">
+            {dbaSelectionFspForm.map((item) => (
+              <SwitchForm
+                key={item.id}
+                control={form.control}
+                formName={item.formName}
+                label={item.title}
+                id={item.id}
+                isActive={activeSwitchId === item.id}
+                onToggle={handleToggle}
+              />
+            ))}
           </div>
+
           <Input
             name="Search Address"
             title="Search Address"
