@@ -109,6 +109,44 @@ const EquipmentPricing = () => {
 };
 
 const UploadAndSendDocuments = () => {
+  const renderDialog = [
+    {
+      id: "1",
+      title: "To Finance",
+      imgSrc: "/icon/colorful/finance-reports.svg",
+      desc: "Send financial documents, CC ACHs, bank ACHs, blank checks, and invoices.",
+    },
+    {
+      id: "2",
+      title: "To Shipping and Equipment",
+      imgSrc: "/icon/colorful/shipping.svg",
+      desc: "Send shipping documents.",
+    },
+    {
+      id: "3",
+      title: "To Merchant Support",
+      imgSrc: "/icon/colorful/merchant.svg",
+      desc: "Send merchant support documents and requests.",
+    },
+    {
+      id: "4",
+      title: "To Programming",
+      imgSrc: "/icon/colorful/programming.svg",
+      desc: "Send programming documents and requests.",
+    },
+    {
+      id: "5",
+      title: "To Marketing",
+      imgSrc: "/icon/colorful/marketing.svg",
+      desc: "Send marketing documents and invoices.",
+    },
+    {
+      id: "6",
+      title: "To Applications",
+      imgSrc: "/icon/colorful/list.svg",
+      desc: "Send applications documents to underwriting department.",
+    },
+  ];
   return (
     <section className="mt-4 gap-2 text-start max-2xl:flex-wrap">
       <h1 className="text-center text-2xl font-medium text-sky-500">
@@ -116,183 +154,38 @@ const UploadAndSendDocuments = () => {
       </h1>
 
       <div className="my-20 grid grid-cols-3 gap-2 px-10">
-        {/* FINANCE BUTTON */}
-        <Dialog>
-          <DialogTrigger>
-            <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
-              <h1 className="text-center font-semibold">To Finance</h1>
-              <div className="flex gap-4 px-2">
-                <Image
-                  className="m-auto flex-none"
-                  src="/icon/colorful/finance-reports.svg"
-                  alt="Logo"
-                  width={60}
-                  height={60}
-                  priority
-                />
-                <p className="flex-1 content-center justify-start text-start text-sm">
-                  Send financial documents, CC ACHs, bank ACHs, blank checks,
-                  and invoices.
-                </p>
-              </div>
-            </div>
-          </DialogTrigger>
-          <DialogContent className="2xl:[600px] max-lg:max-w-[600px] lg:max-w-[600px]">
-            <DialogHeader>
-              <DialogTitle className="mb-5 text-center text-2xl font-semibold text-sky-500">
-                Attach File
-              </DialogTitle>
-              <AddFileFinance />
-            </DialogHeader>
-          </DialogContent>
-        </Dialog>
-        {/* SHIPPING AND EQUIPMENT BUTTON */}
-        <Dialog>
-          <DialogTrigger>
-            <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
-              <h1 className="text-center font-semibold">
-                To Shipping and Equipment
-              </h1>
-              <div className="flex gap-4 px-2">
-                <Image
-                  className="m-auto flex-none"
-                  src="/icon/colorful/shipping.svg"
-                  alt="Logo"
-                  width={60}
-                  height={60}
-                  priority
-                />
-                <p className="flex-1 content-center justify-start text-start text-sm">
-                  Send shipping documents.
-                </p>
-              </div>
-            </div>
-          </DialogTrigger>
-          <DialogContent className="2xl:[600px] max-lg:max-w-[600px] lg:max-w-[600px]">
-            <DialogHeader>
-              <DialogTitle className="mb-5 text-center text-2xl font-semibold text-sky-500">
-                Attach File
-              </DialogTitle>
-              <AddFileFinance />
-            </DialogHeader>
-          </DialogContent>
-        </Dialog>
-        {/* MERCHANT SUPPORT BUTTON */}
-        <Dialog>
-          <DialogTrigger>
-            <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
-              <h1 className="text-center font-semibold">To Merchant Support</h1>
-              <div className="flex gap-4 px-2">
-                <Image
-                  className="m-auto flex-none"
-                  src="/icon/colorful/merchant.svg"
-                  alt="Logo"
-                  width={60}
-                  height={60}
-                  priority
-                />
-                <p className="flex-1 content-center justify-start text-start text-sm">
-                  Send merchant support documents and requests.
-                </p>
-              </div>
-            </div>
-          </DialogTrigger>
-          <DialogContent className="2xl:[600px] max-lg:max-w-[600px] lg:max-w-[600px]">
-            <DialogHeader>
-              <DialogTitle className="mb-5 text-center text-2xl font-semibold text-sky-500">
-                Attach File
-              </DialogTitle>
-              <AddFileFinance />
-            </DialogHeader>
-          </DialogContent>
-        </Dialog>
-        {/* TO PROGRAMMING BUTTON */}
-        <Dialog>
-          <DialogTrigger>
-            <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
-              <h1 className="text-center font-semibold">To Programming</h1>
-              <div className="flex gap-4 px-2">
-                <Image
-                  className="m-auto flex-none"
-                  src="/icon/colorful/programming.svg"
-                  alt="Logo"
-                  width={60}
-                  height={60}
-                  priority
-                />
-                <p className="flex-1 content-center justify-start text-start text-sm">
-                  Send programming documents and requests.
-                </p>
-              </div>
-            </div>
-          </DialogTrigger>
-          <DialogContent className="2xl:[600px] max-lg:max-w-[600px] lg:max-w-[600px]">
-            <DialogHeader>
-              <DialogTitle className="mb-5 text-center text-2xl font-semibold text-sky-500">
-                Attach File
-              </DialogTitle>
-              <AddFileFinance />
-            </DialogHeader>
-          </DialogContent>
-        </Dialog>
-        {/* MARKETING BUTTON */}
-        <Dialog>
-          <DialogTrigger>
-            <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
-              <h1 className="text-center font-semibold">To Marketing</h1>
-              <div className="flex gap-4 px-2">
-                <Image
-                  className="m-auto flex-none"
-                  src="/icon/colorful/marketing.svg"
-                  alt="Logo"
-                  width={60}
-                  height={60}
-                  priority
-                />
-                <p className="flex-1 content-center justify-start text-start text-sm">
-                  Send marketing documents and invoices.
-                </p>
-              </div>
-            </div>
-          </DialogTrigger>
-          <DialogContent className="2xl:[600px] max-lg:max-w-[600px] lg:max-w-[600px]">
-            <DialogHeader>
-              <DialogTitle className="mb-5 text-center text-2xl font-semibold text-sky-500">
-                Attach File
-              </DialogTitle>
-              <AddFileFinance />
-            </DialogHeader>
-          </DialogContent>
-        </Dialog>
-        {/* APPLICATION BUTTON */}
-        <Dialog>
-          <DialogTrigger>
-            <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
-              <h1 className="text-center font-semibold">To Applications</h1>
-              <div className="flex gap-4 px-2">
-                <Image
-                  className="m-auto flex-none"
-                  src="/icon/colorful/list.svg"
-                  alt="Logo"
-                  width={60}
-                  height={60}
-                  priority
-                />
-                <p className="flex-1 content-center justify-start text-start text-sm">
-                  Send applications documents to underwriting department.
-                </p>
-              </div>
-            </div>
-          </DialogTrigger>
-          <DialogContent className="2xl:[600px] max-lg:max-w-[600px] lg:max-w-[600px]">
-            <DialogHeader>
-              <DialogTitle className="mb-5 text-center text-2xl font-semibold text-sky-500">
-                Attach File
-              </DialogTitle>
-              <AddFileFinance />
-            </DialogHeader>
-          </DialogContent>
-        </Dialog>
+        {renderDialog.map((item) => {
+          return (
+            <Dialog key={item.id}>
+              <DialogTrigger>
+                <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
+                  <h1 className="text-center font-semibold">{item.title}</h1>
+                  <div className="flex gap-4 px-2">
+                    <Image
+                      className="m-auto flex-none"
+                      src={item.imgSrc}
+                      alt="Logo"
+                      width={60}
+                      height={60}
+                      priority
+                    />
+                    <p className="flex-1 content-center justify-start text-start text-sm">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              </DialogTrigger>
+              <DialogContent className="2xl:[600px] max-lg:max-w-[600px] lg:max-w-[600px]">
+                <DialogHeader>
+                  <DialogTitle className="mb-5 text-center text-2xl font-semibold text-sky-500">
+                    Attach File
+                  </DialogTitle>
+                  <AddFileFinance />
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
+          );
+        })}
       </div>
     </section>
   );
