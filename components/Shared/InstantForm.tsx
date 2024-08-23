@@ -27,6 +27,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { BusinessTypeSelectList } from "@/constants";
+import { Switch } from "../ui/switch";
 
 export const InputForm = <
   T extends z.ZodType<any, any>,
@@ -265,6 +266,35 @@ export const DatePickerForm = <T extends z.ZodType<any, any>>({
     />
   );
 };
+
+export const SwitchForm = <T extends z.ZodType<any, any>>({
+  control,
+  formName,
+  label,
+  className,
+}: {
+  control: Control<z.infer<T>>;
+  formName: FieldPath<z.infer<T>>;
+  label: string;
+  className?: string;
+}) => {
+  return (
+    <FormField
+      control={control}
+      name={formName}
+      render={({ field }) => {
+        return (
+          <div className={cn("flex items-center space-x-5", className)}>
+            <Switch onChange={field.onChange} value={field.value} />
+            <span>{label}</span>
+          </div>
+        );
+      }}
+    />
+  );
+};
+
+// Form generator from Helly
 
 /**
  * @formControl formControl - Used for the (form.control) parameter.

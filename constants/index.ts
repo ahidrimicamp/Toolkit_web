@@ -5521,7 +5521,6 @@ export const dbaSelectionFspForm = [
     id: 1,
     formName: "UseExistingAddress",
     title: "Use Business Address",
-    type: "switch",
     placeholder: "Use Business Address",
     value: "",
   },
@@ -5529,7 +5528,6 @@ export const dbaSelectionFspForm = [
     id: 2,
     formName: "UseExistingAddress",
     title: "Use Business Address DBA",
-    type: "switch",
     placeholder: "Use Business Address DBA",
     value: "",
   },
@@ -5537,7 +5535,6 @@ export const dbaSelectionFspForm = [
     id: 3,
     formName: "UseExistingAddress",
     title: "Use Agent Address",
-    type: "switch",
     placeholder: "Use Agent Address",
     value: "",
   },
@@ -5545,8 +5542,205 @@ export const dbaSelectionFspForm = [
     id: 4,
     formName: "UseExistingAddress",
     title: "No Address",
-    type: "switch",
     placeholder: "No Address",
     value: "",
+  },
+];
+
+export const dbaAddressShipFspForm = [
+  {
+    id: 1,
+    formName: "ShipAddress",
+    title: "Street: *",
+    type: "input",
+    placeholder: "123 North Somewhere",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "ShipCity",
+    title: "City: *",
+    type: "input",
+    placeholder: "Scottsdale",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "ShipState",
+    title: "State: *",
+    type: "input",
+    placeholder: "AZ",
+    value: "",
+  },
+  {
+    id: 4,
+    formName: "ShipPostalCode",
+    title: "Postal Code: *",
+    type: "input",
+    placeholder: "ZipCode",
+    value: "",
+  },
+  {
+    id: 5,
+    formName: "ShipPhone",
+    title: "Contact Name: *",
+    type: "input",
+    placeholder: "Contact Name",
+    value: "",
+  },
+  {
+    id: 6,
+    formName: "ShipEmail",
+    title: "Contact Phone: *",
+    type: "input",
+    placeholder: "(___) ___-____",
+    value: "",
+  },
+];
+
+export const billToFspForm = [
+  {
+    id: 1,
+    formName: "BillTo",
+    title: "Rep",
+  },
+  {
+    id: 2,
+    formName: "BillTo",
+    title: "Merchant (must include signed forms)",
+  },
+];
+
+// New First Data NORTH Interchange 2502-2 APPLICATION DATA
+
+export const newInterchangeApplicationTabs = [
+  {
+    id: "1",
+    title: "Merchant Detail",
+    value: "merchantDetail",
+    abbreviation: "MD"
+  },
+  {
+    id: "2",
+    title: "Financial Information",
+    value: "financialInformation",
+    abbreviation: "FI"
+  },
+  {
+    id: "3",
+    title: "Merchant Owner",
+    value: "merchantOwner",
+    abbreviation: "MO"
+  },
+  {
+    id: "4",
+    title: "Programming Request",
+    value: "programmingRequest",
+    abbreviation: "PR"
+  },
+  {
+    id: "5",
+    title: "North Details",
+    value: "northDetails",
+    abbreviation: "ND"
+  },
+];
+
+
+export const dbaInformationInterForm = [
+  {
+    id: 1,
+    title: "Clients Business Name DBA: *",
+    type: "input",
+    placeholder: "",
+    formName: "ClientsBusinessName",
+    value: "",
+  },
+  {
+    id: 2,
+    title: "Phone:",
+    type: "number",
+    placeholder: "Enter a valid Email",
+    formName: "Phone",
+    value: "",
+  },
+  {
+    id: 3,
+    title: "Customer Service Phone:",
+    type: "number",
+    placeholder: "(___) ___-____",
+    formName: "CustomerServicePhone",
+    value: "",
+  },
+  {
+    id: 4,
+    title: "Fax:",
+    type: "number",
+    placeholder: "(___) ___-____",
+    formName: "Fax",
+    value: "",
+    // content: ModelSelectList,
+  },
+  {
+    id: 5,
+    title: "Email Statements To:",
+    type: "input",
+    placeholder: "example@email.com",
+    formName: "EmailStatements",
+    value: "",
+    // content: ConditionSelectList,
+  },
+  {
+    id: 6,
+    title: "Customer Service Email:",
+    type: "input",
+    placeholder: "example@email.com",
+    formName: "CustomerServiceEmail",
+    value: "",
+  },
+  {
+    id: 7,
+    title: "Also Print and Mail Statements.",
+    type: "checkbox",
+    placeholder: "Also Print and Mail Statements.",
+    formName: "AlsoPrintAndMailStatements",
+    value: "",
+  },
+];
+
+export const dbaAddressInterForm = [
+  {
+    id: 1,
+    title: "Street: *",
+    type: "input",
+    placeholder: "Enter a valid address",
+    formName: "Street",
+    value: "",
+  },
+  {
+    id: 2,
+    title: "City:",
+    type: "input",
+    placeholder: "City",
+    formName: "City",
+    value: "",
+  },
+  {
+    id: 3,
+    title: "State:",
+    type: "input",
+    placeholder: "AZ",
+    formName: "State",
+    value: "",
+    // content: ModelSelectList,
+  },
+  {
+    id: 4,
+    title: "Postal Code:",
+    type: "input",
+    placeholder: "Zip",
+    formName: "PostalCode",
+    value: "",
+    // content: ConditionSelectList,
   },
 ];

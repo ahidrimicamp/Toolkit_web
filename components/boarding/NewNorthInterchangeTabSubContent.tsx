@@ -14,16 +14,14 @@ import {
   bankingInformationFspForm,
   billToFspForm,
   cardTypesNotToAcceptFspForm,
-  certificatesFspForm,
   cloverOnlyFspForm,
   connectionTypeFspForm,
-  dbaAddressFspForm,
+  dbaAddressInterForm,
   dbaAddressShipFspForm,
-  dbaInformationFspForm,
+  dbaInformationInterForm,
   dbaLegalInformationFspForm,
   dbaSelectionFspForm,
   dbaTaxInformationFspForm,
-  deliveryReceiptRequestedFspForm,
   equipmentInformationFspForm,
   fileBuildInformationFspForm,
   flatRateFspForm,
@@ -31,13 +29,9 @@ import {
   hasBeenTerminatedFspForm,
   hasFiledForBankruptcyFspForm,
   independentServiceFspForm,
-  individualSharedFspForm,
   interchangePlusRatesFspForm,
-  isPaymentEncryptedFspForm,
-  marketingMethodsFspForm,
   otherPricingInformationFspForm,
   OwnersTable,
-  ownProdFspForm,
   passDuesAssessmentsFspForm,
   passThroughInterchangeFspForm,
   pciFrequencyFspForm,
@@ -47,7 +41,6 @@ import {
   seasonalMonthsFspForm,
   serverFspForm,
   serviceRequestedFspForm,
-  shippedByFspForm,
   shipPriorityFspForm,
   shipToFspForm,
   swipedNonSwipedFspForm,
@@ -55,19 +48,14 @@ import {
   usesFulfillHouseFspForm,
   viMcDiscRateFspForm,
   wavitAppOnlyFspForm,
-  whatPercentSalesFspForm,
-  whoEntersCardInfoFspForm,
-  whoProcessesFspForm,
-  whoShipsFspForm,
 } from "@/constants";
 import { DataTypes } from "@/types";
 import React, { useState } from "react";
 import { Form } from "../ui/form";
 import {
   financialInformationFspSchema,
-  merchantInformationFspSchema,
+  merchantInformationInterSchema,
   merchantOwnerFspSchema,
-  moToQuestionaireFspSchema,
   pricingInformationFspSchema,
   programmingRequestFspSchema,
 } from "@/lib/utils";
@@ -77,7 +65,6 @@ import { z } from "zod";
 import {
   CheckboxForm,
   FormGeneration,
-  FormGenerationRadioGrid,
   InputForm,
   FormGenerationRadio,
   TextAreaForm,
@@ -104,45 +91,37 @@ import {
 import { Input } from "../ui/input";
 
 const MerchantDetail = () => {
-  const form = useForm<z.infer<typeof merchantInformationFspSchema>>({
-    resolver: zodResolver(merchantInformationFspSchema),
+  const form = useForm<z.infer<typeof merchantInformationInterSchema>>({
+    resolver: zodResolver(merchantInformationInterSchema),
     defaultValues: {
-      MerchantName: "",
-      EmailStatements: "",
+      ClientsBusinessName: "",
       Phone: "",
+      CustomerServicePhone: "",
       Fax: "",
-      ContactName: "",
-      ContactPhone: "",
-      ContactServicePhone: "",
-      BusinessWebsite: "",
-      DateOpen: "",
+      EmailStatements: "",
+      CustomerServiceEmail: "",
+      AlsoPrintAndMailStatements: false,
       Street: "",
       AddressSearchBar: "",
       City: "",
       State: "",
       PostalCode: "",
-      CorporateLegalName: "",
-      Locations: "",
+      UseBusinessAddressDBA: false,
+      LegalContactName: "",
+      LegalContactFax: "",
+      LegalContactPhone: "",
+      LegalContactEmail: "",
+      LegalBusinessName: "",
+      LegalStartDate: new Date() || null || undefined,
+      LegalBusinessWebsite: "",
+      LegalAddress: "",
       LegalCity: "",
       LegalState: "",
       LegalPostalCode: "",
-      UseCorporateLegalName: "",
-      IrsName: "",
-      SICMCC: "",
-      EIN: "",
-      BusinessType: "",
-      TypeOfServicesOffered: "",
-      EinSsn: "",
-      StockSymbol: "",
-      MailStatements: "",
-      BuildingType: "",
-      MerchantType: "",
-      AreaZoned: "",
-      SquereFootage: "",
     },
   });
 
-  const onSubmit = (value: z.infer<typeof merchantInformationFspSchema>) => {
+  const onSubmit = (value: z.infer<typeof merchantInformationInterSchema>) => {
     console.log(value);
   };
 
@@ -156,17 +135,19 @@ const MerchantDetail = () => {
           </h1>
           <FormGeneration
             formControl={form.control}
-            formFields={dbaInformationFspForm}
+            formFields={dbaInformationInterForm}
             gridCols={"2"}
           />
-
+          <p className="my-2">
+            {"NOTE: Statements are 'Summary' for Cash Discount Apps & 'Detailed' for Others."}
+          </p>
           {/* DBA Address Section */}
           <h1 className="my-5 text-2xl font-bold text-sky-500">
             DBA Address Information
           </h1>
           <FormGeneration
             formControl={form.control}
-            formFields={dbaAddressFspForm}
+            formFields={dbaAddressInterForm}
             gridCols={"2"}
           />
 
@@ -841,182 +822,6 @@ const FinancialInformation = () => {
   );
 };
 
-const MoToQuestionaire = () => {
-  const form = useForm<z.infer<typeof moToQuestionaireFspSchema>>({
-    resolver: zodResolver(moToQuestionaireFspSchema),
-    defaultValues: {
-      BusinessPercentage: 0,
-      IndividualsPercentage: 0,
-      MktNewspapersMagazine: "",
-      MktOutboundTelemarketing: "",
-      MktMail: "",
-      MktInternet: "",
-      MktTelevisionRadio: "",
-      MktOther: "",
-      MktOtherDescription: "",
-      CardInfoWhoEnters: "",
-      CardInfoOtherDescription: "",
-      OwnProd: false,
-      OwnProdBusinessOther: "",
-      OwnProdOtherDescription: "",
-      WhoProcesses: "",
-      ProcessorOtherDescription: "",
-      ShippedBy: "",
-      ShippedOtherDescription: "",
-      WhoShips: "",
-      DaysToShip: "",
-      DeliveryReceiptRequested: false,
-      IsPaymentEncrypted: false,
-      Certificate: "",
-      CertificateIssuer: "",
-      IndividualShared: false,
-    },
-  });
-
-  const onSubmit = (value: z.infer<typeof moToQuestionaireFspSchema>) => {
-    console.log(value);
-  };
-
-  return (
-    <section className="w-full">
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="text-start">
-          {/* MO/TO QUESTIONAIRE */}
-          <h1 className="mt-5 flex gap-2 text-2xl font-bold">
-            MO/TO QUESTIONAIRE
-            <span className="flex-auto content-end text-sm font-normal text-black dark:text-white">
-              {"(required if 'Store Front/Swipe' less than 70%)"}
-            </span>
-          </h1>
-          <h1 className="mt-5 flex gap-2 text-2xl font-bold text-sky-500">
-            What Percent of Sales Are To
-            <span className="flex-auto content-end text-sm font-normal text-black dark:text-white">
-              {"* Must add up to 100"}
-            </span>
-          </h1>
-          <FormGeneration
-            formControl={form.control}
-            formFields={whatPercentSalesFspForm}
-            gridCols={"2"}
-          />
-          {/* METHODS OF MARKETING */}
-          <h1 className="mt-5 flex gap-2 text-2xl font-bold text-sky-500">
-            Methods of Marketing
-          </h1>
-          <div className="grid w-3/4 grid-cols-3 gap-2 max-xl:grid-cols-1">
-            {marketingMethodsFspForm.map((item) => {
-              return (
-                <div key={item.title} className="items-center gap-2">
-                  <CheckboxForm
-                    control={form.control}
-                    formName={item.formName}
-                    label=""
-                    placeholder={item.title}
-                  />
-                </div>
-              );
-            })}
-          </div>
-          {/* PROCESSOR CONFIGURATION */}
-          <h1 className="mt-5 flex gap-2 text-2xl font-bold text-sky-500">
-            Processor Configuration
-          </h1>
-          <div className="grid grid-cols-2 gap-4 max-lg:grid-cols-1">
-            {/* WHO ENTERS CARD INFORMATION */}
-            <div className="col-span-1 content-end">
-              <h1 className="mt-5 flex gap-2 text-xl font-semibold">
-                Who enters Card Information Into the Processing System
-              </h1>
-              <FormGenerationRadioGrid
-                formControl={form.control}
-                formFields={whoEntersCardInfoFspForm}
-              />
-            </div>
-            <div className="col-span-1 content-end">
-              <h1 className="mt-5 flex gap-2 text-xl font-semibold">
-                Do you own your own Product/Inventory (if no, Where is inventory
-                stored)
-              </h1>
-              <FormGenerationRadioGrid
-                formControl={form.control}
-                formFields={ownProdFspForm}
-              />
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-4 max-lg:grid-cols-1">
-            {/* WHO PROCESSES THE ORDER */}
-            <div className="col-span-1 content-end">
-              <h1 className="mt-5 flex gap-2 text-xl font-semibold">
-                Who Processes the Order
-              </h1>
-              <FormGenerationRadioGrid
-                formControl={form.control}
-                formFields={whoProcessesFspForm}
-              />
-            </div>
-            <div className="col-span-1">
-              <h1 className="mt-5 flex gap-2 text-xl font-semibold">
-                Product Shipped By (Shipped Via)
-              </h1>
-              <FormGenerationRadioGrid
-                formControl={form.control}
-                formFields={shippedByFspForm}
-              />
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-4 max-lg:grid-cols-1">
-            {/* WHO SHIPS PRODUCT */}
-            <div className="col-span-1 content-end">
-              <h1 className="mt-5 flex gap-2 text-xl font-semibold">
-                Who Ships Product
-              </h1>
-              <FormGenerationRadioGrid
-                formControl={form.control}
-                formFields={whoShipsFspForm}
-              />
-            </div>
-            <div className="col-span-1">
-              <h1 className="mt-5 flex gap-2 text-xl font-semibold">
-                Delivery Receipt Request
-              </h1>
-              <FormGenerationRadioGrid
-                formControl={form.control}
-                formFields={deliveryReceiptRequestedFspForm}
-              />
-            </div>
-          </div>
-          {/* IF CARD INFORMATION IS TAKEN */}
-          <h1 className="mt-5 flex gap-2 text-xl font-semibold">
-            If Card Information is Taken Over The Internet, Is Payment Encrypted
-            By SSL or better?
-          </h1>
-          <FormGenerationRadio
-            formControl={form.control}
-            formFields={isPaymentEncryptedFspForm}
-          />
-
-          <FormGeneration
-            formControl={form.control}
-            formFields={certificatesFspForm}
-            gridCols={"3"}
-          />
-          <FormGenerationRadio
-            formControl={form.control}
-            formFields={individualSharedFspForm}
-          />
-
-          {/* BUTTON SAVE CHANGES */}
-          <div className="m-auto text-center">
-            <CustomButtons className="m-auto my-5" btnType="default">
-              Save Changes
-            </CustomButtons>
-          </div>
-        </form>
-      </Form>
-    </section>
-  );
-};
-
 const MerchantOwner = () => {
   const columnsConfig: ColumnConfig<DataTypes>[] = [
     { accessorKey: "OwnerName", header: "Owner Name" },
@@ -1096,360 +901,6 @@ const MerchantOwner = () => {
             placeholder="#"
             className="w-1/2"
           />
-          {/* BUTTON SAVE CHANGES */}
-          <div className="m-auto text-center">
-            <CustomButtons className="m-auto my-5" btnType="default">
-              Save Changes
-            </CustomButtons>
-          </div>
-        </form>
-      </Form>
-    </section>
-  );
-};
-
-const PricingInformation = () => {
-  const form = useForm<z.infer<typeof pricingInformationFspSchema>>({
-    resolver: zodResolver(pricingInformationFspSchema),
-    defaultValues: {
-      PassTrueInterchange: false,
-      PassDuesAndAssesments: "",
-      PricingType: "",
-      CreditQual: 0,
-      MidCreditQual: 0,
-      NonCreditQual: 0,
-      NonPinDebitNonQual: 0,
-      NonPinDebitMidQual: 0,
-      NonPinDebitNonQual2: 0,
-      AmexCreditQual: 0,
-      AmexMidCreditQual: 0,
-      AmexNonCreditQual: 0,
-      PayPalDCFee: 0,
-      GrossNet: "",
-      ViMcDiscRate: 0,
-      ViMcdiscNonPinDebitRate: 0,
-      AmexDCRate: 0,
-      PaypalDCRate: 0,
-      DcRate: 0,
-      UseDefaultRate: false,
-      DefaultRate: 3.3816,
-      ViMcDiscFee: 0,
-      ViMcDiscNonPinDebitDCRate: 0,
-      AmexDcRate2: 0,
-      PayPalDcRate2: 0,
-      SwipedRate: 0,
-      NonSwipedRate: 0,
-      PinDebit: false,
-      PinDebitDcRate: 0,
-      PinDebitAuthRate: 0,
-      DailyMonthly: "",
-      PciFrequency: "",
-      Audio: "",
-      AuthrizationFee: 0,
-      EbtCashItemFee: 0,
-      StatementFee: 0,
-      MonthlyMinimumFee: 0,
-      PciFee: 0,
-      AddressVerification: 0,
-      EftFoodItemFee: 0,
-      CustomerServiceFee: 0,
-      TinInvalidFee: 0,
-      VoiceAuthorization: 0,
-      ReturnedTransaction: 0,
-      OnlineReporting: 0,
-      AchRejectFee: 0,
-      ApplicationFee: 0,
-      AudioResponse: 0,
-      RegulatoryProductFee: 0,
-      ChargebackFee: 0,
-      EarlyTerminationFee: 0,
-      VoiceAddressVerification: 0,
-      WirelessFee: 0,
-      RetrievalFee: 0,
-      MerchantFee: 0,
-      BatchHeaderFee: 0,
-      SoftwareFee: 0,
-      PciNonComplianceFee: 0,
-      SalesTrasactionFee: 0,
-      EquipmentFee: 0,
-      OtherFeeDescription: "",
-      OtherFee: 0,
-    },
-  });
-
-  const onSubmit = (value: z.infer<typeof pricingInformationFspSchema>) => {
-    console.log(value);
-  };
-
-  return (
-    <section className="mt-4 text-start">
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="">
-          {/* PRICING INFORMATION */}
-          <h1 className="mt-5 flex gap-2 text-2xl font-bold text-sky-500">
-            Pricing Information
-          </h1>
-          {/* Pass Through Interchange */}
-          <div className="mt-2 flex gap-10">
-            <p className="mt-1 flex-none content-center">
-              Pass Through Interchange:
-            </p>
-            <FormGenerationRadio
-              formControl={form.control}
-              formFields={passThroughInterchangeFspForm}
-            />
-          </div>
-          {/* Pass Dues & Assessments */}
-          <div className="flex gap-10">
-            <p className="mt-1 flex-none content-center">
-              Pass Dues & Assessments:
-            </p>
-            <FormGenerationRadio
-              formControl={form.control}
-              formFields={passDuesAssessmentsFspForm}
-            />
-          </div>
-
-          {/* TIERED */}
-          <Accordion type="single" collapsible>
-            <AccordionItem value="item-1">
-              <AccordionTrigger>TIERED</AccordionTrigger>
-              <AccordionContent>
-                <div className="my-2 w-full rounded-md border px-4 pb-2">
-                  <div className="flex gap-2">
-                    <InputForm
-                      control={form.control}
-                      formName="PricingType"
-                      label=""
-                      type="radio"
-                      placeholder=""
-                      className="flex-none"
-                    />
-                    <h2 className="mt-1 flex-auto content-center text-2xl font-semibold text-sky-500">
-                      TIERED
-                    </h2>
-                  </div>
-                  <div className="my-2 gap-4">
-                    <p className="mt-3 text-nowrap text-center max-xl:col-span-2">
-                      Vi/MC/Disc D/C Rate:
-                    </p>
-                    <FormGeneration
-                      formControl={form.control}
-                      formFields={viMcDiscRateFspForm}
-                      gridCols={"3"}
-                    />
-                  </div>
-                  <div className="my-2 gap-4">
-                    <p className="mt-5 text-nowrap text-center max-xl:col-span-2">
-                      Amex D/C Rate:
-                    </p>
-                    <FormGeneration
-                      formControl={form.control}
-                      formFields={amexDcRateFspForm}
-                      gridCols={"3"}
-                    />
-                  </div>
-                  <div className="my-2 gap-4">
-                    <p className="mt-5 text-nowrap text-center max-xl:col-span-2">
-                      PayPal D/C Fee:
-                    </p>
-                    <InputForm
-                      control={form.control}
-                      formName="PayPalDCFee"
-                      label=""
-                      placeholder="%"
-                      className="m-auto w-1/3"
-                      type="number"
-                    />
-                  </div>
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-
-          {/* INTERCHANGE PLUS */}
-          <Accordion type="single" collapsible>
-            <AccordionItem value="item-1">
-              <AccordionTrigger>INTERCHANGE PLUS</AccordionTrigger>
-              <AccordionContent>
-                <div className="my-2 w-full rounded-md border px-4 pb-2">
-                  <div className="flex gap-2">
-                    <InputForm
-                      control={form.control}
-                      formName="PricingType"
-                      label=""
-                      type="radio"
-                      placeholder=""
-                      className="flex-none"
-                    />
-                    <h2 className="mt-1 flex-auto content-center text-2xl font-semibold text-sky-500">
-                      INTERCHANGE PLUS
-                    </h2>
-                  </div>
-                  <FormGenerationRadio
-                    formControl={form.control}
-                    formFields={grossNetFspForm}
-                  />
-                  <FormGeneration
-                    formControl={form.control}
-                    formFields={interchangePlusRatesFspForm}
-                    gridCols={"4"}
-                  />
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-
-          {/* FLAX RATE */}
-          <Accordion type="single" collapsible>
-            <AccordionItem value="item-1">
-              <AccordionTrigger>FLAX RATE</AccordionTrigger>
-              <AccordionContent>
-                <div className="my-2 w-full rounded-md border px-4 pb-2">
-                  <div className="flex gap-2">
-                    <InputForm
-                      control={form.control}
-                      formName="PricingType"
-                      label=""
-                      type="radio"
-                      placeholder=""
-                      className="flex-none"
-                    />
-                    <h2 className="mt-1 flex-auto content-center text-2xl font-semibold text-sky-500">
-                      FLAX RATE
-                    </h2>
-                  </div>
-                  <div className="my-3 flex items-end justify-center gap-2">
-                    <InputForm
-                      control={form.control}
-                      formName="DcRate"
-                      label="D/C Rate (% Converter):"
-                      placeholder="#"
-                      className="flex-auto"
-                    />
-                    <Switch className="mb-2 flex-none" />
-                    <InputForm
-                      control={form.control}
-                      formName="DefaultRate"
-                      label="Use Default Rate:"
-                      placeholder="3.3816"
-                      className="flex-auto"
-                    />
-                  </div>
-                  <FormGeneration
-                    formControl={form.control}
-                    formFields={flatRateFspForm}
-                    gridCols={"4"}
-                  />
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-
-          {/* SWIPED / NON-SWIPED */}
-          <Accordion type="single" collapsible>
-            <AccordionItem value="item-1">
-              <AccordionTrigger>SWIPED / NON-SWIPED</AccordionTrigger>
-              <AccordionContent>
-                <div className="my-2 w-full rounded-md border px-4 pb-2">
-                  <div className="flex gap-2">
-                    <InputForm
-                      control={form.control}
-                      formName="PricingType"
-                      label=""
-                      type="radio"
-                      placeholder=""
-                      className="flex-none"
-                    />
-                    <h2 className="mt-1 flex-auto content-center text-2xl font-semibold text-sky-500">
-                      SWIPED / NON-SWIPED (Fiserv Only)
-                    </h2>
-                  </div>
-                  <FormGeneration
-                    formControl={form.control}
-                    formFields={swipedNonSwipedFspForm}
-                    gridCols={"3"}
-                  />
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-          {/* PIN DEBIT CARD */}
-          <div className="mt-5 flex gap-2">
-            <div className="w-1/2 flex-auto rounded-md border px-4 pb-2">
-              <CheckboxForm
-                control={form.control}
-                formName="PinDebit"
-                label=""
-                placeholder="PIN DEBIT"
-                className="flex-none p-4"
-              />
-              <FormGeneration
-                formControl={form.control}
-                formFields={pinDebitFspForm}
-                gridCols={"2"}
-              />
-            </div>
-            <div className="w-1/2 flex-auto rounded-md border px-4 pb-2">
-              <p className="my-2 text-xl font-semibold">
-                DISCOUNT COLLECTED FREQUENCY
-              </p>
-              <div className="flex gap-2">
-                <InputForm
-                  control={form.control}
-                  formName="DailyMonthly"
-                  label=""
-                  type="radio"
-                  placeholder=""
-                  className="flex-none"
-                />
-                <h2 className="mt-1 flex-auto content-center">
-                  Daily (Default)
-                </h2>
-              </div>
-              <div className="flex gap-2">
-                <InputForm
-                  control={form.control}
-                  formName="DailyMonthly"
-                  label=""
-                  type="radio"
-                  placeholder=""
-                  className="flex-none"
-                />
-                <h2 className="mt-1 flex-auto content-center">Monthly</h2>
-              </div>
-            </div>
-          </div>
-          {/* OTHER PRICING INFORMATION */}
-          <div>
-            <h1 className="mt-5 flex gap-2 text-2xl font-bold text-sky-500">
-              Other Pricing Information
-              <span className="content-end text-sm font-normal text-red-500">
-                * All of these $dollar amounts are required
-              </span>
-            </h1>
-            <div className="my-2">
-              <p className="m-0">PCI Frequency: </p>
-              <FormGenerationRadio
-                formControl={form.control}
-                formFields={pciFrequencyFspForm}
-                className={"my-0"}
-              />
-            </div>
-            <div className="my-2">
-              <p className="m-0">Audio: </p>
-              <FormGenerationRadio
-                formControl={form.control}
-                formFields={audioFspForm}
-                className={"my-0"}
-              />
-            </div>
-            <FormGeneration
-              formControl={form.control}
-              formFields={otherPricingInformationFspForm}
-              gridCols={"3"}
-            />
-          </div>
           {/* BUTTON SAVE CHANGES */}
           <div className="m-auto text-center">
             <CustomButtons className="m-auto my-5" btnType="default">
@@ -1812,19 +1263,371 @@ const ProgrammingRequest = () => {
   );
 };
 
-export default function RenderNewFspComponents(value: string) {
+const NorthInformation = () => {
+  const form = useForm<z.infer<typeof pricingInformationFspSchema>>({
+    resolver: zodResolver(pricingInformationFspSchema),
+    defaultValues: {
+      PassTrueInterchange: false,
+      PassDuesAndAssesments: "",
+      PricingType: "",
+      CreditQual: 0,
+      MidCreditQual: 0,
+      NonCreditQual: 0,
+      NonPinDebitNonQual: 0,
+      NonPinDebitMidQual: 0,
+      NonPinDebitNonQual2: 0,
+      AmexCreditQual: 0,
+      AmexMidCreditQual: 0,
+      AmexNonCreditQual: 0,
+      PayPalDCFee: 0,
+      GrossNet: "",
+      ViMcDiscRate: 0,
+      ViMcdiscNonPinDebitRate: 0,
+      AmexDCRate: 0,
+      PaypalDCRate: 0,
+      DcRate: 0,
+      UseDefaultRate: false,
+      DefaultRate: 3.3816,
+      ViMcDiscFee: 0,
+      ViMcDiscNonPinDebitDCRate: 0,
+      AmexDcRate2: 0,
+      PayPalDcRate2: 0,
+      SwipedRate: 0,
+      NonSwipedRate: 0,
+      PinDebit: false,
+      PinDebitDcRate: 0,
+      PinDebitAuthRate: 0,
+      DailyMonthly: "",
+      PciFrequency: "",
+      Audio: "",
+      AuthrizationFee: 0,
+      EbtCashItemFee: 0,
+      StatementFee: 0,
+      MonthlyMinimumFee: 0,
+      PciFee: 0,
+      AddressVerification: 0,
+      EftFoodItemFee: 0,
+      CustomerServiceFee: 0,
+      TinInvalidFee: 0,
+      VoiceAuthorization: 0,
+      ReturnedTransaction: 0,
+      OnlineReporting: 0,
+      AchRejectFee: 0,
+      ApplicationFee: 0,
+      AudioResponse: 0,
+      RegulatoryProductFee: 0,
+      ChargebackFee: 0,
+      EarlyTerminationFee: 0,
+      VoiceAddressVerification: 0,
+      WirelessFee: 0,
+      RetrievalFee: 0,
+      MerchantFee: 0,
+      BatchHeaderFee: 0,
+      SoftwareFee: 0,
+      PciNonComplianceFee: 0,
+      SalesTrasactionFee: 0,
+      EquipmentFee: 0,
+      OtherFeeDescription: "",
+      OtherFee: 0,
+    },
+  });
+
+  const onSubmit = (value: z.infer<typeof pricingInformationFspSchema>) => {
+    console.log(value);
+  };
+
+  return (
+    <section className="mt-4 text-start">
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="">
+          {/* PRICING INFORMATION */}
+          <h1 className="mt-5 flex gap-2 text-2xl font-bold text-sky-500">
+            Pricing Information
+          </h1>
+          {/* Pass Through Interchange */}
+          <div className="mt-2 flex gap-10">
+            <p className="mt-1 flex-none content-center">
+              Pass Through Interchange:
+            </p>
+            <FormGenerationRadio
+              formControl={form.control}
+              formFields={passThroughInterchangeFspForm}
+            />
+          </div>
+          {/* Pass Dues & Assessments */}
+          <div className="flex gap-10">
+            <p className="mt-1 flex-none content-center">
+              Pass Dues & Assessments:
+            </p>
+            <FormGenerationRadio
+              formControl={form.control}
+              formFields={passDuesAssessmentsFspForm}
+            />
+          </div>
+
+          {/* TIERED */}
+          <Accordion type="single" collapsible>
+            <AccordionItem value="item-1">
+              <AccordionTrigger>TIERED</AccordionTrigger>
+              <AccordionContent>
+                <div className="my-2 w-full rounded-md border px-4 pb-2">
+                  <div className="flex gap-2">
+                    <InputForm
+                      control={form.control}
+                      formName="PricingType"
+                      label=""
+                      type="radio"
+                      placeholder=""
+                      className="flex-none"
+                    />
+                    <h2 className="mt-1 flex-auto content-center text-2xl font-semibold text-sky-500">
+                      TIERED
+                    </h2>
+                  </div>
+                  <div className="my-2 gap-4">
+                    <p className="mt-3 text-nowrap text-center max-xl:col-span-2">
+                      Vi/MC/Disc D/C Rate:
+                    </p>
+                    <FormGeneration
+                      formControl={form.control}
+                      formFields={viMcDiscRateFspForm}
+                      gridCols={"3"}
+                    />
+                  </div>
+                  <div className="my-2 gap-4">
+                    <p className="mt-5 text-nowrap text-center max-xl:col-span-2">
+                      Amex D/C Rate:
+                    </p>
+                    <FormGeneration
+                      formControl={form.control}
+                      formFields={amexDcRateFspForm}
+                      gridCols={"3"}
+                    />
+                  </div>
+                  <div className="my-2 gap-4">
+                    <p className="mt-5 text-nowrap text-center max-xl:col-span-2">
+                      PayPal D/C Fee:
+                    </p>
+                    <InputForm
+                      control={form.control}
+                      formName="PayPalDCFee"
+                      label=""
+                      placeholder="%"
+                      className="m-auto w-1/3"
+                      type="number"
+                    />
+                  </div>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+
+          {/* INTERCHANGE PLUS */}
+          <Accordion type="single" collapsible>
+            <AccordionItem value="item-1">
+              <AccordionTrigger>INTERCHANGE PLUS</AccordionTrigger>
+              <AccordionContent>
+                <div className="my-2 w-full rounded-md border px-4 pb-2">
+                  <div className="flex gap-2">
+                    <InputForm
+                      control={form.control}
+                      formName="PricingType"
+                      label=""
+                      type="radio"
+                      placeholder=""
+                      className="flex-none"
+                    />
+                    <h2 className="mt-1 flex-auto content-center text-2xl font-semibold text-sky-500">
+                      INTERCHANGE PLUS
+                    </h2>
+                  </div>
+                  <FormGenerationRadio
+                    formControl={form.control}
+                    formFields={grossNetFspForm}
+                  />
+                  <FormGeneration
+                    formControl={form.control}
+                    formFields={interchangePlusRatesFspForm}
+                    gridCols={"4"}
+                  />
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+
+          {/* FLAX RATE */}
+          <Accordion type="single" collapsible>
+            <AccordionItem value="item-1">
+              <AccordionTrigger>FLAX RATE</AccordionTrigger>
+              <AccordionContent>
+                <div className="my-2 w-full rounded-md border px-4 pb-2">
+                  <div className="flex gap-2">
+                    <InputForm
+                      control={form.control}
+                      formName="PricingType"
+                      label=""
+                      type="radio"
+                      placeholder=""
+                      className="flex-none"
+                    />
+                    <h2 className="mt-1 flex-auto content-center text-2xl font-semibold text-sky-500">
+                      FLAX RATE
+                    </h2>
+                  </div>
+                  <div className="my-3 flex items-end justify-center gap-2">
+                    <InputForm
+                      control={form.control}
+                      formName="DcRate"
+                      label="D/C Rate (% Converter):"
+                      placeholder="#"
+                      className="flex-auto"
+                    />
+                    <Switch className="mb-2 flex-none" />
+                    <InputForm
+                      control={form.control}
+                      formName="DefaultRate"
+                      label="Use Default Rate:"
+                      placeholder="3.3816"
+                      className="flex-auto"
+                    />
+                  </div>
+                  <FormGeneration
+                    formControl={form.control}
+                    formFields={flatRateFspForm}
+                    gridCols={"4"}
+                  />
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+
+          {/* SWIPED / NON-SWIPED */}
+          <Accordion type="single" collapsible>
+            <AccordionItem value="item-1">
+              <AccordionTrigger>SWIPED / NON-SWIPED</AccordionTrigger>
+              <AccordionContent>
+                <div className="my-2 w-full rounded-md border px-4 pb-2">
+                  <div className="flex gap-2">
+                    <InputForm
+                      control={form.control}
+                      formName="PricingType"
+                      label=""
+                      type="radio"
+                      placeholder=""
+                      className="flex-none"
+                    />
+                    <h2 className="mt-1 flex-auto content-center text-2xl font-semibold text-sky-500">
+                      SWIPED / NON-SWIPED (Fiserv Only)
+                    </h2>
+                  </div>
+                  <FormGeneration
+                    formControl={form.control}
+                    formFields={swipedNonSwipedFspForm}
+                    gridCols={"3"}
+                  />
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+          {/* PIN DEBIT CARD */}
+          <div className="mt-5 flex gap-2">
+            <div className="w-1/2 flex-auto rounded-md border px-4 pb-2">
+              <CheckboxForm
+                control={form.control}
+                formName="PinDebit"
+                label=""
+                placeholder="PIN DEBIT"
+                className="flex-none p-4"
+              />
+              <FormGeneration
+                formControl={form.control}
+                formFields={pinDebitFspForm}
+                gridCols={"2"}
+              />
+            </div>
+            <div className="w-1/2 flex-auto rounded-md border px-4 pb-2">
+              <p className="my-2 text-xl font-semibold">
+                DISCOUNT COLLECTED FREQUENCY
+              </p>
+              <div className="flex gap-2">
+                <InputForm
+                  control={form.control}
+                  formName="DailyMonthly"
+                  label=""
+                  type="radio"
+                  placeholder=""
+                  className="flex-none"
+                />
+                <h2 className="mt-1 flex-auto content-center">
+                  Daily (Default)
+                </h2>
+              </div>
+              <div className="flex gap-2">
+                <InputForm
+                  control={form.control}
+                  formName="DailyMonthly"
+                  label=""
+                  type="radio"
+                  placeholder=""
+                  className="flex-none"
+                />
+                <h2 className="mt-1 flex-auto content-center">Monthly</h2>
+              </div>
+            </div>
+          </div>
+          {/* OTHER PRICING INFORMATION */}
+          <div>
+            <h1 className="mt-5 flex gap-2 text-2xl font-bold text-sky-500">
+              Other Pricing Information
+              <span className="content-end text-sm font-normal text-red-500">
+                * All of these $dollar amounts are required
+              </span>
+            </h1>
+            <div className="my-2">
+              <p className="m-0">PCI Frequency: </p>
+              <FormGenerationRadio
+                formControl={form.control}
+                formFields={pciFrequencyFspForm}
+                className={"my-0"}
+              />
+            </div>
+            <div className="my-2">
+              <p className="m-0">Audio: </p>
+              <FormGenerationRadio
+                formControl={form.control}
+                formFields={audioFspForm}
+                className={"my-0"}
+              />
+            </div>
+            <FormGeneration
+              formControl={form.control}
+              formFields={otherPricingInformationFspForm}
+              gridCols={"3"}
+            />
+          </div>
+          {/* BUTTON SAVE CHANGES */}
+          <div className="m-auto text-center">
+            <CustomButtons className="m-auto my-5" btnType="default">
+              Save Changes
+            </CustomButtons>
+          </div>
+        </form>
+      </Form>
+    </section>
+  );
+};
+
+export default function RenderNorthInterchangeComponents(value: string) {
   switch (value) {
     case "merchantDetail":
       return <MerchantDetail />;
     case "financialInformation":
       return <FinancialInformation />;
-    case "moToQuestionaire":
-      return <MoToQuestionaire />;
     case "merchantOwner":
       return <MerchantOwner />;
-    case "pricingInformation":
-      return <PricingInformation />;
     case "programmingRequest":
       return <ProgrammingRequest />;
+    case "northDetails":
+      return <NorthInformation />;
   }
 }
