@@ -24,7 +24,7 @@ const NewFSPTabContent = () => {
             value={tab.value}
             title={tab.title}
           >
-            <p className="hidden max-xl:block">{tab.abbreviation}</p>
+            <p className="hidden max-xl:block">{React.createElement(tab.icon)}</p>
             <p className="max-xl:hidden">{tab.title}</p>
           </TabsTrigger>
         ))}

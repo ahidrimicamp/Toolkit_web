@@ -6,54 +6,39 @@ import {
 import DataTable from "@/components/Shared/DataTable/DataTable";
 import { Button } from "@/components/ui/button";
 import {
-  acceptingVisaMcDiscoverFspForm,
   accountInformationFspForm,
-  americaExpressVolumeFspForm,
-  amexDcRateFspForm,
-  audioFspForm,
-  bankingInformationFspForm,
   billToFspForm,
-  cardTypesNotToAcceptFspForm,
-  cloverOnlyFspForm,
-  connectionTypeFspForm,
+  cardSalesInterForm,
+  cloverOnlyInterForm,
+  connectionTypeInterForm,
   dbaAddressInterForm,
   dbaAddressShipFspForm,
   dbaInformationInterForm,
-  dbaLegalInformationFspForm,
+  dbaLegalInfoInterForm,
   dbaSelectionFspForm,
-  dbaTaxInformationFspForm,
   equipmentInformationFspForm,
   fileBuildInformationFspForm,
-  flatRateFspForm,
-  grossNetFspForm,
-  hasBeenTerminatedFspForm,
-  hasFiledForBankruptcyFspForm,
-  independentServiceFspForm,
-  interchangePlusRatesFspForm,
-  otherPricingInformationFspForm,
+  flaxRateInterNorthForm,
+  flexRateFeesNorthForm,
+  LegalAddressInfoInterForm,
+  LegalInfoInterForm,
+  northBoadingFormTest,
   OwnersTable,
-  passDuesAssessmentsFspForm,
-  passThroughInterchangeFspForm,
-  pciFrequencyFspForm,
-  pinDebitFspForm,
-  returnPolicyFspForm,
-  seasonalMerchantFspForm,
-  seasonalMonthsFspForm,
+  salesInterForm,
   serverFspForm,
-  serviceRequestedFspForm,
+  settingsInterForm,
   shipPriorityFspForm,
   shipToFspForm,
-  swipedNonSwipedFspForm,
+  taxInformationInterForm,
+  tieredPricingNorthForm,
   tipLineFspForm,
-  usesFulfillHouseFspForm,
-  viMcDiscRateFspForm,
   wavitAppOnlyFspForm,
 } from "@/constants";
 import { DataTypes } from "@/types";
 import React, { useState } from "react";
 import { Form } from "../ui/form";
 import {
-  financialInformationFspSchema,
+  financialInformationInterSchema,
   merchantInformationInterSchema,
   merchantOwnerFspSchema,
   pricingInformationFspSchema,
@@ -67,11 +52,10 @@ import {
   FormGeneration,
   InputForm,
   FormGenerationRadio,
-  TextAreaForm,
   SwitchForm,
+  NorthFormGeneration,
 } from "../Shared/InstantForm";
 import CustomButtons from "../Shared/CustomButtons";
-import { Switch } from "../ui/switch";
 import { Progress } from "@/components/ui/progress";
 import {
   Dialog,
@@ -82,12 +66,6 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import AddNewMerchantOwner from "./AddNewMerchantOwner";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { Input } from "../ui/input";
 
 const MerchantDetail = () => {
@@ -139,7 +117,9 @@ const MerchantDetail = () => {
             gridCols={"2"}
           />
           <p className="my-2">
-            {"NOTE: Statements are 'Summary' for Cash Discount Apps & 'Detailed' for Others."}
+            {
+              "NOTE: Statements are 'Summary' for Cash Discount Apps & 'Detailed' for Others."
+            }
           </p>
           {/* DBA Address Section */}
           <h1 className="my-5 text-2xl font-bold text-sky-500">
@@ -150,232 +130,46 @@ const MerchantDetail = () => {
             formFields={dbaAddressInterForm}
             gridCols={"2"}
           />
-
-          {/* LEGAL INFORMATION Section */}
+          {/* LEGAL CONTACT INFORMATION */}
+          <h1 className="my-5 flex-auto text-2xl font-bold text-sky-500">
+            Legal Contact Information
+          </h1>
+          {/* UseBusinessAddressDBA  */}
+          <SwitchForm
+            control={form.control}
+            formName="UseBusinessAddressDBA"
+            label="Use Business Address DBA"
+            className="mb-4"
+          />
+          <FormGeneration
+            formControl={form.control}
+            formFields={dbaLegalInfoInterForm}
+            gridCols={"4"}
+          />
+          {/* LEGAL INFORMATION SECTION */}
           <h1 className="my-5 flex-auto text-2xl font-bold text-sky-500">
             Legal Information
           </h1>
-          <div className="mb-2 flex gap-2">
-            <Switch className="flex-none" />
-            <p className="flex-auto">Use Business Address DBA</p>
-          </div>
           <FormGeneration
             formControl={form.control}
-            formFields={dbaLegalInformationFspForm}
+            formFields={LegalInfoInterForm}
             gridCols={"2"}
           />
-
-          {/* TAX INFORMATION Section */}
-          <h1 className="my-5 flex-auto text-2xl font-bold text-sky-500">
-            Tax Information
-          </h1>
-          <div className="mb-2 flex gap-2">
-            <Switch className="flex-none" />
-            <p className="flex-auto">Use Corporate Legal Name</p>
-          </div>
+          <Input
+            placeholder="Search here to auto-fill your address details"
+            className="my-7 w-1/2"
+          />
+          <InputForm
+            control={form.control}
+            formName="LegalAddress"
+            label="Legal Business Address: "
+            className=""
+          />
           <FormGeneration
             formControl={form.control}
-            formFields={dbaTaxInformationFspForm}
-            gridCols={"2"}
+            formFields={LegalAddressInfoInterForm}
+            gridCols={"3"}
           />
-          <div className="flex items-center gap-2">
-            <InputForm
-              control={form.control}
-              formName="EinSsn"
-              label=""
-              type="radio"
-              className="w-fit"
-            />
-            <label className="mt-2">EIN</label>
-            <InputForm
-              control={form.control}
-              formName="EinSsn"
-              label=""
-              type="radio"
-              className="ml-4 w-fit"
-            />
-            <label className="mt-2">SSN</label>
-          </div>
-
-          {/* STATEMENTS INFORMATION SECTION */}
-          <h1 className="my-5 flex-auto text-2xl font-bold text-sky-500">
-            Statements Information
-          </h1>
-          <div className="grid w-3/6 grid-cols-2 gap-0 max-xl:w-full">
-            <div className="flex items-center gap-2">
-              <InputForm
-                control={form.control}
-                formName="MailStatements"
-                label=""
-                type="radio"
-                className="ml-4 w-fit"
-              />
-              <label className="mt-2">Mail Statements to DBA Name</label>
-            </div>
-            <div className="flex items-center gap-2">
-              <InputForm
-                control={form.control}
-                formName="MailStatements"
-                label=""
-                type="radio"
-                className="ml-4 w-fit"
-              />
-              <label className="mt-2">Mail Chargebacks to DBA Name</label>
-            </div>
-            <div className="flex items-center gap-2">
-              <InputForm
-                control={form.control}
-                formName="MailStatements"
-                label=""
-                type="radio"
-                className="ml-4 w-fit"
-              />
-              <label className="mt-2">Mail Statements to Legal Name</label>
-            </div>
-            <div className="flex items-center gap-2">
-              <InputForm
-                control={form.control}
-                formName="MailStatements"
-                label=""
-                type="radio"
-                className="ml-4 w-fit"
-              />
-              <label className="mt-2">Mail Chargebacks to DBA Name</label>
-            </div>
-          </div>
-          <p className="ml-4 text-gray-500">
-            NOTE: Statements are {"'Summary'"} for Cash Discount apps &{" "}
-            {"'Detailed'"}{" "}
-          </p>
-
-          {/* LOCATION SECTION */}
-          <h1 className="my-5 flex-auto text-2xl font-bold text-sky-500">
-            Location Information
-          </h1>
-          <div className="grid grid-cols-4 gap-2">
-            {/* BUILDING TYPE */}
-            <div>
-              <h2 className="text-center text-xl font-semibold">
-                Building Type
-              </h2>
-              <div className="flex items-center gap-2">
-                <InputForm
-                  control={form.control}
-                  formName="BuildingType"
-                  label=""
-                  type="radio"
-                  className="ml-4 w-fit"
-                />
-                <label className="mt-2">Shopping Center</label>
-              </div>
-              <div className="flex items-center gap-2">
-                <InputForm
-                  control={form.control}
-                  formName="BuildingType"
-                  label=""
-                  type="radio"
-                  className="ml-4 w-fit"
-                />
-                <label className="mt-2">Office Building</label>
-              </div>
-              <div className="flex items-center gap-2">
-                <InputForm
-                  control={form.control}
-                  formName="BuildingType"
-                  label=""
-                  type="radio"
-                  className="ml-4 w-fit"
-                />
-                <label className="mt-2">Industrial Building</label>
-              </div>
-              <div className="flex items-center gap-2">
-                <InputForm
-                  control={form.control}
-                  formName="BuildingType"
-                  label=""
-                  type="radio"
-                  className="ml-4 w-fit"
-                />
-                <label className="mt-2">Residence</label>
-              </div>
-            </div>
-            {/* MERCHANT */}
-            <div>
-              <h2 className="text-center text-xl font-semibold">
-                Merchant Type
-              </h2>
-              <div className="flex items-center gap-2">
-                <InputForm
-                  control={form.control}
-                  formName="MerchantType"
-                  label=""
-                  type="radio"
-                  className="ml-4 w-fit"
-                />
-                <label className="mt-2">Owns</label>
-              </div>
-              <div className="flex items-center gap-2">
-                <InputForm
-                  control={form.control}
-                  formName="MerchantType"
-                  label=""
-                  type="radio"
-                  className="ml-4 w-fit"
-                />
-                <label className="mt-2">Rent</label>
-              </div>
-            </div>
-            {/* AREA ZONED */}
-            <div>
-              <h2 className="text-center text-xl font-semibold">Area Zoned</h2>
-              <div className="flex items-center gap-2">
-                <InputForm
-                  control={form.control}
-                  formName="AreaZoned"
-                  label=""
-                  type="radio"
-                  className="ml-4 w-fit"
-                />
-                <label className="mt-2">Commercial</label>
-              </div>
-              <div className="flex items-center gap-2">
-                <InputForm
-                  control={form.control}
-                  formName="AreaZoned"
-                  label=""
-                  type="radio"
-                  className="ml-4 w-fit"
-                />
-                <label className="mt-2">Residential</label>
-              </div>
-            </div>
-            {/* SQUARE FOOTAGE */}
-            <div>
-              <h2 className="text-center text-xl font-semibold">
-                Square Footage
-              </h2>
-              <div className="flex items-center gap-2">
-                <InputForm
-                  control={form.control}
-                  formName="SquereFootage"
-                  label=""
-                  type="radio"
-                  className="ml-4 w-fit"
-                />
-                <label className="mt-2">0 - 1000</label>
-              </div>
-              <div className="flex items-center gap-2">
-                <InputForm
-                  control={form.control}
-                  formName="SquereFootage"
-                  label=""
-                  type="radio"
-                  className="ml-4 w-fit"
-                />
-                <label className="mt-2">1000+</label>
-              </div>
-            </div>
-          </div>
 
           <div className="m-auto text-center">
             <CustomButtons className="m-auto my-5" btnType="default">
@@ -389,76 +183,34 @@ const MerchantDetail = () => {
 };
 
 const FinancialInformation = () => {
-  const form = useForm<z.infer<typeof financialInformationFspSchema>>({
-    resolver: zodResolver(financialInformationFspSchema),
+  const form = useForm<z.infer<typeof financialInformationInterSchema>>({
+    resolver: zodResolver(financialInformationInterSchema),
     defaultValues: {
-      CheckingSavings: "",
       BankName: "",
-      BankRouting: "",
-      BankAccounting: "",
-      // Sales
-      AcceptingVisaMcDiscover: "",
-      hasBeenTerminated: "",
-      Reason: "",
-      // Settings
+      BankRouting: 0,
+      BankAccounting: 0,
+      EinSsn: "",
+      SICMCC: "",
+      TypeOfGoods: "",
+      BusinessType: "",
+      HighTicket: 0,
+      AverageTicketsSales: 0,
+      AnnualVisaMc: 0,
+      AnnualAmex: 0,
+      AnnualDiscover: 0,
+      AnnualTotalSales: 0,
+      EarlyTerminationFee: 0,
+      CashDiscount: 0,
+      Discount: 0,
+      MonthlyStatementFee: 0,
       StoreFrontSwipe: 0,
       Internet: 0,
-      ManuallyKeyed: 0,
-      // SERVICE REQUESTED
-      VisaMcAvgTransaction: "",
-      VisaMcHighestTransaction: "",
-      VisaMcGrossMoSales: "",
-      DiscoverAvgTransaction: "",
-      DiscoverHighestTransaction: "",
-      DiscoverGrossMoSales: "",
-      AmexOptBlueAvgTransaction: "",
-      AmexOptBlueHighestTransaction: "",
-      AmexOptBlueGrossMoSales: "",
-      // AMERICAN EXPRESS VOLUME ? 1,000,000 ANNUALLY?
-      AmericaExpressVolume: "",
-      AmericanExpressVolumeAccount: "",
-      // DISCOVER RETAINED
-      DiscoverAccount: "",
-      Visa: false,
-      Mastercard: false,
-      AmericanExpress: false,
-      Discover: false,
-      PayPal: false,
-      EBT: false,
-      CashBenefit: false,
-      FnsAccount: 0,
-      // SEASONAL MERCHANT
-      SeasonalMerchant: false,
-      January: false,
-      February: false,
-      March: false,
-      April: false,
-      May: false,
-      June: false,
-      July: false,
-      August: false,
-      September: false,
-      October: false,
-      November: false,
-      December: false,
-      // DOES THE MERCHANT USE AN INDEPENDENT SERVICE THAT
-      // STORES, MAINTAINS OR TRANSMITS CARDHOLDER INFO?
-      IndependentService: false,
-      IndependentServiceName: "",
-      IndependentServicePhone: "",
-      // DOES MERCHANT USE A FULFILLMENT HOUSE TO FULFILL PRODUCT?
-      UsesFulfillHouse: false,
-      FulfillHouseName: "",
-      FulfillHousePhone: "",
-      // GENERAL SETTINGS
-      OptOut: false,
-      // RETURN POLICY
-      ReturnPolicy: "",
-      PolicyDescription: "",
+      MailOrder: 0,
+      Telephone: 0,
     },
   });
 
-  const onSubmit = (value: z.infer<typeof financialInformationFspSchema>) => {
+  const onSubmit = (value: z.infer<typeof financialInformationInterSchema>) => {
     console.log(value);
   };
 
@@ -511,10 +263,6 @@ const FinancialInformation = () => {
           <h1 className="mt-5 text-2xl font-bold text-sky-500">
             Bank Information
           </h1>
-          <FormGenerationRadio
-            formControl={form.control}
-            formFields={bankingInformationFspForm}
-          />
           <div className="grid grid-cols-4 items-end gap-2">
             <div className="col-span-2">
               <InputForm
@@ -540,38 +288,47 @@ const FinancialInformation = () => {
               className="col-auto"
             />
           </div>
-          {/* SALES INFORMATION */}
-          <h1 className="mt-5 text-2xl font-bold text-sky-500">Sales</h1>
-          <p className="mt-5">
-            Currently Accepting Visa/mastercard/Discover/AMEX?
-          </p>
-          <FormGenerationRadio
+          {/* TAX INFORMATION */}
+          <h1 className="mt-5 text-2xl font-bold text-sky-500">
+            Tax Information
+          </h1>
+          <FormGeneration
             formControl={form.control}
-            formFields={acceptingVisaMcDiscoverFspForm}
-          />
-          <p className="mt-5">
-            Has merchant/owner/prioncipals ever been terminated from accepting
-            payment cards?
-          </p>
-          <FormGenerationRadio
-            formControl={form.control}
-            formFields={hasBeenTerminatedFspForm}
+            formFields={taxInformationInterForm}
+            gridCols={"2"}
           />
 
-          <InputForm
-            control={form.control}
-            formName="Reason"
-            label="Reason:"
-            placeholder="Type your reason."
-            className="w-1/2"
+          {/* SALES  */}
+          <h1 className="mt-5 text-2xl font-bold text-sky-500">Sales</h1>
+          <div className="w-1/2">
+            <FormGeneration
+              formControl={form.control}
+              formFields={salesInterForm}
+              gridCols={"2"}
+            />
+          </div>
+          <p className="mt-5 text-xl font-semibold">Card Sales</p>
+          <FormGeneration
+            formControl={form.control}
+            formFields={cardSalesInterForm}
+            gridCols={"4"}
           />
+
           {/* SETTINGS INFORMATION */}
           <h1 className="mt-5 text-2xl font-bold text-sky-500">Settings</h1>
-          <p className="my-3">
-            Sales Distribution - Fil the sales distribution of each category to
-            add up to 100
-          </p>
-          <div className="m-auto grid w-3/4 grid-cols-3 items-end gap-2">
+          <div className="w-3/4">
+            <FormGeneration
+              formControl={form.control}
+              formFields={settingsInterForm}
+              gridCols={"4"}
+            />
+          </div>
+
+          {/* SALES DISTRIBUTION */}
+          <h1 className="mt-5 text-2xl font-bold text-sky-500">
+            Sales Distribution
+          </h1>
+          <div className="m-auto mt-2 grid w-3/4 grid-cols-3 items-end gap-2">
             <InputForm
               control={form.control}
               formName="StoreFrontSwipe"
@@ -606,211 +363,8 @@ const FinancialInformation = () => {
             </Progress>
           </div>
 
-          {/* SERVICE REQUESTED */}
-          <h1 className="mt-5 text-2xl font-bold text-sky-500">
-            Service Requested
-          </h1>
-          <FormGeneration
-            formControl={form.control}
-            formFields={serviceRequestedFspForm}
-            gridCols={"3"}
-          />
-
-          {/* AMERICAN EXPRESS VOLUME */}
-          <h1 className="mt-5 text-2xl font-bold text-sky-500">
-            American Express Volume {">"} $1,000,000 Annually?
-          </h1>
-          <FormGenerationRadio
-            formControl={form.control}
-            formFields={americaExpressVolumeFspForm}
-          />
-          <InputForm
-            control={form.control}
-            formName="AmericanExpressVolumeAccount"
-            label="Account #: *"
-            placeholder="#"
-            className="w-1/2"
-          />
-          {/* DISCOVER RETAINED / CARD TYPES */}
-          <div className="grid grid-cols-2 gap-2 max-xl:grid-cols-1">
-            <div className="col-span-1">
-              <h1 className="mt-5 text-2xl font-bold text-sky-500">
-                Discover Retained
-              </h1>
-              <InputForm
-                control={form.control}
-                formName="DiscoverAccount"
-                label="Account #: *"
-                placeholder="#"
-                className=""
-              />
-            </div>
-            <div className="col-span-1">
-              <h1 className="mt-5 text-2xl font-bold text-sky-500">
-                Card Types NOT to Accept
-              </h1>
-              <div className="grid grid-cols-3 gap-2">
-                {cardTypesNotToAcceptFspForm.map((item) => {
-                  return (
-                    <div
-                      key={item.id}
-                      className="flex w-full items-center gap-2"
-                    >
-                      <CheckboxForm
-                        control={form.control}
-                        formName={item.formName}
-                        label=""
-                        placeholder={item.title}
-                      />
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-          {/* EBT / CASH BENEFIT  */}
-          <h1 className="mt-5 text-2xl font-bold text-sky-500">--</h1>
-          <div className="flex w-full items-center gap-2">
-            <CheckboxForm
-              control={form.control}
-              formName="EBT"
-              label=""
-              placeholder="EBT"
-            />
-          </div>
-          <div className="mb-3 flex w-full items-center gap-2">
-            <CheckboxForm
-              control={form.control}
-              formName="CashBenefit"
-              label=""
-              placeholder="Cash Benefit"
-            />
-          </div>
-          <InputForm
-            control={form.control}
-            formName="FnsAccount"
-            label="FNS Account #: (if exists, 7 digit required)"
-            placeholder="#"
-            className="w-1/2"
-          />
-          {/* SEASONAL MERCHANT  */}
-          <div className="flex w-full gap-2">
-            <div className="flex-1">
-              <h1 className="mt-5 text-2xl font-bold text-sky-500">
-                Seasonal Merchant
-              </h1>
-              <FormGenerationRadio
-                formControl={form.control}
-                formFields={seasonalMerchantFspForm}
-              />
-              <p>If Yes, indicate which months:</p>
-              <div className="grid grid-flow-col grid-rows-4 gap-2 max-xl:grid-rows-6">
-                {seasonalMonthsFspForm.map((item) => {
-                  return (
-                    <div
-                      key={item.id}
-                      className="flex w-full items-center gap-2"
-                    >
-                      <CheckboxForm
-                        control={form.control}
-                        formName={item.formName}
-                        label=""
-                        placeholder={item.formName}
-                      />
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-            <div className="flex-1">
-              <h1 className="mt-5 text-2xl font-bold text-sky-500">
-                Does mercahnt use an independent service that stores, maintains
-                or transmits cardholder information?
-              </h1>
-              <FormGenerationRadio
-                formControl={form.control}
-                formFields={independentServiceFspForm}
-              />
-              <InputForm
-                control={form.control}
-                formName="IndependentServiceName"
-                label="Name:"
-                placeholder="Enter the name"
-                className="w-full"
-              />
-              <InputForm
-                control={form.control}
-                formName="IndependentServicePhone"
-                label="Phone:"
-                placeholder="(___) ___-_____"
-                className="w-full"
-              />
-            </div>
-          </div>
-          {/* DOES MERCHANT USE A FULFILLMENT HOUSE  */}
-          <h1 className="mt-5 text-2xl font-bold text-sky-500">
-            Does Merchant use a fulfillment house to fulfill product?
-          </h1>
-          <FormGenerationRadio
-            formControl={form.control}
-            formFields={usesFulfillHouseFspForm}
-          />
-          <InputForm
-            control={form.control}
-            formName="FulfillHouseName"
-            label="Name:"
-            placeholder="Enter the name"
-            className="w-1/2"
-          />
-          <InputForm
-            control={form.control}
-            formName="FulfillHousePhone"
-            label="Phone:"
-            placeholder="(___) ___-_____"
-            className="w-1/2"
-          />
-          {/* GENERAL SETTINGS  */}
-          <h1 className="mt-5 text-2xl font-bold text-sky-500">
-            General Settings
-          </h1>
-          <div className="flex w-1/2 items-center gap-2 max-xl:w-full">
-            <CheckboxForm
-              control={form.control}
-              formName="OptOut"
-              label=""
-              placeholder="Opt Out (by checking this box, Merchant will not receive future
-              commercial marketing communications from AmEx)"
-            />
-          </div>
-          {/* RETURN POLICY  */}
-          <h1 className="mt-5 text-2xl font-bold text-sky-500">
-            Return Policy
-          </h1>
-          <div className="grid w-1/2 grid-cols-3 max-xl:w-full">
-            {returnPolicyFspForm.map((item) => {
-              return (
-                <div key={item.id} className="flex w-full items-center gap-2">
-                  <InputForm
-                    control={form.control}
-                    formName={item.formName}
-                    label=""
-                    type="radio"
-                    className="ml-4 w-fit"
-                  />
-                  <label className="mt-2">{item.title}</label>
-                </div>
-              );
-            })}
-            <InputForm
-              control={form.control}
-              formName="PolicyDescription"
-              label=""
-              placeholder="Enter the name"
-              className="w-full"
-            />
-          </div>
           <div className="m-auto text-center">
-            <CustomButtons className="m-auto my-5" btnType="default">
+            <CustomButtons className="m-auto my-3" btnType="default">
               Save Changes
             </CustomButtons>
           </div>
@@ -886,21 +440,7 @@ const MerchantOwner = () => {
               filteredBy=""
             />
           </div>
-          {/* HAS MERCHANT EVER FILED FOR BANKRUPTCY? */}
-          <h1 className="mt-5 flex gap-2 text-xl font-semibold">
-            Has merchant/owner/principals ever filed for bankruptcy?
-          </h1>
-          <FormGenerationRadio
-            formControl={form.control}
-            formFields={hasFiledForBankruptcyFspForm}
-          />
-          <InputForm
-            control={form.control}
-            formName="Account"
-            label="Account #:"
-            placeholder="#"
-            className="w-1/2"
-          />
+
           {/* BUTTON SAVE CHANGES */}
           <div className="m-auto text-center">
             <CustomButtons className="m-auto my-5" btnType="default">
@@ -926,8 +466,6 @@ const ProgrammingRequest = () => {
       QrScan: false,
       EthernetInternet: false,
       WirelessSim: false,
-      DialUp: false,
-      WiFi: false,
       NeedMenuOrInventory: false,
       HowCashDiscountApplied: "",
       BuildType: "",
@@ -941,7 +479,6 @@ const ProgrammingRequest = () => {
       Server: false,
       SuggestedTipPercentages: "",
       SalesTax: 0,
-      MessageToTheBoarding: "",
       ShipTo: "",
       ShipName: "",
       ShipPriority: "",
@@ -960,30 +497,20 @@ const ProgrammingRequest = () => {
     console.log(value);
   };
 
-  const Price = (row: any) => {
-    const amount = parseFloat(row.getValue("price"));
-    const formatted = new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    }).format(amount);
-
-    return <div className="text-right font-medium">{formatted}</div>;
-  };
-
   const columnsConfig: ColumnConfig<DataTypes>[] = [
     { accessorKey: "id", header: "ID" },
-    { accessorKey: "name", header: "Name" },
-    { accessorKey: "brand", header: "Brand" },
+    { accessorKey: "quantity", header: "Quantity" },
+    { accessorKey: "manufacturer", header: "Manufacturer" },
     { accessorKey: "model", header: "Model" },
-    { accessorKey: "purchaseDate", header: "Purchase" },
-    { accessorKey: "warrantyExpiration", header: "Warranty Expiration" },
-    { accessorKey: "status", header: "Status" },
-    { accessorKey: "location", header: "Location" },
-    { accessorKey: "assignedTo", header: "Assigned" },
-    { accessorKey: "price", header: "Price", cell: Price },
   ];
 
   const columns = createColumns(columnsConfig);
+
+  const [activeSwitchId, setActiveSwitchId] = useState<string | number>();
+  const handleToggle = (id: string | number) => {
+    console.log(id);
+    setActiveSwitchId((prevId) => (prevId === id ? undefined : id));
+  };
 
   return (
     <Form {...form}>
@@ -1004,7 +531,7 @@ const ProgrammingRequest = () => {
               data={equipmentInformationFspForm}
               enableSorting={true}
               enableColumnFilter={false}
-              filteredBy=""
+              actionsColumn={false}
             />
           </div>
           <div className="mb-3 mt-10">
@@ -1046,7 +573,7 @@ const ProgrammingRequest = () => {
               </h1>
               <FormGeneration
                 formControl={form.control}
-                formFields={connectionTypeFspForm}
+                formFields={connectionTypeInterForm}
                 gridCols={"1"}
               />
             </div>
@@ -1068,7 +595,7 @@ const ProgrammingRequest = () => {
             </p>
             <FormGeneration
               formControl={form.control}
-              formFields={cloverOnlyFspForm}
+              formFields={cloverOnlyInterForm}
               gridCols={"2"}
             />
           </div>
@@ -1175,18 +702,11 @@ const ProgrammingRequest = () => {
                   />
                 </div>
               </div>
-              <TextAreaForm
-                control={form.control}
-                formName="MessageToTheBoarding"
-                label="Message to the Boarding / file build team (155 characters max): *"
-                placeholder="Type your message..."
-              />
             </div>
           </div>
-
-          {/* DBA ADDRESS INFORMATION */}
+          {/* SHIPPING INFORMATION */}
           <h1 className="mb-2 mt-5 gap-2 text-2xl font-bold text-sky-500">
-            DBA Address Information
+            Shipping Information
           </h1>
           <p className="mt-4">Ship To:</p>
           <FormGenerationRadio
@@ -1213,18 +733,18 @@ const ProgrammingRequest = () => {
             </div>
           </div>
           {/* DBA Address Selection */}
-          <div className="my-7 flex justify-center gap-10 max-xl:flex-wrap">
-            {dbaSelectionFspForm.map((item) => {
-              return (
-                <SwitchForm
-                  control={form.control}
-                  formName={item.formName}
-                  label={item.title}
-                  className=""
-                  key={item.id}
-                />
-              );
-            })}
+          <div className="my-5 flex justify-center gap-6 max-xl:block max-xl:space-y-2">
+            {dbaSelectionFspForm.map((item) => (
+              <SwitchForm
+                key={item.id}
+                control={form.control}
+                formName={item.formName}
+                label={item.title}
+                id={item.id}
+                isActive={activeSwitchId === item.id}
+                onToggle={handleToggle}
+              />
+            ))}
           </div>
           <Input
             name="Search Address"
@@ -1246,7 +766,7 @@ const ProgrammingRequest = () => {
         <FormGenerationRadio
           formControl={form.control}
           formFields={billToFspForm}
-          className=""
+          className="w-full"
         />
         <div className="flex justify-start gap-2">
           <Button className="my-5">View Bank ACH</Button>
@@ -1340,271 +860,92 @@ const NorthInformation = () => {
     <section className="mt-4 text-start">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="">
-          {/* PRICING INFORMATION */}
-          <h1 className="mt-5 flex gap-2 text-2xl font-bold text-sky-500">
-            Pricing Information
+          {/* NORTH BOARDING */}
+          <h1 className="mt-5 flex justify-center gap-2 text-center text-4xl font-semibold text-sky-500">
+            North Boarding
           </h1>
-          {/* Pass Through Interchange */}
-          <div className="mt-2 flex gap-10">
-            <p className="mt-1 flex-none content-center">
-              Pass Through Interchange:
-            </p>
-            <FormGenerationRadio
-              formControl={form.control}
-              formFields={passThroughInterchangeFspForm}
+          {/* Location and distribuition */}
+          <h1 className="mt-5 flex gap-2 text-2xl font-semibold text-sky-500">
+            Location and Distribution (Additional Credit Check)
+          </h1>
+          <div className="my-2 flex gap-10">
+            <CheckboxForm
+              control={form.control}
+              formName="VisitNotRequired"
+              label=""
+              placeholder="Visit Not Required (Lic. Professional)"
+              className=""
             />
           </div>
-          {/* Pass Dues & Assessments */}
-          <div className="flex gap-10">
-            <p className="mt-1 flex-none content-center">
-              Pass Dues & Assessments:
-            </p>
-            <FormGenerationRadio
-              formControl={form.control}
-              formFields={passDuesAssessmentsFspForm}
-            />
-          </div>
+          {/* GENERATION OF THE WHOLE NORTH FORM */}
+          <NorthFormGeneration
+            formControl={form.control}
+            formFields={northBoadingFormTest}
+            gridCols={"3"}
+          />
 
-          {/* TIERED */}
-          <Accordion type="single" collapsible>
-            <AccordionItem value="item-1">
-              <AccordionTrigger>TIERED</AccordionTrigger>
-              <AccordionContent>
-                <div className="my-2 w-full rounded-md border px-4 pb-2">
-                  <div className="flex gap-2">
-                    <InputForm
-                      control={form.control}
-                      formName="PricingType"
-                      label=""
-                      type="radio"
-                      placeholder=""
-                      className="flex-none"
-                    />
-                    <h2 className="mt-1 flex-auto content-center text-2xl font-semibold text-sky-500">
-                      TIERED
-                    </h2>
-                  </div>
-                  <div className="my-2 gap-4">
-                    <p className="mt-3 text-nowrap text-center max-xl:col-span-2">
-                      Vi/MC/Disc D/C Rate:
-                    </p>
-                    <FormGeneration
-                      formControl={form.control}
-                      formFields={viMcDiscRateFspForm}
-                      gridCols={"3"}
-                    />
-                  </div>
-                  <div className="my-2 gap-4">
-                    <p className="mt-5 text-nowrap text-center max-xl:col-span-2">
-                      Amex D/C Rate:
-                    </p>
-                    <FormGeneration
-                      formControl={form.control}
-                      formFields={amexDcRateFspForm}
-                      gridCols={"3"}
-                    />
-                  </div>
-                  <div className="my-2 gap-4">
-                    <p className="mt-5 text-nowrap text-center max-xl:col-span-2">
-                      PayPal D/C Fee:
-                    </p>
-                    <InputForm
-                      control={form.control}
-                      formName="PayPalDCFee"
-                      label=""
-                      placeholder="%"
-                      className="m-auto w-1/3"
-                      type="number"
-                    />
-                  </div>
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-
-          {/* INTERCHANGE PLUS */}
-          <Accordion type="single" collapsible>
-            <AccordionItem value="item-1">
-              <AccordionTrigger>INTERCHANGE PLUS</AccordionTrigger>
-              <AccordionContent>
-                <div className="my-2 w-full rounded-md border px-4 pb-2">
-                  <div className="flex gap-2">
-                    <InputForm
-                      control={form.control}
-                      formName="PricingType"
-                      label=""
-                      type="radio"
-                      placeholder=""
-                      className="flex-none"
-                    />
-                    <h2 className="mt-1 flex-auto content-center text-2xl font-semibold text-sky-500">
-                      INTERCHANGE PLUS
-                    </h2>
-                  </div>
-                  <FormGenerationRadio
-                    formControl={form.control}
-                    formFields={grossNetFspForm}
-                  />
-                  <FormGeneration
-                    formControl={form.control}
-                    formFields={interchangePlusRatesFspForm}
-                    gridCols={"4"}
-                  />
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-
-          {/* FLAX RATE */}
-          <Accordion type="single" collapsible>
-            <AccordionItem value="item-1">
-              <AccordionTrigger>FLAX RATE</AccordionTrigger>
-              <AccordionContent>
-                <div className="my-2 w-full rounded-md border px-4 pb-2">
-                  <div className="flex gap-2">
-                    <InputForm
-                      control={form.control}
-                      formName="PricingType"
-                      label=""
-                      type="radio"
-                      placeholder=""
-                      className="flex-none"
-                    />
-                    <h2 className="mt-1 flex-auto content-center text-2xl font-semibold text-sky-500">
-                      FLAX RATE
-                    </h2>
-                  </div>
-                  <div className="my-3 flex items-end justify-center gap-2">
-                    <InputForm
-                      control={form.control}
-                      formName="DcRate"
-                      label="D/C Rate (% Converter):"
-                      placeholder="#"
-                      className="flex-auto"
-                    />
-                    <Switch className="mb-2 flex-none" />
-                    <InputForm
-                      control={form.control}
-                      formName="DefaultRate"
-                      label="Use Default Rate:"
-                      placeholder="3.3816"
-                      className="flex-auto"
-                    />
-                  </div>
-                  <FormGeneration
-                    formControl={form.control}
-                    formFields={flatRateFspForm}
-                    gridCols={"4"}
-                  />
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-
-          {/* SWIPED / NON-SWIPED */}
-          <Accordion type="single" collapsible>
-            <AccordionItem value="item-1">
-              <AccordionTrigger>SWIPED / NON-SWIPED</AccordionTrigger>
-              <AccordionContent>
-                <div className="my-2 w-full rounded-md border px-4 pb-2">
-                  <div className="flex gap-2">
-                    <InputForm
-                      control={form.control}
-                      formName="PricingType"
-                      label=""
-                      type="radio"
-                      placeholder=""
-                      className="flex-none"
-                    />
-                    <h2 className="mt-1 flex-auto content-center text-2xl font-semibold text-sky-500">
-                      SWIPED / NON-SWIPED (Fiserv Only)
-                    </h2>
-                  </div>
-                  <FormGeneration
-                    formControl={form.control}
-                    formFields={swipedNonSwipedFspForm}
-                    gridCols={"3"}
-                  />
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-          {/* PIN DEBIT CARD */}
-          <div className="mt-5 flex gap-2">
-            <div className="w-1/2 flex-auto rounded-md border px-4 pb-2">
-              <CheckboxForm
-                control={form.control}
-                formName="PinDebit"
-                label=""
-                placeholder="PIN DEBIT"
-                className="flex-none p-4"
-              />
-              <FormGeneration
-                formControl={form.control}
-                formFields={pinDebitFspForm}
-                gridCols={"2"}
-              />
-            </div>
-            <div className="w-1/2 flex-auto rounded-md border px-4 pb-2">
-              <p className="my-2 text-xl font-semibold">
-                DISCOUNT COLLECTED FREQUENCY
-              </p>
-              <div className="flex gap-2">
-                <InputForm
-                  control={form.control}
-                  formName="DailyMonthly"
-                  label=""
-                  type="radio"
-                  placeholder=""
-                  className="flex-none"
-                />
-                <h2 className="mt-1 flex-auto content-center">
-                  Daily (Default)
-                </h2>
-              </div>
-              <div className="flex gap-2">
-                <InputForm
-                  control={form.control}
-                  formName="DailyMonthly"
-                  label=""
-                  type="radio"
-                  placeholder=""
-                  className="flex-none"
-                />
-                <h2 className="mt-1 flex-auto content-center">Monthly</h2>
-              </div>
-            </div>
-          </div>
-          {/* OTHER PRICING INFORMATION */}
-          <div>
-            <h1 className="mt-5 flex gap-2 text-2xl font-bold text-sky-500">
-              Other Pricing Information
-              <span className="content-end text-sm font-normal text-red-500">
-                * All of these $dollar amounts are required
-              </span>
+          <div className="my-2 border p-4">
+            {/* FLAT RATE */}
+            <h1 className="my-5 flex justify-center gap-2 text-center text-4xl font-semibold text-sky-500">
+              Flat Rate
             </h1>
-            <div className="my-2">
-              <p className="m-0">PCI Frequency: </p>
-              <FormGenerationRadio
-                formControl={form.control}
-                formFields={pciFrequencyFspForm}
-                className={"my-0"}
-              />
+            <div className="grid grid-cols-3 items-end gap-2">
+              {flaxRateInterNorthForm.map((item) => (
+                <div key={item.id}>
+                  {item.type ? (
+                    <InputForm
+                      control={form.control}
+                      formName={item.formName}
+                      label={item.title}
+                      placeholder={item.placeholder}
+                    />
+                  ) : (
+                    <p className="mb-2 pr-4 text-end">{item.title}</p>
+                  )}
+                </div>
+              ))}
             </div>
-            <div className="my-2">
-              <p className="m-0">Audio: </p>
-              <FormGenerationRadio
-                formControl={form.control}
-                formFields={audioFspForm}
-                className={"my-0"}
-              />
-            </div>
-            <FormGeneration
-              formControl={form.control}
-              formFields={otherPricingInformationFspForm}
-              gridCols={"3"}
-            />
           </div>
+          <div className="my-2 border p-4">
+            {/* FLAT RATE FEES */}
+            <h1 className="my-5 flex justify-center gap-2 text-center text-4xl font-semibold text-sky-500">
+              Flat Rate Fees
+            </h1>
+            <div className="grid grid-cols-3 items-end gap-2">
+              {flexRateFeesNorthForm.map((item) => (
+                <InputForm
+                  control={form.control}
+                  formName={item.formName}
+                  label={item.title}
+                  placeholder={item.placeholder}
+                  key={item.id}
+                />
+              ))}
+            </div>
+          </div>
+          <div className="my-2 border p-4">
+            {/* TIERED PRICING */}
+            <h1 className="my-5 flex justify-center gap-2 text-center text-4xl font-semibold text-sky-500">
+              Tiered Pricing:
+            </h1>
+            <div className="grid grid-cols-3 items-end gap-2">
+              {tieredPricingNorthForm.map((item) => (
+                <div key={item.id}>
+                  {item.type ? (
+                    <InputForm
+                      control={form.control}
+                      formName={item.formName}
+                      label={item.title}
+                      placeholder={item.placeholder}
+                    />
+                  ) : (
+                    <p className="mb-2 pr-4 text-end">{item.title}</p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* BUTTON SAVE CHANGES */}
           <div className="m-auto text-center">
             <CustomButtons className="m-auto my-5" btnType="default">
