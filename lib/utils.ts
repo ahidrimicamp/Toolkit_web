@@ -816,33 +816,33 @@ export const programmingRequestFspSchema = z.object({
 // Merchant Detail TAB form
 export const merchantInformationInterSchema = z.object({
   // DBA Information Section
-  ClientsBusinessName: z.string(),
-  Phone: z.string(),
+  ClientsBusinessName: requiredString,
+  Phone: requiredString,
   CustomerServicePhone: z.string(),
   Fax: z.string(),
-  EmailStatements: z.string(),
+  EmailStatements: requiredString,
   CustomerServiceEmail: z.string(),
   AlsoPrintAndMailStatements: z.boolean(),
   // DBA Address Section
-  Street: z.string(),
-  AddressSearchBar: z.string(),
-  City: z.string(),
-  State: z.string(),
-  PostalCode: z.string(),
+  Street: requiredString,
+  AddressSearchBar: requiredString,
+  City: requiredString,
+  State: requiredString,
+  PostalCode: requiredString,
   // LEGAL CONTACT INFORMATION
   UseBusinessAddressDBA: z.boolean(),
-  LegalContactName: z.string(),
+  LegalContactName: requiredString,
   LegalContactFax: z.string(),
-  LegalContactPhone: z.string(),
-  LegalContactEmail: z.string(),
+  LegalContactPhone: requiredString,
+  LegalContactEmail: requiredString,
   // LEGAL INFORMATION
-  LegalBusinessName: z.string(),
+  LegalBusinessName: requiredString,
   LegalStartDate: z.date(),
   LegalBusinessWebsite: z.string(),
-  LegalAddress: z.string(),
-  LegalCity: z.string(),
-  LegalState: z.string(),
-  LegalPostalCode: z.string(),
+  LegalAddress: requiredString,
+  LegalCity: requiredString,
+  LegalState: requiredString,
+  LegalPostalCode: requiredString,
 });
 
 // FINANCIAL INFORMATION TAB FORM
@@ -942,6 +942,7 @@ export const northBoardingInterSchema = z.object({
   RegisterTerminals: z.number(),
   ReturnPolicy: z.string(),
   SpecificReturnPolicy: z.string(),
+  SpecificReturnPolicyOther: z.string(),
   // Information
   DaysToSubmitTransactions: z.number(),
   ProperLicenseVisible: z.number(),
