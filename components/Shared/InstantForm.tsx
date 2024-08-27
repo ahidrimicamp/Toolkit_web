@@ -326,8 +326,14 @@ export const SwitchForm = <T extends z.ZodType<any, any>>({
  * @gridCols A string with a number of how many cols you want on the form.
  *  */
 export const FormGeneration = ({ formControl, formFields, gridCols }: any) => {
+  // Splitting by two to show the grid cols in the mobile view.
+  const gridColsMobile = gridCols / 2;
+  const roundedCols = Math.round(gridColsMobile);
+
   return (
-    <div className={`grid grid-cols-${gridCols} gap-2 max-xl:grid-cols-2`}>
+    <div
+      className={`grid grid-cols-${gridCols} gap-2 max-xl:grid-cols-${roundedCols}`}
+    >
       {formFields.map(
         (item: {
           content: any;
@@ -373,10 +379,10 @@ export const FormGeneration = ({ formControl, formFields, gridCols }: any) => {
                 formName={item.formName}
                 label=""
                 type="radio"
-                className="w-fit"
+                className="size-fit"
                 placeholder={item.placeholder}
               />
-              <span className="mt-2 content-center">{item.placeholder}</span>
+              <span className="">{item.placeholder}</span>
             </div>
           ) : item.type === "number" ? (
             <InputForm
@@ -469,5 +475,111 @@ export const FormGenerationRadioGrid = ({ formControl, formFields }: any) => {
           ),
       )}
     </div>
+  );
+};
+
+/**
+ * @formControl formControl - Used for the (form.control) parameter.
+ * @formFields - Receive a component with sections and cards.
+ * @gridCols A string with a number of how many cols you want on the form.
+ *  */
+export const NorthFormGeneration = ({
+  formControl,
+  formFields,
+  gridCols,
+}: {
+  gridCols: string;
+  formFields: {
+    formTitle: string;
+    description: string;
+    section: {
+      sectionName: string;
+      cards: {
+        title: string;
+        colQty: string;
+        fields: {
+          id: number;
+          formName: string;
+          title: string;
+          type: string;
+          placeholder: string;
+          value: string;
+        }[];
+        title2?: string;
+        fields2?: {
+          id: number;
+          formName: string;
+          title: string;
+          type: string;
+          placeholder: string;
+          value: string;
+        }[];
+      }[];
+    }[];
+  };
+  formControl: any;
+}) => {
+  // Splitting by two to show the grid cols in the mobile view.
+  const gridColsMobile = Number(gridCols) / 2;
+  const roundedCols = Math.round(gridColsMobile);
+
+  return (
+    <React.Fragment>
+      {formFields.section.map((sec) => (
+        <section key={sec.sectionName}>
+          <h1 className="mb-3 mt-7 flex gap-2 text-2xl font-semibold text-sky-500">
+            {sec.sectionName}
+          </h1>
+          <div
+            className={`grid grid-cols-${gridCols} gap-2 max-xl:grid-cols-${roundedCols}`}
+          >
+            {sec.cards.map(
+              (item: {
+                title: string;
+                fields: {
+                  id: number;
+                  formName: string;
+                  title: string;
+                  type: string;
+                  placeholder: string;
+                  value: string;
+                }[];
+                title2?: string;
+                fields2?: {
+                  id: number;
+                  formName: string;
+                  title: string;
+                  type: string;
+                  placeholder: string;
+                  value: string;
+                }[];
+                colQty: string;
+              }) => (
+                <div key={item.title} className="rounded-md border p-4">
+                  <p className="mb-3 text-center text-xl">{item.title}</p>
+                  <FormGeneration
+                    formControl={formControl}
+                    formFields={item.fields}
+                    gridCols={item.colQty}
+                  />
+                  {item.fields2 ? (
+                    <div key={item.title}>
+                      <p className="my-3 text-start text-base">{item.title2}</p>
+                      <FormGeneration
+                        formControl={formControl}
+                        formFields={item.fields2}
+                        gridCols={item.colQty}
+                      />
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                </div>
+              ),
+            )}
+          </div>
+        </section>
+      ))}
+    </React.Fragment>
   );
 };

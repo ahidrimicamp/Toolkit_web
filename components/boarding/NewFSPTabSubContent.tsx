@@ -1463,7 +1463,7 @@ const PricingInformation = () => {
 };
 
 const ProgrammingRequest = () => {
-  const [activeSwitchId, setActiveSwitchId] = useState<string | number>();
+  
   const form = useForm<z.infer<typeof programmingRequestFspSchema>>({
     resolver: zodResolver(programmingRequestFspSchema),
     defaultValues: {
@@ -1510,31 +1510,16 @@ const ProgrammingRequest = () => {
     console.log(value);
   };
 
-  const Price = (row: any) => {
-    const amount = parseFloat(row.getValue("price"));
-    const formatted = new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    }).format(amount);
-
-    return <div className="text-right font-medium">{formatted}</div>;
-  };
-
   const columnsConfig: ColumnConfig<DataTypes>[] = [
     { accessorKey: "id", header: "ID" },
-    { accessorKey: "name", header: "Name" },
-    { accessorKey: "brand", header: "Brand" },
+    { accessorKey: "quantity", header: "Quantity" },
+    { accessorKey: "manufacturer", header: "Manufacturer" },
     { accessorKey: "model", header: "Model" },
-    { accessorKey: "purchaseDate", header: "Purchase" },
-    { accessorKey: "warrantyExpiration", header: "Warranty Expiration" },
-    { accessorKey: "status", header: "Status" },
-    { accessorKey: "location", header: "Location" },
-    { accessorKey: "assignedTo", header: "Assigned" },
-    { accessorKey: "price", header: "Price", cell: Price },
   ];
 
   const columns = createColumns(columnsConfig);
 
+  const [activeSwitchId, setActiveSwitchId] = useState<string | number>();
   const handleToggle = (id: string | number) => {
     console.log(id);
     setActiveSwitchId((prevId) => (prevId === id ? undefined : id));
@@ -1560,6 +1545,7 @@ const ProgrammingRequest = () => {
               enableSorting={true}
               enableColumnFilter={false}
               filteredBy=""
+              actionsColumn={false}
             />
           </div>
           <div className="mb-3 mt-10">
@@ -1739,9 +1725,9 @@ const ProgrammingRequest = () => {
             </div>
           </div>
 
-          {/* DBA ADDRESS INFORMATION */}
+          {/* SHIPPING INFORMATION */}
           <h1 className="mb-2 mt-5 gap-2 text-2xl font-bold text-sky-500">
-            DBA Address Information
+            Shipping Information
           </h1>
           <p className="mt-4">Ship To:</p>
           <FormGenerationRadio
@@ -1768,7 +1754,7 @@ const ProgrammingRequest = () => {
             </div>
           </div>
           {/* DBA Address Selection */}
-          <div className="my-5 flex justify-center gap-6">
+          <div className="my-5 flex justify-center gap-6 max-xl:block max-xl:space-y-2">
             {dbaSelectionFspForm.map((item) => (
               <SwitchForm
                 key={item.id}
@@ -1781,7 +1767,6 @@ const ProgrammingRequest = () => {
               />
             ))}
           </div>
-
           <Input
             name="Search Address"
             title="Search Address"

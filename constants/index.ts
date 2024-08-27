@@ -13,7 +13,16 @@ import {
   Headset,
   HandPlatter,
   Home,
-  GlobeLock
+  GlobeLock,
+  User2,
+  CircleDollarSign,
+  KeyRound,
+  Laptop,
+  ArrowUp,
+  Info,
+  DollarSign,
+  Receipt
+
 } from "lucide-react";
 import { z } from "zod";
 
@@ -3734,37 +3743,43 @@ export const newFspApplicationTabs = [
     id: "1",
     title: "Merchant Detail",
     value: "merchantDetail",
-    abbreviation: "MD"
+    abbreviation: "MD",
+    icon: Info,
   },
   {
     id: "2",
     title: "Financial Information",
     value: "financialInformation",
-    abbreviation: "FI"
+    abbreviation: "FI",
+    icon: DollarSign,
   },
   {
     id: "3",
     title: "MO/TO Questionarie",
     value: "moToQuestionaire",
-    abbreviation: "MQ"
+    abbreviation: "MQ",
+    icon: FileText,
   },
   {
     id: "4",
     title: "Merchant Owner",
     value: "merchantOwner",
-    abbreviation: "MO"
+    abbreviation: "MO",
+    icon: KeyRound
   },
   {
     id: "5",
     title: "Pricing Information",
     value: "pricingInformation",
-    abbreviation: "PI"
+    abbreviation: "PI",
+    icon: Receipt
   },
   {
     id: "6",
     title: "Programming Request",
     value: "programmingRequest",
-    abbreviation: "PR"
+    abbreviation: "PR",
+    icon: Laptop
   },
 ];
 
@@ -5246,21 +5261,21 @@ export const audioFspForm = [
 export const equipmentInformationFspForm: DataTypes[] = [
   {
     id: 1,
-    quantity: "Laptop",
-    manufacturer: "Dell",
+    quantity: "2",
+    manufacturer: "Clover",
     model: "XPS 15",
   },
   {
     id: 2,
-    quantity: "Laptop",
-    manufacturer: "Dell",
-    model: "XPS 15",
+    quantity: "1",
+    manufacturer: "Dejavoo",
+    model: "DJx - 01",
   },
   {
     id: 3,
-    quantity: "Laptop",
-    manufacturer: "Dell",
-    model: "XPS 15",
+    quantity: "1",
+    manufacturer: "Clover",
+    model: "XPS 15 - Gen 1",
   },
 ];
 
@@ -5520,7 +5535,7 @@ export const dbaSelectionFspForm = [
   {
     id: 1,
     formName: "UseExistingAddress",
-    title: "Use Business Address",
+    title: "Use Legal Business Address",
     placeholder: "Use Business Address",
     value: "",
   },
@@ -5618,31 +5633,36 @@ export const newInterchangeApplicationTabs = [
     id: "1",
     title: "Merchant Detail",
     value: "merchantDetail",
-    abbreviation: "MD"
+    abbreviation: "MD",
+    icon: User2
   },
   {
     id: "2",
     title: "Financial Information",
     value: "financialInformation",
-    abbreviation: "FI"
+    abbreviation: "FI",
+    icon:  CircleDollarSign
   },
   {
     id: "3",
     title: "Merchant Owner",
     value: "merchantOwner",
-    abbreviation: "MO"
+    abbreviation: "MO",
+    icon: KeyRound,
   },
   {
     id: "4",
     title: "Programming Request",
     value: "programmingRequest",
-    abbreviation: "PR"
+    abbreviation: "PR",
+    icon: Laptop,
   },
   {
     id: "5",
     title: "North Details",
     value: "northDetails",
-    abbreviation: "ND"
+    abbreviation: "ND",
+    icon: ArrowUp,
   },
 ];
 
@@ -5732,7 +5752,6 @@ export const dbaAddressInterForm = [
     placeholder: "AZ",
     formName: "State",
     value: "",
-    // content: ModelSelectList,
   },
   {
     id: 4,
@@ -5741,6 +5760,2246 @@ export const dbaAddressInterForm = [
     placeholder: "Zip",
     formName: "PostalCode",
     value: "",
-    // content: ConditionSelectList,
   },
 ];
+
+export const dbaLegalInfoInterForm = [
+  {
+    id: 1,
+    title: "Contact Name:",
+    type: "input",
+    placeholder: "Name",
+    formName: "LegalContactName",
+    value: "",
+  },
+  {
+    id: 2,
+    title: "Fax:",
+    type: "number",
+    placeholder: "",
+    formName: "LegalContactFax",
+    value: "",
+  },
+  {
+    id: 3,
+    title: "Contact Phone:",
+    type: "input",
+    placeholder: "(___) ___-_____",
+    formName: "LegalContactPhone",
+    value: "",
+  },
+  {
+    id: 4,
+    title: "Contact Email:",
+    type: "input",
+    placeholder: "example@email.com",
+    formName: "LegalContactEmail",
+    value: "",
+  },
+];
+
+export const LegalInfoInterForm = [
+  {
+    id: 1,
+    title: "Business Name: (IRS Name)",
+    type: "input",
+    placeholder: "Name",
+    formName: "LegalBusinessName",
+    value: "",
+  },
+  {
+    id: 2,
+    title: "Legal Start Date:",
+    type: "datePicker",
+    placeholder: "Select a date",
+    formName: "LegalStartDate",
+    value: "",
+  },
+  {
+    id: 3,
+    title: "Business Website:",
+    type: "input",
+    placeholder: "myweb.com",
+    formName: "LegalBusinessWebsite",
+    value: "",
+  },
+];
+
+export const LegalAddressInfoInterForm = [
+  {
+    id: 1,
+    title: "City: ",
+    type: "input",
+    placeholder: "Scottsdale",
+    formName: "LegalCity",
+    value: "",
+  },
+  {
+    id: 2,
+    title: "State:",
+    type: "input",
+    placeholder: "AZ",
+    formName: "LegalState",
+    value: "",
+  },
+  {
+    id: 3,
+    title: "Business Website:",
+    type: "input",
+    placeholder: "ZipCode",
+    formName: "LegalPostalCode",
+    value: "",
+  },
+];
+
+
+export const taxInformationInterForm = [
+  {
+    id: 1,
+    title: "Ein (Fed Tax ID #) or SS#: ",
+    type: "input",
+    placeholder: "",
+    formName: "EinSsn",
+    value: "",
+  },
+  {
+    id: 2,
+    title: "SICMCC:",
+    type: "input",
+    placeholder: "",
+    formName: "SICMCC",
+    value: "",
+  },
+  {
+    id: 3,
+    title: "Type of Goods:",
+    type: "input",
+    placeholder: "",
+    formName: "TypeOfGoods",
+    value: "",
+  },
+  {
+    id: 4,
+    title: "Business Type:",
+    type: "selecbox",
+    placeholder: "Select a Business Type",
+    formName: "BusinessType",
+    value: "",
+    content: BusinessTypeSelectList,
+  },
+];
+
+export const salesInterForm = [
+  {
+    id: 1,
+    title: "High Ticket: ",
+    type: "number",
+    placeholder: "",
+    formName: "HighTicket",
+    value: "",
+  },
+  {
+    id: 2,
+    title: "Average Ticket Sales:",
+    type: "number",
+    placeholder: "",
+    formName: "AverageTicketsSales",
+    value: "",
+  },
+];
+
+export const cardSalesInterForm = [
+  {
+    id: 1,
+    title: "Annual Visa MC $: ",
+    type: "number",
+    placeholder: "$",
+    formName: "AnnualVisaMc",
+    value: "",
+  },
+  {
+    id: 2,
+    title: "Annual AMEX $:",
+    type: "number",
+    placeholder: "$",
+    formName: "AnnualAmex",
+    value: "",
+  },
+  {
+    id: 3,
+    title: "Annual Discover $: ",
+    type: "number",
+    placeholder: "$",
+    formName: "AnnualDiscover",
+    value: "",
+  },
+  {
+    id: 4,
+    title: "Annual Total Sales $:",
+    type: "number",
+    placeholder: "$",
+    formName: "AnnualTotalSales",
+    value: "",
+  },
+];
+
+export const settingsInterForm = [
+  {
+    id: 1,
+    title: "Early Termination Fee: ",
+    type: "number",
+    placeholder: "$",
+    formName: "EarlyTerminationFee",
+    value: "",
+  },
+  {
+    id: 2,
+    title: "Cash Discount %:",
+    type: "number",
+    placeholder: "$",
+    formName: "CashDiscount",
+    value: "",
+  },
+  {
+    id: 3,
+    title: "Discount %: ",
+    type: "number",
+    placeholder: "$",
+    formName: "Discount",
+    value: "",
+  },
+  {
+    id: 4,
+    title: "Monthly Statement Fee (NORTH) $:",
+    type: "number",
+    placeholder: "$",
+    formName: "MonthlyStatementFee",
+    value: "",
+  },
+];
+
+export const connectionTypeInterForm = [
+  {
+    id: 1,
+    formName: "EthernetInternet",
+    title: "Internet (IP)",
+    type: "checkbox",
+    placeholder: "Ethernet / Internet (IP)",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "WirelessSim",
+    title: "Wireless",
+    type: "checkbox",
+    placeholder: "Wireless",
+    value: "",
+  },
+ 
+];
+
+export const cloverOnlyInterForm = [
+      {
+        id: 1,
+        formName: "HowCashDiscountApplied",
+        title: "WAVit APP",
+        type: "radio",
+        placeholder: "WAVit APP (Merchant does NOT need menu or inventory)",
+        value: "",
+      },
+      {
+        id: 2,
+        formName: "HowCashDiscountApplied",
+        title: "Dual Pricing APP",
+        type: "radio",
+        placeholder: "Actions App (merchant IS using menu or inventory)",
+        value: "",
+      },
+      {
+        id: 3,
+        formName: "HowCashDiscountApplied",
+        title: "Additional charge",
+        type: "radio",
+        placeholder: "Additional charge (manually)",
+        value: "",
+      },
+      {
+        id: 4,
+        formName: "HowCashDiscountApplied",
+        title: "None",
+        type: "radio",
+        placeholder: "None of the above",
+        value: "",
+      },
+];
+
+export const zoneNorthBoardingForm = [
+  {
+    id: 1,
+    formName: "Zone",
+    title: "Business District",
+    type: "radio",
+    placeholder: "Business District",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "Zone",
+    title: "Residencial",
+    type: "radio",
+    placeholder: "Residencial",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "Zone",
+    title: "Industrial",
+    type: "radio",
+    placeholder: "Industrial",
+    value: "",
+  },
+];
+
+export const locationNorthBoardingForm = [
+  {
+    id: 1,
+    formName: "Location",
+    title: "Mall",
+    type: "radio",
+    placeholder: "Mall",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "Location",
+    title: "Isolated",
+    type: "radio",
+    placeholder: "Isolated",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "Location",
+    title: "Apartment",
+    type: "radio",
+    placeholder: "Apartment",
+    value: "",
+  },
+  {
+    id: 4,
+    formName: "Location",
+    title: "Home",
+    type: "radio",
+    placeholder: "Home",
+    value: "",
+  },
+  {
+    id: 5,
+    formName: "Location",
+    title: "Shopping Area",
+    type: "radio",
+    placeholder: "Shopping Area",
+    value: "",
+  },
+  {
+    id: 6,
+    formName: "Location",
+    title: "Office",
+    type: "radio",
+    placeholder: "Office",
+    value: "",
+  },
+  {
+    id: 7,
+    formName: "Location",
+    title: "Other",
+    type: "radio",
+    placeholder: "Other",
+    value: "",
+  },
+  {
+    id: 8,
+    formName: "LocationOther",
+    title: "OtherDescription",
+    type: "input",
+    placeholder: "",
+    value: "",
+  },
+];
+
+export const seasonalNorthBoardingForm = [
+  {
+    id: 1,
+    formName: "Seasonal",
+    title: "Yes",
+    type: "radio",
+    placeholder: "Yes",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "Seasonal",
+    title: "No",
+    type: "radio",
+    placeholder: "No",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "MonthsInOpertation",
+    title: "Months in Operation",
+    type: "number",
+    placeholder: "",
+    value: "",
+  },
+  {
+    id: 4,
+    formName: "MonthOpenBegin",
+    title: "Month Open Begin",
+    type: "input",
+    placeholder: "e.g. May",
+    value: "",
+  },
+  {
+    id: 5,
+    formName: "MonthOpenEnd",
+    title: "Month Open End",
+    type: "input",
+    placeholder: "e.g. November",
+    value: "",
+  },
+];
+
+
+export const floorsNorthBoardingForm = [
+  {
+    id: 1,
+    formName: "FloorsLevels",
+    title: "1",
+    type: "radio",
+    placeholder: "1",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "FloorsLevels",
+    title: "2-4",
+    type: "radio",
+    placeholder: "2-4",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "FloorsLevels",
+    title: "5-10",
+    type: "radio",
+    placeholder: "5-10",
+    value: "",
+  },
+  {
+    id: 4,
+    formName: "FloorsLevels",
+    title: "11+",
+    type: "radio",
+    placeholder: "11+",
+    value: "",
+  },
+];
+
+export const merchantOccupiesNorthBoardingForm = [
+  {
+    id: 1,
+    formName: "MerchantOccupies",
+    title: "Ground Floor",
+    type: "radio",
+    placeholder: "Ground Floor",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "MerchantOccupies",
+    title: "Other",
+    type: "radio",
+    placeholder: "Other",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "MerchantOccupiesOther",
+    title: "OtherDescription",
+    type: "input",
+    placeholder: "Other",
+    value: "",
+  },
+];
+
+export const floorsOccupiedNorthBoardingForm = [
+  {
+    id: 1,
+    formName: "FloorsOccupiedBy",
+    title: "Residential",
+    type: "radio",
+    placeholder: "Residential",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "FloorsOccupiedBy",
+    title: "Commercial",
+    type: "radio",
+    placeholder: "Commercial",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "FloorsOccupiedBy",
+    title: "Both",
+    type: "radio",
+    placeholder: "Both",
+    value: "",
+  },
+  {
+    id: 4,
+    formName: "FloorsOccupiedBy",
+    title: "None",
+    type: "radio",
+    placeholder: "None",
+    value: "",
+  },
+
+];
+
+export const nameDisplayedNorthBoardingForm = [
+  {
+    id: 1,
+    formName: "MerchantNameDisplayed",
+    title: "Window",
+    type: "radio",
+    placeholder: "Window",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "MerchantNameDisplayed",
+    title: "Door",
+    type: "radio",
+    placeholder: "Door",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "MerchantNameDisplayed",
+    title: "Store Front",
+    type: "radio",
+    placeholder: "Store Front",
+    value: "",
+  },
+];
+
+export const timeZoneNorthBoardingForm = [
+  {
+    id: 1,
+    formName: "TimeZone",
+    title: "Time Zone",
+    type: "input",
+    placeholder: "",
+    value: "",
+  },
+
+];
+
+export const squareFootageNorthBoardingForm = [
+  {
+    id: 1,
+    formName: "SquareFootage",
+    title: "0-250",
+    type: "radio",
+    placeholder: "0-250",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "SquareFootage",
+    title: "251-500",
+    type: "radio",
+    placeholder: "251-500",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "SquareFootage",
+    title: "501-2000",
+    type: "radio",
+    placeholder: "501-2000",
+    value: "",
+  },
+  {
+    id: 4,
+    formName: "SquareFootage",
+    title: "2001+",
+    type: "radio",
+    placeholder: "2001+",
+    value: "",
+  },
+
+];
+
+export const employeesNorthBoardingForm = [
+  {
+    id: 1,
+    formName: "HowManyEmployees",
+    title: "How Many Employees:",
+    type: "number",
+    placeholder: "",
+    value: "",
+  },
+];
+
+export const terminalsNorthBoardingForm = [
+  {
+    id: 1,
+    formName: "RegisterTerminals",
+    title: "How Many Registers/Terminals:",
+    type: "number",
+    placeholder: "",
+    value: "",
+  },
+];
+
+export const returnPolicyNorthBoardingForm = [
+  {
+    id: 1,
+    formName: "ReturnPolicy",
+    title: "Full Refund",
+    type: "radio",
+    placeholder: "Full Refund",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "ReturnPolicy",
+    title: "Exchange Only",
+    type: "radio",
+    placeholder: "Exchange Only",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "ReturnPolicy",
+    title: "None",
+    type: "radio",
+    placeholder: "None",
+    value: "",
+  },
+];
+
+export const specificPolicyNorthBoardingForm = [
+  {
+    id: 1,
+    formName: "SpecificReturnPolicy",
+    title: "Yes",
+    type: "radio",
+    placeholder: "Yes",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "SpecificReturnPolicy",
+    title: "No",
+    type: "radio",
+    placeholder: "No",
+    value: "",
+  },
+];
+
+export const specificPolicyOtherNorthBoardingForm = [
+  {
+    id: 1,
+    formName: "SpecificReturnPolicyOther",
+    title: "Exchange",
+    type: "radio",
+    placeholder: "Exchange",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "SpecificReturnPolicyOther",
+    title: "Store Credit",
+    type: "radio",
+    placeholder: "Store Credit",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "SpecificReturnPolicyOther",
+    title: "Refund Cardholder",
+    type: "radio",
+    placeholder: "Refund Cardholder",
+    value: "",
+  },
+];
+
+export const submitTransactionsNorthBoardingForm = [
+  {
+    id: 1,
+    formName: "DaysToSubmitTransactions",
+    title: "0-3",
+    type: "radio",
+    placeholder: "0-3",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "DaysToSubmitTransactions",
+    title: "4-7",
+    type: "radio",
+    placeholder: "4-7",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "DaysToSubmitTransactions",
+    title: "8-14",
+    type: "radio",
+    placeholder: "8-14",
+    value: "",
+  },
+  {
+    id: 4,
+    formName: "DaysToSubmitTransactions",
+    title: "12-14",
+    type: "radio",
+    placeholder: "12-14",
+    value: "",
+  },
+];
+
+export const licenseVisibleNorthBoardingForm = [
+  {
+    id: 1,
+    formName: "ProperLicenseVisible",
+    title: "Yes",
+    type: "radio",
+    placeholder: "Yes",
+    value: "",
+  },
+  {
+    id: 2,
+    formName: "ProperLicenseVisible",
+    title: "No, Explain:",
+    type: "radio",
+    placeholder: "No, Explain:",
+    value: "",
+  },
+  {
+    id: 3,
+    formName: "Explanation",
+    title: "Explain here:",
+    type: "input",
+    placeholder: "Explain",
+    value: "",
+  },
+];
+export const prevPocessorNorthBoardingForm = [
+  {
+    id: 1,
+    formName: "PreviousProcessor",
+    title: "Previous Processor",
+    type: "input",
+    placeholder: "",
+    value: "",
+  },
+];
+
+export const northBoadingFormTest = {
+  formTitle: "North Boarding",
+  description: "",
+  section: [
+    // LOCATION AND DISTRIBUTION SECTION
+    {
+    sectionName: "",
+    cards: [
+      // 1.ZONE CARD
+      {
+        title: "1. Zone",
+        colQty: "1",
+        fields: [
+          {
+            id: 1,
+            formName: "TimeZone",
+            title: "Time Zone",
+            type: "input",
+            placeholder: "",
+            value: "",
+          }
+        ]
+      },
+      // 2. LOCATION
+      { 
+        title: "2. Location",
+        colQty: "2",
+        fields: [
+          {
+            id: 1,
+            formName: "Location",
+            title: "Mall",
+            type: "radio",
+            placeholder: "Mall",
+            value: "",
+          },
+          {
+            id: 2,
+            formName: "Location",
+            title: "Isolated",
+            type: "radio",
+            placeholder: "Isolated",
+            value: "",
+          },
+          {
+            id: 3,
+            formName: "Location",
+            title: "Apartment",
+            type: "radio",
+            placeholder: "Apartment",
+            value: "",
+          },
+          {
+            id: 4,
+            formName: "Location",
+            title: "Home",
+            type: "radio",
+            placeholder: "Home",
+            value: "",
+          },
+          {
+            id: 5,
+            formName: "Location",
+            title: "Shopping Area",
+            type: "radio",
+            placeholder: "Shopping Area",
+            value: "",
+          },
+          {
+            id: 6,
+            formName: "Location",
+            title: "Office",
+            type: "radio",
+            placeholder: "Office",
+            value: "",
+          },
+          {
+            id: 7,
+            formName: "Location",
+            title: "Other",
+            type: "radio",
+            placeholder: "Other",
+            value: "",
+          },
+          {
+            id: 8,
+            formName: "LocationOther",
+            title: "OtherDescription",
+            type: "input",
+            placeholder: "",
+            value: "",
+          },
+        ]
+      },
+      // 3. SEASONAL
+      { 
+        title: "3. Seasonal",
+        colQty: "2",
+        fields: [
+          {
+            id: 1,
+            formName: "Seasonal",
+            title: "Yes",
+            type: "radio",
+            placeholder: "Yes",
+            value: "",
+          },
+          {
+            id: 2,
+            formName: "Seasonal",
+            title: "No",
+            type: "radio",
+            placeholder: "No",
+            value: "",
+          },
+          {
+            id: 3,
+            formName: "MonthsInOpertation",
+            title: "Months in Operation",
+            type: "number",
+            placeholder: "",
+            value: "",
+          },
+          {
+            id: 4,
+            formName: "MonthOpenBegin",
+            title: "Month Open Begin",
+            type: "input",
+            placeholder: "e.g. May",
+            value: "",
+          },
+          {
+            id: 5,
+            formName: "MonthOpenEnd",
+            title: "Month Open End",
+            type: "input",
+            placeholder: "e.g. November",
+            value: "",
+          },
+        ]
+      },
+      // 4. FLOORS / LEVELS
+      { 
+        title: "4. Floors / Levels",
+        colQty: "1",
+        fields: [
+          {
+            id: 1,
+            formName: "FloorsLevels",
+            title: "1",
+            type: "radio",
+            placeholder: "1",
+            value: "",
+          },
+          {
+            id: 2,
+            formName: "FloorsLevels",
+            title: "2-4",
+            type: "radio",
+            placeholder: "2-4",
+            value: "",
+          },
+          {
+            id: 3,
+            formName: "FloorsLevels",
+            title: "5-10",
+            type: "radio",
+            placeholder: "5-10",
+            value: "",
+          },
+          {
+            id: 4,
+            formName: "FloorsLevels",
+            title: "11+",
+            type: "radio",
+            placeholder: "11+",
+            value: "",
+          },
+        ]
+      },
+      // 5. MERCHANT OCCUPIES
+      { 
+        title: "5. Merchant Occupies",
+        colQty: "1",
+        fields: [
+          {
+            id: 1,
+            formName: "MerchantOccupies",
+            title: "Ground Floor",
+            type: "radio",
+            placeholder: "Ground Floor",
+            value: "",
+          },
+          {
+            id: 2,
+            formName: "MerchantOccupies",
+            title: "Other",
+            type: "radio",
+            placeholder: "Other",
+            value: "",
+          },
+          {
+            id: 3,
+            formName: "MerchantOccupiesOther",
+            title: "OtherDescription",
+            type: "input",
+            placeholder: "Other",
+            value: "",
+          },
+        ]
+      },
+      // 6. FLOORS OCCUPIED BY
+      { 
+        title: "6. Floors Occupied By?",
+        colQty: "1",
+        fields: [
+          {
+            id: 1,
+            formName: "FloorsOccupiedBy",
+            title: "Residential",
+            type: "radio",
+            placeholder: "Residential",
+            value: "",
+          },
+          {
+            id: 2,
+            formName: "FloorsOccupiedBy",
+            title: "Commercial",
+            type: "radio",
+            placeholder: "Commercial",
+            value: "",
+          },
+          {
+            id: 3,
+            formName: "FloorsOccupiedBy",
+            title: "Both",
+            type: "radio",
+            placeholder: "Both",
+            value: "",
+          },
+          {
+            id: 4,
+            formName: "FloorsOccupiedBy",
+            title: "None",
+            type: "radio",
+            placeholder: "None",
+            value: "",
+          },
+        ]
+      },
+      // 7. MERCHANT NAME DISPLAYED AT
+      {
+        title: "7. Merchant Name Displayed At",
+        colQty: "1",
+        fields: [
+          {
+            id: 1,
+            formName: "MerchantNameDisplayed",
+            title: "Window",
+            type: "radio",
+            placeholder: "Window",
+            value: "",
+          },
+          {
+            id: 2,
+            formName: "MerchantNameDisplayed",
+            title: "Door",
+            type: "radio",
+            placeholder: "Door",
+            value: "",
+          },
+          {
+            id: 3,
+            formName: "MerchantNameDisplayed",
+            title: "Store Front",
+            type: "radio",
+            placeholder: "Store Front",
+            value: "",
+          },
+        ]
+      },
+      // 8. TIME ZONE
+      { 
+        title: "8. Time Zone",
+        colQty: "1",
+        fields: [
+          {
+            id: 1,
+            formName: "TimeZone",
+            title: "Time Zone",
+            type: "input",
+            placeholder: "",
+            value: "",
+          },
+        ]
+      },
+      // 9. APPROXIMATE SQUARE FOOTAGE
+      { 
+        title: "9. Approximate Square Footage",
+        colQty: "2",
+        fields: [
+          {
+            id: 1,
+            formName: "SquareFootage",
+            title: "0-250",
+            type: "radio",
+            placeholder: "0-250",
+            value: "",
+          },
+          {
+            id: 2,
+            formName: "SquareFootage",
+            title: "251-500",
+            type: "radio",
+            placeholder: "251-500",
+            value: "",
+          },
+          {
+            id: 3,
+            formName: "SquareFootage",
+            title: "501-2000",
+            type: "radio",
+            placeholder: "501-2000",
+            value: "",
+          },
+          {
+            id: 4,
+            formName: "SquareFootage",
+            title: "2001+",
+            type: "radio",
+            placeholder: "2001+",
+            value: "",
+          },
+        ]
+      },
+      // 10. EMPLOYEES
+      { 
+        title: "10. Employees",
+        colQty: "1",
+        fields: [
+          {
+            id: 1,
+            formName: "HowManyEmployees",
+            title: "How Many Employees:",
+            type: "number",
+            placeholder: "",
+            value: "",
+          },
+        ]
+      },
+      // 11. REGISTERS TERMINALS
+      {
+        title: "11. Registers Terminals",
+        colQty: "1",
+        fields: [
+          {
+            id: 1,
+            formName: "RegisterTerminals",
+            title: "How Many Registers/Terminals:",
+            type: "number",
+            placeholder: "",
+            value: "",
+          },
+        ]
+      },
+      // 12. RETURN POLICY
+      { 
+        title: "12. Return Policy",
+        colQty: "1",
+        fields: [
+          {
+            id: 1,
+            formName: "ReturnPolicy",
+            title: "Full Refund",
+            type: "radio",
+            placeholder: "Full Refund",
+            value: "",
+          },
+          {
+            id: 2,
+            formName: "ReturnPolicy",
+            title: "Exchange Only",
+            type: "radio",
+            placeholder: "Exchange Only",
+            value: "",
+          },
+          {
+            id: 3,
+            formName: "ReturnPolicy",
+            title: "None",
+            type: "radio",
+            placeholder: "None",
+            value: "",
+          },
+        ]
+      },
+      // 13. DO YOU HAVE REFUND POLICY
+      { 
+        title: "13. Do you have a refund policy for your MC/VISA/DISCOVER NETWORK - PAYPAL/AMERICAN EXPRESS OPTBLUE Sales?",
+        colQty: "1",
+        fields: [
+          {
+            id: 1,
+            formName: "SpecificReturnPolicy",
+            title: "Yes",
+            type: "radio",
+            placeholder: "Yes",
+            value: "",
+          },
+          {
+            id: 2,
+            formName: "SpecificReturnPolicy",
+            title: "No",
+            type: "radio",
+            placeholder: "No",
+            value: "",
+          },
+          
+        ],
+        title2: "If yes, check one:",
+        fields2: [
+          {
+            id: 1,
+            formName: "SpecificReturnPolicyOther",
+            title: "Exchange",
+            type: "radio",
+            placeholder: "Exchange",
+            value: "",
+          },
+          {
+            id: 2,
+            formName: "SpecificReturnPolicyOther",
+            title: "Store Credit",
+            type: "radio",
+            placeholder: "Store Credit",
+            value: "",
+          },
+          {
+            id: 3,
+            formName: "SpecificReturnPolicyOther",
+            title: "Refund Cardholder",
+            type: "radio",
+            placeholder: "Refund Cardholder",
+            value: "",
+          },
+        ]
+      },
+    ]
+    },
+    // INFORMATION SECTION
+    {
+      sectionName: "Information",
+      cards: [
+        // -. HOW MANY DAYS DO YOU SUBMIT CREDIT CARD TRANSACTIONS
+        {
+          title: "If MC / VISA / DISCOVER / PAYPAL / AMERICAN EXPRESS OPTBLUE Credit, How many days do you submit Credit Card transactions?",
+          colQty: "4",
+          fields: [
+            {
+              id: 1,
+              formName: "DaysToSubmitTransactions",
+              title: "0-3",
+              type: "radio",
+              placeholder: "0-3",
+              value: "",
+            },
+            {
+              id: 2,
+              formName: "DaysToSubmitTransactions",
+              title: "4-7",
+              type: "radio",
+              placeholder: "4-7",
+              value: "",
+            },
+            {
+              id: 3,
+              formName: "DaysToSubmitTransactions",
+              title: "8-14",
+              type: "radio",
+              placeholder: "8-14",
+              value: "",
+            },
+            {
+              id: 4,
+              formName: "DaysToSubmitTransactions",
+              title: "12-14",
+              type: "radio",
+              placeholder: "12-14",
+              value: "",
+            },
+          ]
+        },
+        // 14. IS PROPER LICENSE VISIBLE (Liquor, Tax ID, etc.):
+        { 
+          title: "14. Is proper license visible (Liquor, Tax ID, etc.):",
+          colQty: "1",
+          fields: [
+            {
+              id: 1,
+              formName: "ProperLicenseVisible",
+              title: "Yes",
+              type: "radio",
+              placeholder: "Yes",
+              value: "",
+            },
+            {
+              id: 2,
+              formName: "ProperLicenseVisible",
+              title: "No, Explain:",
+              type: "radio",
+              placeholder: "No, Explain:",
+              value: "",
+            },
+            {
+              id: 3,
+              formName: "Explanation",
+              title: "Explain here:",
+              type: "input",
+              placeholder: "Explain",
+              value: "",
+            },
+          ]
+        },
+        // 15. PREVIOUS PROCESSOR
+        { 
+          title: "15. Previous Processor",
+          colQty: "1",
+          fields: [
+            {
+              id: 1,
+              formName: "PreviousProcessor",
+              title: "Previous Processor",
+              type: "input",
+              placeholder: "",
+              value: "",
+            },
+          ]
+        },
+        // 16. YOUR PREVIOUS MERCHANT #
+        { 
+          title: "16. Your Previous Merchant #",
+          colQty: "1",
+          fields: [
+            {
+              id: 1,
+              formName: "PreviousMerchant",
+              title: "Previous merchant:",
+              type: "INPUT",
+              placeholder: "#",
+              value: "",
+            },
+          ]
+        },
+        // 17. CHECK REASON FOR LEAVING
+        { 
+          title: "17. Check reason for Leaving",
+          colQty: "1",
+          fields: [
+            {
+              id: 1,
+              formName: "ReasonForLeaving",
+              title: "Rate",
+              type: "radio",
+              placeholder: "Rate",
+              value: "",
+            },
+            {
+              id: 2,
+              formName: "ReasonForLeaving",
+              title: "Service",
+              type: "radio",
+              placeholder: "Service",
+              value: "",
+            },
+            {
+              id: 3,
+              formName: "ReasonForLeaving",
+              title: "Terminated",
+              type: "radio",
+              placeholder: "Terminated",
+              value: "",
+            },
+            {
+              id: 4,
+              formName: "ReasonForLeaving",
+              title: "OtherReason",
+              type: "radio",
+              placeholder: "Other",
+              value: "",
+            },
+            {
+              id: 5,
+              formName: "ReasonForLeavingOther",
+              title: "Other Description",
+              type: "input",
+              placeholder: "Other",
+              value: "",
+            },
+          ]
+        },
+        // 18. PREVIOUS PROCESSOR STATEMENTS?
+        { 
+          title: "18. Do You Have Previous Processor MC/Visa/ Discover/American Express OptBlue® Statements?",
+          colQty: "2",
+          fields: [
+            {
+              id: 1,
+              formName: "PreviousProcessorStatements",
+              title: "YesPrevious",
+              type: "radio",
+              placeholder: "Yes",
+              value: "",
+            },
+            {
+              id: 2,
+              formName: "PreviousProcessorStatements",
+              title: "NoPrevius",
+              type: "radio",
+              placeholder: "No",
+              value: "",
+            },
+          ]
+        },
+        // 19. ARE CUSTOMERS REQUIRED TO LEAVE A DEPOSIT?
+        {
+          title: "19. Are customers required to leave a Deposit?",
+          colQty: "1",
+          fields: [
+            {
+              id: 1,
+              formName: "DepositRequired",
+              title: "Yes",
+              type: "radio",
+              placeholder: "Yes",
+              value: "",
+            },
+            {
+              id: 2,
+              formName: "MerchantNameDisplayed",
+              title: "No",
+              type: "radio",
+              placeholder: "No",
+              value: "",
+            },
+          ],
+          title2: "If Yes, % of deposit required:",
+          fields2: [
+            {
+              id: 1,
+              formName: "DepositRequiredPercentage",
+              title: "Percentage",
+              type: "number",
+              placeholder: "%",
+              value: "",
+            },
+            
+          ],
+        },
+        // -- TIME FRAME FOR DELIVERY DAYS
+        { 
+          title: "Time Frame for Delivery Days",
+          colQty: "1",
+          fields: [
+            {
+              id: 1,
+              formName: "TimeFrameDeliveryDays",
+              title: "",
+              type: "number",
+              placeholder: "",
+              value: "",
+            },
+          ]
+        },
+        // 20. MOBILE APPLICATION
+        {
+          title: "20. Does your business offer products and/or services to customers through a mobile application:",
+          colQty: "1",
+          fields: [
+            {
+              id: 1,
+              formName: "MobileApplication",
+              title: "Yes",
+              type: "radio",
+              placeholder: "Yes",
+              value: "",
+            },
+            {
+              id: 2,
+              formName: "MobileApplication",
+              title: "No",
+              type: "radio",
+              placeholder: "No",
+              value: "",
+            },
+          ],
+          title2: "",
+          fields2: [
+            {
+              id: 1,
+              formName: "MobileApplicationList",
+              title: "List name of mobile application:",
+              type: "input",
+              placeholder: "",
+              value: "",
+            },
+            
+          ],
+        },
+      ]
+    },
+  ]
+}
+
+export const flaxRateInterNorthForm = 
+[
+  {
+    id: 1,
+    title: "MC Qualified Credit"
+  },
+  {
+    id: 2,
+    formName: "McQualifiedCreditDiscountFee",
+    title: "Discount Fee",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 3,
+    formName: "McQualifiedCreditTransactionFee",
+    title: "Transaction Fee",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 4,
+    title: "MC Qualified Non-Pin Debit"
+  },
+  {
+    id: 5,
+    formName: "McQualifiedNonPinDebitDiscountFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 6,
+    formName: "McQualifiedNonPinDebitTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 7,
+    title: "Visa Qual Credit"
+  },
+  {
+    id: 8,
+    formName: "VisaQualCreditDiscountFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 9,
+    formName: "VisaQualCreditTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 10,
+    title: "Visa Qual Non-Pin Debit"
+  },
+  {
+    id: 11,
+    formName: "VisaQualNonPinDebitDiscountFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 12,
+    formName: "VisaQualNonPinDebitTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 13,
+    title: "American Express Qual Credit"
+  },
+  {
+    id: 14,
+    formName: "AmericanExpressQualCreditDiscountFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 15,
+    formName: "AmericanExpressQualCreditTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 16,
+    title: "DiscoverNet Qual Credit"
+  },
+  {
+    id: 17,
+    formName: "DiscoverNetQualCreditDiscountFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 18,
+    formName: "DiscoverNetQualCreditTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 19,
+    title: "DiscoverNet Qual Non-Pin Debit"
+  },
+  {
+    id: 20,
+    formName: "DiscoverNetQualNonPinDebitDiscountFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 21,
+    formName: "DiscoverNetQualNonPinDebitTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 22,
+    title: "PayPal Qual Credit"
+  },
+  {
+    id: 23,
+    formName: "PayPalQualCredityDiscountFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 24,
+    formName: "PayPalQualCredityTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 25,
+    title: "Swiped"
+  },
+  {
+    id: 26,
+    formName: "SwipedDiscountFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 27,
+    formName: "SwipedTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 28,
+    title: "Non-Swiped"
+  },
+  {
+    id: 29,
+    formName: "NonSwipedDiscountFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 30,
+    formName: "NonSwipedTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 31,
+    title: "Pin Less"
+  },
+  {
+    id: 32,
+    formName: "PinLessDiscountFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 33,
+    title: "",
+  },
+  {
+    id: 34,
+    title: "PINless Debit Transaction Fee",
+  },
+  {
+    id: 35,
+    title: "",
+  },
+  {
+    id: 36,
+    formName: "PinLessDebitTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 37,
+    title: "PINless Debit Denial Fee",
+  },
+  {
+    id: 38,
+    title: "",
+  },
+  {
+    id: 39,
+    formName: "PinLessDebitDenialTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  }
+]
+
+export const flexRateFeesNorthForm =
+[
+  {
+    id: 1,
+    formName: "Nameless",
+    title: "-",
+    type: "input",
+    placeholder: "",
+    value: ""
+  },
+  {
+    id: 2,
+    formName: "ChargebackProcessing",
+    title: "Chargeback Processing",
+    type: "input",
+    placeholder: "",
+    value: ""
+  },
+  {
+    id: 3,
+    formName: "AmexChargebackFee",
+    title: "Amex Chargeback Fee",
+    type: "input",
+    placeholder: "",
+    value: ""
+  },
+  {
+    id: 4,
+    formName: "DiscoverChargebackFee",
+    title: "Discover Chargeback Fee",
+    type: "input",
+    placeholder: "",
+    value: ""
+  },
+  {
+    id: 5,
+    formName: "RetrievalFee",
+    title: "Retrieval Fee",
+    type: "input",
+    placeholder: "",
+    value: ""
+  },
+  {
+    id: 6,
+    formName: "AmexChargebackRetrievalFee",
+    title: "Amex Chargeback Retrieval Fee",
+    type: "input",
+    placeholder: "",
+    value: ""
+  },
+  {
+    id: 7,
+    formName: "DiscoverRetrievalFee",
+    title: "Discover Retrieval Fee",
+    type: "input",
+    placeholder: "",
+    value: ""
+  },
+  {
+    id: 8,
+    formName: "VisaMcDiscChargebackRetrievalFee",
+    title: "Visa Mc Disc Chargeback Retrieval Fee",
+    type: "input",
+    placeholder: "",
+    value: ""
+  },
+  {
+    id: 9,
+    formName: "BatchSettlementFee",
+    title: "Batch Settlement Fee",
+    type: "input",
+    placeholder: "",
+    value: ""
+  },
+  {
+    id: 10,
+    formName: "TinTfnBlankInvalidFee",
+    title: "Tin Tfn Blank Invalid Fee",
+    type: "input",
+    placeholder: "",
+    value: ""
+  }
+]
+
+export const tieredPricingNorthForm =
+[
+  {
+    id: 1,
+    title: "Mc Qual Credit",
+  },
+  {
+    id: 2,
+    formName: "McQualCreditDiscountFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 3,
+    formName: "McQualCreditTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 4,
+    title: "Mc Mid Qual Credit",
+  },
+  {
+    id: 5,
+    formName: "McMidQualCreditDiscountFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 6,
+    formName: "McMidQualCreditTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 7,
+    title: "Mc Non Qual Credit",
+  },
+  {
+    id: 8,
+    formName: "McNonQualCreditDiscountFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 9,
+    formName: "McNonQualCreditTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 10,
+    title: "Mc Qual Non Pin Debit",
+  },
+  {
+    id: 11,
+    formName: "McQualNonPinDebitDiscountFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 12,
+    formName: "McQualNonPinDebitTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 13,
+    title: "Mc Mid Qual Non Pin Debit",
+  },
+  {
+    id: 14,
+    formName: "McMidQualNonPinDebitDiscountFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 15,
+    formName: "McMidQualNonPinDebitTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 16,
+    title: "Mc Non Qual Non Pin Debit",
+  },
+  {
+    id: 17,
+    formName: "McNonQualNonPinDebitDiscountFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 18,
+    formName: "McNonQualNonPinDebitTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 19,
+    title: "Visa Qual Credit",
+  },
+  {
+    id: 20,
+    formName: "VisaQualCreditDiscountFee2",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 21,
+    formName: "VisaQualCreditTransactionFee2",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 22,
+    title: "Visa Mid Qual Credit",
+  },
+  {
+    id: 23,
+    formName: "VisaMidQualCreditDiscountFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 24,
+    formName: "VisaMidQualCreditTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 25,
+    title: "Visa Non Qual Credit",
+  },
+  {
+    id: 26,
+    formName: "VisaNonQualCreditDiscountFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 27,
+    formName: "VisaNonQualCreditTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 28,
+    title: "Visa Qual Non Pin Debit",
+  },
+  {
+    id: 29,
+    formName: "VisaQualNonPinDebitDiscountFee2",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 30,
+    formName: "VisaQualNonPinDebitTransactionFee2",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 31,
+    title: "Visa Mid Qual Non Pin Debit",
+  },
+  {
+    id: 32,
+    formName: "VisaMidQualNonPinDebitDiscountFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 33,
+    formName: "VisaMidQualNonPinDebitTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 34,
+    title: "Visa Non Qual Non Pin Debit",
+  },
+  {
+    id: 35,
+    formName: "VisaNonQualiNonPinDebitDiscountFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 36,
+    formName: "VisaNonQualiNonPinDebitTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 37,
+    title: "Discover Qual Credit",
+  },
+  {
+    id: 38,
+    formName: "DiscoverQualCreditDiscountFee2",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 39,
+    formName: "DiscoverQualCreditTransactionFee2",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 40,
+    title: "Discover Mid Qual Credit",
+  },
+  {
+    id: 41,
+    formName: "DiscoverMidQualCreditDiscountFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 42,
+    formName: "DiscoverMidQualCreditTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 43,
+    title: "Discover Non Qual Credit",
+  },
+  {
+    id: 44,
+    formName: "DiscoverNonQualCreditDiscountFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 45,
+    formName: "DiscoverNonQualCreditTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 46,
+    title: "Discover Qual Non Pin Debit",
+  },
+  {
+    id: 47,
+    formName: "DiscoverQualNonPinDebitDiscountFee2",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 48,
+    formName: "DiscoverQualNonPinDebitTransactionFee2",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 49,
+    title: "Discover Mid Qual Non Pin Debit",
+  },
+  {
+    id: 50,
+    formName: "DiscoverMidQualNonPinDebitDiscountFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 51,
+    formName: "DiscoverMidQualNonPinDebitTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 52,
+    title: "Discover Non Qual Non Pin Debit",
+  },
+  {
+    id: 53,
+    formName: "DiscoverNonQualiNonPinDebitDiscountFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 54,
+    formName: "DiscoverNonQualiNonPinDebitTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 55,
+    title: "PayPal Qual Credit",
+  },
+  {
+    id: 56,
+    formName: "PayPalQualCreditDiscountFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 57,
+    formName: "PayPalQualCreditTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 58,
+    title: "Ame Exp Qual Credit",
+  },
+  {
+    id: 59,
+    formName: "AmeExpQualCreditDiscountFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 60,
+    formName: "AmeExpQualCreditTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 61,
+    title: "Ame Exp Mid Qual Credit",
+  },
+  {
+    id: 62,
+    formName: "AmeExpMidQualCreditDiscountFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 63,
+    formName: "AmeExpMidQualCreditTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 64,
+    title: "Ame Exp Non Qual Credit",
+  },
+  {
+    id: 65,
+    formName: "AmeExpNonQualCreditDiscountFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  },
+  {
+    id: 66,
+    formName: "AmeExpNonQualCreditTransactionFee",
+    title: "",
+    type: "input",
+    placeholder: "%",
+    value: ""
+  }
+]
