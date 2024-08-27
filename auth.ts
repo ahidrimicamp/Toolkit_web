@@ -3,6 +3,7 @@ import prisma from "./constants/connectToDB";
 import { Lucia, Session, User } from "lucia";
 import { cache } from "react";
 import { cookies } from "next/headers";
+import { Slack } from "arctic";
 
 const adapter = new PrismaAdapter(prisma.session, prisma.user);
 
@@ -36,6 +37,12 @@ declare module "lucia" {
     DatabaseUserAttributes: DatabaseUserAttributes;
   }
 }
+
+export const slackLogin = new Slack(
+  process.env.AUTH_SLACK_ID!,
+  process.env.AUTH_SLACK_SECRET!,
+  `${process.env.AUTH_SLACK_CALLBACK}/api/auth/callback/slack`,
+);
 
 export const validateRequest = cache(
   async (): Promise<

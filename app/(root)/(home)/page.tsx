@@ -49,6 +49,12 @@ export default async function Home() {
         </div>
         {/* Datatable */}
         <HomeTable />
+        <Card className="my-5">
+          <CardHeader className="px-7">
+            <CardTitle>Tasks</CardTitle>
+          </CardHeader>
+          <CardContent></CardContent>
+        </Card>
       </div>
       <div className="hidden sm:block">
         <SideDetails />

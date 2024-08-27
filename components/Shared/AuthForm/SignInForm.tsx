@@ -42,16 +42,18 @@ const SignInForm = ({ type }: { type: string }) => {
   return (
     <div>
       {/* Slack login */}
-      <Button className="flex w-full items-center gap-5">
-        <Image
-          src="/icon/slack.svg"
-          alt="slack"
-          width={30}
-          height={30}
-          priority
-        />
-        <span>Continue with Slack</span>
-      </Button>
+      <Link href="/login/slack">
+        <Button className="flex w-full items-center gap-5">
+          <Image
+            src="/icon/slack.svg"
+            alt="slack"
+            width={30}
+            height={30}
+            priority
+          />
+          <span>Continue with Slack</span>
+        </Button>
+      </Link>
 
       <div data-orientation="horizon" className="my-5 w-full border" />
 

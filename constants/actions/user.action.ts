@@ -85,7 +85,6 @@ export const signUp = async (
         emailConfirmed: false,
         phoneNumberConfirmed: false,
         twoFactorEnabled: false,
-        lockoutEnabled: true,
       },
     });
 
@@ -118,11 +117,18 @@ export const signIn = async (
   credentials: SignInValues,
 ): Promise<{ error: string }> => {
   try {
-    const { email, password } = SignInSchema.parse(credentials);
+    const { email, username, password } = SignInSchema.parse(credentials);
 
     const existingUser = await prisma.user.findFirst({
       where: {
-        email,
+        OR: [
+          {
+            email,
+          },
+          {
+            username,
+          },
+        ],
       },
     });
 
@@ -163,7 +169,7 @@ export const signIn = async (
   }
 };
 
-export const signOut = async () => {
+export const signOut = async (): Promise<{ error: string }> => {
   const { session } = await validateRequest();
 
   if (!session) throw new Error("Unauthorized");
@@ -185,26 +191,35 @@ export const UserUpdate = async (
   credentials: UpdateUserValues,
 ): Promise<{ error: string; success: string }> => {
   try {
-    const { email, password, phone, username, id } =
+    const { email, password, phone, username, id, image } =
       UpdateUserSchema.parse(credentials);
 
-    const passwordHashed = await hash(password, {
-      memoryCost: 19456,
-      parallelism: 1,
-      timeCost: 2,
-      outputLen: 32,
-    });
+    const updateData: any = {
+      email: email.trim(),
+      phoneNumber: phone,
+      username: username.trim(),
+      normalizedUserName: NormalizedUsername(username),
+      normalizedEmail: NormalizedEmail(email),
+    };
+
+    if (password !== "") {
+      const passwordHashed = await hash(password, {
+        memoryCost: 19456,
+        parallelism: 1,
+        timeCost: 2,
+        outputLen: 32,
+      });
+
+      updateData.passwordHash = passwordHashed;
+    }
+
+    if (image !== "") {
+      updateData.image = image;
+    }
 
     await prisma.user.update({
       where: { id },
-      data: {
-        email: email.trim(),
-        passwordHash: passwordHashed,
-        phoneNumber: phone,
-        username: username.trim(),
-        normalizedUserName: NormalizedUsername(username),
-        normalizedEmail: NormalizedEmail(email),
-      },
+      data: updateData,
     });
 
     return redirect("/profile");

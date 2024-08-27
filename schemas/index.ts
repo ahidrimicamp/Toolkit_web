@@ -15,7 +15,8 @@ const requiredEmail = requiredString
   );
 
 export const SignInSchema = z.object({
-  email: z.string().email(),
+  email: requiredString.email(),
+  username: requiredString.optional(),
   password: z.string().min(1, {
     message: "Password shouldn't be blank!",
   }),
@@ -34,6 +35,7 @@ export const UpdateUserSchema = z.object({
   password: z.string(),
   username: requiredString.max(25, "Max at 25 characters!"),
   phone: requiredString.max(10, "Not more than 10 digits!"),
+  image: z.string(),
 });
 
 export type UpdateUserValues = z.infer<typeof UpdateUserSchema>;

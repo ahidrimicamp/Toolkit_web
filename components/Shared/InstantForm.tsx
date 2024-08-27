@@ -290,21 +290,27 @@ export const SwitchForm = <T extends z.ZodType<any, any>>({
       name={formName}
       render={({ field }) => {
         return (
-          <div className={cn("flex items-center space-x-5", className)}>
-            <Switch
-              checked={isActive}
-              onChange={(e) => {
-                e.stopPropagation();
-              }}
-              value={field.value}
-              onClick={() => {
-                if (id !== undefined && onToggle) {
-                  onToggle(id);
-                }
-              }}
-            />
-            <span>{label}</span>
-          </div>
+          <FormItem>
+            <div className={cn("flex items-center space-x-5", className)}>
+              <FormControl>
+                <Switch
+                  checked={!isActive ? field.value : isActive}
+                  onChange={(e) => {
+                    e.stopPropagation();
+                  }}
+                  onCheckedChange={field.onChange}
+                  onClick={() => {
+                    if (id) {
+                      if (id !== undefined && onToggle) {
+                        onToggle(id);
+                      }
+                    }
+                  }}
+                />
+              </FormControl>
+              <span>{label}</span>
+            </div>
+          </FormItem>
         );
       }}
     />
@@ -319,7 +325,7 @@ export const SwitchForm = <T extends z.ZodType<any, any>>({
  * how many fields and the type of the fields (radio, checkbox, input..).
  * @gridCols A string with a number of how many cols you want on the form.
  *  */
-export const FormGeneration = ({ formControl, formFields, gridCols }: any ) => {
+export const FormGeneration = ({ formControl, formFields, gridCols }: any) => {
   return (
     <div className={`grid grid-cols-${gridCols} gap-2 max-xl:grid-cols-2`}>
       {formFields.map(

@@ -326,7 +326,7 @@ model User {
   image                String?
   twoFactorEnabled     Boolean
   lockoutEnd           DateTime?
-  lockoutEnabled       Boolean
+  language             String?
   accessFailedCount    Int?
   activityLog          ActivityLog[]
   leads                Leads[]
