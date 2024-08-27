@@ -10,7 +10,6 @@ import {
   authAvsFeesInterForm,
   billedMonthlyFeesInterForm,
   billToFspForm,
-  buypassAuthorizationInterForm,
   cardSalesInterForm,
   cloverOnlyInterForm,
   connectionTypeInterForm,
@@ -27,28 +26,24 @@ import {
   LegalInfoInterForm,
   northBoadingForm,
   OwnersTable,
-  passThroughInterForm,
-  pinDebitInterForm,
   salesInterForm,
   serverFspForm,
   settingsInterForm,
   shipPriorityFspForm,
   shipToFspForm,
   taxInformationInterForm,
-  tieredPricingNorthForm,
   tipLineFspForm,
   wavitAppOnlyFspForm,
-  wexFullFeesInterForm,
 } from "@/constants";
 import { DataTypes } from "@/types";
 import React, { useState } from "react";
 import { Form } from "../ui/form";
 import {
-  financialInformationInterSchema,
-  merchantInformationInterSchema,
-  merchantOwnerInterSchema,
-  northBoardingInterSchema,
-  programmingRequestInterSchema,
+  financialInformationWavitSchema,
+  merchantInformationWavitSchema,
+  merchantOwnerWavitSchema,
+  northBoardingWavitSchema,
+  programmingRequestWavitSchema,
 } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -75,8 +70,9 @@ import AddNewMerchantOwner from "./AddNewMerchantOwner";
 import { Input } from "../ui/input";
 
 const MerchantDetail = () => {
-  const form = useForm<z.infer<typeof merchantInformationInterSchema>>({
-    resolver: zodResolver(merchantInformationInterSchema),
+
+  const form = useForm<z.infer<typeof merchantInformationWavitSchema>>({
+    resolver: zodResolver(merchantInformationWavitSchema),
     defaultValues: {
       ClientsBusinessName: "",
       Phone: "",
@@ -105,7 +101,7 @@ const MerchantDetail = () => {
     },
   });
 
-  const onSubmit = (value: z.infer<typeof merchantInformationInterSchema>) => {
+  const onSubmit = (value: z.infer<typeof merchantInformationWavitSchema>) => {
     console.log(value);
   };
 
@@ -189,8 +185,8 @@ const MerchantDetail = () => {
 };
 
 const FinancialInformation = () => {
-  const form = useForm<z.infer<typeof financialInformationInterSchema>>({
-    resolver: zodResolver(financialInformationInterSchema),
+  const form = useForm<z.infer<typeof financialInformationWavitSchema>>({
+    resolver: zodResolver(financialInformationWavitSchema),
     defaultValues: {
       BankName: "",
       BankRouting: 0,
@@ -216,7 +212,7 @@ const FinancialInformation = () => {
     },
   });
 
-  const onSubmit = (value: z.infer<typeof financialInformationInterSchema>) => {
+  const onSubmit = (value: z.infer<typeof financialInformationWavitSchema>) => {
     console.log(value);
   };
 
@@ -392,15 +388,15 @@ const MerchantOwner = () => {
 
   const columns = createColumns(columnsConfig);
 
-  const form = useForm<z.infer<typeof merchantOwnerInterSchema>>({
-    resolver: zodResolver(merchantOwnerInterSchema),
+  const form = useForm<z.infer<typeof merchantOwnerWavitSchema>>({
+    resolver: zodResolver(merchantOwnerWavitSchema),
     defaultValues: {
       HasFiledForBankruptcy: false,
       Account: 0,
     },
   });
 
-  const onSubmit = (value: z.infer<typeof merchantOwnerInterSchema>) => {
+  const onSubmit = (value: z.infer<typeof merchantOwnerWavitSchema>) => {
     console.log(value);
   };
 
@@ -460,8 +456,8 @@ const MerchantOwner = () => {
 };
 
 const ProgrammingRequest = () => {
-  const form = useForm<z.infer<typeof programmingRequestInterSchema>>({
-    resolver: zodResolver(programmingRequestInterSchema),
+  const form = useForm<z.infer<typeof programmingRequestWavitSchema>>({
+    resolver: zodResolver(programmingRequestWavitSchema),
     defaultValues: {
       SalesRepresentative: "",
       SalesPhoneNumber: "",
@@ -499,7 +495,7 @@ const ProgrammingRequest = () => {
     },
   });
 
-  const onSubmit = (value: z.infer<typeof programmingRequestInterSchema>) => {
+  const onSubmit = (value: z.infer<typeof programmingRequestWavitSchema>) => {
     console.log(value);
   };
 
@@ -790,8 +786,9 @@ const ProgrammingRequest = () => {
 };
 
 const NorthInformation = () => {
-  const form = useForm<z.infer<typeof northBoardingInterSchema>>({
-    resolver: zodResolver(northBoardingInterSchema),
+
+  const form = useForm<z.infer<typeof northBoardingWavitSchema>>({
+    resolver: zodResolver(northBoardingWavitSchema),
     defaultValues: {
       VisitNotRequired: false,
       Zone: "",
@@ -859,50 +856,6 @@ const NorthInformation = () => {
       VisaMcDiscChargebackRetrievalFee: 0,
       BatchSettlementFee: 0,
       TinTfnBlankInvalidFee: 0,
-      McQualCreditDiscountFee: 0,
-      McQualCreditTransactionFee: 0,
-      McMidQualCreditDiscountFee: 0,
-      McMidQualCreditTransactionFee: 0,
-      McNonQualCreditDiscountFee: 0,
-      McNonQualCreditTransactionFee: 0,
-      McQualNonPinDebitDiscountFee: 0,
-      McQualNonPinDebitTransactionFee: 0,
-      McMidQualNonPinDebitDiscountFee: 0,
-      McMidQualNonPinDebitTransactionFee: 0,
-      McNonQualNonPinDebitDiscountFee: 0,
-      McNonQualNonPinDebitTransactionFee: 0,
-      VisaQualCreditDiscountFee2: 0,
-      VisaQualCreditTransactionFee2: 0,
-      VisaMidQualCreditDiscountFee: 0,
-      VisaMidQualCreditTransactionFee: 0,
-      VisaNonQualCreditDiscountFee: 0,
-      VisaNonQualCreditTransactionFee: 0,
-      VisaQualNonPinDebitDiscountFee2: 0,
-      VisaQualNonPinDebitTransactionFee2: 0,
-      VisaMidQualNonPinDebitDiscountFee: 0,
-      VisaMidQualNonPinDebitTransactionFee: 0,
-      VisaNonQualiNonPinDebitDiscountFee: 0,
-      VisaNonQualiNonPinDebitTransactionFee: 0,
-      DiscoverQualCreditDiscountFee2: 0,
-      DiscoverQualCreditTransactionFee2: 0,
-      DiscoverMidQualCreditDiscountFee: 0,
-      DiscoverMidQualCreditTransactionFee: 0,
-      DiscoverNonQualCreditDiscountFee: 0,
-      DiscoverNonQualCreditTransactionFee: 0,
-      DiscoverQualNonPinDebitDiscountFee2: 0,
-      DiscoverQualNonPinDebitTransactionFee2: 0,
-      DiscoverMidQualNonPinDebitDiscountFee: 0,
-      DiscoverMidQualNonPinDebitTransactionFee: 0,
-      DiscoverNonQualiNonPinDebitDiscountFee: 0,
-      DiscoverNonQualiNonPinDebitTransactionFee: 0,
-      PayPalQualCreditDiscountFee: 0,
-      PayPalQualCreditTransactionFee: 0,
-      AmeExpQualCreditDiscountFee: 0,
-      AmeExpQualCreditTransactionFee: 0,
-      AmeExpMidQualCreditDiscountFee: 0,
-      AmeExpMidQualCreditTransactionFee: 0,
-      AmeExpNonQualCreditDiscountFee: 0,
-      AmeExpNonQualCreditTransactionFee: 0,
       FeePerTid: 0,
       OfTids: 0,
       Total: 0,
@@ -911,41 +864,14 @@ const NorthInformation = () => {
       MinimumProcessingFee: 0,
       AnnualMembershipFee: 0,
       Nameless2: 0,
-      Voyager: 0,
-      WEX: 0,
-      FleetCorAuth: 0,
-      WexAuthFees: 0,
-      WexSaleDiscount: 0,
-      WexRefundDiscount: 0,
-      WexChargebacksDiscount: 0,
-      WexReversalDiscount: 0,
-      WexChargebackFee: 0,
-      WexChargebacksReversalFee: 0,
-      PassMcQualCreditDiscountFee: 0,
-      PassVisaQualCreditDiscountFee: 0,
-      PassDiscNetCreditDiscountFee: 0,
-      PassAmeExpCreditDiscountFee: 0,
-      PassMcQualNonPinDebitDiscountFee: 0,
-      PassVisaQualNonPinDebitDiscountFee: 0,
-      PassDiscQualNonPinDebiDiscountFee: 0,
-      PassSaleCreditNonPinTransactionFee: 0,
-      PassAmeExpTransactionFee: 0,
       McAuthFee: 0,
       VisaAuthFee: 0,
       DiscoverAuthFee: 0,
       AmericanExpressAuthFee: 0,
-      DebitSalesDiscount: 0,
-      AtmCardTransactionFee: 0,
-      DebitCardAuthorizationFee: 0,
-      DebitDeclineInterchangeFee: 0,
-      DebitInterchangeFee: 0,
-      DebitPreAuth: 0,
-      AdjustmentFee: 0,
-      PinDebitDeclined: 0,
     },
   });
 
-  const onSubmit = (value: z.infer<typeof northBoardingInterSchema>) => {
+  const onSubmit = (value: z.infer<typeof northBoardingWavitSchema>) => {
     console.log(value);
   };
 
@@ -1016,28 +942,7 @@ const NorthInformation = () => {
               ))}
             </div>
           </div>
-          <div className="my-2 border p-4">
-            {/* TIERED PRICING */}
-            <h1 className="my-5 flex justify-center gap-2 text-center text-4xl font-semibold text-sky-500">
-              Tiered Pricing
-            </h1>
-            <div className="grid grid-cols-3 items-end gap-2">
-              {tieredPricingNorthForm.map((item) => (
-                <div key={item.id}>
-                  {item.type ? (
-                    <InputForm
-                      control={form.control}
-                      formName={item.formName}
-                      label={item.title}
-                      placeholder={item.placeholder}
-                    />
-                  ) : (
-                    <p className="mb-2 pr-4 text-end">{item.title}</p>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
+         
           {/* BILLED MONTHLY FEES */}
           <div className="my-2 border p-4">
             <h1 className="my-5 flex justify-center gap-2 text-center text-4xl font-semibold text-sky-500">
@@ -1049,39 +954,7 @@ const NorthInformation = () => {
               gridCols={"3"}
             />
           </div>
-          {/* BUYPASS & AUTHORIZATION FEES */}
-          <div className="my-2 border p-4">
-            <h1 className="my-5 flex justify-center gap-2 text-center text-4xl font-semibold text-sky-500">
-              Buypass & Authorization Fees
-            </h1>
-            <FormGeneration
-              formControl={form.control}
-              formFields={buypassAuthorizationInterForm}
-              gridCols={"3"}
-            />
-          </div>
-          {/* WEX FULL ACQUIRING FEES */}
-          <div className="my-2 border p-4">
-            <h1 className="my-5 flex justify-center gap-2 text-center text-4xl font-semibold text-sky-500">
-              WEX Full Acquiring Fees
-            </h1>
-            <FormGeneration
-              formControl={form.control}
-              formFields={wexFullFeesInterForm}
-              gridCols={"3"}
-            />
-          </div>
-          {/* PASS THROUGH INTERCHANGE  */}
-          <div className="my-2 border p-4">
-            <h1 className="my-5 flex justify-center gap-2 text-center text-4xl font-semibold text-sky-500">
-              Pass Through Interchange
-            </h1>
-            <FormGeneration
-              formControl={form.control}
-              formFields={passThroughInterForm}
-              gridCols={"3"}
-            />
-          </div>
+          
           {/* AUTHORIZATION AND AVS FEES  */}
           <div className="my-2 border p-4">
             <h1 className="my-5 flex justify-center gap-2 text-center text-4xl font-semibold text-sky-500">
@@ -1090,17 +963,6 @@ const NorthInformation = () => {
             <FormGeneration
               formControl={form.control}
               formFields={authAvsFeesInterForm}
-              gridCols={"4"}
-            />
-          </div>
-          {/* PIN DEBIT  */}
-          <div className="my-2 border p-4">
-            <h1 className="my-5 flex justify-center gap-2 text-center text-4xl font-semibold text-sky-500">
-              PIN Debit
-            </h1>
-            <FormGeneration
-              formControl={form.control}
-              formFields={pinDebitInterForm}
               gridCols={"4"}
             />
           </div>
@@ -1117,7 +979,7 @@ const NorthInformation = () => {
   );
 };
 
-export default function RenderNorthInterchangeComponents(value: string) {
+export default function RenderNewWavitComponents(value: string) {
   switch (value) {
     case "merchantDetail":
       return <MerchantDetail />;

@@ -480,6 +480,8 @@ export const newFspLeadSchema = z.object({
   Name: requiredString,
 });
 
+// MERCHANT EDIT SECTION
+// Merchant Information
 export const boardingMerchantInfoSchema = z.object({
   MID: z.string(),
   LegalName: z.string(),
@@ -494,6 +496,7 @@ export const boardingMerchantInfoSchema = z.object({
   Phone2: z.string(),
   Ext2: z.string(),
   Email: z.string(),
+  Website: z.string(),
   DbaLegalName: z.string(),
   DbaContactName: z.string(),
   DbaAddress: z.string(),
@@ -503,8 +506,29 @@ export const boardingMerchantInfoSchema = z.object({
   DbaZip: z.string(),
 });
 
+// Order New Equipment
+export const newOrderInfoSchema = z.object({
+  ModelType: requiredString,
+  Quantity: requiredNumber,
+  AgentCompanyName: z.string(),
+  Warrantly: z.boolean(),
+  WillPayByACH: z.boolean(),
+  Billing: z.boolean(),
+  ShippingMethod: z.boolean(),
+  UseLegalDbaInfo: z.boolean(),
+  ContactName: z.string(),
+  Address: z.string(),
+  Address2: z.string(),
+  City: z.string(),
+  State: z.string(),
+  PostalCode: z.string(),
+  ContactPhone: z.string(),
+  ContactEmail: z.string(),
+  UploadAchForm: z.any(),
+  UploadProgRequest: z.any(),
+})
+// --------------------------------
 // This is for the FSP MPA Application
-
 // Merchant Detail TAB form
 export const merchantInformationFspSchema = z.object({
   // DBA Information Section
@@ -875,6 +899,13 @@ export const financialInformationInterSchema = z.object({
   Telephone: requiredNumber,
 });
 
+// MERCHANT OWNER
+export const merchantOwnerInterSchema = z.object({
+  // Has merchant/owner/principals ever filed for bankruptcy
+  HasFiledForBankruptcy: z.boolean(),
+  Account: z.number(),
+});
+
 // PROGRAMMING REQUEST FORM
 export const programmingRequestInterSchema = z.object({
   // Account Information
@@ -1082,6 +1113,385 @@ export const northBoardingInterSchema = z.object({
   DebitPreAuth: z.number(),
   AdjustmentFee: z.number(),
   PinDebitDeclined: z.number(),
+});
+
+
+// ----------------
+// This is for the NORTH WAViit 2502 Application
+
+// Merchant Detail TAB form
+export const merchantInformationWavitSchema = z.object({
+  // DBA Information Section
+  ClientsBusinessName: requiredString,
+  Phone: requiredString,
+  CustomerServicePhone: z.string(),
+  Fax: z.string(),
+  EmailStatements: requiredString,
+  CustomerServiceEmail: z.string(),
+  AlsoPrintAndMailStatements: z.boolean(),
+  // DBA Address Section
+  Street: requiredString,
+  AddressSearchBar: requiredString,
+  City: requiredString,
+  State: requiredString,
+  PostalCode: requiredString,
+  // LEGAL CONTACT INFORMATION
+  UseBusinessAddressDBA: z.boolean(),
+  LegalContactName: requiredString,
+  LegalContactFax: z.string(),
+  LegalContactPhone: requiredString,
+  LegalContactEmail: requiredString,
+  // LEGAL INFORMATION
+  LegalBusinessName: requiredString,
+  LegalStartDate: z.date(),
+  LegalBusinessWebsite: z.string(),
+  LegalAddress: requiredString,
+  LegalCity: requiredString,
+  LegalState: requiredString,
+  LegalPostalCode: requiredString,
+});
+
+// FINANCIAL INFORMATION TAB FORM
+export const financialInformationWavitSchema = z.object({
+  // Bank Information
+  BankName: requiredString,
+  BankRouting: requiredNumber,
+  BankAccounting: requiredNumber,
+  // Tax Information
+  EinSsn: z.string(),
+  SICMCC: z.string(),
+  TypeOfGoods: requiredString,
+  BusinessType: z.string(),
+  // Sales
+  HighTicket: requiredNumber,
+  AverageTicketsSales: requiredNumber,
+  AnnualVisaMc: requiredNumber,
+  AnnualAmex: requiredNumber,
+  AnnualDiscover: requiredNumber,
+  AnnualTotalSales: requiredNumber,
+  // Settings
+  EarlyTerminationFee: requiredNumber,
+  CashDiscount: z.number(),
+  Discount: z.number(),
+  MonthlyStatementFee: requiredNumber,
+  // Sales Dustribution
+  StoreFrontSwipe: requiredNumber,
+  Internet: requiredNumber,
+  MailOrder: requiredNumber,
+  Telephone: requiredNumber,
+});
+
+// MERCHANT OWNER
+export const merchantOwnerWavitSchema = z.object({
+  // Has merchant/owner/principals ever filed for bankruptcy
+  HasFiledForBankruptcy: z.boolean(),
+  Account: z.number(),
+});
+
+// PROGRAMMING REQUEST FORM
+export const programmingRequestWavitSchema = z.object({
+  // Account Information
+  SalesRepresentative: z.string(),
+  SalesPhoneNumber: z.string(),
+  // POS Provider Name
+  FileBuildVarOnly: z.boolean(),
+  PosProviderName: z.string(),
+  // WAVIit App Only
+  Invoicing: z.boolean(),
+  InvoicingNumberRequired: z.boolean(),
+  QrScan: z.boolean(),
+  // Connection Type
+  EthernetInternet: z.boolean(),
+  WirelessSim: z.boolean(),
+  // Clover Only
+  NeedMenuOrInventory: z.boolean(),
+  HowCashDiscountApplied: z.string(),
+  // File build Information
+  BuildType: z.string(),
+  Pbx: z.boolean(),
+  Wavit: z.boolean(),
+  PinDebit: z.boolean(),
+  AutoClose: z.boolean(),
+  AutoCloseTime: z.string(),
+  TipLine: z.boolean(),
+  TipLineType: z.string(),
+  Server: z.boolean(),
+  SuggestedTipPercentages: z.string(),
+  SalesTax: z.number(),
+  // Shipping Information
+  ShipTo: z.string(),
+  ShipName: z.string(),
+  ShipPriority: z.string(),
+  UseExistingAddress: z.string(),
+  ShipAddress: z.string(),
+  ShipCity: z.string(),
+  ShipState: z.string(),
+  ShipPostalCode: z.string(),
+  ShipPhone: z.string(),
+  ShipEmail: z.string(),
+  // Billing Information
+  BillTo: z.string(),
+});
+
+// NORTH BOARDING FORM
+export const northBoardingWavitSchema = z.object({
+  // Location and Distribution - Additional credit check
+  VisitNotRequired: z.boolean(),
+  Zone: z.string(),
+  Location: z.string(),
+  LocationOther: z.string(),
+  Seasonal: z.boolean(),
+  MonthsInOpertation: z.number(),
+  MonthOpenBegin: z.number(),
+  MonthOpenEnd: z.number(),
+  FloorsLevels: z.string(),
+  MerchantOccupies: z.string(),
+  MerchantOccupiesOther: z.string(),
+  FloorsOccupiedBy: z.string(),
+  MerchantNameDisplayed: z.string(),
+  TimeZone: z.string(),
+  SquareFootage: z.string(),
+  HowManyEmployees: z.number(),
+  RegisterTerminals: z.number(),
+  ReturnPolicy: z.string(),
+  SpecificReturnPolicy: z.string(),
+  SpecificReturnPolicyOther: z.string(),
+  // Information
+  DaysToSubmitTransactions: z.number(),
+  ProperLicenseVisible: z.number(),
+  Explanation: z.string(),
+  PreviousProcessor: z.string(),
+  PreviousMerchant: z.string(),
+  ReasonForLeaving: z.string(),
+  ReasonForLeavingOther: z.string(),
+  PreviousProcessorStatements: z.string(),
+  DepositRequired: z.string(),
+  DepositRequiredPercentage: z.number(),
+  TimeFrameDeliveryDays: z.string(),
+  MobileApplication: z.string(),
+  MobileApplicationList: z.string(),
+  // Flax Rate
+  McQualifiedCreditDiscountFee: z.number(),
+  McQualifiedCreditTransactionFee: z.number(),
+  McQualifiedNonPinDebitDiscountFee: z.number(),
+  McQualifiedNonPinDebitTransactionFee: z.number(),
+  VisaQualCreditDiscountFee: z.number(),
+  VisaQualCreditTransactionFee: z.number(),
+  VisaQualNonPinDebitDiscountFee: z.number(),
+  VisaQualNonPinDebitTransactionFee: z.number(),
+  AmericanExpressQualCreditDiscountFee: z.number(),
+  AmericanExpressQualCreditTransactionFee: z.number(),
+  DiscoverNetQualCreditDiscountFee: z.number(),
+  DiscoverNetQualCreditTransactionFee: z.number(),
+  DiscoverNetQualNonPinDebitDiscountFee: z.number(),
+  DiscoverNetQualNonPinDebitTransactionFee: z.number(),
+  PayPalQualCredityDiscountFee: z.number(),
+  PayPalQualCredityTransactionFee: z.number(),
+  SwipedDiscountFee: z.number(),
+  SwipedTransactionFee: z.number(),
+  NonSwipedDiscountFee: z.number(),
+  NonSwipedTransactionFee: z.number(),
+  PinLessDiscountFee: z.number(),
+  PinLessDebitTransactionFee: z.number(),
+  PinLessDebitDenialTransactionFee: z.number(),
+  // Flat Rate Fees
+  Nameless: z.number(),
+  ChargebackProcessing: z.number(),
+  AmexChargebackFee: z.number(),
+  DiscoverChargebackFee: z.number(),
+  RetrievalFee: z.number(),
+  AmexChargebackRetrievalFee: z.number(),
+  DiscoverRetrievalFee: z.number(),
+  VisaMcDiscChargebackRetrievalFee: z.number(),
+  BatchSettlementFee: z.number(),
+  TinTfnBlankInvalidFee: z.number(),
+  // Billed Monthly Fees
+  FeePerTid: z.number(),
+  OfTids: z.number(),
+  Total: z.number(),
+  MonthlyServiceFee: z.number(),
+  AchRejectFee: z.number(),
+  MinimumProcessingFee: z.number(),
+  AnnualMembershipFee: z.number(),
+  Nameless2: z.number(),
+  // Authorization and AVS Fees
+  McAuthFee: z.number(),
+  VisaAuthFee: z.number(),
+  DiscoverAuthFee: z.number(),
+  AmericanExpressAuthFee: z.number(),
+});
+
+
+// ----------------
+// This is for the OMAHA PROCESSING APPLICATION
+// Merchant Detail TAB form
+export const merchantInformationOmahaSchema = z.object({
+  // DBA Information Section
+  UseInterchangeWavit: z.boolean(),
+  ClientsBusinessName: requiredString,
+  Phone: requiredString,
+  CustomerServicePhone: z.string(),
+  Fax: z.string(),
+  EmailStatements: requiredString,
+  CustomerServiceEmail: z.string(),
+  AlsoPrintAndMailStatements: z.boolean(),
+  // DBA Address Section
+  Street: requiredString,
+  AddressSearchBar: requiredString,
+  City: requiredString,
+  State: requiredString,
+  PostalCode: requiredString,
+  // LEGAL CONTACT INFORMATION
+  UseBusinessAddressDBA: z.boolean(),
+  LegalContactName: requiredString,
+  LegalContactFax: z.string(),
+  LegalContactPhone: requiredString,
+  LegalContactEmail: requiredString,
+  // LEGAL INFORMATION
+  LegalBusinessName: requiredString,
+  LegalStartDate: z.date(),
+  LegalBusinessWebsite: z.string(),
+  LegalAddress: requiredString,
+  LegalCity: requiredString,
+  LegalState: requiredString,
+  LegalPostalCode: requiredString,
+});
+
+// FINANCIAL INFORMATION TAB FORM
+export const financialInformationOmahaSchema = z.object({
+  // Bank Information
+  BankName: requiredString,
+  BankRouting: requiredNumber,
+  BankAccounting: requiredNumber,
+  // Tax Information
+  EinSsn: z.string(),
+  SICMCC: z.string(),
+  TypeOfGoods: requiredString,
+  BusinessType: z.string(),
+  // Sales
+  HighTicket: requiredNumber,
+  AverageTicketsSales: requiredNumber,
+  AnnualVisaMc: requiredNumber,
+  AnnualAmex: requiredNumber,
+  AnnualDiscover: requiredNumber,
+  AnnualTotalSales: requiredNumber,
+  // Settings
+  EarlyTerminationFee: requiredNumber,
+  CashDiscount: z.number(),
+  Discount: z.number(),
+  MonthlyStatementFee: requiredNumber,
+  // Sales Dustribution
+  StoreFrontSwipe: requiredNumber,
+  Internet: requiredNumber,
+  MailOrder: requiredNumber,
+  Telephone: requiredNumber,
+});
+
+// MERCHANT OWNER
+export const merchantOwnerOmahaSchema = z.object({
+  // Has merchant/owner/principals ever filed for bankruptcy
+  HasFiledForBankruptcy: z.boolean(),
+  Account: z.number(),
+});
+
+// PROGRAMMING REQUEST FORM
+export const programmingRequestOmahaSchema = z.object({
+  // Account Information
+  SalesRepresentative: z.string(),
+  SalesPhoneNumber: z.string(),
+  // POS Provider Name
+  FileBuildVarOnly: z.boolean(),
+  PosProviderName: z.string(),
+  // WAVIit App Only
+  Invoicing: z.boolean(),
+  InvoicingNumberRequired: z.boolean(),
+  QrScan: z.boolean(),
+  // Connection Type
+  EthernetInternet: z.boolean(),
+  WirelessSim: z.boolean(),
+  // Clover Only
+  NeedMenuOrInventory: z.boolean(),
+  HowCashDiscountApplied: z.string(),
+  // File build Information
+  BuildType: z.string(),
+  Pbx: z.boolean(),
+  Wavit: z.boolean(),
+  PinDebit: z.boolean(),
+  AutoClose: z.boolean(),
+  AutoCloseTime: z.string(),
+  TipLine: z.boolean(),
+  TipLineType: z.string(),
+  Server: z.boolean(),
+  SuggestedTipPercentages: z.string(),
+  SalesTax: z.number(),
+  // Shipping Information
+  ShipTo: z.string(),
+  ShipName: z.string(),
+  ShipPriority: z.string(),
+  UseExistingAddress: z.string(),
+  ShipAddress: z.string(),
+  ShipCity: z.string(),
+  ShipState: z.string(),
+  ShipPostalCode: z.string(),
+  ShipPhone: z.string(),
+  ShipEmail: z.string(),
+  // Billing Information
+  BillTo: z.string(),
+});
+
+// OMAHA DETAILS FORM
+export const detailsOmahaSchema = z.object({
+  // Location and Distribution - Additional credit check
+  Zone: z.string(),
+  Location: z.string(),
+  HowManyEmployees: z.number(),
+  RegisterTerminals: z.number(),
+  ProperLicenseVisible: z.number(),
+  Explanation: z.string(),
+  MerchantNameDisplayed: z.string(),
+  FloorsOccupiedBy: z.string(),
+  MerchantOccupies: z.string(),
+  MerchantOccupiesOther: z.string(),
+  FloorsLevels: z.string(),
+  SquareFootage: z.string(),
+  DepositRequired: z.boolean(),
+  DepositPercentage: z.number(), 
+  // Information
+  ReturnPolicy: z.string(),
+  RefundPolicy: z.string(),
+  RefundPolicySpecific: z.string(),
+  DaysToRefund: z.number(),
+  AdvCatalog: z.string(),
+  AdvBrochure: z.string(),
+  AdvDirectMail: z.string(),
+  AdvTvRadio: z.string(),
+  AdvInternet: z.string(),
+  AdvPhone: z.string(),
+  AdvNews: z.string(),
+  AdvOther: z.string(),
+  PreviousProcessor: z.string(),
+  ReasonForLeaving: z.string(),
+  ReasonForLeavingOther: z.string(),
+  MobileApplication: z.string(),
+  MobileApplicationList: z.string(),
+  // Miscellaneous Fees
+  MonthlyStatementFee: z.number(),
+  // TIN/TFN & Regulatory Product Fees
+  TinTfnInvalid: z.number(),
+  WebsiteUsage: z.number(),
+  // Service Fee
+  DuesAndAssessments: z.boolean(),
+  MastercardQualCredit: z.number(),
+  MastercardQualDebit: z.number(),
+  VisaQualCredit: z.number(),
+  VisaQualDebit: z.number(),
+  DiscoverNetPaypalQualCredit: z.number(),
+  DiscoverNetPaypalQualDebit: z.number(),
+  AmExQualCredit: z.number(),
+  // Authorization & Capture Transaction Fees
+  MastercardVisaAuthCaptureFee: z.number(),
+  DiscoverNetPayPalAuthCaptureFee: z.number(),
+  AmexOpBlueAuthCaptureFee: z.number(),
 });
 
 // -----------------------------------

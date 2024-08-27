@@ -3,7 +3,7 @@ import { Button, ButtonProps } from "../ui/button";
 import { cn } from "@/lib/utils";
 
 interface CustomButtonProps extends ButtonProps {
-  btnType: "destructive" | "default" | "success";
+  btnType: "destructive" | "default" | "success" | "primary";
 }
 
 const CustomButtons = ({
@@ -43,6 +43,13 @@ const CustomButtons = ({
 
       {btnType === "success" && (
         <Button className="flex-1 bg-gradient-to-r from-[#79CB6C] to-[#285C20] text-white hover:opacity-90">
+          {title}
+          {props.children}
+        </Button>
+      )}
+
+      {btnType === "primary" && (
+        <Button className="w-full hover:opacity-90">
           {title}
           {props.children}
         </Button>

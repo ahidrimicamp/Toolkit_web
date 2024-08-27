@@ -7,10 +7,8 @@ import DataTable from "@/components/Shared/DataTable/DataTable";
 import { Button } from "@/components/ui/button";
 import {
   accountInformationFspForm,
-  authAvsFeesInterForm,
-  billedMonthlyFeesInterForm,
+  authCaptureOmahaForm,
   billToFspForm,
-  buypassAuthorizationInterForm,
   cardSalesInterForm,
   cloverOnlyInterForm,
   connectionTypeInterForm,
@@ -21,34 +19,29 @@ import {
   dbaSelectionFspForm,
   equipmentInformationFspForm,
   fileBuildInformationFspForm,
-  flaxRateInterNorthForm,
-  flexRateFeesNorthForm,
   LegalAddressInfoInterForm,
   LegalInfoInterForm,
-  northBoadingForm,
+  omahaBoadingForm,
   OwnersTable,
-  passThroughInterForm,
-  pinDebitInterForm,
   salesInterForm,
   serverFspForm,
+  serviceFeesOmahaForm,
   settingsInterForm,
   shipPriorityFspForm,
   shipToFspForm,
   taxInformationInterForm,
-  tieredPricingNorthForm,
   tipLineFspForm,
   wavitAppOnlyFspForm,
-  wexFullFeesInterForm,
 } from "@/constants";
 import { DataTypes } from "@/types";
 import React, { useState } from "react";
 import { Form } from "../ui/form";
 import {
-  financialInformationInterSchema,
-  merchantInformationInterSchema,
-  merchantOwnerInterSchema,
-  northBoardingInterSchema,
-  programmingRequestInterSchema,
+  detailsOmahaSchema,
+  financialInformationOmahaSchema,
+  merchantInformationOmahaSchema,
+  merchantOwnerOmahaSchema,
+  programmingRequestOmahaSchema,
 } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -75,9 +68,10 @@ import AddNewMerchantOwner from "./AddNewMerchantOwner";
 import { Input } from "../ui/input";
 
 const MerchantDetail = () => {
-  const form = useForm<z.infer<typeof merchantInformationInterSchema>>({
-    resolver: zodResolver(merchantInformationInterSchema),
+  const form = useForm<z.infer<typeof merchantInformationOmahaSchema>>({
+    resolver: zodResolver(merchantInformationOmahaSchema),
     defaultValues: {
+      UseInterchangeWavit: true,
       ClientsBusinessName: "",
       Phone: "",
       CustomerServicePhone: "",
@@ -105,7 +99,7 @@ const MerchantDetail = () => {
     },
   });
 
-  const onSubmit = (value: z.infer<typeof merchantInformationInterSchema>) => {
+  const onSubmit = (value: z.infer<typeof merchantInformationOmahaSchema>) => {
     console.log(value);
   };
 
@@ -117,6 +111,12 @@ const MerchantDetail = () => {
           <h1 className="my-5 text-2xl font-bold text-sky-500">
             DBA Information
           </h1>
+          <SwitchForm
+            control={form.control}
+            formName="UseInterchangeWavit"
+            label="Use WAVit Flat Rate"
+          />
+          <br/>
           <FormGeneration
             formControl={form.control}
             formFields={dbaInformationInterForm}
@@ -189,8 +189,8 @@ const MerchantDetail = () => {
 };
 
 const FinancialInformation = () => {
-  const form = useForm<z.infer<typeof financialInformationInterSchema>>({
-    resolver: zodResolver(financialInformationInterSchema),
+  const form = useForm<z.infer<typeof financialInformationOmahaSchema>>({
+    resolver: zodResolver(financialInformationOmahaSchema),
     defaultValues: {
       BankName: "",
       BankRouting: 0,
@@ -216,7 +216,7 @@ const FinancialInformation = () => {
     },
   });
 
-  const onSubmit = (value: z.infer<typeof financialInformationInterSchema>) => {
+  const onSubmit = (value: z.infer<typeof financialInformationOmahaSchema>) => {
     console.log(value);
   };
 
@@ -392,15 +392,15 @@ const MerchantOwner = () => {
 
   const columns = createColumns(columnsConfig);
 
-  const form = useForm<z.infer<typeof merchantOwnerInterSchema>>({
-    resolver: zodResolver(merchantOwnerInterSchema),
+  const form = useForm<z.infer<typeof merchantOwnerOmahaSchema>>({
+    resolver: zodResolver(merchantOwnerOmahaSchema),
     defaultValues: {
       HasFiledForBankruptcy: false,
       Account: 0,
     },
   });
 
-  const onSubmit = (value: z.infer<typeof merchantOwnerInterSchema>) => {
+  const onSubmit = (value: z.infer<typeof merchantOwnerOmahaSchema>) => {
     console.log(value);
   };
 
@@ -460,8 +460,8 @@ const MerchantOwner = () => {
 };
 
 const ProgrammingRequest = () => {
-  const form = useForm<z.infer<typeof programmingRequestInterSchema>>({
-    resolver: zodResolver(programmingRequestInterSchema),
+  const form = useForm<z.infer<typeof programmingRequestOmahaSchema>>({
+    resolver: zodResolver(programmingRequestOmahaSchema),
     defaultValues: {
       SalesRepresentative: "",
       SalesPhoneNumber: "",
@@ -499,7 +499,7 @@ const ProgrammingRequest = () => {
     },
   });
 
-  const onSubmit = (value: z.infer<typeof programmingRequestInterSchema>) => {
+  const onSubmit = (value: z.infer<typeof programmingRequestOmahaSchema>) => {
     console.log(value);
   };
 
@@ -789,163 +789,59 @@ const ProgrammingRequest = () => {
   );
 };
 
-const NorthInformation = () => {
-  const form = useForm<z.infer<typeof northBoardingInterSchema>>({
-    resolver: zodResolver(northBoardingInterSchema),
+const OmahaDetails = () => {
+  const form = useForm<z.infer<typeof detailsOmahaSchema>>({
+    resolver: zodResolver(detailsOmahaSchema),
     defaultValues: {
-      VisitNotRequired: false,
       Zone: "",
       Location: "",
-      LocationOther: "",
-      Seasonal: false,
-      MonthsInOpertation: 0,
-      MonthOpenBegin: 0,
-      MonthOpenEnd: 0,
-      FloorsLevels: "",
-      MerchantOccupies: "",
-      MerchantOccupiesOther: "",
-      FloorsOccupiedBy: "",
-      MerchantNameDisplayed: "",
-      TimeZone: "",
-      SquareFootage: "",
       HowManyEmployees: 0,
       RegisterTerminals: 0,
-      ReturnPolicy: "",
-      SpecificReturnPolicy: "",
-      SpecificReturnPolicyOther: "",
-      DaysToSubmitTransactions: 0,
       ProperLicenseVisible: 0,
       Explanation: "",
+      MerchantNameDisplayed: "",
+      FloorsOccupiedBy: "",
+      MerchantOccupies: "",
+      MerchantOccupiesOther: "",
+      FloorsLevels: "",
+      SquareFootage: "",
+      DepositRequired: false,
+      DepositPercentage: 0,
+      ReturnPolicy: "",
+      RefundPolicy: "",
+      RefundPolicySpecific: "",
+      DaysToRefund: 0,
+      AdvCatalog: "",
+      AdvBrochure: "",
+      AdvDirectMail: "",
+      AdvTvRadio: "",
+      AdvInternet: "",
+      AdvPhone: "",
+      AdvNews: "",
+      AdvOther: "",
       PreviousProcessor: "",
-      PreviousMerchant: "",
       ReasonForLeaving: "",
       ReasonForLeavingOther: "",
-      PreviousProcessorStatements: "",
-      DepositRequired: "",
-      DepositRequiredPercentage: 0,
-      TimeFrameDeliveryDays: "",
       MobileApplication: "",
       MobileApplicationList: "",
-      McQualifiedCreditDiscountFee: 0,
-      McQualifiedCreditTransactionFee: 0,
-      McQualifiedNonPinDebitDiscountFee: 0,
-      McQualifiedNonPinDebitTransactionFee: 0,
-      VisaQualCreditDiscountFee: 0,
-      VisaQualCreditTransactionFee: 0,
-      VisaQualNonPinDebitDiscountFee: 0,
-      VisaQualNonPinDebitTransactionFee: 0,
-      AmericanExpressQualCreditDiscountFee: 0,
-      AmericanExpressQualCreditTransactionFee: 0,
-      DiscoverNetQualCreditDiscountFee: 0,
-      DiscoverNetQualCreditTransactionFee: 0,
-      DiscoverNetQualNonPinDebitDiscountFee: 0,
-      DiscoverNetQualNonPinDebitTransactionFee: 0,
-      PayPalQualCredityDiscountFee: 0,
-      PayPalQualCredityTransactionFee: 0,
-      SwipedDiscountFee: 0,
-      SwipedTransactionFee: 0,
-      NonSwipedDiscountFee: 0,
-      NonSwipedTransactionFee: 0,
-      PinLessDiscountFee: 0,
-      PinLessDebitTransactionFee: 0,
-      PinLessDebitDenialTransactionFee: 0,
-      Nameless: 0,
-      ChargebackProcessing: 0,
-      AmexChargebackFee: 0,
-      DiscoverChargebackFee: 0,
-      RetrievalFee: 0,
-      AmexChargebackRetrievalFee: 0,
-      DiscoverRetrievalFee: 0,
-      VisaMcDiscChargebackRetrievalFee: 0,
-      BatchSettlementFee: 0,
-      TinTfnBlankInvalidFee: 0,
-      McQualCreditDiscountFee: 0,
-      McQualCreditTransactionFee: 0,
-      McMidQualCreditDiscountFee: 0,
-      McMidQualCreditTransactionFee: 0,
-      McNonQualCreditDiscountFee: 0,
-      McNonQualCreditTransactionFee: 0,
-      McQualNonPinDebitDiscountFee: 0,
-      McQualNonPinDebitTransactionFee: 0,
-      McMidQualNonPinDebitDiscountFee: 0,
-      McMidQualNonPinDebitTransactionFee: 0,
-      McNonQualNonPinDebitDiscountFee: 0,
-      McNonQualNonPinDebitTransactionFee: 0,
-      VisaQualCreditDiscountFee2: 0,
-      VisaQualCreditTransactionFee2: 0,
-      VisaMidQualCreditDiscountFee: 0,
-      VisaMidQualCreditTransactionFee: 0,
-      VisaNonQualCreditDiscountFee: 0,
-      VisaNonQualCreditTransactionFee: 0,
-      VisaQualNonPinDebitDiscountFee2: 0,
-      VisaQualNonPinDebitTransactionFee2: 0,
-      VisaMidQualNonPinDebitDiscountFee: 0,
-      VisaMidQualNonPinDebitTransactionFee: 0,
-      VisaNonQualiNonPinDebitDiscountFee: 0,
-      VisaNonQualiNonPinDebitTransactionFee: 0,
-      DiscoverQualCreditDiscountFee2: 0,
-      DiscoverQualCreditTransactionFee2: 0,
-      DiscoverMidQualCreditDiscountFee: 0,
-      DiscoverMidQualCreditTransactionFee: 0,
-      DiscoverNonQualCreditDiscountFee: 0,
-      DiscoverNonQualCreditTransactionFee: 0,
-      DiscoverQualNonPinDebitDiscountFee2: 0,
-      DiscoverQualNonPinDebitTransactionFee2: 0,
-      DiscoverMidQualNonPinDebitDiscountFee: 0,
-      DiscoverMidQualNonPinDebitTransactionFee: 0,
-      DiscoverNonQualiNonPinDebitDiscountFee: 0,
-      DiscoverNonQualiNonPinDebitTransactionFee: 0,
-      PayPalQualCreditDiscountFee: 0,
-      PayPalQualCreditTransactionFee: 0,
-      AmeExpQualCreditDiscountFee: 0,
-      AmeExpQualCreditTransactionFee: 0,
-      AmeExpMidQualCreditDiscountFee: 0,
-      AmeExpMidQualCreditTransactionFee: 0,
-      AmeExpNonQualCreditDiscountFee: 0,
-      AmeExpNonQualCreditTransactionFee: 0,
-      FeePerTid: 0,
-      OfTids: 0,
-      Total: 0,
-      MonthlyServiceFee: 0,
-      AchRejectFee: 0,
-      MinimumProcessingFee: 0,
-      AnnualMembershipFee: 0,
-      Nameless2: 0,
-      Voyager: 0,
-      WEX: 0,
-      FleetCorAuth: 0,
-      WexAuthFees: 0,
-      WexSaleDiscount: 0,
-      WexRefundDiscount: 0,
-      WexChargebacksDiscount: 0,
-      WexReversalDiscount: 0,
-      WexChargebackFee: 0,
-      WexChargebacksReversalFee: 0,
-      PassMcQualCreditDiscountFee: 0,
-      PassVisaQualCreditDiscountFee: 0,
-      PassDiscNetCreditDiscountFee: 0,
-      PassAmeExpCreditDiscountFee: 0,
-      PassMcQualNonPinDebitDiscountFee: 0,
-      PassVisaQualNonPinDebitDiscountFee: 0,
-      PassDiscQualNonPinDebiDiscountFee: 0,
-      PassSaleCreditNonPinTransactionFee: 0,
-      PassAmeExpTransactionFee: 0,
-      McAuthFee: 0,
-      VisaAuthFee: 0,
-      DiscoverAuthFee: 0,
-      AmericanExpressAuthFee: 0,
-      DebitSalesDiscount: 0,
-      AtmCardTransactionFee: 0,
-      DebitCardAuthorizationFee: 0,
-      DebitDeclineInterchangeFee: 0,
-      DebitInterchangeFee: 0,
-      DebitPreAuth: 0,
-      AdjustmentFee: 0,
-      PinDebitDeclined: 0,
+      MonthlyStatementFee: 0,
+      TinTfnInvalid: 0,
+      WebsiteUsage: 0,
+      DuesAndAssessments: false,
+      MastercardQualCredit: 0,
+      MastercardQualDebit: 0,
+      VisaQualCredit: 0,
+      VisaQualDebit: 0,
+      DiscoverNetPaypalQualCredit: 0,
+      DiscoverNetPaypalQualDebit: 0,
+      AmExQualCredit: 0,
+      MastercardVisaAuthCaptureFee: 0,
+      DiscoverNetPayPalAuthCaptureFee: 0,
+      AmexOpBlueAuthCaptureFee: 0,
     },
   });
 
-  const onSubmit = (value: z.infer<typeof northBoardingInterSchema>) => {
+  const onSubmit = (value: z.infer<typeof detailsOmahaSchema>) => {
     console.log(value);
   };
 
@@ -953,157 +849,44 @@ const NorthInformation = () => {
     <section className="mt-4 text-start">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="">
-          {/* NORTH BOARDING */}
+          {/* OMAHA BOARDING */}
           <h1 className="mt-5 flex justify-center gap-2 text-center text-4xl font-semibold text-sky-500">
-            North Boarding
+            OMAHA Boarding
           </h1>
           {/* Location and distribuition */}
           <h1 className="mt-5 flex gap-2 text-2xl font-semibold text-sky-500">
-            Location and Distribution (Additional Credit Check)
+            Location and Distribution
           </h1>
-          <div className="my-2 flex gap-10">
-            <CheckboxForm
-              control={form.control}
-              formName="VisitNotRequired"
-              label=""
-              placeholder="Visit Not Required (Lic. Professional)"
-              className=""
-            />
-          </div>
-          {/* GENERATION OF THE WHOLE NORTH FORM */}
+          {/* GENERATION OF THE WHOLE OMAHA FORM */}
           <NorthFormGeneration
             formControl={form.control}
-            formFields={northBoadingForm}
+            formFields={omahaBoadingForm}
             gridCols={"3"}
           />
+          {/* SERVICE FEES */}
+          <div className="my-2 border px-4 py-2">
+            <h1 className="my-3 flex  gap-2 text-start text-2xl font-semibold text-sky-500">
+              Service Fees
+            </h1>
+            <FormGeneration
+              formControl={form.control}
+              formFields={serviceFeesOmahaForm}
+              gridCols={"3"}
+            />
+          </div>
+          {/* AUTHORIZATION AND CAPTURE TRANSACTION */}
+          <div className="my-2 border px-4 py-2">
+            <h1 className="my-3 flex  gap-2 text-start text-2xl font-semibold text-sky-500">
+              Authorization & Capture Transaction
+            </h1>
+            <FormGeneration
+              formControl={form.control}
+              formFields={authCaptureOmahaForm}
+              gridCols={"3"}
+            />
+          </div>
 
-          <div className="my-2 border p-4">
-            {/* FLAT RATE */}
-            <h1 className="my-5 flex justify-center gap-2 text-center text-4xl font-semibold text-sky-500">
-              Flat Rate
-            </h1>
-            <div className="grid grid-cols-3 items-end gap-2">
-              {flaxRateInterNorthForm.map((item) => (
-                <div key={item.id}>
-                  {item.type ? (
-                    <InputForm
-                      control={form.control}
-                      formName={item.formName}
-                      label={item.title}
-                      placeholder={item.placeholder}
-                    />
-                  ) : (
-                    <p className="mb-2 pr-4 text-end">{item.title}</p>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="my-2 border p-4">
-            {/* FLAT RATE FEES */}
-            <h1 className="my-5 flex justify-center gap-2 text-center text-4xl font-semibold text-sky-500">
-              Flat Rate Fees
-            </h1>
-            <div className="grid grid-cols-3 items-end gap-2">
-              {flexRateFeesNorthForm.map((item) => (
-                <InputForm
-                  control={form.control}
-                  formName={item.formName}
-                  label={item.title}
-                  placeholder={item.placeholder}
-                  key={item.id}
-                />
-              ))}
-            </div>
-          </div>
-          <div className="my-2 border p-4">
-            {/* TIERED PRICING */}
-            <h1 className="my-5 flex justify-center gap-2 text-center text-4xl font-semibold text-sky-500">
-              Tiered Pricing
-            </h1>
-            <div className="grid grid-cols-3 items-end gap-2">
-              {tieredPricingNorthForm.map((item) => (
-                <div key={item.id}>
-                  {item.type ? (
-                    <InputForm
-                      control={form.control}
-                      formName={item.formName}
-                      label={item.title}
-                      placeholder={item.placeholder}
-                    />
-                  ) : (
-                    <p className="mb-2 pr-4 text-end">{item.title}</p>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-          {/* BILLED MONTHLY FEES */}
-          <div className="my-2 border p-4">
-            <h1 className="my-5 flex justify-center gap-2 text-center text-4xl font-semibold text-sky-500">
-              Billed Monthly Fees
-            </h1>
-            <FormGeneration
-              formControl={form.control}
-              formFields={billedMonthlyFeesInterForm}
-              gridCols={"3"}
-            />
-          </div>
-          {/* BUYPASS & AUTHORIZATION FEES */}
-          <div className="my-2 border p-4">
-            <h1 className="my-5 flex justify-center gap-2 text-center text-4xl font-semibold text-sky-500">
-              Buypass & Authorization Fees
-            </h1>
-            <FormGeneration
-              formControl={form.control}
-              formFields={buypassAuthorizationInterForm}
-              gridCols={"3"}
-            />
-          </div>
-          {/* WEX FULL ACQUIRING FEES */}
-          <div className="my-2 border p-4">
-            <h1 className="my-5 flex justify-center gap-2 text-center text-4xl font-semibold text-sky-500">
-              WEX Full Acquiring Fees
-            </h1>
-            <FormGeneration
-              formControl={form.control}
-              formFields={wexFullFeesInterForm}
-              gridCols={"3"}
-            />
-          </div>
-          {/* PASS THROUGH INTERCHANGE  */}
-          <div className="my-2 border p-4">
-            <h1 className="my-5 flex justify-center gap-2 text-center text-4xl font-semibold text-sky-500">
-              Pass Through Interchange
-            </h1>
-            <FormGeneration
-              formControl={form.control}
-              formFields={passThroughInterForm}
-              gridCols={"3"}
-            />
-          </div>
-          {/* AUTHORIZATION AND AVS FEES  */}
-          <div className="my-2 border p-4">
-            <h1 className="my-5 flex justify-center gap-2 text-center text-4xl font-semibold text-sky-500">
-              Authorization and AVS Fees
-            </h1>
-            <FormGeneration
-              formControl={form.control}
-              formFields={authAvsFeesInterForm}
-              gridCols={"4"}
-            />
-          </div>
-          {/* PIN DEBIT  */}
-          <div className="my-2 border p-4">
-            <h1 className="my-5 flex justify-center gap-2 text-center text-4xl font-semibold text-sky-500">
-              PIN Debit
-            </h1>
-            <FormGeneration
-              formControl={form.control}
-              formFields={pinDebitInterForm}
-              gridCols={"4"}
-            />
-          </div>
+          
 
           {/* BUTTON SAVE CHANGES */}
           <div className="m-auto text-center">
@@ -1117,7 +900,7 @@ const NorthInformation = () => {
   );
 };
 
-export default function RenderNorthInterchangeComponents(value: string) {
+export default function RenderNewOmahaComponents(value: string) {
   switch (value) {
     case "merchantDetail":
       return <MerchantDetail />;
@@ -1127,7 +910,7 @@ export default function RenderNorthInterchangeComponents(value: string) {
       return <MerchantOwner />;
     case "programmingRequest":
       return <ProgrammingRequest />;
-    case "northDetails":
-      return <NorthInformation />;
+    case "omahaDetails":
+      return <OmahaDetails />;
   }
 }
