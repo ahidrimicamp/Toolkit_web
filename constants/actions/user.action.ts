@@ -35,6 +35,33 @@ const NormalizedEmail = (email: string): string => {
   return normalizedEmail;
 };
 
+export const getUser = async () => {
+  try {
+    const session = await validateRequest();
+
+    const myUser = await prisma.user.findFirst({
+      where: {
+        id: session.user?.id,
+      },
+      include: {
+        Department: true,
+        activityLog: true,
+        leads: true,
+        merchantSplits: true,
+        organizationAgents: true,
+        tasks: true,
+        userClaims: true,
+        userLogins: true,
+        userRoles: true,
+      },
+    });
+
+    return myUser;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const signUp = async (
   credentials: SignUpValues,
 ): Promise<{
@@ -191,7 +218,7 @@ export const UserUpdate = async (
   credentials: UpdateUserValues,
 ): Promise<{ error: string; success: string }> => {
   try {
-    const { email, password, phone, username, id, image } =
+    const { email, password, phone, username, id } =
       UpdateUserSchema.parse(credentials);
 
     const updateData: any = {
@@ -211,10 +238,6 @@ export const UserUpdate = async (
       });
 
       updateData.passwordHash = passwordHashed;
-    }
-
-    if (image !== "") {
-      updateData.image = image;
     }
 
     await prisma.user.update({

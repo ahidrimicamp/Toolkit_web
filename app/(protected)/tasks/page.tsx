@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-// import { signOut } from "@/auth";
-// import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   CircleCheckIcon,
@@ -42,7 +40,7 @@ import {
 import NewTask from "@/components/user/NewTask";
 import { cn } from "@/lib/utils";
 
-const Protected = () => {
+const Tasks = () => {
   const [isOpen, setIsOpen] = useState(false);
   const data = [
     {
@@ -213,19 +211,8 @@ const Protected = () => {
       </div>
 
       {isOpen && <NewTask type="Edit" isOpen={isOpen} setIsOpen={setIsOpen} />}
-      {/* <form
-        action={async () => {
-          "use server";
-
-          await signOut({
-            redirectTo: "/sign-in",
-          });
-        }}
-      >
-        <Button type="submit">Sign Out</Button>
-      </form> */}
     </div>
   );
 };
 
-export default Protected;
+export default Tasks;

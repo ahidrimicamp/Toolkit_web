@@ -67,7 +67,7 @@ import { toast } from "@/components/ui/use-toast";
 * Step 3: Declare a json data if you are willing to use a mock-up data for now, declaring json data is optional if you already have data that had been fetched from the database already.
  
 * Step 4: Create columnsConfig to declare which fields are there the table needs to render. For example,
- * const columnsConfig: ColumnConfig<DataTypes>[] = [{accessorKey: 'column's name', header: 'this header name can be any name you want it to show at the header', cell: Price}]
+ * const columnsConfig: ColumnConfig<<DataTypes>DataTypes>[] = [{accessorKey: 'column's name', header: 'this header name can be any name you want it to show at the header', cell: Price}]
  * As you can see, the "cell: Price" is optional. You declare it or not, it doesn't matter. Use this "cell: Something", when you want to config how that cell row is gonna look like.
  * Like my example, I pass the function of Price to format number of price to display as US dollar sign, and you can import it from folder components/Shared/DataTable/CellFormat.tsx
  

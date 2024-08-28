@@ -15,7 +15,7 @@ const Sidebar = ({ props }: any) => {
   const role = "admin";
 
   return (
-    <>
+    <React.Fragment>
       <section className="sticky left-0 top-0 flex h-screen w-64 flex-col justify-between overflow-y-auto border-r p-6 pt-16 dark:shadow-none max-2xl:w-fit max-md:hidden 2xl:w-[266px]">
         <div className="flex w-fit flex-1 flex-col gap-6">
           <div className="w-fit">
@@ -71,7 +71,7 @@ const Sidebar = ({ props }: any) => {
       </section>
 
       <MobileSideNav props={props} />
-    </>
+    </React.Fragment>
   );
 };
 

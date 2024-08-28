@@ -34,7 +34,7 @@ const ProfileBody = ({ user }: any) => {
     },
   });
 
-  const onSubmit = async (data: z.infer<typeof UpdateUserSchema>) => {
+  const SubmitUpdate = async (data: z.infer<typeof UpdateUserSchema>) => {
     console.log(data);
     await UserUpdate(data);
 
@@ -43,6 +43,7 @@ const ProfileBody = ({ user }: any) => {
       description: "Your user information has been successfully updated.",
     });
   };
+
   return (
     <section>
       <div className="w-full space-y-6">
@@ -84,7 +85,7 @@ const ProfileBody = ({ user }: any) => {
             <Form {...form}>
               <form
                 className="space-y-5"
-                onSubmit={form.handleSubmit(onSubmit)}
+                onSubmit={form.handleSubmit(SubmitUpdate)}
               >
                 <Card>
                   <CardHeader>

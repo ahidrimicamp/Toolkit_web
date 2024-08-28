@@ -28,7 +28,7 @@ export const datePicker = z.object({
     .optional(),
 });
 
-export default function DatePickerWithRange({
+export function DatePickerWithRange({
   className,
   showDownload = false,
 }: {

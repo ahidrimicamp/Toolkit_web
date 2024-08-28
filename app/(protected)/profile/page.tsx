@@ -1,15 +1,8 @@
-import { validateRequest } from "@/auth";
 import ProfileBody from "@/components/Shared/Profile/ProfileBody";
-import prisma from "@/constants/connectToDB";
+import { getUser } from "@/constants/actions/user.action";
 
 export default async function ProfilePage() {
-  const session = await validateRequest();
-  if (!session.user) return null;
-  const result = await prisma.user.findFirst({
-    where: {
-      id: session.user.id,
-    },
-  });
+  const result = await getUser();
 
   console.log(result);
   return (

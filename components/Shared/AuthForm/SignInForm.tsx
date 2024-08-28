@@ -15,7 +15,7 @@ import Image from "next/image";
 import { signIn } from "@/constants/actions/user.action";
 import LoadingButton from "../LoadingButton";
 
-const SignInForm = ({ type }: { type: string }) => {
+const SignInForm = () => {
   const [isPending, startPending] = useTransition();
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");

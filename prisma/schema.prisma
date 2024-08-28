@@ -249,6 +249,14 @@ model Task {
   @@map("task")
 }
 
+model Department {
+  id     String  @id
+  userId String?
+  user   User[]
+
+  @@map("departments")
+}
+
 model Tasks {
   taskID          Int            @id @default(autoincrement())
   organizationID  Int?
@@ -328,6 +336,8 @@ model User {
   lockoutEnd           DateTime?
   language             String?
   accessFailedCount    Int?
+  departmentId         String?
+  createdAt            DateTime            @default(now())
   activityLog          ActivityLog[]
   leads                Leads[]
   merchantSplits       MerchantSplits[]
@@ -337,7 +347,7 @@ model User {
   userClaims           UserClaims[]
   userLogins           UserLogins[]
   userRoles            UserRoles[]
-  createdAt            DateTime            @default(now())
+  Department           Department?         @relation(fields: [departmentId], references: [id])
 
   @@index([normalizedEmail])
   @@map("users")

@@ -35,7 +35,7 @@ export const UpdateUserSchema = z.object({
   password: z.string(),
   username: requiredString.max(25, "Max at 25 characters!"),
   phone: requiredString.max(10, "Not more than 10 digits!"),
-  image: z.string(),
+  image: z.string().optional(),
 });
 
 export type UpdateUserValues = z.infer<typeof UpdateUserSchema>;
