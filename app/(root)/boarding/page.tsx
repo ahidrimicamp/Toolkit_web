@@ -1,13 +1,13 @@
 "use client";
 
 import BoardingAdminShortcuts from "@/components/boarding/BoardingAdminShortcuts";
-import BoardingShortcuts from "@/components/boarding/BoardingShortcuts";
+import {BoardingShortcuts} from "@/components/boarding/BoardingShortcuts";
 import React from "react";
 
 const Page = () => {
   const text1 = ` MiCamp Solutions is a leading payment processing company that stands
             out for its exceptional customer service and innovative financial
-            solutions. As a 5x Inc. 5000 awardee, MiCamp processes $50 billion
+            solutions. As a 6x Inc. 5000 awardee, MiCamp processes $50 billion
             annually and serves over 50,000 clients, underscoring its industry
             leadership and reliability. With a focus on providing seamless and
             secure transaction experiences, MiCamp offers a wide range of

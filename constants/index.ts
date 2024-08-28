@@ -22,7 +22,8 @@ import {
   Info,
   DollarSign,
   Receipt,
-  MoveRight
+  MoveRight,
+  HomeIcon
 
 } from "lucide-react";
 import { z } from "zod";
@@ -3568,21 +3569,25 @@ export const documentLibraryTabs = [
     id: "1",
     title: "Blank MPAs & Addendums",
     value: "blankMpaAndAddendums",
+    icon: HomeIcon
   },
   {
     id: "2",
     title: "Change Forms",
     value: "changeForms",
+    icon: HomeIcon,
   },
   {
     id: "3",
     title: "Equipment Pricing",
     value: "equipmentPricing",
+    icon: HomeIcon
   },
   {
     id: "4",
     title: "Upload & Send Docs",
     value: "uploadAndSendDocs",
+    icon: HomeIcon
   },
 ];
 

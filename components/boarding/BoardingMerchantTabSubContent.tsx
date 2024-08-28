@@ -165,7 +165,7 @@ const EquipmentOrders = () => {
                 data={merchantEquipmentOrderTable}
                 enableSorting={true}
                 enableColumnFilter={true}
-                filteredBy="description"
+                filteredBy="Description"
               />
             </div>
             <div className="mt-5 grid grid-cols-1 overflow-auto">
@@ -349,7 +349,7 @@ const OrderNewEquipment = () => {
               data={merchantEquipmentOrderTable}
               enableSorting={true}
               enableColumnFilter={true}
-              filteredBy="description"
+              filteredBy="Description"
             />
           </div>
         </form>
