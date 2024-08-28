@@ -1,17 +1,17 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Tasks as ProfileTasks } from "@/app/(protected)/tasks/page";
+import Tasks from "@/app/(protected)/tasks/page";
 
-const Tasks = () => {
+const Task = () => {
   return (
     <section>
       <Card className="my-5">
         <CardContent>
-          <ProfileTasks />
+          <Tasks />
         </CardContent>
       </Card>
     </section>
   );
 };
 
-export default Tasks;
+export default Task;

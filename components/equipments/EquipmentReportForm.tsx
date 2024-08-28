@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger } from "../ui/select";
 import { Checkbox } from "../ui/checkbox";
 import { Button } from "../ui/button";
-import DatePickerWithRange from "../Shared/Calender/Calender";
+import { DatePickerWithRange } from "../Shared/Calender/Calender";
 
 interface Props {
   type?: string;

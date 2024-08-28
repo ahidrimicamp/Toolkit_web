@@ -79,7 +79,7 @@ const AccountStatusPreview = () => {
                   columns={columns}
                   data={accountStatusTable}
                   enableColumnFilter={true}
-                  filteredBy="LegalName"
+                  filteredBy="UserID"
                 />
               </div>
               <div className="mt-10 flex-auto">

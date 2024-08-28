@@ -5,7 +5,6 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { boardingMerchantTabs } from "@/constants";
 import RenderBoardingMerchantTabComponents from "./BoardingMerchantTabSubContent";
 
-
 const BoardingMerchantTabContent = () => {
   const [activeItem, setActiveItem] = useState<string>("");
 
@@ -23,8 +22,10 @@ const BoardingMerchantTabContent = () => {
             onClick={() => handleClick(tab.value)}
             key={tab.id}
             value={tab.value}
+            title={tab.title}
           >
-            {tab.title}
+            <p className="hidden max-xl:block">{React.createElement(tab.icon)}</p>
+            <p className="max-xl:hidden">{tab.title}</p>
           </TabsTrigger>
         ))}
       </TabsList>

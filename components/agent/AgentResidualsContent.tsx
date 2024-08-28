@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 import RenderComponents from "./fdOmaha";
 
 const AgentResidualsContent = () => {
-  const [activeItem, setActiveItem] = useState<string>("");
+  const [activeItem, setActiveItem] = useState<string>("fd-omaha");
   const navItems = [
     { id: "1", title: "FD Omaha", value: "fd-omaha" },
     { id: "2", title: "FD North", value: "fd-north" },

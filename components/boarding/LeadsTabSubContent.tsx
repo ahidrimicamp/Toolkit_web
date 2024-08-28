@@ -223,7 +223,7 @@ const FspLeads = () => {
 };
 
 export default function RenderLeadsTabComponents(value: any) {
-  console.log(value);
+  
   switch (value) {
     case "miCampLeads":
       return <MiCampLeads />;

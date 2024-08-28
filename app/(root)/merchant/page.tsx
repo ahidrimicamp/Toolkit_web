@@ -27,21 +27,24 @@ const columns = createColumns(columnsConfig);
 
 const Page = () => {
   return (
-    <>
+    <section>
+      <h1 className="text-center text-2xl font-semibold text-sky-500">
+        Merchant List
+      </h1>
       <div className="flex gap-4 2xl:flex-row">
         <div className="grid flex-auto grid-cols-1 overflow-auto">
           <DataTable
             columns={columns}
             data={employees}
             enableColumnFilter={true}
-            filteredBy="UserID"
+            filteredBy="EmployeeID"
           />
         </div>
         <div className="flex-auto justify-center 2xl:w-2/5">
           <MerchantDetails />
         </div>
       </div>
-    </>
+    </section>
   );
 };
 

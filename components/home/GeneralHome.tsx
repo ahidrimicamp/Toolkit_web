@@ -1,6 +1,6 @@
 import React from "react";
 import MicampDescription from "@/components/home/MicampDescription";
-import Tasks from "@/components/home/tasks";
+import Task from "@/components/home/tasks";
 import HomeTable from "@/components/Shared/DataTable/HomeTable";
 import SideDetails from "@/components/Shared/DataTable/SideDetails";
 import {
@@ -65,7 +65,7 @@ const GeneralHome = () => {
         </div>
       </main>
       <div className="px-12">
-        <Tasks />
+        <Task />
         <MicampDescription />
       </div>
     </div>
