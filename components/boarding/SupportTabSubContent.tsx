@@ -6,10 +6,7 @@ import {
 } from "@/components/Shared/DataTable/Columns";
 import DataTable from "@/components/Shared/DataTable/DataTable";
 import { Button } from "@/components/ui/button";
-import {
-  mySolvedTicketsTable,
-  myTicketsTable,
-} from "@/constants";
+import { mySolvedTicketsTable, myTicketsTable } from "@/constants";
 import { DataTypes } from "@/types";
 import {
   Dialog,
@@ -19,6 +16,7 @@ import {
   DialogTrigger,
 } from "../ui/dialog";
 import NewSupportTicket from "./NewSupportTicket";
+import { Description } from "@radix-ui/react-dialog";
 
 const MyTickets = () => {
   const columnsConfig: ColumnConfig<DataTypes>[] = [
@@ -39,14 +37,17 @@ const MyTickets = () => {
             My Tickets
           </h1>
           <Dialog>
-            <DialogTrigger>
-              <Button variant={"submit"} className="text-white">+ New Ticket</Button>
+            <DialogTrigger asChild>
+              <Button variant={"submit"} className="text-white">
+                + New Ticket
+              </Button>
             </DialogTrigger>
             <DialogContent className="2xl:[800px] max-lg:max-w-[500px] lg:max-w-[800px]">
               <DialogHeader>
                 <DialogTitle className="mb-5 text-center text-2xl font-semibold text-sky-500">
                   Add New Support Ticket
                 </DialogTitle>
+                <Description />
                 <NewSupportTicket />
               </DialogHeader>
             </DialogContent>
@@ -85,15 +86,18 @@ const Solved = () => {
             Solved Tickets
           </h1>
           <Dialog>
-            <DialogTrigger>
-              <Button variant={"submit"}  className="text-white">+ New Ticket</Button>
+            <DialogTrigger asChild>
+              <Button variant={"submit"} className="text-white">
+                + New Ticket
+              </Button>
             </DialogTrigger>
-            <DialogContent className="2xl:[300px] max-lg:max-w-[300px] lg:max-w-[300px]">
+            <DialogContent className="2xl:[800px] max-lg:max-w-[500px] lg:max-w-[800px]">
               <DialogHeader>
                 <DialogTitle className="mb-5 text-center text-2xl font-semibold text-sky-500">
                   Add New Support Ticket
                 </DialogTitle>
                 <NewSupportTicket />
+                <Description />
               </DialogHeader>
             </DialogContent>
           </Dialog>

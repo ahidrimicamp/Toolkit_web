@@ -34,7 +34,7 @@ const UploadFileBtn = () => {
     <div>
       <div
         {...getRootProps()}
-        className="cursor-pointer rounded-md border border-blue-500 bg-blue-500 px-10 pb-0.5 text-sm font-semibold text-white hover:bg-white hover:text-blue-500 dark:text-slate-200"
+        className={`cursor-pointer rounded-md border px-10 pb-0.5 text-sm font-semibold hover:text-sky-500 hover:opacity-80 dark:bg-black dark:text-white dark:hover:text-sky-500`}
       >
         <Input {...getInputProps()} />
         <div className="flex flex-col items-center">
@@ -47,7 +47,7 @@ const UploadFileBtn = () => {
               </Button>
             </div>
           ) : (
-            <div className="flex size-full items-center justify-center gap-3 text-white hover:text-blue-500">
+            <div className="flex size-full items-center justify-center gap-3">
               <UploadIcon className="my-1 line-clamp-1 size-7 text-center" />
               <p>{isDragActive ? "Drop the files here" : "Upload File"}</p>
             </div>
@@ -56,7 +56,7 @@ const UploadFileBtn = () => {
       </div>
       {selectedFile && (
         <Button disabled className="mt-4">
-          Upload File (Not Implemented)
+          Upload File
         </Button>
       )}
     </div>
