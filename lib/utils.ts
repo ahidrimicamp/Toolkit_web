@@ -1,6 +1,7 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { z } from "zod";
+import qs from 'query-string';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -1597,3 +1598,20 @@ export const formatRelativeDate = (date: Date): string => {
     return `${yearsAgo} year${yearsAgo > 1 ? "s" : ""} ago at ${time}`;
   }
 };
+
+export const urlKeyRemovalParams = ({params, keysToRemove}: {params: string, keysToRemove: string[]}) => {
+  const currentUrl = qs.parse(params);
+
+  keysToRemove.forEach((key) => {
+    delete currentUrl[key];
+  })
+
+  return qs.stringifyUrl(
+    {
+      url: window.location.pathname, query: currentUrl
+    },
+    {
+      skipNull: true
+    }
+  )
+}

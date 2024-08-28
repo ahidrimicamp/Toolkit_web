@@ -1,7 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const BoardingShortcuts = () => {
+  const router = useRouter();
+  const handleLeadsTabClick = (value: string) => {
+    router.push(`/boarding/leads?tab=${value}`);
+  };
+
+  const handleDocLibTabClick = (value: string) => {
+    router.push(`/boarding/docLibrary?tab=${value}`);
+  };
   return (
     <section className="w-full">
       <div className="m-auto grid w-3/4 grid-cols-3 gap-4 rounded-md text-lg max-xl:grid-cols-2 max-lg:grid-cols-1">
@@ -69,26 +78,32 @@ const BoardingShortcuts = () => {
               priority
             />
             <ul className="flex-1 content-center justify-start text-sm">
-              <Link href={""}>
-                <li className="list-disc text-nowrap text-sm underline">
-                  Blank MPAs & Addendums
-                </li>
-              </Link>
-              <Link href={""}>
-                <li className="list-disc text-nowrap text-sm underline">
-                  Change Forms
-                </li>
-              </Link>
-              <Link href={""}>
-                <li className="list-disc text-nowrap text-sm underline">
-                  Equipment Pricing
-                </li>
-              </Link>
-              <Link href={""}>
-                <li className="list-disc text-nowrap text-sm underline">
-                  Upload & Send Document
-                </li>
-              </Link>
+              <li
+                className="list-disc text-nowrap text-sm underline"
+                onClick={() => handleDocLibTabClick("blankMpaAndAddendums")}
+              >
+                Blank MPAs & Addendums
+              </li>
+
+              <li
+                className="list-disc text-nowrap text-sm underline"
+                onClick={() => handleDocLibTabClick("changeForms")}
+              >
+                Change Forms
+              </li>
+
+              <li
+                className="list-disc text-nowrap text-sm underline"
+                onClick={() => handleDocLibTabClick("equipmentPricing")}
+              >
+                Equipment Pricing
+              </li>
+              <li
+                className="list-disc text-nowrap text-sm underline"
+                onClick={() => handleDocLibTabClick("uploadAndSendDocs")}
+              >
+                Upload & Send Document
+              </li>
             </ul>
           </div>
         </div>
@@ -104,17 +119,25 @@ const BoardingShortcuts = () => {
               height={55}
               priority
             />
+            {/* Link this to another page first. */}
             <ul className="flex-1 content-center justify-start px-4 text-sm">
-              <Link href={""}>
-                <li className="list-disc text-nowrap text-sm underline">
+              {/* Then, when clicking any of these div should pass the props value. */}
+              <div>
+                <li
+                  className="list-disc text-nowrap text-sm underline"
+                  onClick={() => handleLeadsTabClick("northLeads")}
+                >
                   North Leads
                 </li>
-              </Link>
-              <Link href={""}>
-                <li className="list-disc text-nowrap text-sm underline">
+              </div>
+              <div>
+                <li
+                  className="list-disc text-nowrap text-sm underline"
+                  onClick={() => handleLeadsTabClick("fspLeads")}
+                >
                   FSP Leads
                 </li>
-              </Link>
+              </div>
             </ul>
           </div>
         </div>
@@ -140,4 +163,4 @@ const BoardingShortcuts = () => {
   );
 };
 
-export default BoardingShortcuts;
+export { BoardingShortcuts };

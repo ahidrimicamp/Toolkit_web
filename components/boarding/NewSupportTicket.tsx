@@ -24,7 +24,7 @@ const NewSupportTicket = () => {
   };
 
   return (
-    <div className="max-2xl:h-[70vh] max-2xl:overflow-auto">
+    <div className="max-2xl:h-[50vh]">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <div className="space-y-2">

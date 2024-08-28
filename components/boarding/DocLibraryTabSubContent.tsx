@@ -191,7 +191,7 @@ const UploadAndSendDocuments = () => {
   );
 };
 
-export default function RenderDocLibraryTabComponents(value: string) {
+export default function RenderDocLibraryTabComponents(value: any) {
   switch (value) {
     case "blankMpaAndAddendums":
       return <BlankMpaAddendums />;
