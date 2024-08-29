@@ -354,7 +354,7 @@ export const FormGeneration = ({ formControl, formFields, gridCols }: any) => {
               />
             </div>
           ) : item.type === "checkbox" ? (
-            <div key={item.title} className="w-full items-end">
+            <div key={item.title} className="w-full content-end mb-2">
               <CheckboxForm
                 control={formControl}
                 formName={item.formName}

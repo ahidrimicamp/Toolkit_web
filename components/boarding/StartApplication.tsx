@@ -1,61 +1,193 @@
-import React from "react";
-import { Button } from "../ui/button";
+import React, { useState } from "react";
+import Image from "next/image";
+import { InputForm } from "../Shared/InstantForm";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { boardingAgentSettingsSchema } from "@/lib/utils";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Form } from "../ui/form";
+import CustomButtons from "../Shared/CustomButtons";
 import Link from "next/link";
+import { Input } from "../ui/input";
 
 const StartApplication = () => {
   const linksApplication = [
     {
-      Title: "MiCamp FSP MPA",
+      id: 1,
+      formName: "MerchantApplioationType",
+      title: "MiCamp FSP MPA",
+      type: "radio",
+      placeholder: "MiCamp FSP MPA",
+      value: "",
       Route: "/boarding/mBoarding/newFSP",
-      RouteTraining: "#",
     },
     {
-      Title: "First Data NORTH Interchange 2502-2",
+      id: 2,
+      formName: "MerchantApplioationType",
+      title: "First Data NORTH Interchange 2502-2",
+      type: "radio",
+      placeholder: "First Data NORTH Interchange 2502-2",
+      value: "",
       Route: "/boarding/mBoarding/newInterchange",
-      RouteTraining: "#",
     },
     {
-      Title: "First Data NORTH WAVit 2502-2",
+      id: 3,
+      formName: "MerchantApplioationType",
+      title: "First Data NORTH WAVit 2502-2",
+      type: "radio",
+      placeholder: "First Data NORTH WAVit 2502-2",
+      value: "",
       Route: "/boarding/mBoarding/newWAVit",
-      RouteTraining: "#",
     },
     {
-      Title: "OMAHA Processing Application and Agreement",
+      id: 4,
+      formName: "MerchantApplioationType",
+      title: "OMAHA Processing Application and Agreement",
+      type: "radio",
+      placeholder: "OMAHA Processing Application and Agreement",
+      value: "",
       Route: "/boarding/mBoarding/newOMAHA",
-      RouteTraining: "#",
     },
+    // {
+    //   Title: "MiCamp FSP MPA",
+    //   Route: "/boarding/mBoarding/newFSP",
+    //   RouteTraining: "#",
+    // },
+    // {
+    //   Title: "First Data NORTH Interchange 2502-2",
+    //   Route: "/boarding/mBoarding/newInterchange",
+    //   RouteTraining: "#",
+    // },
+    // {
+    //   Title: "First Data NORTH WAVit 2502-2",
+    //   Route: "/boarding/mBoarding/newWAVit",
+    //   RouteTraining: "#",
+    // },
+    // {
+    //   Title: "OMAHA Processing Application and Agreement",
+    //   Route: "/boarding/mBoarding/newOMAHA",
+    //   RouteTraining: "#",
+    // },
   ];
 
-  return (
-    <>
-      <section>
-        <h2 className="my-7 text-center text-xl font-semibold">
-          Start a New Application
-        </h2>
+  const form = useForm<z.infer<typeof boardingAgentSettingsSchema>>({
+    resolver: zodResolver(boardingAgentSettingsSchema),
+    defaultValues: {},
+  });
 
-        {linksApplication.map((item) => {
-          return (
-            <div key={item.Title} className="mb-4 flex w-full justify-between rounded-lg bg-gray-100 p-2 px-10 dark:bg-black">
-              <h3 className="content-center text-lg font-semibold max-lg:text-sm">
-                {item.Title}
-              </h3>
-              <div className="flex gap-10">
-                <Link href={item.RouteTraining}>
-                  <Button className="text-white" variant={"success"}>
-                    Training
-                  </Button>
-                </Link>
-                <Link href={item.Route}>
-                  <Button className="text-white" variant={"submit"}>
-                    + Add New
-                  </Button>
-                </Link>
-              </div>
+  const onSubmit = (value: z.infer<typeof boardingAgentSettingsSchema>) => {
+    console.log(value);
+  };
+
+  // const [radioOne, setRadioOne] = useState("");
+
+  const [linkRoute, setLinkRoute] = useState("");
+  const handleFormTypeRoute = (value: string) => {
+    setLinkRoute(value);
+    console.log(value);
+  };
+
+  return (
+    // eslint-disable-next-line tailwindcss/no-unnecessary-arbitrary-value
+    <section className="m-auto my-16 w-[80%] max-w-96">
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="gap-2">
+          <Image
+            className="m-auto flex-none"
+            src="/icon/colorful/new-form.svg"
+            alt="Logo"
+            width={64}
+            height={64}
+            priority
+          />
+          <h2 className="mt-5 text-center text-xl font-semibold">
+            Start a New Application
+          </h2>
+          <p className="mb-5 text-center text-xs text-gray-400">
+            Start the application now, finish it when you have all you need.
+          </p>
+          {/* FORM */}
+          <div className="space-y-4">
+            <InputForm
+              control={form.control}
+              formName="MerchantDbaName"
+              label="Merchant Name (DBA or Trade Name):*"
+              placeholder="Merchant Name"
+            />
+            <InputForm
+              control={form.control}
+              formName="MerchantEmail"
+              label="Email Statements To:*"
+              placeholder="example@email.com"
+            />
+            {/* <FormGeneration
+              formControl={form.control}
+              formFields={linksApplication}
+              gridCols={"1"}
+            /> */}
+            {linksApplication.map((item) => {
+              return (
+                <div
+                  // onClick={() => handleFormTypeRoute(radioOne)}
+                  key={item.id}
+                  className="flex content-center items-center gap-2"
+                >
+                  {/* <InputForm
+                    control={form.control}
+                    label={""}
+                    placeholder={""}
+                    type="radio"
+                    className="size-fit"
+                    formName="FormType"
+                    setState={setRadioOne}
+                    state={radioOne}
+                    // onChange={() => handleFormTypeRoute(item.Route)}
+                  /> */}
+                  <Input
+                    name="ApplicationType"
+                    type="radio"
+                    className="size-fit"
+                    onChange={() => handleFormTypeRoute(item.Route)}
+                  />
+                  <p className="mb-1">{item.placeholder}</p>
+                </div>
+              );
+            })}
+            <div className="flex justify-center gap-2">
+              <CustomButtons btnType="primary">Save it For Later</CustomButtons>
+              <Link href={linkRoute}>
+                <CustomButtons btnType="default">Start Right Now</CustomButtons>
+              </Link>
             </div>
-          );
-        })}
-      </section>
-    </>
+          </div>
+        </form>
+      </Form>
+
+      {/* {linksApplication.map((item) => {
+        return (
+          <div
+            key={item.Title}
+            className="mb-4 hidden w-full justify-between rounded-lg bg-gray-100 p-2 px-10 dark:bg-black"
+          >
+            <h3 className="content-center text-lg font-semibold max-lg:text-sm">
+              {item.Title}
+            </h3>
+            <div className="flex gap-10">
+              <Link href={item.RouteTraining}>
+                <Button className="text-white" variant={"success"}>
+                  Training
+                </Button>
+              </Link>
+              <Link href={item.Route}>
+                <Button className="text-white" variant={"submit"}>
+                  + Add New
+                </Button>
+              </Link>
+            </div>
+          </div>
+        );
+      })} */}
+    </section>
   );
 };
 

@@ -440,7 +440,7 @@ export const searchMerchantSchema = z.object({
   MerchantName: requiredString,
   Agent: requiredString,
 });
-
+// BOARDING AGENT DETAILS FORM
 export const boardingAgentDetailsSchema = z.object({
   AgentCompanyName: requiredString,
   DisplayName: requiredString,
@@ -463,6 +463,40 @@ export const boardingAgentDetailsSchema = z.object({
   ShippingZip: requiredString,
   ShippingEmails: requiredString,
 });
+
+export const boardingAgentSettingsSchema = z.object({
+  // Common to All (North / Omaha / WAVit Interchange / FSP)
+  EarlyTerminationFee: requiredNumber,
+  MonthlyFee: requiredNumber,
+  HideEquipmentPrice: z.boolean(),
+  // FSP Only
+  VoiceAuthorization: requiredNumber,
+  AudioResponse: requiredNumber,
+  VoiceAddressVerification: requiredNumber,
+  TinInvalidFee: requiredNumber,
+  AchRejectFee: requiredNumber,
+  ChargebackFee: requiredNumber,
+  MonthlyStatementFee: requiredNumber,
+  // Common to North / Omaha
+  NorthOmahaMonthlyFee: requiredNumber,
+  NorthOmahaAchRejectFee: requiredNumber,
+  // Cash Discount Flat Rate (WAVit Only)
+  WavitCashDiscountRate: requiredNumber,
+  WavitDiscount: requiredNumber,
+  // Omaha Interchange Only
+  VisaMcChagebackFee: requiredNumber,
+  VisaMcRetrievalFee: requiredNumber,
+  // North WAVit and Interchange Only
+  AmexChargebackFee: requiredNumber,
+  DiscoverChargebackFee: requiredNumber,
+  RetrievalFee: requiredNumber,
+  AmexChargebackRetrievalFee: requiredNumber,
+  DiscoverRetrievalFee: requiredNumber,
+  VisaMcDiscoverChargebackRetrievalFee: requiredNumber,
+  NorthInterMonthlyStatementFee: requiredNumber,
+})
+
+
 
 export const newSupportTicketSchema = z.object({
   Subject: requiredString,
@@ -527,7 +561,8 @@ export const newOrderInfoSchema = z.object({
   ContactEmail: z.string(),
   UploadAchForm: z.any(),
   UploadProgRequest: z.any(),
-})
+});
+
 // --------------------------------
 // This is for the FSP MPA Application
 // Merchant Detail TAB form
@@ -1119,7 +1154,6 @@ export const northBoardingInterSchema = z.object({
 
 // ----------------
 // This is for the NORTH WAViit 2502 Application
-
 // Merchant Detail TAB form
 export const merchantInformationWavitSchema = z.object({
   // DBA Information Section

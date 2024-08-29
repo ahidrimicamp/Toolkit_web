@@ -3519,6 +3519,19 @@ export const supportTicketsTabs = [
     value: "solved",
   },
 ];
+// Merchant Test
+export const merchantTest = [
+  {
+    id: "1",
+    title: "Agent Details",
+    value: "agentDetails",
+  },
+  {
+    id: "2",
+    title: "Agent Settings",
+    value: "agentSettings",
+  },
+];
 
 export const merchantBoardingListTable = [
   {
@@ -9794,3 +9807,258 @@ export const contactInfoMerchantForm =
     value: ""
   }
 ]
+
+
+// AGENT SETTINGS FORM
+
+export const boardingAgentsTabs = [
+  {
+    id: "1",
+    title: "Agent Details",
+    value: "agentDetails",
+  },
+  {
+    id: "2",
+    title: "Agent Settings",
+    value: "agentSettings",
+  },
+];
+
+export const boardingAgentSettingsForm = {
+  formTitle: "Agent Settings",
+  description: "",
+  section: [
+    // 
+    {
+    sectionName: "",
+    cards: [
+      // Common To ALL (North / Omaha / WAVit Interchange / FSP)
+      {
+        title: "Common To ALL (North / Omaha / WAVit Interchange / FSP)",
+        colQty: "4",
+        fields: [
+          {
+            id: 1,
+            formName: "EarlyTerminationFee",
+            title: "Early Termination Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 2,
+            formName: "MonthlyFee",
+            title: "Monthly Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 3,
+            formName: "Zone",
+            title: "Hide Equipment Price",
+            type: "checkbox",
+            placeholder: "Hide Equipment Price",
+            value: "",
+          },
+        ]
+      },
+      // FSP Only
+      { 
+        title: "FSP Only",
+        colQty: "4",
+        fields: [
+          {
+            id: 1,
+            formName: "VoiceAuthorization",
+            title: "Voice Authorization $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 2,
+            formName: "AudioResponse",
+            title: "Audio Response (ARU) $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 3,
+            formName: "VoiceAddressVerification",
+            title: "Voice Address Verification #:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 4,
+            formName: "TinInvalidFee",
+            title: "TIN Invalid Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 5,
+            formName: "AchRejectFee",
+            title: "ACH Reject Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 6,
+            formName: "ChargebackFee",
+            title: "Chargeback Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 7,
+            formName: "MonthlyStatementFee",
+            title: "Monthly Statement Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+        ]
+      },
+      // Common To North / Omaha
+      { 
+        title: "Common To North / Omaha",
+        colQty: "4",
+        fields: [
+          {
+            id: 1,
+            formName: "NorthOmahaMonthlyFee",
+            title: "Monthly Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 2,
+            formName: "NorthOmahaAchRejectFee",
+            title: "ACH Reject Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+        ]
+      },
+      // Cash Discount Flat Rate (WAVit Only)
+      { 
+        title: "Cash Discount Flat Rate (WAVit Only)",
+        colQty: "4",
+        fields: [
+          {
+            id: 1,
+            formName: "WavitCashDiscountRate",
+            title: "Cash Discount Rate %:",
+            type: "number",
+            placeholder: "%",
+            value: "",
+          },
+          {
+            id: 2,
+            formName: "WavitDiscount",
+            title: "Discount %:",
+            type: "number",
+            placeholder: "%",
+            value: "",
+          },
+        ]
+      },
+      // Omaha Interchange Only
+      { 
+        title: "Omaha Interchange Only",
+        colQty: "4",
+        fields: [
+          {
+            id: 1,
+            formName: "VisaMcChagebackFee",
+            title: "Visa/MC Chargeback Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 2,
+            formName: "VisaMcRetrievalFee",
+            title: "Visa/MC Retrieval Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+        ]
+      },
+      // North WAVit and Interchange Only
+      { 
+        title: "North WAVit and Interchange Only",
+        colQty: "3",
+        fields: [
+          {
+            id: 1,
+            formName: "AmexChargebackFee",
+            title: "Amex Chargeback Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 2,
+            formName: "DiscoverChargebackFee",
+            title: "Discover Chargeback Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 3,
+            formName: "RetrievalFee",
+            title: "Retrieval Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 4,
+            formName: "AmexChargebackRetrievalFee",
+            title: "Amex Chargeback Retrieval Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 5,
+            formName: "DiscoverRetrievalFee",
+            title: "Discover Retrieval Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 6,
+            formName: "VisaMcDiscoverChargebackRetrievalFee",
+            title: "Visa/MC/Discover Chargeback Retrieval Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 7,
+            formName: "NorthInterMonthlyStatementFee",
+            title: "Monthly Statement Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+        ]
+      },
+    ]
+    },
+  ]
+}
