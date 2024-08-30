@@ -1,6 +1,6 @@
 import React from "react";
 import MicampDescription from "@/components/home/MicampDescription";
-import Task from "@/components/home/tasks";
+import Tasks from "@/components/home/tasks";
 import HomeTable from "@/components/Shared/DataTable/HomeTable";
 import SideDetails from "@/components/Shared/DataTable/SideDetails";
 import {
@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/card";
 
 const GeneralHome = () => {
+  // const [testState, setTestState] = React.useState<string>("");
   return (
     <div>
       <main className="grid flex-1 items-start gap-4 px-12 max-sm:mb-3 max-sm:px-6 sm:mb-3 sm:py-0 md:gap-8 lg:mb-0 lg:grid-cols-2 2xl:grid-cols-3">
@@ -64,9 +65,26 @@ const GeneralHome = () => {
           <SideDetails />
         </div>
       </main>
-      <div className="px-12">
-        <Task />
+      <div className="mb-5 px-12">
+        <Tasks />
         <MicampDescription />
+
+        {/* Radio input form example */}
+        {/* <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)}>
+            <RadioForm
+              control={form.control}
+              formName="name"
+              label="Name"
+              options={[
+                { label: "Test1", value: "test1" },
+                { label: "Test2", value: "test2" },
+              ]}
+              state={testState}
+              setState={setTestState}
+            />
+          </form>
+        </Form> */}
       </div>
     </div>
   );

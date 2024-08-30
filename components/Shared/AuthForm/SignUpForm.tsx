@@ -12,6 +12,7 @@ import { SignUpSchema } from "@/schemas";
 import { signUp } from "@/constants/actions/user.action";
 import LineSeperator from "../../LineSeperator";
 import LoadingButton from "../LoadingButton";
+import { SelectForm } from "../InstantForm";
 
 const SignUpForm = ({ type }: { type: string }) => {
   // Use the build-in transitioning function from React to prevent the user to submit the form multiple times.
@@ -29,6 +30,7 @@ const SignUpForm = ({ type }: { type: string }) => {
       password: "",
       phone: "",
       UserName: "",
+      departmentId: "",
     },
   });
 
@@ -42,6 +44,29 @@ const SignUpForm = ({ type }: { type: string }) => {
       });
     });
   };
+
+  const departmentId = [
+    {
+      id: "1",
+      title: "IT",
+    },
+    {
+      id: "2",
+      title: "Support",
+    },
+    {
+      id: "3",
+      title: "Sale",
+    },
+    {
+      id: "4",
+      title: "Equipment",
+    },
+    {
+      id: "5",
+      title: "Finance",
+    },
+  ];
 
   return (
     <Form {...SignUpForm}>
@@ -81,6 +106,15 @@ const SignUpForm = ({ type }: { type: string }) => {
             label="Phone number"
             nameHolder="480-000-0000"
             type="sign-up"
+          />
+          <SelectForm
+            control={SignUpForm.control}
+            formName="departmentId"
+            label="Department"
+            placeholder="Select a department"
+            content={departmentId}
+            displayKey="title"
+            valueKey="id"
           />
         </div>
         <div className="mt-7 flex flex-col">

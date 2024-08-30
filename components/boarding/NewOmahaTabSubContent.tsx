@@ -102,6 +102,10 @@ const MerchantDetail = () => {
   const onSubmit = (value: z.infer<typeof merchantInformationOmahaSchema>) => {
     console.log(value);
   };
+ 
+  const handleClick = (value: string) => {
+    RenderNewOmahaComponents(value);
+  };
 
   return (
     <section className="text-start">
@@ -116,7 +120,7 @@ const MerchantDetail = () => {
             formName="UseInterchangeWavit"
             label="Use WAVit Flat Rate"
           />
-          <br/>
+          <br />
           <FormGeneration
             formControl={form.control}
             formFields={dbaInformationInterForm}
@@ -178,9 +182,19 @@ const MerchantDetail = () => {
           />
 
           <div className="m-auto text-center">
-            <CustomButtons className="m-auto my-5" btnType="default">
+            <CustomButtons
+              onClick={() => RenderNewOmahaComponents("finantialInformation")}
+              className="m-auto my-5"
+              btnType="default"
+            >
               Save Changes
             </CustomButtons>
+          </div>
+          <div
+            onClick={() => handleClick("finantialInformation")}
+            className="cursor-pointer"
+          >
+            Test
           </div>
         </form>
       </Form>
@@ -865,7 +879,7 @@ const OmahaDetails = () => {
           />
           {/* SERVICE FEES */}
           <div className="my-2 border px-4 py-2">
-            <h1 className="my-3 flex  gap-2 text-start text-2xl font-semibold text-sky-500">
+            <h1 className="my-3 flex gap-2 text-start text-2xl font-semibold text-sky-500">
               Service Fees
             </h1>
             <FormGeneration
@@ -876,7 +890,7 @@ const OmahaDetails = () => {
           </div>
           {/* AUTHORIZATION AND CAPTURE TRANSACTION */}
           <div className="my-2 border px-4 py-2">
-            <h1 className="my-3 flex  gap-2 text-start text-2xl font-semibold text-sky-500">
+            <h1 className="my-3 flex gap-2 text-start text-2xl font-semibold text-sky-500">
               Authorization & Capture Transaction
             </h1>
             <FormGeneration
@@ -885,8 +899,6 @@ const OmahaDetails = () => {
               gridCols={"3"}
             />
           </div>
-
-          
 
           {/* BUTTON SAVE CHANGES */}
           <div className="m-auto text-center">
@@ -900,7 +912,8 @@ const OmahaDetails = () => {
   );
 };
 
-export default function RenderNewOmahaComponents(value: string) {
+export default function RenderNewOmahaComponents(value?: string) {
+  console.log(value);
   switch (value) {
     case "merchantDetail":
       return <MerchantDetail />;
@@ -912,5 +925,7 @@ export default function RenderNewOmahaComponents(value: string) {
       return <ProgrammingRequest />;
     case "omahaDetails":
       return <OmahaDetails />;
+    default:
+      return <MerchantDetail />;
   }
 }
