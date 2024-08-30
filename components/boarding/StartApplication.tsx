@@ -48,26 +48,6 @@ const StartApplication = () => {
       value: "",
       Route: "/boarding/mBoarding/newOMAHA",
     },
-    // {
-    //   Title: "MiCamp FSP MPA",
-    //   Route: "/boarding/mBoarding/newFSP",
-    //   RouteTraining: "#",
-    // },
-    // {
-    //   Title: "First Data NORTH Interchange 2502-2",
-    //   Route: "/boarding/mBoarding/newInterchange",
-    //   RouteTraining: "#",
-    // },
-    // {
-    //   Title: "First Data NORTH WAVit 2502-2",
-    //   Route: "/boarding/mBoarding/newWAVit",
-    //   RouteTraining: "#",
-    // },
-    // {
-    //   Title: "OMAHA Processing Application and Agreement",
-    //   Route: "/boarding/mBoarding/newOMAHA",
-    //   RouteTraining: "#",
-    // },
   ];
 
   const form = useForm<z.infer<typeof boardingAgentSettingsSchema>>({
@@ -84,7 +64,7 @@ const StartApplication = () => {
   const [linkRoute, setLinkRoute] = useState("");
   const handleFormTypeRoute = (value: string) => {
     setLinkRoute(value);
-    console.log(value);
+    // console.log(value);
   };
 
   return (
@@ -120,15 +100,9 @@ const StartApplication = () => {
               label="Email Statements To:*"
               placeholder="example@email.com"
             />
-            {/* <FormGeneration
-              formControl={form.control}
-              formFields={linksApplication}
-              gridCols={"1"}
-            /> */}
             {linksApplication.map((item) => {
               return (
                 <div
-                  // onClick={() => handleFormTypeRoute(radioOne)}
                   key={item.id}
                   className="flex content-center items-center gap-2"
                 >
@@ -162,31 +136,6 @@ const StartApplication = () => {
           </div>
         </form>
       </Form>
-
-      {/* {linksApplication.map((item) => {
-        return (
-          <div
-            key={item.Title}
-            className="mb-4 hidden w-full justify-between rounded-lg bg-gray-100 p-2 px-10 dark:bg-black"
-          >
-            <h3 className="content-center text-lg font-semibold max-lg:text-sm">
-              {item.Title}
-            </h3>
-            <div className="flex gap-10">
-              <Link href={item.RouteTraining}>
-                <Button className="text-white" variant={"success"}>
-                  Training
-                </Button>
-              </Link>
-              <Link href={item.Route}>
-                <Button className="text-white" variant={"submit"}>
-                  + Add New
-                </Button>
-              </Link>
-            </div>
-          </div>
-        );
-      })} */}
     </section>
   );
 };
