@@ -250,9 +250,9 @@ model Task {
 }
 
 model Department {
-  id     String  @id
-  userId String?
-  user   User[]
+  id    String @id
+  title String
+  user  User[]
 
   @@map("departments")
 }
@@ -352,3 +352,5 @@ model User {
   @@index([normalizedEmail])
   @@map("users")
 }
+
+// Onboarding schemas

@@ -317,6 +317,70 @@ export const SwitchForm = <T extends z.ZodType<any, any>>({
   );
 };
 
+export const RadioForm = <
+  T extends z.ZodType<any, any>,
+  S extends string | number = string | number,
+>({
+  control,
+  formName,
+  label,
+  options,
+  className,
+  labelClass,
+  state,
+  setState,
+}: {
+  control: Control<z.infer<T>>;
+  formName: FieldPath<z.infer<T>>;
+  label: string;
+  options: { label: string; value: S }[];
+  className?: string;
+  labelClass?: string;
+  state?: S;
+  setState?: React.Dispatch<React.SetStateAction<S>>;
+}) => {
+  return (
+    <FormField
+      control={control}
+      name={formName}
+      render={({ field }) => (
+        <FormItem>
+          <FormLabel>{label}</FormLabel>
+          <FormControl>
+            <div>
+              {options.map((option) => (
+                <div key={option.value}>
+                  <Input
+                    type="radio"
+                    id={`${formName}-${option.value}`}
+                    name={formName}
+                    value={option.value}
+                    checked={state === option.value}
+                    onChange={(e) => {
+                      const value = e.target.value as S;
+                      field.onChange(value); // Pass the value directly to the field
+                      if (setState) {
+                        setState(value);
+                      }
+                    }}
+                    className={className}
+                  />
+                  <label
+                    htmlFor={`${formName}-${option.value}`}
+                    className={labelClass}
+                  >
+                    {option.label}
+                  </label>
+                </div>
+              ))}
+            </div>
+          </FormControl>
+        </FormItem>
+      )}
+    />
+  );
+};
+
 // Form generator from Helly
 
 /**

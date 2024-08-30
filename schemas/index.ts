@@ -27,6 +27,7 @@ export const SignUpSchema = z.object({
   password: requiredPassword,
   phone: z.string().max(10),
   UserName: requiredString.max(25),
+  departmentId: requiredString,
 });
 
 export const UpdateUserSchema = z.object({

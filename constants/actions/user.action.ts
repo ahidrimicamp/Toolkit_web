@@ -68,7 +68,7 @@ export const signUp = async (
   error: string;
 }> => {
   try {
-    const { email, password, phone, UserName } =
+    const { email, password, phone, UserName, departmentId } =
       SignUpSchema.parse(credentials);
 
     const passwordHashed = await hash(password, {
@@ -112,6 +112,7 @@ export const signUp = async (
         emailConfirmed: false,
         phoneNumberConfirmed: false,
         twoFactorEnabled: false,
+        departmentId,
       },
     });
 

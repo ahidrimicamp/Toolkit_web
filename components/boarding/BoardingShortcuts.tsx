@@ -15,56 +15,64 @@ const BoardingShortcuts = () => {
     <section className="w-full">
       <div className="m-auto grid w-3/4 grid-cols-3 gap-4 rounded-md text-lg max-xl:grid-cols-2 max-lg:grid-cols-1">
         {/* MERCHANT BOARDING LIST SHORCUT */}
-        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
-          <h1 className="text-center font-semibold">Merchant Boarding List</h1>
-          <Link href={"/boarding/mBoarding"} className="flex gap-4 px-2">
-            <Image
-              className="m-auto flex-none"
-              src="/icon/colorful/list.svg"
-              alt="Logo"
-              width={60}
-              height={60}
-              priority
-            />
-            <p className="flex-1 content-center justify-start text-base">
-              List and manage all available Merchant Applications
-            </p>
-          </Link>
-        </div>
+        <Link href={"/boarding/mBoarding"}>
+          <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
+            <h1 className="text-center font-semibold">
+              Merchant Boarding List
+            </h1>
+            <span className="flex gap-4 px-2">
+              <Image
+                className="m-auto flex-none"
+                src="/icon/colorful/list.svg"
+                alt="Logo"
+                width={60}
+                height={60}
+                priority
+              />
+              <p className="flex-1 content-center justify-start text-base">
+                List and manage all available Merchant Applications
+              </p>
+            </span>
+          </div>
+        </Link>
         {/* MERCHANT SHORCUT */}
-        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
-          <h1 className="text-center font-semibold">Merchant</h1>
-          <Link href={"/boarding/merch"} className="flex gap-4 px-2">
-            <Image
-              className="m-auto flex-none"
-              src="/icon/colorful/merchant.svg"
-              alt="Logo"
-              width={64}
-              height={64}
-              priority
-            />
-            <p className="flex-1 content-center justify-start text-base">
-              Find Merchants and Order Equipment
-            </p>
-          </Link>
-        </div>
+        <Link href={"/boarding/merch"}>
+          <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
+            <h1 className="text-center font-semibold">Merchant</h1>
+            <span className="flex gap-4 px-2">
+              <Image
+                className="m-auto flex-none"
+                src="/icon/colorful/merchant.svg"
+                alt="Logo"
+                width={64}
+                height={64}
+                priority
+              />
+              <p className="flex-1 content-center justify-start text-base">
+                Find Merchants and Order Equipment
+              </p>
+            </span>
+          </div>
+        </Link>
         {/* AGENT DETAILS SHORCUT */}
-        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
-          <h1 className="text-center font-semibold">Agent Details List</h1>
-          <Link href={"/boarding/agentDetails"} className="flex gap-4 px-2">
-            <Image
-              className="m-auto flex-none"
-              src="/icon/colorful/agents-edit.svg"
-              alt="Logo"
-              width={64}
-              height={64}
-              priority
-            />
-            <p className="flex-1 content-center justify-start text-base">
-              View and Edit Shipping Agent Detail
-            </p>
-          </Link>
-        </div>
+        <Link href={"/boarding/agentDetails"}>
+          <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
+            <h1 className="text-center font-semibold">Agent Details List</h1>
+            <span className="flex gap-4 px-2">
+              <Image
+                className="m-auto flex-none"
+                src="/icon/colorful/agents-edit.svg"
+                alt="Logo"
+                width={64}
+                height={64}
+                priority
+              />
+              <p className="flex-1 content-center justify-start text-base">
+                View and Edit Shipping Agent Detail
+              </p>
+            </span>
+          </div>
+        </Link>
         {/* DOCUMENT LIBRARY SHORCUT */}
         <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
           <h1 className="text-center font-semibold">Document Library</h1>
@@ -79,27 +87,27 @@ const BoardingShortcuts = () => {
             />
             <ul className="flex-1 content-center justify-start text-sm">
               <li
-                className="list-disc text-nowrap text-sm underline"
+                className="w-fit cursor-pointer list-disc text-nowrap text-sm underline"
                 onClick={() => handleDocLibTabClick("blankMpaAndAddendums")}
               >
                 Blank MPAs & Addendums
               </li>
 
               <li
-                className="list-disc text-nowrap text-sm underline"
+                className="w-fit cursor-pointer list-disc text-nowrap text-sm underline"
                 onClick={() => handleDocLibTabClick("changeForms")}
               >
                 Change Forms
               </li>
 
               <li
-                className="list-disc text-nowrap text-sm underline"
+                className="w-fit cursor-pointer list-disc text-nowrap text-sm underline"
                 onClick={() => handleDocLibTabClick("equipmentPricing")}
               >
                 Equipment Pricing
               </li>
               <li
-                className="list-disc text-nowrap text-sm underline"
+                className="w-fit cursor-pointer list-disc text-nowrap text-sm underline"
                 onClick={() => handleDocLibTabClick("uploadAndSendDocs")}
               >
                 Upload & Send Document
@@ -124,7 +132,7 @@ const BoardingShortcuts = () => {
               {/* Then, when clicking any of these div should pass the props value. */}
               <div>
                 <li
-                  className="list-disc text-nowrap text-sm underline"
+                  className="w-fit cursor-pointer list-disc text-nowrap text-sm underline"
                   onClick={() => handleLeadsTabClick("northLeads")}
                 >
                   North Leads
@@ -132,7 +140,7 @@ const BoardingShortcuts = () => {
               </div>
               <div>
                 <li
-                  className="list-disc text-nowrap text-sm underline"
+                  className="w-fit cursor-pointer list-disc text-nowrap text-sm underline"
                   onClick={() => handleLeadsTabClick("fspLeads")}
                 >
                   FSP Leads
@@ -142,22 +150,24 @@ const BoardingShortcuts = () => {
           </div>
         </div>
         {/* SUPPORT TICKETS SHORCUT */}
-        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
-          <h1 className="text-center font-semibold">Support Tickets</h1>
-          <Link href={"/boarding/supportTickets"} className="flex gap-4 px-2">
-            <Image
-              className="m-auto flex-none"
-              src="/icon/colorful/support.svg"
-              alt="Logo"
-              width={64}
-              height={64}
-              priority
-            />
-            <p className="flex-1 content-center justify-start text-base">
-              View and manage your Support Tickets
-            </p>
-          </Link>
-        </div>
+        <Link href={"/boarding/supportTickets"}>
+          <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
+            <h1 className="text-center font-semibold">Support Tickets</h1>
+            <span className="flex gap-4 px-2">
+              <Image
+                className="m-auto flex-none"
+                src="/icon/colorful/support.svg"
+                alt="Logo"
+                width={64}
+                height={64}
+                priority
+              />
+              <p className="flex-1 content-center justify-start text-base">
+                View and manage your Support Tickets
+              </p>
+            </span>
+          </div>
+        </Link>
       </div>
     </section>
   );
