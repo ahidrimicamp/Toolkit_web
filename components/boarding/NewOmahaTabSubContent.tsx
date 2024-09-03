@@ -102,10 +102,7 @@ const MerchantDetail = () => {
   const onSubmit = (value: z.infer<typeof merchantInformationOmahaSchema>) => {
     console.log(value);
   };
- 
-  const handleClick = (value: string) => {
-    RenderNewOmahaComponents(value);
-  };
+
 
   return (
     <section className="text-start">
@@ -190,12 +187,7 @@ const MerchantDetail = () => {
               Save Changes
             </CustomButtons>
           </div>
-          <div
-            onClick={() => handleClick("finantialInformation")}
-            className="cursor-pointer"
-          >
-            Test
-          </div>
+          
         </form>
       </Form>
     </section>
@@ -913,7 +905,7 @@ const OmahaDetails = () => {
 };
 
 export default function RenderNewOmahaComponents(value?: string) {
-  console.log(value);
+  // console.log(value);
   switch (value) {
     case "merchantDetail":
       return <MerchantDetail />;

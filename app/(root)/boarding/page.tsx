@@ -45,7 +45,7 @@ const Page = () => {
       </p>
       <BoardingShortcuts />
 
-      <h2 className="my-7 text-center text-2xl font-bold">Admins Only</h2>
+      <h2 className="my-7 text-center text-2xl font-bold">&#9919; Admins Only</h2>
       <BoardingAdminShortcuts />
     </section>
   );

@@ -10062,3 +10062,30 @@ export const boardingAgentSettingsForm = {
     },
   ]
 }
+
+export const marketingDocumentsTable: DataTypes[] = [
+  {
+    id: 1,
+    DocName: "Statement.pdf",
+    FileSize: "500 mb",
+    UploadDateTime: new Date("03/11/2015 11:22 AM"),
+  },
+  {
+    id: 2,
+    DocName: "ID.pdf",
+    FileSize: "40 mb",
+    UploadDateTime: new Date("08/12/2019 11:22 AM"),
+  },
+  {
+    id: 3,
+    DocName: "Certification.pdf",
+    FileSize: "751 mb",
+    UploadDateTime: new Date("09/14/2017 11:22 AM"),
+  },
+  {
+    id: 4,
+    DocName: "Leasing.pdf",
+    FileSize: "500 mb",
+    UploadDateTime: new Date("01/01/2022 11:22 AM"),
+  },
+];

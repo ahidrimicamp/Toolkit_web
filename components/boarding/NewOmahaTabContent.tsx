@@ -4,23 +4,62 @@ import React, { useState } from "react";
 import RenderNewOmahaComponents from "./NewOmahaTabSubContent";
 import { Button } from "../ui/button";
 
-
 const NewOmahaTabContent = () => {
-  // const handleClick = (value: string) => {
-  //   setActiveItem(value);
-  // };
-  // const [activeItem, setActiveItem] = useState<string>("");
-  // const [tab1, setTab1] = useState("");
-  // const [tab2, setTab2] = useState("");
-  // const [tab3, setTab3] = useState("");
-  // const [tab4, setTab4] = useState("");
-  // const [tab5, setTab5] = useState("");
+  const formTabs = [
+    {
+      id: 1,
+      title: "Merchant Detail",
+      route: "merchantDetail",
+    },
+    {
+      id: 2,
+      title: "Financial Information",
+      route: "financialInformation",
+    },
+    {
+      id: 3,
+      title: "Merchant Owner",
+      route: "merchantOwner",
+    },
+    {
+      id: 4,
+      title: "Programming Request",
+      route: "programmingRequest",
+    },
+    {
+      id: 5,
+      title: "OMAHA Details",
+      route: "omahaDetails",
+    },
+  ];
 
-  // const handleTab1 = (value: string) => {};
   const [link, setLink] = useState("merchantDetail");
-  const handleClick = (value: string) => {
-    console.log("passou por aqui:" + value)
-    setLink(value);
+  const [tabIndex, setTabIndex] = useState(1);
+
+  // Create a handler to the value next and previous
+  const handleClickNext = (value: string) => {
+    if (link === "merchantDetail") setLink("financialInformation");
+    if (link === "financialInformation") setLink("merchantOwner");
+    if (link === "merchantOwner") setLink("programmingRequest");
+    if (link === "programmingRequest") setLink("omahaDetails");
+    setTabIndex(tabIndex + 1);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Optional: Adds a smooth scrolling effect
+    });
+    console.log(link);
+  };
+  const handleClickPrevious = (value: string) => {
+    if (link === "financialInformation") setLink("merchantDetail");
+    if (link === "merchantOwner") setLink("financialInformation");
+    if (link === "programmingRequest") setLink("merchantOwner");
+    if (link === "omahaDetails") setLink("programmingRequest");
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Optional: Adds a smooth scrolling effect
+    });
+    setTabIndex(tabIndex - 1);
+    console.log(link);
   };
 
   return (
@@ -40,51 +79,34 @@ const NewOmahaTabContent = () => {
 
           {/* Circles and text */}
           <div className="z-20 flex items-center gap-10">
-            <div className="flex flex-col items-center">
-              <div className="flex size-8 items-center justify-center rounded-full border border-sky-500 bg-sky-500">
-                1
-              </div>
-              <p className="mt-2 text-center text-xs">Merchant Detail</p>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="flex size-8 items-center justify-center rounded-full border border-sky-500 bg-white dark:bg-black">
-                2
-              </div>
-              <p className="mt-2 text-center text-xs text-sky-500">
-                Financial Information
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="flex size-8 items-center justify-center rounded-full border bg-white dark:bg-black">
-                3
-              </div>
-              <p className="mt-2 text-center text-xs">Merchant Owner</p>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="flex size-8 items-center justify-center rounded-full border bg-white dark:bg-black">
-                4
-              </div>
-              <p className="mt-2 text-center text-xs">Programming Request</p>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="flex size-8 items-center justify-center rounded-full border bg-white dark:bg-black">
-                5
-              </div>
-              <p className="mt-2 text-center text-xs">OMAHA Details</p>
-            </div>
+            {formTabs.map((item) => {
+              return (
+                <div key={item.id} className="flex flex-col items-center">
+                  <div
+                    className={`flex size-8 items-center justify-center rounded-full border ${item.id === tabIndex ? "border-sky-500" : ""} ${item.id < tabIndex ? "bg-sky-500" : "bg-white dark:bg-black"} `}
+                  >
+                    {item.id}
+                  </div>
+                  <p className="mt-2 text-center text-xs">{item.title}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
-      <div className="flex justify-end">
-        <Button  onClick={() => handleClick("financialInformation")}>Next</Button>
-      </div>
       {RenderNewOmahaComponents(link)}
+      <div
+        className={`my-3 flex ${tabIndex === 1 ? "justify-end" : "justify-between"}`}
+      >
+        {link !== "merchantDetail" && (
+          <Button onClick={() => handleClickPrevious(link)}>Previous</Button>
+        )}
+        {link !== "omahaDetails" && (
+          <Button onClick={() => handleClickNext(link)}>Next</Button>
+        )}
+      </div>
 
-      {/* THIS IS THE STANDARD CODE TO THE CONVENTIONAL TABS */}
+      {/* THIS IS THE STANDARD CODE TO THE CONVENTIONAL TABS - KEEP IT FOR NOW (HC) */}
       {/*     
       <Tabs
         defaultValue="merchantDetail"

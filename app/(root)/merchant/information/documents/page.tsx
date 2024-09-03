@@ -2,10 +2,6 @@
 "use client";
 import React from "react";
 import { Button } from "@/components/ui/button";
-// import { z } from "zod";
-// import { newMerchantSchema } from "@/lib/utils";
-// import { zodResolver } from "@hookform/resolvers/zod";
-// import { useForm } from "react-hook-form";
 import { Checkbox } from "@/components/ui/checkbox";
 import { documentsTable } from "@/constants";
 import DataTable from "@/components/Shared/DataTable/DataTable";
@@ -16,48 +12,6 @@ import {
 import { DataTypes } from "@/types";
 
 const page = () => {
-  // const form = useForm<z.infer<typeof newMerchantSchema>>({
-  //   resolver: zodResolver(newMerchantSchema),
-  //   defaultValues: {
-  //     MID: "",
-  //     LegalName: "",
-  //     DBA: "",
-  //     Phone: "",
-  //     Status: "",
-  //     Approval: "",
-  //     Filter: "",
-  //     Processor: "",
-  //     Fitler2: "",
-  //     AgentID: 0,
-  //     SalesRep: "",
-  //     Split: 0,
-  //     SplitName: "",
-  //     SplitID: 0,
-  //     LeadSource: "",
-  //     SplitLead: 0,
-  //     EstAnnual: 0,
-  //     Transactions: 0,
-  //     Filter3: "",
-  //     Banks: "",
-  //     WAVItAccount: 0,
-  //     MCCCode: "",
-  //     Notice: "",
-  //     ChildMID: false,
-  //     WAVitAccount: false,
-  //     WAVitApp: false,
-  //     NewAccountTasks: false,
-  //     BusinessRetail: false,
-  //     BusinessEcommerce: false,
-  //     BusinessRestaurant: false,
-  //     BusinessMoTo: false,
-  //     DeployBy: "",
-  //   },
-  // });
-
-  // const onSubmit = (value: z.infer<typeof newMerchantSchema>) => {
-  //   console.log(value);
-  // };
-
   const columnsConfig: ColumnConfig<DataTypes>[] = [
     { accessorKey: "DocType", header: "Doc Type" },
     { accessorKey: "Historic", header: "Historic" },
