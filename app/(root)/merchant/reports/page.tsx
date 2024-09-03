@@ -56,6 +56,7 @@ const Page = () => {
                   />
                 </div>
               </div>
+              <hr className="border" />
               {/* AGENT AND DATE */}
               <div className="my-3 grid flex-auto grid-cols-3 items-start gap-10">
                 <CheckboxForm

@@ -5,7 +5,6 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { boardingMerchantTabs } from "@/constants";
 import RenderBoardingMerchantTabComponents from "./BoardingMerchantTabSubContent";
 
-
 const BoardingMerchantTabContent = () => {
   const [activeItem, setActiveItem] = useState<string>("");
 
@@ -13,23 +12,32 @@ const BoardingMerchantTabContent = () => {
     setActiveItem(value);
   };
   return (
-    <Tabs
-      defaultValue="merchantInformation"
-      className="w-full rounded-md p-4 text-center"
-    >
-      <TabsList>
-        {boardingMerchantTabs.map((tab) => (
-          <TabsTrigger
-            onClick={() => handleClick(tab.value)}
-            key={tab.id}
-            value={tab.value}
-          >
-            {tab.title}
-          </TabsTrigger>
-        ))}
-      </TabsList>
-      {RenderBoardingMerchantTabComponents(activeItem || "merchantInformation")}
-    </Tabs>
+    <>
+      {/* OLD TAB TRIGGER */}
+      <Tabs
+        defaultValue="merchantInformation"
+        className="w-full rounded-md p-4 text-center"
+      >
+        <TabsList>
+          {boardingMerchantTabs.map((tab) => (
+            <TabsTrigger
+              onClick={() => handleClick(tab.value)}
+              key={tab.id}
+              value={tab.value}
+              title={tab.title}
+            >
+              <p className="hidden max-xl:block">
+                {React.createElement(tab.icon)}
+              </p>
+              <p className="max-xl:hidden">{tab.title}</p>
+            </TabsTrigger>
+          ))}
+        </TabsList>
+        {RenderBoardingMerchantTabComponents(
+          activeItem || "merchantInformation",
+        )}
+      </Tabs>
+    </>
   );
 };
 

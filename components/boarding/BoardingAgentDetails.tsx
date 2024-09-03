@@ -13,6 +13,7 @@ import {
   InputForm,
   SelectForm,
 } from "../Shared/InstantForm";
+import CustomButtons from "../Shared/CustomButtons";
 
 const BoardingAgentDetails = () => {
   const form = useForm<z.infer<typeof boardingAgentDetailsSchema>>({
@@ -50,7 +51,7 @@ const BoardingAgentDetails = () => {
       <section className="mt-4 gap-2 text-start">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="gap-2">
-            <h1 className="mt-5 text-center text-xl font-medium text-sky-500">
+            <h1 className="my-5 text-center text-2xl font-medium text-sky-500">
               Agent Details
             </h1>
             <div className="w-full">
@@ -69,13 +70,16 @@ const BoardingAgentDetails = () => {
                     className=""
                   />
                 </div>
-                <Button className="mt-2 flex-auto bg-gradient-to-r from-[#14ADD6] to-[#384295] text-white hover:opacity-90">
+                <CustomButtons
+                  btnType="default"
+                  className="mt-2 flex-auto bg-gradient-to-r from-[#14ADD6] to-[#384295] px-10 text-white hover:opacity-90"
+                >
                   Search
-                </Button>
+                </CustomButtons>
               </div>
 
               {/* AGENT INFO DIV */}
-              <h1 className="mt-10 text-center text-lg font-medium text-sky-500">
+              <h1 className="mb-3 mt-10 text-lg font-medium text-sky-500">
                 Agent Information
               </h1>
               <div className="grid grid-cols-2 gap-2">
@@ -163,7 +167,7 @@ const BoardingAgentDetails = () => {
               </div>
 
               {/* SHIPPING INFO DIV */}
-              <h1 className="mt-10 text-center text-lg font-medium text-sky-500">
+              <h1 className="mt-10 text-lg font-medium text-sky-500">
                 Shipping Information
               </h1>
               <div className="grid grid-cols-2 gap-2">

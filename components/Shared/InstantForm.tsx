@@ -26,7 +26,6 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { BusinessTypeSelectList } from "@/constants";
 import { Switch } from "../ui/switch";
 
 export const InputForm = <
@@ -414,12 +413,12 @@ export const FormGeneration = ({ formControl, formFields, gridCols }: any) => {
                 label={item.title}
                 placeholder={item.title}
                 valueKey={"value"}
-                content={BusinessTypeSelectList}
-                displayKey="title"
+                content={item.content}
+                displayKey="value" 
               />
             </div>
           ) : item.type === "checkbox" ? (
-            <div key={item.title} className="w-full items-end">
+            <div key={item.title} className="w-full content-end mb-2">
               <CheckboxForm
                 control={formControl}
                 formName={item.formName}

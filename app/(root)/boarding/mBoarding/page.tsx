@@ -22,20 +22,25 @@ const page = () => {
 
   return (
     <>
-      <section className="w-full">
-        <StartApplication />
-
-        <h2 className="mt-16 text-xl">
-          Merchant Boarding List for <b>user@micamp.com</b>
-        </h2>
-        <div className="grid grid-cols-1 overflow-auto">
-          <DataTable
-            columns={columns}
-            data={merchantBoardingListTable}
-            enableSorting={true}
-            enableColumnFilter={true}
-            filteredBy="BusinessName"
-          />
+      <section className="flex w-full gap-4 max-2xl:flex-wrap">
+        <div className="flex-auto content-center">
+          <StartApplication />
+        </div>
+        <div className="border max-2xl:hidden" />
+        {/* TABLE DIV */}
+        <div className="flex-auto">
+          <h2 className="mt-5 text-center text-xl">
+            Merchant Boarding List for <b>user@micamp.com</b>
+          </h2>
+          <div className="grid grid-cols-1 overflow-auto">
+            <DataTable
+              columns={columns}
+              data={merchantBoardingListTable}
+              enableSorting={true}
+              enableColumnFilter={true}
+              filteredBy="BusinessName"
+            />
+          </div>
         </div>
       </section>
     </>

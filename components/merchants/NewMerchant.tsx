@@ -10,6 +10,7 @@ import { Form } from "@/components/ui/form";
 import {
   CheckboxForm,
   DatePickerForm,
+  FormGeneration,
   InputForm,
   SelectForm,
 } from "../Shared/InstantForm";
@@ -21,6 +22,7 @@ import {
   deployByList,
   mccCode,
   splitNameList,
+  newMerchantInfoForm,
 } from "@/constants/index";
 
 const NewMerchant = () => {
@@ -71,7 +73,7 @@ const NewMerchant = () => {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <div className="grid grid-cols-2 gap-5 max-2xl:grid-cols-1">
-            <div className="grid grid-cols-2 gap-3 max-2xl:grid-cols-1">
+            <div className="hidden grid-cols-2 gap-3 max-2xl:grid-cols-1">
               <InputForm
                 control={form.control}
                 formName="MID"
@@ -228,7 +230,13 @@ const NewMerchant = () => {
                 placeholder="20,00"
               />
             </div>
-
+            <div className="">
+              <FormGeneration
+                formControl={form.control}
+                formFields={newMerchantInfoForm}
+                gridCols={"2"}
+              />
+            </div>
             <div className="my-5 hidden w-full border max-2xl:block" />
 
             {/* Right side */}

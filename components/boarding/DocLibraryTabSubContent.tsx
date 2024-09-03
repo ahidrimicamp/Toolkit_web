@@ -158,9 +158,9 @@ const UploadAndSendDocuments = () => {
           return (
             <Dialog key={item.id}>
               <DialogTrigger>
-                <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
+                <div className="h-full space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
                   <h1 className="text-center font-semibold">{item.title}</h1>
-                  <div className="flex gap-4 px-2">
+                  <div className="flex gap-4 px-2 max-xl:flex-wrap">
                     <Image
                       className="m-auto flex-none"
                       src={item.imgSrc}
@@ -169,7 +169,7 @@ const UploadAndSendDocuments = () => {
                       height={60}
                       priority
                     />
-                    <p className="flex-1 content-center justify-start text-start text-sm">
+                    <p className="flex-auto content-center justify-start text-start text-sm max-xl:text-center max-xl:text-xs">
                       {item.desc}
                     </p>
                   </div>

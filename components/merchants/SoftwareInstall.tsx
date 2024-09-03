@@ -78,7 +78,7 @@ const SoftwareInstall = () => {
         <div className="flex size-full grow gap-3 max-xl:flex-col">
           {/* Merchant Information */}
           <div className="flex-auto rounded-md border p-2 xl:w-1/3">
-            <h1 className="flex justify-center text-xl font-semibold text-blue-500">
+            <h1 className="flex justify-center text-xl font-semibold text-sky-500">
               Merchant Information
             </h1>
             <div className="flex content-center gap-3">

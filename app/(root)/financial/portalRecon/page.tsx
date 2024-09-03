@@ -1,6 +1,6 @@
 "use client";
 
-import DatePickerWithRange from "@/components/Shared/Calender/Calender";
+import { DatePickerWithRange }from "@/components/Shared/Calender/Calender";
 import { Price } from "@/components/Shared/DataTable/CellFormat";
 import {
   ColumnConfig,

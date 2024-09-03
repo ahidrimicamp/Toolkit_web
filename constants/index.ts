@@ -23,7 +23,9 @@ import {
   DollarSign,
   Receipt,
   MoveRight,
-  HomeIcon
+  HomeIcon,
+  MonitorSmartphone,
+  PackagePlus
 
 } from "lucide-react";
 import { z } from "zod";
@@ -1782,36 +1784,26 @@ export const AgentSetupTabs = [
   },
   {
     id: "2",
-    title: "Billing",
-    value: "billing",
-  },
-  {
-    id: "3",
     title: "Customer Finance",
     value: "customerFinance",
   },
   {
-    id: "4",
+    id: "3",
     title: "Equipment",
     value: "equipment",
   },
   {
-    id: "5",
+    id: "4",
     title: "Documentation",
     value: "documentation",
   },
   {
     id: "6",
-    title: "Reporting",
-    value: "reporting",
-  },
-  {
-    id: "7",
     title: "Email Lists",
     value: "emailLists",
   },
   {
-    id: "8",
+    id: "7",
     title: "Adjustments",
     value: "adjustments",
   },
@@ -1877,7 +1869,7 @@ export const summaryItems = [
 
 // Merchant data
 
-const merchantStatusList = [
+export const merchantStatusList = [
   { id: 1, name: "ACH Reject", value: "achReject" },
   { id: 2, name: "Agent Request", value: "agentRequest" },
   { id: 3, name: "Approved", value: "approved" },
@@ -1963,7 +1955,7 @@ const merchantStatusList = [
   { id: 47, name: "Withdran App", value: "withdranApp" },
 ];
 
-const salesRepList = [
+export const salesRepList = [
   { id: 1, name: "John Smith", value: "johnSmith" },
   { id: 2, name: "Emily Johnson", value: "emilyJohnson" },
   { id: 3, name: "Michael Brown", value: "michaelBrown" },
@@ -1976,7 +1968,7 @@ const salesRepList = [
   { id: 10, name: "Sophia Lee", value: "sophiaLee" },
 ];
 
-const leadSourceList = [
+export const leadSourceList = [
   { id: 1, name: "Innovatech Solutions", value: "innovatechSolutions" },
   { id: 2, name: "Blue Horizon Enterprises", value: "blueHorizonEnterprises" },
   { id: 3, name: "Quantum Dynamics", value: "quantumDynamics" },
@@ -1989,17 +1981,17 @@ const leadSourceList = [
   { id: 10, name: "Eclipse Enterprises", value: "eclipseEnterprises" },
 ];
 
-const splitNameList = [
+export const splitNameList = [
   { id: 1, name: "Innovatech Solutions", value: "innovatechSolutions" },
   { id: 2, name: "Blue Horizon Enterprises", value: "blueHorizonEnterprises" },
 ];
 
-const deployByList = [
+export const deployByList = [
   { id: 1, name: "MiCamp Solutions", value: "micamp" },
   { id: 2, name: "Agent", value: "Agent" },
 ];
 
-const mccCode = [
+export const mccCode = [
   { id: 1, name: "American Airlines", value: "americanAirlines" },
   { id: 2, name: "Delta Air Lines", value: "deltaAirLines" },
   { id: 3, name: "United Airlines", value: "unitedAirlines" },
@@ -2139,7 +2131,7 @@ export const merchResidualPaymentsTable = [
   },
 ]
 
-const wavitTransactionsTable = [
+export const wavitTransactionsTable = [
   {
     DateTime: "07/29/2024 09:00AM",
     Type: "Cash",
@@ -2202,7 +2194,7 @@ const wavitTransactionsTable = [
   },
 ];
 
-const wavitSettingsTable = [
+export const wavitSettingsTable = [
   {
     Description: "Integrated",
     Value: "false",
@@ -2261,16 +2253,158 @@ const wavitSettingsTable = [
   },
 ];
 
-export {
-  merchantStatusList,
-  salesRepList,
-  leadSourceList,
-  splitNameList,
-  deployByList,
-  mccCode,
-  wavitTransactionsTable,
-  wavitSettingsTable,
-};
+export const newMerchantInfoForm = 
+[
+  {
+    id: 1,
+    title: "MID:",
+    type: "input",
+    placeholder: "",
+    formName: "MID",
+    value: ""
+  },
+  {
+    id: 2,
+    title: "Legal Name:",
+    type: "input",
+    placeholder: "",
+    formName: "LegalName",
+    value: ""
+  },
+  {
+    id: 3,
+    title: "DBA:",
+    type: "input",
+    placeholder: "",
+    formName: "DBA",
+    value: ""
+  },
+  {
+    id: 4,
+    title: "Phone:",
+    type: "input",
+    placeholder: "(___) ___-____",
+    formName: "Phone",
+    value: ""
+  },
+  {
+    id: 5,
+    title: "Status:",
+    type: "input",
+    placeholder: "",
+    formName: "Status",
+    value: ""
+  },
+  {
+    id: 6,
+    title: "Approval:",
+    type: "datePicker",
+    placeholder: "Select a Date",
+    formName: "Approval",
+    value: "",
+  },
+  {
+    id: 7,
+    title: "Filter:",
+    type: "input",
+    placeholder: "",
+    formName: "Filter",
+    value: ""
+  },
+  {
+    id: 8,
+    title: "Processor:",
+    type: "selectBox",
+    placeholder: "",
+    formName: "Processor",
+    value: "",
+    content: merchantProcessorList,
+  },
+  {
+    id: 9,
+    title: "Filter2:",
+    type: "input",
+    placeholder: "",
+    formName: "Filter2",
+    value: ""
+  },
+  {
+    id: 10,
+    title: "Agent ID:",
+    type: "number",
+    placeholder: "",
+    formName: "AgentID",
+    value: ""
+  },
+  {
+    id: 11,
+    title: "Sales Rep:",
+    type: "selectbox",
+    placeholder: "",
+    formName: "SalesRep",
+    value: "",
+    content: salesRepList,
+  },
+  {
+    id: 12,
+    title: "Split:",
+    type: "number",
+    placeholder: "",
+    formName: "Split",
+    value: ""
+  },
+  {
+    id: 13,
+    title: "Split Name:",
+    type: "selectbox",
+    placeholder: "",
+    formName: "SplitName",
+    value: "",
+    content: splitNameList,
+  },
+  {
+    id: 14,
+    title: "Split ID:",
+    type: "number",
+    placeholder: "",
+    formName: "SplitID",
+    value: ""
+  },
+  {
+    id: 15,
+    title: "Lead Source:",
+    type: "selectbox",
+    placeholder: "",
+    formName: "LeadSource",
+    value: "",
+    content: leadSourceList
+  },
+  {
+    id: 16,
+    title: "Split Lead:",
+    type: "number",
+    placeholder: "",
+    formName: "SplitLead",
+    value: ""
+  },
+  {
+    id: 17,
+    title: "Estimated Annual:",
+    type: "number",
+    placeholder: "",
+    formName: "EstAnnual",
+    value: ""
+  },
+  {
+    id: 18,
+    title: "Transactions:",
+    type: "number",
+    placeholder: "",
+    formName: "Transactions",
+    value: ""
+  }
+]
+
 
 // AGENT DATA
 
@@ -3385,6 +3519,19 @@ export const supportTicketsTabs = [
     value: "solved",
   },
 ];
+// Merchant Test
+export const merchantTest = [
+  {
+    id: "1",
+    title: "Agent Details",
+    value: "agentDetails",
+  },
+  {
+    id: "2",
+    title: "Agent Settings",
+    value: "agentSettings",
+  },
+];
 
 export const merchantBoardingListTable = [
   {
@@ -3546,21 +3693,25 @@ export const boardingMerchantTabs = [
     id: "1",
     title: "Merchant Information",
     value: "merchantInformation",
+    icon: User,
   },
   {
     id: "2",
     title: "Equipment Orders",
     value: "equipmentOrders",
+    icon: MonitorSmartphone,
   },
   {
     id: "3",
     title: "Order New Equipment",
     value: "orderNewEquipment",
+    icon: PackagePlus,
   },
   {
     id: "4",
     title: "Upload Documents",
     value: "uploadDocuments",
+    icon: FileText,
   },
 ];
 
@@ -9656,3 +9807,285 @@ export const contactInfoMerchantForm =
     value: ""
   }
 ]
+
+
+// AGENT SETTINGS FORM
+
+export const boardingAgentsTabs = [
+  {
+    id: "1",
+    title: "Agent Details",
+    value: "agentDetails",
+  },
+  {
+    id: "2",
+    title: "Agent Settings",
+    value: "agentSettings",
+  },
+];
+
+export const boardingAgentSettingsForm = {
+  formTitle: "Agent Settings",
+  description: "",
+  section: [
+    // 
+    {
+    sectionName: "",
+    cards: [
+      // Common To ALL (North / Omaha / WAVit Interchange / FSP)
+      {
+        title: "Common To ALL (North / Omaha / WAVit Interchange / FSP)",
+        colQty: "4",
+        fields: [
+          {
+            id: 1,
+            formName: "EarlyTerminationFee",
+            title: "Early Termination Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 2,
+            formName: "MonthlyFee",
+            title: "Monthly Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 3,
+            formName: "Zone",
+            title: "Hide Equipment Price",
+            type: "checkbox",
+            placeholder: "Hide Equipment Price",
+            value: "",
+          },
+        ]
+      },
+      // FSP Only
+      { 
+        title: "FSP Only",
+        colQty: "4",
+        fields: [
+          {
+            id: 1,
+            formName: "VoiceAuthorization",
+            title: "Voice Authorization $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 2,
+            formName: "AudioResponse",
+            title: "Audio Response (ARU) $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 3,
+            formName: "VoiceAddressVerification",
+            title: "Voice Address Verification #:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 4,
+            formName: "TinInvalidFee",
+            title: "TIN Invalid Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 5,
+            formName: "AchRejectFee",
+            title: "ACH Reject Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 6,
+            formName: "ChargebackFee",
+            title: "Chargeback Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 7,
+            formName: "MonthlyStatementFee",
+            title: "Monthly Statement Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+        ]
+      },
+      // Common To North / Omaha
+      { 
+        title: "Common To North / Omaha",
+        colQty: "4",
+        fields: [
+          {
+            id: 1,
+            formName: "NorthOmahaMonthlyFee",
+            title: "Monthly Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 2,
+            formName: "NorthOmahaAchRejectFee",
+            title: "ACH Reject Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+        ]
+      },
+      // Cash Discount Flat Rate (WAVit Only)
+      { 
+        title: "Cash Discount Flat Rate (WAVit Only)",
+        colQty: "4",
+        fields: [
+          {
+            id: 1,
+            formName: "WavitCashDiscountRate",
+            title: "Cash Discount Rate %:",
+            type: "number",
+            placeholder: "%",
+            value: "",
+          },
+          {
+            id: 2,
+            formName: "WavitDiscount",
+            title: "Discount %:",
+            type: "number",
+            placeholder: "%",
+            value: "",
+          },
+        ]
+      },
+      // Omaha Interchange Only
+      { 
+        title: "Omaha Interchange Only",
+        colQty: "4",
+        fields: [
+          {
+            id: 1,
+            formName: "VisaMcChagebackFee",
+            title: "Visa/MC Chargeback Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 2,
+            formName: "VisaMcRetrievalFee",
+            title: "Visa/MC Retrieval Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+        ]
+      },
+      // North WAVit and Interchange Only
+      { 
+        title: "North WAVit and Interchange Only",
+        colQty: "3",
+        fields: [
+          {
+            id: 1,
+            formName: "AmexChargebackFee",
+            title: "Amex Chargeback Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 2,
+            formName: "DiscoverChargebackFee",
+            title: "Discover Chargeback Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 3,
+            formName: "RetrievalFee",
+            title: "Retrieval Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 4,
+            formName: "AmexChargebackRetrievalFee",
+            title: "Amex Chargeback Retrieval Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 5,
+            formName: "DiscoverRetrievalFee",
+            title: "Discover Retrieval Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 6,
+            formName: "VisaMcDiscoverChargebackRetrievalFee",
+            title: "Visa/MC/Discover Chargeback Retrieval Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+          {
+            id: 7,
+            formName: "NorthInterMonthlyStatementFee",
+            title: "Monthly Statement Fee $:",
+            type: "number",
+            placeholder: "$",
+            value: "",
+          },
+        ]
+      },
+    ]
+    },
+  ]
+}
+
+export const marketingDocumentsTable: DataTypes[] = [
+  {
+    id: 1,
+    DocName: "Statement.pdf",
+    FileSize: "500 mb",
+    UploadDateTime: new Date("03/11/2015 11:22 AM"),
+  },
+  {
+    id: 2,
+    DocName: "ID.pdf",
+    FileSize: "40 mb",
+    UploadDateTime: new Date("08/12/2019 11:22 AM"),
+  },
+  {
+    id: 3,
+    DocName: "Certification.pdf",
+    FileSize: "751 mb",
+    UploadDateTime: new Date("09/14/2017 11:22 AM"),
+  },
+  {
+    id: 4,
+    DocName: "Leasing.pdf",
+    FileSize: "500 mb",
+    UploadDateTime: new Date("01/01/2022 11:22 AM"),
+  },
+];

@@ -1,12 +1,8 @@
-import BoardingAgentDetails from '@/components/boarding/BoardingAgentDetails'
-import React from 'react'
+import BoardingAgentTabContent from "@/components/boarding/AgentsTabContent";
+import React from "react";
 
 const page = () => {
-  return (
-    <>
-        <BoardingAgentDetails/>
-    </>
-  )
-}
+  return <BoardingAgentTabContent />;
+};
 
-export default page
+export default page;
