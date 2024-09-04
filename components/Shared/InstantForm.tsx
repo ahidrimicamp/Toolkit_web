@@ -290,7 +290,9 @@ export const SwitchForm = <T extends z.ZodType<any, any>>({
       render={({ field }) => {
         return (
           <FormItem>
-            <div className={cn("flex items-center space-x-5", className)}>
+            <div
+              className={cn("flex h-full space-x-5 ", className)}
+            >
               <FormControl>
                 <Switch
                   checked={!isActive ? field.value : isActive}
@@ -399,6 +401,7 @@ export const FormGeneration = ({ formControl, formFields, gridCols }: any) => {
     >
       {formFields.map(
         (item: {
+          id: number;
           content: any;
           type: string;
           formName: string;
@@ -406,19 +409,19 @@ export const FormGeneration = ({ formControl, formFields, gridCols }: any) => {
           placeholder?: string | undefined;
         }) =>
           item.content ? (
-            <div key={item.title} className="w-full items-end">
+            <div key={item.id} className="w-full items-end">
               <SelectForm
                 control={formControl}
                 formName={item.formName}
                 label={item.title}
-                placeholder={item.title}
+                placeholder={item.placeholder}
                 valueKey={"value"}
                 content={item.content}
-                displayKey="value" 
+                displayKey="value"
               />
             </div>
           ) : item.type === "checkbox" ? (
-            <div key={item.title} className="w-full content-end mb-2">
+            <div key={item.id} className="mb-2 w-full content-end">
               <CheckboxForm
                 control={formControl}
                 formName={item.formName}
@@ -427,7 +430,7 @@ export const FormGeneration = ({ formControl, formFields, gridCols }: any) => {
               />
             </div>
           ) : item.type === "datePicker" ? (
-            <div key={item.title} className="w-full">
+            <div key={item.id} className="w-full">
               <DatePickerForm
                 control={formControl}
                 formName={item.formName}
@@ -436,7 +439,7 @@ export const FormGeneration = ({ formControl, formFields, gridCols }: any) => {
               />
             </div>
           ) : item.type === "radio" ? (
-            <div key={item.title} className="flex w-full gap-2">
+            <div key={item.id} className="flex w-full gap-2">
               <InputForm
                 control={formControl}
                 formName={item.formName}
@@ -449,7 +452,7 @@ export const FormGeneration = ({ formControl, formFields, gridCols }: any) => {
             </div>
           ) : item.type === "number" ? (
             <InputForm
-              key={item.title}
+              key={item.id}
               control={formControl}
               formName={item.formName}
               label={item.title}
@@ -457,8 +460,27 @@ export const FormGeneration = ({ formControl, formFields, gridCols }: any) => {
               className=""
               placeholder={item.placeholder}
             />
+          ) : item.type === "password" ? (
+            <div key={item.id} className="w-full">
+              <InputForm
+                control={formControl}
+                formName={item.formName}
+                label={item.title}
+                placeholder={item.placeholder}
+                type="password"
+              />
+            </div>
+          ) : item.type === "switch" ? (
+            <div key={item.id} className="w-full my-2 content-center">
+              <SwitchForm
+                control={formControl}
+                formName={item.formName}
+                label={item.title}
+                className=""
+              />
+            </div>
           ) : (
-            <div key={item.title} className="w-full">
+            <div key={item.id} className="w-full">
               <InputForm
                 control={formControl}
                 formName={item.formName}

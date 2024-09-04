@@ -418,9 +418,18 @@ export const newEditUserSchema = z.object({
   UserId: requiredString,
   Username: requiredString,
   Email: requiredString,
+  CellPhone: requiredNumber,
   Extension: requiredString,
+  Agent: z.string(),
   UserStatus: requiredString,
-  ShowRingCentral: z.boolean(),
+  InProduction: requiredString,
+  Manager: z.boolean(),
+  RoleId: requiredString,
+  Lock: requiredString,
+  PermissionCreate: z.boolean(),
+  PermissionEdit: z.boolean(),
+  PermissionDelete: z.boolean(),
+  PermissionSave: z.boolean(),
   EnableDarkMode: z.boolean(),
 });
 
@@ -428,10 +437,23 @@ export const newAddNewUserSchema = z.object({
   UserId: requiredString,
   Username: requiredString,
   Email: requiredString,
+  CellPhone: z.number(),
   Extension: requiredString,
+  Agent: z.string(),
+  Password: requiredString,
+  ConfirmPassword: requiredString,
   UserStatus: requiredString,
-  ShowRingCentral: z.boolean(),
-  EnableDarkMode: z.boolean(),
+  InProduction: requiredString,
+  RoleId: requiredString,
+  Manager: z.boolean(),
+  Lock: requiredString,
+  PermissionCreate: z.boolean(),
+  PermissionEdit: z.boolean(),
+  PermissionDelete: z.boolean(),
+  PermissionSave: z.boolean(),
+  PermissionResiduals: z.boolean(),
+  Boarding: z.boolean(),
+  Toolkit: z.boolean(),
 });
 
 // BOARDING TOOL SCHEMAS
@@ -1649,3 +1671,7 @@ export const urlKeyRemovalParams = ({params, keysToRemove}: {params: string, key
     }
   )
 }
+
+export const marketingListSchema = z.object({
+  Table: z.string(),
+});

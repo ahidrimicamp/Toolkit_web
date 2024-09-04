@@ -51,7 +51,7 @@ export default function UserDetails() {
   ];
   return (
     <>
-      <Card className="w-full overflow-hidden shadow-md max-sm:hidden sm:hidden 2xl:block">
+      <Card className="w-full overflow-hidden shadow-md 2xl:block">
         <CardHeader className="flex flex-row items-start border-b bg-[#d9d9d9]/50 p-2 px-5 dark:bg-[#000000]">
           <div className="grid gap-0.5">
             <CardTitle className="group flex items-center gap-2 text-lg">
@@ -67,8 +67,7 @@ export default function UserDetails() {
             {detailsList.map((item) => {
               if (item.value === "badge") {
                 return (
-                  <>
-                    <li className="flex items-center justify-between gap-3">
+                    <li key={item.id} className="flex items-center justify-between gap-3">
                       <span className="w-1/4 text-end text-muted-foreground">
                         {item.label}
                       </span>
@@ -78,20 +77,17 @@ export default function UserDetails() {
                         </Badge>
                       </span>
                     </li>
-                  </>
                 );
               } else {
                 return (
-                  <>
-                    <li className="flex items-center justify-between gap-3">
-                      <span className="w-1/4 text-end text-muted-foreground">
-                        {item.label}
-                      </span>
-                      <span className="w-3/4">
-                        <Input placeholder={item.placeholder} disabled />
-                      </span>
-                    </li>
-                  </>
+                  <li key={item.id} className="flex items-center justify-between gap-3">
+                    <span className="w-1/4 text-end text-muted-foreground">
+                      {item.label}
+                    </span>
+                    <span className="w-3/4">
+                      <Input placeholder={item.placeholder} disabled />
+                    </span>
+                  </li>
                 );
               }
             })}

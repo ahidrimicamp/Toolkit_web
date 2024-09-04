@@ -1,154 +1,119 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { agentEmailList } from "@/constants";
+import {
+  addNewUserForm,
+  addNewUserPasswordForm,
+  addNewUserPermissionForm,
+  addNewUserTypeForm,
+} from "@/constants";
 import React from "react";
 import { newAddNewUserSchema } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import {
-  CheckboxForm,
-  InputForm,
-  SelectForm,
-} from "@/components/Shared/InstantForm";
+import { FormGeneration } from "@/components/Shared/InstantForm";
 import { Form } from "@/components/ui/form";
+import CustomButtons from "@/components/Shared/CustomButtons";
 
-const page = () => {
+const Page = () => {
   const form = useForm<z.infer<typeof newAddNewUserSchema>>({
     resolver: zodResolver(newAddNewUserSchema),
     defaultValues: {
       UserId: "",
       Username: "",
       Email: "",
+      CellPhone: 0,
       Extension: "",
+      Agent: "",
+      Password: "",
+      ConfirmPassword: "",
       UserStatus: "",
-      ShowRingCentral: false,
-      EnableDarkMode: false,
+      InProduction: "",
+      RoleId: "",
+      Manager: false,
+      Lock: "",
+      PermissionCreate: false,
+      PermissionEdit: false,
+      PermissionDelete: false,
+      PermissionSave: false,
+      PermissionResiduals: false,
     },
   });
 
   const onSubmit = (value: z.infer<typeof newAddNewUserSchema>) => {
+    if (value.Password !== value.ConfirmPassword) {
+      alert(`The Passwords don't match.`);
+    }
     console.log(value);
   };
 
   return (
-    <>
-      <section className="p-2">
-        <div className="flex justify-between">
-          <h1 className="text-2xl text-sky-500">Add New User</h1>
-          <Link href={"/admin/userAdmin"}>
-            <Button className="mt-2 bg-gradient-to-r from-[#14ADD6] to-[#384295] px-10 text-white hover:opacity-90">
-              <p className="text-pretty">{"<<"} Return</p>
-            </Button>
-          </Link>
-        </div>
-        <div className="m-auto w-2/4">
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="">
-              {/* SEARCH CRITERIA CARD */}
-              <h2 className="my-5 text-center text-xl font-medium">
-                User Info
-              </h2>
-
-              {/* USER ID */}
-              <div className="m-auto flex w-full content-center gap-4">
-                <p className="w-1/3 content-center text-end">User ID</p>
-                <div className="w-2/3">
-                  <InputForm
-                    control={form.control}
-                    formName={"UserId"}
-                    label=""
-                    placeholder="ID"
-                  />
-                </div>
-              </div>
-              {/* USER NAME */}
-              <div className="m-auto flex w-full content-center gap-4">
-                <p className="w-1/3 content-center text-end">User Name</p>
-                <div className="w-2/3">
-                  <InputForm
-                    control={form.control}
-                    formName={"Username"}
-                    label=""
-                    placeholder="Enter user name"
-                  />
-                </div>
-              </div>
-              {/* EMAIL */}
-              <div className="m-auto flex w-full content-center gap-4">
-                <p className="w-1/3 content-center text-end">Email</p>
-                <div className="w-2/3">
-                  <InputForm
-                    control={form.control}
-                    formName={"Email"}
-                    label=""
-                    placeholder="micamp@example.com"
-                  />
-                </div>
-              </div>
-              {/* EXTENSION */}
-              <div className="m-auto flex w-full content-center gap-4">
-                <p className="w-1/3 content-center text-end">Extension</p>
-                <div className="w-2/3">
-                  <InputForm
-                    control={form.control}
-                    formName={"Extension"}
-                    label=""
-                    placeholder="Enter Extension"
-                  />
-                </div>
-              </div>
-              {/* USER STATUS */}
-              <div className="m-auto flex w-full gap-4">
-                <div className="mt-2 w-1/3 content-center text-end">
-                  <p className="">User Status</p>
-                </div>
-                <div className="w-2/3">
-                  <SelectForm
-                    control={form.control}
-                    formName={"UserStatus"}
-                    label=""
-                    placeholder={"Select User Status"}
-                    content={agentEmailList}
-                    valueKey="Email"
-                    displayKey="Name"
-                    disabled={false}
-                    className=""
-                  />
-                </div>
-              </div>
-
-              <h2 className="my-5 text-center text-xl font-medium">Settings</h2>
-
-              <div className="m-auto w-2/4 text-start">
-                <CheckboxForm
-                  control={form.control}
-                  formName="ShowRingCentral"
-                  label=""
-                  placeholder="Show Ring Central Interface"
-                  className="mt-3 content-center items-center align-middle"
+    <section className="p-2">
+      <div className="mt-3 flex items-center justify-center">
+        <h1 className="text-2xl text-sky-500">Add New User</h1>
+        <Link href={"/admin/userAdmin"} className="absolute left-20">
+          <CustomButtons btnType="default">{"<<"} Return</CustomButtons>
+        </Link>
+      </div>
+      <div className="">
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="">
+            <div className="flex w-full gap-2">
+              <div className="flex-auto p-2">
+                {/* SEARCH CRITERIA CARD */}
+                <h2 className="mt-5 text-center text-xl font-medium">
+                  User Info
+                </h2>
+                <FormGeneration
+                  formControl={form.control}
+                  formFields={addNewUserForm}
+                  gridCols={"2"}
                 />
-                <CheckboxForm
-                  control={form.control}
-                  formName="EnableDarkMode"
-                  label=""
-                  placeholder="Enable Dark Mode"
-                  className="mt-3 content-center items-center align-middle"
+                <h2 className="mt-5 text-center text-xl font-medium">
+                  Password Setup
+                </h2>
+
+                <FormGeneration
+                  formControl={form.control}
+                  formFields={addNewUserPasswordForm}
+                  gridCols={"2"}
                 />
               </div>
-              <div className="m-auto my-3 w-full text-end">
-                <Button className="bg-gradient-to-r from-[#14ADD6] to-[#384295] px-8 text-white hover:opacity-90">
-                  Save New User
-                </Button>
+              <div className="flex-auto p-2">
+                <h2 className="my-5 text-center text-xl font-medium">
+                  General Settings
+                </h2>
+
+                <div className="my-2 rounded-md border p-4">
+                  <h2 className="text-center text-xl font-medium">
+                    Permissions
+                  </h2>
+                  <FormGeneration
+                    formControl={form.control}
+                    formFields={addNewUserPermissionForm}
+                    gridCols={"3"}
+                  />
+                </div>
+                <div className="my-2 rounded-md border p-4">
+                  <h2 className="text-center text-xl font-medium">User Type</h2>
+                  <FormGeneration
+                    formControl={form.control}
+                    formFields={addNewUserTypeForm}
+                    gridCols={"3"}
+                  />
+                </div>
               </div>
-            </form>
-          </Form>
-        </div>
-      </section>
-    </>
+            </div>
+
+            {/* BUTTON SAVE CHANGES */}
+            <div className="m-auto my-3 w-full text-center">
+              <CustomButtons btnType="default">Save New User</CustomButtons>
+            </div>
+          </form>
+        </Form>
+      </div>
+    </section>
   );
 };
 
-export default page;
+export default Page;

@@ -20,6 +20,7 @@ import {
 } from "../ui/dialog";
 import Image from "next/image";
 import AddFileFinance from "./AddFileFinance";
+import { Description } from "@radix-ui/react-dialog";
 
 const BlankMpaAddendums = () => {
   const columnsConfig: ColumnConfig<DataTypes>[] = [
@@ -180,6 +181,7 @@ const UploadAndSendDocuments = () => {
                   <DialogTitle className="mb-5 text-center text-2xl font-semibold text-sky-500">
                     Attach File
                   </DialogTitle>
+                  <Description />
                   <AddFileFinance />
                 </DialogHeader>
               </DialogContent>

@@ -2,13 +2,11 @@
 
 import React, { useState } from "react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {  documentLibraryTabs } from "@/constants";
+import { documentLibraryTabs } from "@/constants";
 import RenderDocLibraryTabComponents from "./DocLibraryTabSubContent";
 import { useRouter, useSearchParams } from "next/navigation";
 
-
 const DocLibraryTabContent = () => {
-  
   const [activeItem, setActiveItem] = useState<string>("blankMpaAndAddendums");
   const search = useSearchParams();
   const result = search.get("tab");
@@ -16,8 +14,7 @@ const DocLibraryTabContent = () => {
 
   const handleClick = (value: string) => {
     setActiveItem(value);
-    if(value)
-    {
+    if (value) {
       router.push(`/boarding/docLibrary?tab=${value}`);
     }
   };
@@ -33,8 +30,10 @@ const DocLibraryTabContent = () => {
             onClick={() => handleClick(tab.value)}
             key={tab.id}
             value={tab.value}
+            title={tab.title}
           >
-            {tab.title}
+            <p className="hidden max-xl:block">{React.createElement(tab.icon)}</p>
+            <p className="max-xl:hidden">{tab.title}</p>
           </TabsTrigger>
         ))}
       </TabsList>
