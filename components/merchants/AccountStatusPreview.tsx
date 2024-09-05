@@ -9,12 +9,12 @@ import { DataTypes } from "@/types";
 import DataTable from "@/components/Shared/DataTable/DataTable";
 import { accountStatusTable, activityRecordList } from "@/constants";
 import { Form } from "@/components/ui/form";
-import { Button } from "@/components/ui/button";
 import { z } from "zod";
 import { newMerchantSchema } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { SelectForm } from "../Shared/InstantForm";
+import CustomButtons from "../Shared/CustomButtons";
 
 const AccountStatusPreview = () => {
   const form = useForm<z.infer<typeof newMerchantSchema>>({
@@ -94,9 +94,9 @@ const AccountStatusPreview = () => {
                   disabled={false}
                   className=""
                 />
-                <Button className="my-2 w-full bg-gradient-to-r from-[#14ADD6] to-[#384295] text-white hover:opacity-90">
+                <CustomButtons btnType="default" className="my-3 w-full">
                   SUBMIT
-                </Button>
+                </CustomButtons>
               </div>
             </div>
           </form>

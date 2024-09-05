@@ -42,14 +42,19 @@ const CustomButtons = ({
       )}
 
       {btnType === "success" && (
-        <Button className="flex-1 bg-gradient-to-r from-[#79CB6C] to-[#285C20] text-white hover:opacity-90">
+        <Button
+          className={cn(
+            "flex-1 bg-gradient-to-r from-[#79CB6C] to-[#285C20] text-white hover:opacity-90",
+            className,
+          )}
+        >
           {title}
           {props.children}
         </Button>
       )}
 
       {btnType === "primary" && (
-        <Button className="w-full hover:opacity-90">
+        <Button className={cn("w-full hover:opacity-90", className)}>
           {title}
           {props.children}
         </Button>

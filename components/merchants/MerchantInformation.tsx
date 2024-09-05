@@ -4,7 +4,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { MerchantInfoSchema } from "@/lib/utils";
 import { Form } from "@/components/ui/form";
-import { Button } from "@/components/ui/button";
 import UploadFileBtn from "../ui/UploadButton";
 import {
   CheckboxForm,
@@ -12,6 +11,7 @@ import {
   TextAreaForm,
   SelectForm,
 } from "../Shared/InstantForm";
+import CustomButtons from "../Shared/CustomButtons";
 
 const MerchantInformation = () => {
   const form = useForm<z.infer<typeof MerchantInfoSchema>>({
@@ -356,9 +356,9 @@ const MerchantInformation = () => {
             </div>
             <div className="mt-8 w-1/2">
               <div className="grid grid-cols-3 gap-3">
-                <Button variant={"secondary"} className="">
+                <CustomButtons btnType="default" className="w-full">
                   Save Changes
-                </Button>
+                </CustomButtons>
                 <UploadFileBtn />
                 <div className="ml-4 flex items-center gap-2">
                   <CheckboxForm
