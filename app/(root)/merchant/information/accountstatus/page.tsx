@@ -19,6 +19,7 @@ import {
   createColumns,
 } from "@/components/Shared/DataTable/Columns";
 import { accountStatusTable, activityRecordList } from "@/constants";
+import CustomButtons from "@/components/Shared/CustomButtons";
 
 const page = () => {
   const form = useForm<z.infer<typeof newMerchantSchema>>({
@@ -99,12 +100,13 @@ const page = () => {
                     disabled={false}
                     className="mb-2"
                   />
-                  <Button className="my-2 w-full bg-gradient-to-r from-[#14ADD6] to-[#384295] text-white hover:opacity-90">
+
+                  <CustomButtons btnType="default" className="my-2 w-full">
                     SUBMIT
-                  </Button>
-                  <Button className="mb-2 w-full bg-gradient-to-r from-[#79CB6C] to-[#285C20] py-5 text-white hover:opacity-90">
+                  </CustomButtons>
+                  <CustomButtons btnType="success" className="mb-2 w-full">
                     MERCHANT APPROVED
-                  </Button>
+                  </CustomButtons>
                 </div>
               </div>
             </div>

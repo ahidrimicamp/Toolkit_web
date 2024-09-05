@@ -23,7 +23,6 @@ import {
   DollarSign,
   Receipt,
   MoveRight,
-  HomeIcon,
   MonitorSmartphone,
   PackagePlus,
   ClipboardMinus,
@@ -10333,6 +10332,26 @@ export const addNewUserTypeForm = [
   },
   {
     id: 19,
+    title: "Toolkit",
+    type: "checkbox",
+    placeholder: "",
+    formName: "Toolkit",
+    value: false
+  },
+];
+
+
+export const testForm = [
+  {
+    id: 18,
+    title: "Boarding",
+    type: "checkbox",
+    placeholder: "",
+    formName: "Boarding",
+    value: false
+  },
+  {
+    id: 21,
     title: "Toolkit",
     type: "checkbox",
     placeholder: "",
