@@ -47,7 +47,7 @@ const NewOmahaTabContent = () => {
       top: 0,
       behavior: "smooth", // Optional: Adds a smooth scrolling effect
     });
-    console.log(link);
+    // console.log(link);
   };
   const handleClickPrevious = (value: string) => {
     if (link === "financialInformation") setLink("merchantDetail");
@@ -59,7 +59,7 @@ const NewOmahaTabContent = () => {
       behavior: "smooth", // Optional: Adds a smooth scrolling effect
     });
     setTabIndex(tabIndex - 1);
-    console.log(link);
+    // console.log(link);
   };
 
   return (

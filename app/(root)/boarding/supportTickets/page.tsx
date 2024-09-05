@@ -1,14 +1,12 @@
-import SupportTabContent from '@/components/boarding/SupportTabContent'
-import React from 'react'
+import SupportTabContent from "@/components/boarding/SupportTabContent";
+import React from "react";
 
 const page = () => {
   return (
-    <>
-        <section className="">
-          <SupportTabContent/>
-        </section>
-    </>
-  )
-}
+    <section className="">
+      <SupportTabContent />
+    </section>
+  );
+};
 
-export default page
+export default page;

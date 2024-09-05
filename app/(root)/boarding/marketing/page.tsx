@@ -1,109 +1,22 @@
 "use client";
-import React, { useState } from "react";
-import {
-  SquareAsterisk,
-  LayoutDashboard,
-  MessageCircle,
-  TriangleRight,
-  SquareMenu,
-  FileBarChart,
-  Building2,
-  DollarSign,
-  SquareCheck,
-  Trophy,
-  ChevronsUp,
-  Church,
-  Menu,
-} from "lucide-react";
+import React from "react";
 import {
   ColumnConfig,
   createColumns,
 } from "@/components/Shared/DataTable/Columns";
 import { DataTypes } from "@/types";
-import { marketingDocumentsTable } from "@/constants";
+import { marketingDocumentsTable, marketingSelectList } from "@/constants";
 import DataTable from "@/components/Shared/DataTable/DataTable";
+import { Form } from "@/components/ui/form";
+import { marketingListSchema } from "@/lib/utils";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { SelectForm } from "@/components/Shared/InstantForm";
+import CustomButtons from "@/components/Shared/CustomButtons";
 
-const icons = [
-  {
-    id: 1,
-    title: "Logos & Brands",
-    icon: <SquareAsterisk key="apple" size={25} />,
-  },
-  {
-    id: 2,
-    title: "WAVIT",
-    icon: <LayoutDashboard key="apple" size={25} />,
-  },
-  {
-    id: 3,
-    title: "Private Equity",
-    icon: <MessageCircle key="apple" size={25} />,
-  },
-  {
-    id: 4,
-    title: "High Risk",
-    icon: <TriangleRight key="apple" size={25} />,
-  },
-  {
-    id: 5,
-    title: "MIPOS",
-    icon: <SquareMenu key="apple" size={25} color="yellow" />,
-  },
-  {
-    id: 6,
-    title: "Case Studies",
-    icon: <FileBarChart key="apple" size={25} />,
-  },
-  {
-    id: 7,
-    title: "MiCamp Corporate",
-    icon: <Building2 key="apple" size={25} />,
-  },
-  {
-    id: 8,
-    title: "MiPayment Choice",
-    icon: <DollarSign key="apple" size={25} color="green" />,
-  },
-  {
-    id: 9,
-    title: "FSP",
-    icon: <SquareCheck key="apple" size={25} />,
-  },
-  {
-    id: 10,
-    title: "MiCamp Sports",
-    icon: <Trophy key="apple" size={25} color="gold" />,
-  },
-  {
-    id: 11,
-    title: "MiCamp Booster",
-    icon: <ChevronsUp key="apple" size={25} color="lightgreen" />,
-  },
-  {
-    id: 12,
-    title: "MiCamp Church",
-    icon: <Church key="apple" size={25} />,
-  },
-  {
-    id: 13,
-    title: "View All",
-    icon: <Menu key="apple" size={25} />,
-  },
-];
 
 const Page: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % icons.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + icons.length) % icons.length,
-    );
-  };
-
   const columnsConfig: ColumnConfig<DataTypes>[] = [
     { accessorKey: "id", header: "#" },
     { accessorKey: "DocName", header: "File Name" },
@@ -113,26 +26,43 @@ const Page: React.FC = () => {
 
   const columns = createColumns(columnsConfig);
 
+  const form = useForm<z.infer<typeof marketingListSchema>>({
+    resolver: zodResolver(marketingListSchema),
+    defaultValues: {},
+  });
+
+  const onSubmit = (value: z.infer<typeof marketingListSchema>) => {
+    console.log(value);
+  };
   return (
     <section>
-      <div className="relative mx-auto flex w-full max-w-xs items-center justify-center">
-        <button
-          className="absolute left-0 rounded-full border border-gray-300 bg-white px-2 text-xl text-gray-700 shadow-md hover:bg-gray-100"
-          onClick={prevSlide}
-        >
-          &#10094;
-        </button>
-        <div className="flex h-24 items-center justify-center gap-2">
-          {icons[currentIndex].icon}
-          <p className="text-center">{icons[currentIndex].title}</p>
-        </div>
-        <button
-          className="absolute right-0 rounded-full border border-gray-300 bg-white px-2 text-xl text-gray-700 shadow-md hover:bg-gray-100"
-          onClick={nextSlide}
-        >
-          &#10095;
-        </button>
-      </div>
+      <h1 className="text-center text-2xl font-semibold text-sky-500">
+        Marketing
+      </h1>
+      <p className="text-center text-sm text-gray-500">
+        (Select the item you want to see)
+      </p>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="">
+          <div className="m-auto flex max-w-sm items-end gap-4">
+            <div className="flex-1">
+              <SelectForm
+                control={form.control}
+                formName="SalesRep"
+                label=""
+                content={marketingSelectList}
+                placeholder="Select an Item"
+                valueKey={"id"}
+                displayKey={"title"}
+                className="flex-1"
+              />
+            </div>
+            <CustomButtons btnType="default" className="flex-1">
+              Search
+            </CustomButtons>
+          </div>
+        </form>
+      </Form>
 
       <div className="grid flex-auto grid-cols-1 overflow-auto rounded-md">
         <DataTable

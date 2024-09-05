@@ -16,7 +16,7 @@ const BoardingShortcuts = () => {
       <div className="m-auto grid w-3/4 grid-cols-3 gap-4 rounded-md text-lg max-xl:grid-cols-2 max-lg:grid-cols-1">
         {/* MERCHANT BOARDING LIST SHORCUT */}
         <Link href={"/boarding/mBoarding"}>
-          <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
+          <div className="col-auto h-full justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
             <h1 className="text-center font-semibold">
               Merchant Boarding List
             </h1>
@@ -37,7 +37,7 @@ const BoardingShortcuts = () => {
         </Link>
         {/* MERCHANT SHORCUT */}
         <Link href={"/boarding/merch"}>
-          <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
+          <div className="col-auto h-full justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
             <h1 className="text-center font-semibold">Merchant</h1>
             <span className="flex gap-4 px-2">
               <Image
@@ -56,7 +56,7 @@ const BoardingShortcuts = () => {
         </Link>
         {/* AGENT DETAILS SHORCUT */}
         <Link href={"/boarding/agentDetails"}>
-          <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
+          <div className="col-auto h-full justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
             <h1 className="text-center font-semibold">Agent Details List</h1>
             <span className="flex gap-4 px-2">
               <Image
@@ -74,7 +74,7 @@ const BoardingShortcuts = () => {
           </div>
         </Link>
         {/* DOCUMENT LIBRARY SHORCUT */}
-        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
+        <div className="col-auto h-full justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
           <h1 className="text-center font-semibold">Document Library</h1>
           <div className="flex gap-4 px-2">
             <Image
@@ -85,29 +85,29 @@ const BoardingShortcuts = () => {
               height={64}
               priority
             />
-            <ul className="flex-1 content-center justify-start text-sm">
+            <ul className="flex-1 content-center justify-start text-sm max-2xl:text-xs">
               <li
-                className="w-fit cursor-pointer list-disc text-nowrap text-sm underline"
+                className="w-fit cursor-pointer list-disc underline"
                 onClick={() => handleDocLibTabClick("blankMpaAndAddendums")}
               >
                 Blank MPAs & Addendums
               </li>
 
               <li
-                className="w-fit cursor-pointer list-disc text-nowrap text-sm underline"
+                className="w-fit cursor-pointer list-disc underline"
                 onClick={() => handleDocLibTabClick("changeForms")}
               >
                 Change Forms
               </li>
 
               <li
-                className="w-fit cursor-pointer list-disc text-nowrap text-sm underline"
+                className="w-fit cursor-pointer list-disc underline"
                 onClick={() => handleDocLibTabClick("equipmentPricing")}
               >
                 Equipment Pricing
               </li>
               <li
-                className="w-fit cursor-pointer list-disc text-nowrap text-sm underline"
+                className="w-fit cursor-pointer list-disc underline"
                 onClick={() => handleDocLibTabClick("uploadAndSendDocs")}
               >
                 Upload & Send Document
@@ -116,7 +116,7 @@ const BoardingShortcuts = () => {
           </div>
         </div>
         {/* LEADS SHORCUT */}
-        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
+        <div className="col-auto h-full justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
           <h1 className="text-center font-semibold">Leads</h1>
           <div className="flex gap-4 px-2">
             <Image
@@ -151,7 +151,7 @@ const BoardingShortcuts = () => {
         </div>
         {/* SUPPORT TICKETS SHORCUT */}
         <Link href={"/boarding/supportTickets"}>
-          <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
+          <div className="col-auto h-full justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
             <h1 className="text-center font-semibold">Support Tickets</h1>
             <span className="flex gap-4 px-2">
               <Image

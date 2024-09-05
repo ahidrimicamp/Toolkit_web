@@ -25,7 +25,11 @@ import {
   MoveRight,
   HomeIcon,
   MonitorSmartphone,
-  PackagePlus
+  PackagePlus,
+  ClipboardMinus,
+  BookText,
+  HandCoins,
+  Upload
 
 } from "lucide-react";
 import { z } from "zod";
@@ -3720,25 +3724,25 @@ export const documentLibraryTabs = [
     id: "1",
     title: "Blank MPAs & Addendums",
     value: "blankMpaAndAddendums",
-    icon: HomeIcon
+    icon: ClipboardMinus
   },
   {
     id: "2",
     title: "Change Forms",
     value: "changeForms",
-    icon: HomeIcon,
+    icon: BookText,
   },
   {
     id: "3",
     title: "Equipment Pricing",
     value: "equipmentPricing",
-    icon: HomeIcon
+    icon: HandCoins
   },
   {
     id: "4",
     title: "Upload & Send Docs",
     value: "uploadAndSendDocs",
-    icon: HomeIcon
+    icon: Upload
   },
 ];
 
@@ -5679,7 +5683,7 @@ export const shipPriorityFspForm = [
     value: "",
   },
   {
-    id: 4,
+    id: 5,
     formName: "ShipPriority",
     title: "Priority",
     type: "radio",
@@ -8837,7 +8841,7 @@ export const omahaBoadingForm = {
             value: "",
           },
           {
-            id: 1,
+            id: 3,
             formName: "MerchantOccupiesOther",
             title: "",
             type: "input",
@@ -9284,7 +9288,7 @@ export const omahaBoadingForm = {
               value: "",
             },
             {
-              id: 1,
+              id: 2,
               formName: "WebsiteUsage",
               title: "Website Usage",
               type: "number",
@@ -10087,5 +10091,252 @@ export const marketingDocumentsTable: DataTypes[] = [
     DocName: "Leasing.pdf",
     FileSize: "500 mb",
     UploadDateTime: new Date("01/01/2022 11:22 AM"),
+  },
+];
+
+export const marketingSelectList = [
+  {
+    id: 1,
+    title: "Logos and Brand Standards",
+    value: "logosBrandsStandards",
+  },
+  {
+    id: 2,
+    title: "WAVit",
+    value: "wavit",
+  },
+  {
+    id: 3,
+    title: "Private Equity",
+    value: "privateEquity",
+  },
+  {
+    id: 4,
+    title: "High Risk",
+    value: "highRisk",
+  },
+  {
+    id: 5,
+    title: "MiPOS",
+    value: "mipos",
+  },
+  {
+    id: 6,
+    title: "Case Studies",
+    value: "caseStudies",
+  },
+  {
+    id: 7,
+    title: "MiCamp Corporate",
+    value: "micampCorporate",
+  },
+  {
+    id: 8,
+    title: "MiPayment Choice",
+    value: "mipaymentChoice",
+  },
+  {
+    id: 9,
+    title: "FSP",
+    value: "fsp",
+  },
+  {
+    id: 10,
+    title: "MiCamp Sports",
+    value: "micampSports",
+  },
+  {
+    id: 11,
+    title: "MiCamp Booster Club",
+    value: "micampBoosterClub",
+  },
+  {
+    id: 12,
+    title: "MiCamp Church",
+    value: "micampChurch",
+  },
+  {
+    id: 13,
+    title: "View All",
+    value: "viewAll",
+  },
+];
+
+
+// ADMIN PANEL DATA
+export const YesNoList = [
+  { id: 1, name: "Yes", value: "yes" },
+  { id: 2, name: "No", value: "no" },
+];
+export const UserRoleList = [
+  { id: 1, name: "User", value: "user" },
+  { id: 2, name: "Admin", value: "admin" },
+];
+
+export const addNewUserForm = [
+  {
+    id: 1,
+    title: "User Name:",
+    type: "input",
+    placeholder: "Insert a new user name",
+    formName: "Username",
+    value: ""
+  },
+  {
+    id: 2,
+    title: "Email:",
+    type: "input",
+    placeholder: "email@example.com",
+    formName: "Email",
+    value: ""
+  },
+  {
+    id: 3,
+    title: "Cell Phone:",
+    type: "input",
+    placeholder: "(___) ___-____",
+    formName: "CellPhone",
+    value: ""
+  },
+  {
+    id: 4,
+    title: "Extension:",
+    type: "input",
+    placeholder: "001",
+    formName: "Extension",
+    value: ""
+  },
+  {
+    id: 5,
+    title: "Agent:",
+    type: "input",
+    placeholder: "Select an Agent",
+    formName: "Agent",
+    value: "",
+    content: merchantStatusList,
+  },
+  {
+    id: 6,
+    title: "User Status:",
+    type: "input",
+    placeholder: "Select a Status",
+    formName: "UserStatus",
+    value: "",
+    content: merchantStatusList,
+  },
+  {
+    id: 7,
+    title: "In Production:",
+    type: "input",
+    placeholder: "Select",
+    formName: "InProduction",
+    value: "",
+    content: YesNoList,
+  },
+  {
+    id: 8,
+    title: "Role Id:",
+    type: "input",
+    placeholder: "",
+    formName: "RoleId",
+    value: "",
+    content: UserRoleList,
+  },
+  {
+    id: 9,
+    title: "Lock / Unlock",
+    type: "switch",
+    placeholder: "",
+    formName: "Lock",
+    value: ""
+  },
+  {
+    id: 10,
+    title: "Make Manager",
+    type: "switch",
+    placeholder: "",
+    formName: "Manager",
+    value: false
+  },
+];
+
+export const addNewUserPasswordForm = [
+  {
+    id: 11,
+    title: "Password:",
+    type: "password",
+    placeholder: "",
+    formName: "Password",
+    value: ""
+  },
+  {
+    id: 12,
+    title: "Confirm Password:",
+    type: "password",
+    placeholder: "",
+    formName: "ConfirmPassword",
+    value: ""
+  },
+];
+
+export const addNewUserPermissionForm = [
+  {
+    id: 13,
+    title: "Create",
+    type: "checkbox",
+    placeholder: "",
+    formName: "PermissionCreate",
+    value: false
+  },
+  {
+    id: 14,
+    title: "Edit",
+    type: "checkbox",
+    placeholder: "",
+    formName: "PermissionEdit",
+    value: false
+  },
+  {
+    id: 15,
+    title: "Delete",
+    type: "checkbox",
+    placeholder: "",
+    formName: "PermissionDelete",
+    value: false
+  },
+  {
+    id: 16,
+    title: "Save",
+    type: "checkbox",
+    placeholder: "",
+    formName: "PermissionSave",
+    value: false
+  },
+  {
+    id: 17,
+    title: "Residuals",
+    type: "checkbox",
+    placeholder: "",
+    formName: "PermissionResiduals",
+    value: false
+  },
+];
+
+export const addNewUserTypeForm = [
+  {
+    id: 18,
+    title: "Boarding",
+    type: "checkbox",
+    placeholder: "",
+    formName: "Boarding",
+    value: false
+  },
+  {
+    id: 19,
+    title: "Toolkit",
+    type: "checkbox",
+    placeholder: "",
+    formName: "Toolkit",
+    value: false
   },
 ];

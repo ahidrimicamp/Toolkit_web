@@ -32,26 +32,32 @@ const BoardingAdminShortcuts = () => {
           </div>
         </div>
         {/* RESIDUALS SHORCUT */}
-        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
+        <Link
+          href={"/boarding/residuals"}
+          className="justify-center rounded-md border p-5 px-2 shadow-md transition duration-300 hover:border-sky-500"
+        >
           <h1 className="text-center font-semibold">Residuals</h1>
-          <Link href={"/boarding/residuals"} className="flex gap-4 px-2">
+          <div className="mx-3 flex justify-center gap-2 space-y-2 text-center">
             <Image
-              className="m-auto flex-none"
+              className="flex-none"
               src="/icon/colorful/leads.svg"
               alt="Logo"
-              width={64}
-              height={64}
+              width={50}
+              height={50}
               priority
             />
             <p className="flex-1 content-center justify-start text-base">
               Get Residuals Information
             </p>
-          </Link>
-        </div>
+          </div>
+        </Link>
         {/* MARKETING SHORCUT */}
-        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
+        <Link
+          href={"/boarding/marketing"}
+          className="justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500"
+        >
           <h1 className="text-center font-semibold">Marketing</h1>
-          <Link href={"/boarding/marketing"} className="flex gap-4 px-2">
+          <div className="flex flex-1 gap-4 px-2">
             <Image
               className="m-auto flex-none"
               src="/icon/colorful/marketing.svg"
@@ -63,12 +69,15 @@ const BoardingAdminShortcuts = () => {
             <p className="flex-1 content-center justify-start text-base">
               View all Marketing Information
             </p>
-          </Link>
-        </div>
+          </div>
+        </Link>
         {/* ADMIN PANEL SHORCUT */}
-        <div className="flex-1 justify-center space-y-2 rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500">
-          <h1 className="text-center font-semibold">Admin Panel</h1>
-          <Link href={""} className="flex gap-4 px-2">
+        <Link
+          href={"/admin/userAdmin"}
+          className="rounded-md border p-5 shadow-md transition duration-300 hover:border-sky-500"
+        >
+            <h1 className="text-center font-semibold">Admin Panel</h1>
+          <div className="flex flex-1 justify-center gap-4 space-y-2 px-2">
             <Image
               className="m-auto flex-none"
               src="/icon/colorful/admin.svg"
@@ -80,8 +89,8 @@ const BoardingAdminShortcuts = () => {
             <p className="flex-1 content-center justify-start text-base">
               View User / Roles List
             </p>
-          </Link>
-        </div>
+          </div>
+        </Link>
       </div>
     </section>
   );
