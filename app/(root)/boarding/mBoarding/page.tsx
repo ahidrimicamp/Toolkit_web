@@ -8,6 +8,7 @@ import DataTable from "@/components/Shared/DataTable/DataTable";
 import { merchantBoardingListTable } from "@/constants";
 import { DataTypes } from "@/types";
 import StartApplication from "@/components/boarding/StartApplication";
+import { Status } from "@/components/Shared/DataTable/CellFormat";
 
 const page = () => {
   const columnsConfig: ColumnConfig<DataTypes>[] = [
@@ -15,7 +16,11 @@ const page = () => {
     { accessorKey: "LastUpdate", header: "Last Update" },
     { accessorKey: "City", header: "City" },
     { accessorKey: "Form", header: "Form" },
-    { accessorKey: "Status", header: "Status" },
+    {
+      accessorKey: "Status",
+      header: "Status",
+      cell: (row) => <Status row={row} status={{ Success: ["Approved"] }} />,
+    },
   ];
 
   const columns = createColumns(columnsConfig);

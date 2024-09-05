@@ -300,6 +300,7 @@ const FSP = () => {
                   />
                 ) : item.type ? (
                   <DatePickerForm
+                    key={item.id}
                     control={form.control}
                     formName={item.value}
                     label={item.title}
@@ -307,6 +308,7 @@ const FSP = () => {
                   />
                 ) : item.value === "description" ? (
                   <TextAreaForm
+                    key={item.id}
                     control={form.control}
                     formName={item.value}
                     label={item.title}
@@ -315,6 +317,7 @@ const FSP = () => {
                   item.value === "limitereportsToSpecificDate" ||
                   (item.value === "useDateRange" && (
                     <CheckboxForm
+                      key={item.id}
                       control={form.control}
                       formName={item.value}
                       label=""

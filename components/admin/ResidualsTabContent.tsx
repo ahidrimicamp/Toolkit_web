@@ -11,6 +11,7 @@ const ResidualsTabContent = () => {
   const handleClick = (value: string) => {
     setActiveItem(value);
   };
+
   return (
     <Tabs
       defaultValue="calculate"

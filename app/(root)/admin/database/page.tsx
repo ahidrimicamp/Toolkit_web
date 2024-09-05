@@ -1,12 +1,8 @@
-import DatabaseTabContent from '@/components/admin/DatabaseTabContent'
-import React from 'react'
+import DatabaseTabContent from "@/components/admin/DatabaseTabContent";
+import React from "react";
 
 const page = () => {
-  return (
-    <>
-      <DatabaseTabContent/>
-    </>
-  )
-}
+  return <DatabaseTabContent />;
+};
 
-export default page
+export default page;

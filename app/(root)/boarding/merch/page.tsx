@@ -78,7 +78,7 @@ const page = () => {
                     control={form.control}
                     formName={"MerchantName"}
                     label="Search by the Merchant's Name"
-                    placeholder={""}
+                    placeholder="Search for names..."
                   />
                 </div>
                 <Button className="mt-2 flex-auto bg-gradient-to-r from-[#14ADD6] to-[#384295] px-2 text-white hover:opacity-90">

@@ -11,6 +11,9 @@ import Link from "next/link";
 import { Input } from "../ui/input";
 
 const StartApplication = () => {
+  const [merchantName, setMerchantName] = React.useState<string>("");
+  const [email, setEmail] = React.useState<string>("");
+
   const linksApplication = [
     {
       id: 1,
@@ -93,12 +96,16 @@ const StartApplication = () => {
               formName="MerchantDbaName"
               label="Merchant Name (DBA or Trade Name):*"
               placeholder="Merchant Name"
+              state={merchantName}
+              setState={setMerchantName}
             />
             <InputForm
               control={form.control}
               formName="MerchantEmail"
               label="Email Statements To:*"
               placeholder="example@email.com"
+              state={email}
+              setState={setEmail}
             />
             {linksApplication.map((item) => {
               return (
@@ -122,6 +129,7 @@ const StartApplication = () => {
                     type="radio"
                     className="size-fit"
                     onChange={() => handleFormTypeRoute(item.Route)}
+                    disabled={!merchantName || !email}
                   />
                   <p className="mb-1">{item.placeholder}</p>
                 </div>
@@ -130,7 +138,12 @@ const StartApplication = () => {
             <div className="flex justify-center gap-2">
               <CustomButtons btnType="primary">Save it For Later</CustomButtons>
               <Link href={linkRoute}>
-                <CustomButtons btnType="default">Start Right Now</CustomButtons>
+                <CustomButtons
+                  btnType="default"
+                  disabled={!merchantName || !email || !linkRoute}
+                >
+                  Start Right Now
+                </CustomButtons>
               </Link>
             </div>
           </div>
