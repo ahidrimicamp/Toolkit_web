@@ -5,7 +5,6 @@ import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Form } from "../ui/form";
-import { Button } from "@/components/ui/button";
 import { agentData, agentLeadSourceDataTable } from "@/constants";
 import DataTable from "@/components/Shared/DataTable/DataTable";
 import {
@@ -13,6 +12,7 @@ import {
   createColumns,
 } from "@/components/Shared/DataTable/Columns";
 import { DataTypes } from "@/types";
+import CustomButtons from "../Shared/CustomButtons";
 
 const AgentLeadSource = () => {
   const form = useForm<z.infer<typeof MerchantAgentLeadSourceSchema>>({
@@ -107,16 +107,20 @@ const AgentLeadSource = () => {
                     className=""
                   />
                 </div>
-                <Button className="bg-blue-500">Update</Button>
+                <CustomButtons btnType="default" className="w-full">
+                  Update
+                </CustomButtons>
                 <InputForm
                   control={form.control}
                   formName="SplitPercentage"
                   label="Split %"
                   placeholder="Split %"
                 />
-                <Button className="col-start-4 bg-green-600 max-lg:col-span-2 max-lg:col-start-3">
-                  Clear/Add New
-                </Button>
+                <div className="col-start-4 w-full max-lg:col-span-2 max-lg:col-start-3">
+                  <CustomButtons btnType="success" className="w-full">
+                    Clear/Add New
+                  </CustomButtons>
+                </div>
               </div>
               <div className="">
                 <div className="flex">
@@ -183,11 +187,14 @@ const AgentLeadSource = () => {
                 </div>
               </div>
               <div className="grid grid-cols-4 gap-3 max-xl:grid-cols-3">
-                <Button className="col-start-2 bg-blue-500 max-xl:col-start-1">
-                  Add Agent
-                </Button>
-                <Button className="bg-red-500">Delete Agent</Button>
-                <Button className="bg-gray-500">Set Master</Button>
+                <div className="col-start-2 max-xl:col-start-1">
+                  <CustomButtons btnType="default" className="w-full">
+                    Add Agent
+                  </CustomButtons>
+                </div>
+                
+                <CustomButtons btnType="destructive" className="w-full">Delete Agent</CustomButtons>
+                <CustomButtons btnType="primary" className="w-full">Set Master</CustomButtons>
               </div>
               <div className="w-full rounded-md p-2">
                 <DataTable
@@ -257,10 +264,10 @@ const AgentLeadSource = () => {
                     className=""
                   />
                 </div>
-                <Button className="bg-blue-500">Go</Button>
-                <Button className="col-span-2 mt-2 bg-blue-500">
+                <CustomButtons btnType="default" className="w-full">Go</CustomButtons>
+                <CustomButtons btnType="default" className="col-span-2 mt-2">
                   Create a Default Split
-                </Button>
+                </CustomButtons>
               </div>
             </div>
           </div>
