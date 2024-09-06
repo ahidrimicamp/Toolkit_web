@@ -185,12 +185,14 @@ export const CheckboxForm = <T extends z.ZodType<any, any>>({
   label,
   placeholder,
   className,
+  onClick,
 }: {
   control: Control<z.infer<T>>;
   formName: FieldPath<z.infer<T>>;
   label: string;
   placeholder: string;
   className?: string;
+  onClick?: () => void;
 }) => {
   return (
     <FormField
@@ -204,6 +206,7 @@ export const CheckboxForm = <T extends z.ZodType<any, any>>({
               <Checkbox
                 checked={field.value ?? false}
                 onCheckedChange={field.onChange}
+                onClick={onClick}
                 {...field}
               />
               <span className="ml-3">{placeholder}</span>
@@ -290,9 +293,7 @@ export const SwitchForm = <T extends z.ZodType<any, any>>({
       render={({ field }) => {
         return (
           <FormItem>
-            <div
-              className={cn("flex h-full space-x-5 ", className)}
-            >
+            <div className={cn("flex h-full space-x-5", className)}>
               <FormControl>
                 <Switch
                   checked={!isActive ? field.value : isActive}
@@ -330,6 +331,7 @@ export const RadioForm = <
   labelClass,
   state,
   setState,
+  onClick,
 }: {
   control: Control<z.infer<T>>;
   formName: FieldPath<z.infer<T>>;
@@ -339,6 +341,7 @@ export const RadioForm = <
   labelClass?: string;
   state?: S;
   setState?: React.Dispatch<React.SetStateAction<S>>;
+  onClick?: () => void;
 }) => {
   return (
     <FormField
@@ -365,6 +368,7 @@ export const RadioForm = <
                       }
                     }}
                     className={className}
+                    onClick={onClick}
                   />
                   <label
                     htmlFor={`${formName}-${option.value}`}
@@ -471,7 +475,7 @@ export const FormGeneration = ({ formControl, formFields, gridCols }: any) => {
               />
             </div>
           ) : item.type === "switch" ? (
-            <div key={item.id} className="w-full my-2 content-center">
+            <div key={item.id} className="my-2 w-full content-center">
               <SwitchForm
                 control={formControl}
                 formName={item.formName}
