@@ -10190,17 +10190,28 @@ export const marketingSelectList = [
 
 // ADMIN PANEL DATA
 export const YesNoList = [
-  { id: 1, name: "Yes", value: "yes" },
-  { id: 2, name: "No", value: "no" },
+  { id: 1, name: "Yes", value: "Yes" },
+  { id: 2, name: "No", value: "No" },
 ];
+
 export const UserRoleList = [
+  { id: 1, name: "User", value: "User" },
+  { id: 2, name: "Admin", value: "Admin" },
+  { id: 3, name: "Guest", value: "Guest" },
+  { id: 4, name: "Support Speacialist", value: "SupportSpecialist" },
+  { id: 5, name: "General", value: "General" },
+  { id: 6, name: "Developer", value: "Developer" },
+  { id: 7, name: "Superuser", value: "Super User" },
+];
+
+export const DepartmentList = [
   { id: 1, name: "User", value: "User" },
   { id: 2, name: "Admin", value: "Admin" },
   { id: 3, name: "Equipment", value: "Equipment" },
   { id: 4, name: "Support", value: "Support" },
   { id: 5, name: "Sales", value: "Sales" },
   { id: 6, name: "Agent", value: "Agent" },
-  { id: 7, name: "ExternalAgent", value: "External Agent" },
+  { id: 7, name: "External Agent", value: "ExternalAgent" },
 ];
 
 export const addNewUserForm = [
@@ -10274,6 +10285,15 @@ export const addNewUserForm = [
   },
   {
     id: 9,
+    title: "User Role:",
+    type: "input",
+    placeholder: "Select User Role",
+    formName: "RoleId",
+    value: "",
+    content: UserRoleList,
+  },
+  {
+    id: 10,
     title: "Lock / Unlock",
     type: "switch",
     placeholder: "",

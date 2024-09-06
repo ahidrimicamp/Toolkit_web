@@ -36,21 +36,28 @@ const Page = () => {
       PermissionDelete: false,
       PermissionSave: false,
       PermissionResiduals: false,
+      Boarding: false,
+      Toolkit: false,
     },
   });
 
   const onSubmit = (value: z.infer<typeof newAddNewUserSchema>) => {
-    if (value.Password !== value.ConfirmPassword) {
-      alert(`The Passwords don't match.`);
-    }
+    alert(`The Passwords don't match.`);
+
+    // if (value.Password !== value.ConfirmPassword)
+
     console.log(value);
   };
 
   const [show, setShow] = useState(false);
-
   const handleUserType = () => {
-    // const test = form.getValues("Boarding");
     !show ? setShow(true) : setShow(false);
+
+    const test = form.getValues("Boarding");
+
+    if (test === false) {
+      form.setValue("Manager", false);
+    }
   };
 
   return (
@@ -98,25 +105,20 @@ const Page = () => {
                       label=""
                       placeholder="Toolkit"
                     />
-
-                    <div className="flex items-end gap-1">
-                      <div className="" onClick={handleUserType}>
-                        <CheckboxForm
-                          control={form.control}
-                          formName="Boarding"
-                          label=""
-                          placeholder=""
-                        />
-                      </div>
-                      <p>Boarding</p>
-                    </div>
+                    <CheckboxForm
+                      control={form.control}
+                      formName="Boarding"
+                      label=""
+                      placeholder="Boarding"
+                      onClick={handleUserType}
+                    />
                   </div>
                   {show && (
                     <>
                       <p className="my-2">If Boarding:</p>
                       <SwitchForm
                         control={form.control}
-                        formName="MakeManager"
+                        formName="Manager"
                         label="Make Manager"
                         className=""
                       />
