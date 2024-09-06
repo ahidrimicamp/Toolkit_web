@@ -2133,6 +2133,20 @@ export const merchResidualPaymentsTable = [
     Notes: " ",
   },
 ]
+export const wavitInfoTabs = [
+  {
+    id: "1",
+    title: "Transactions",
+    value: "transactions",
+    route: "/merchant/information/wavitinfo",
+  },
+  {
+    id: "2",
+    title: "Settings",
+    value: "settings",
+    route: "/merchant/information/wavitinfo/settings",
+  },
+];
 
 export const wavitTransactionsTable = [
   {
@@ -2960,11 +2974,11 @@ export const adminMainTabs = [
     value: "adHoc",
     route: "/admin/adHoc",
   },
-  {
-    title: "DB Operations",
-    value: "dbOperations",
-    route: "/admin/dbOperations",
-  },
+  // {
+  //   title: "DB Operations",
+  //   value: "dbOperations",
+  //   route: "/admin/dbOperations",
+  // },
   {
     title: "User Admin",
     value: "userAdmin",
@@ -3211,6 +3225,18 @@ export const adminDatabaseTabs = [
   },
 ];
 
+export const userAdminTabs = [
+  {
+    id: "1",
+    title: "Users",
+    value: "users",
+  },
+  {
+    id: "2",
+    title: "Roles",
+    value: "roles",
+  },
+];
 export const usersTable = [
   {
     Id: 1,
@@ -10168,8 +10194,13 @@ export const YesNoList = [
   { id: 2, name: "No", value: "no" },
 ];
 export const UserRoleList = [
-  { id: 1, name: "User", value: "user" },
-  { id: 2, name: "Admin", value: "admin" },
+  { id: 1, name: "User", value: "User" },
+  { id: 2, name: "Admin", value: "Admin" },
+  { id: 3, name: "Equipment", value: "Equipment" },
+  { id: 4, name: "Support", value: "Support" },
+  { id: 5, name: "Sales", value: "Sales" },
+  { id: 6, name: "Agent", value: "Agent" },
+  { id: 7, name: "ExternalAgent", value: "External Agent" },
 ];
 
 export const addNewUserForm = [
@@ -10227,16 +10258,16 @@ export const addNewUserForm = [
     id: 7,
     title: "In Production:",
     type: "input",
-    placeholder: "Select",
+    placeholder: "Select an option",
     formName: "InProduction",
     value: "",
     content: YesNoList,
   },
   {
     id: 8,
-    title: "Role Id:",
+    title: "User Role:",
     type: "input",
-    placeholder: "",
+    placeholder: "Select User Role",
     formName: "RoleId",
     value: "",
     content: UserRoleList,
@@ -10248,14 +10279,6 @@ export const addNewUserForm = [
     placeholder: "",
     formName: "Lock",
     value: ""
-  },
-  {
-    id: 10,
-    title: "Make Manager",
-    type: "switch",
-    placeholder: "",
-    formName: "Manager",
-    value: false
   },
 ];
 
@@ -10278,66 +10301,23 @@ export const addNewUserPasswordForm = [
   },
 ];
 
-export const addNewUserPermissionForm = [
-  {
-    id: 13,
-    title: "Create",
-    type: "checkbox",
-    placeholder: "",
-    formName: "PermissionCreate",
-    value: false
-  },
-  {
-    id: 14,
-    title: "Edit",
-    type: "checkbox",
-    placeholder: "",
-    formName: "PermissionEdit",
-    value: false
-  },
-  {
-    id: 15,
-    title: "Delete",
-    type: "checkbox",
-    placeholder: "",
-    formName: "PermissionDelete",
-    value: false
-  },
-  {
-    id: 16,
-    title: "Save",
-    type: "checkbox",
-    placeholder: "",
-    formName: "PermissionSave",
-    value: false
-  },
-  {
-    id: 17,
-    title: "Residuals",
-    type: "checkbox",
-    placeholder: "",
-    formName: "PermissionResiduals",
-    value: false
-  },
-];
-
 export const addNewUserTypeForm = [
   {
     id: 18,
-    title: "Boarding",
-    type: "checkbox",
-    placeholder: "",
-    formName: "Boarding",
-    value: false
-  },
-  {
-    id: 19,
     title: "Toolkit",
     type: "checkbox",
     placeholder: "",
     formName: "Toolkit",
     value: false
   },
+  {
+    id: 19,
+    title: "Boarding",
+    type: "checkbox",
+    placeholder: "",
+    formName: "Boarding",
+    value: false
+  }
 ];
 
 
