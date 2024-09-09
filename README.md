@@ -28,6 +28,35 @@ This web-based platform revolutionizes the company's internal operations, provid
 - Cross-Platform Compatibility: Enjoy seamless integration with macOS and Linux environments, ensuring accessibility for all team members.
   Intuitive User Interface: Navigate the platform effortlessly with a visually appealing and user-friendly design.
 
+## Getting Started
+- Clone the project
+  ```
+  git clone <url>
+  ```
+- Install the dependencies
+  ```
+  npm i
+  ```
+- Configure db with prisma
+  ```
+  npx prisma db push
+  ```
+
+### Notes
+When making changes to the db models we need to reflect these changes on the database.  
+On production we can do that by:
+```
+npx prisma db push
+```
+On development we can do the same thing or do it the safer way by droping the db and pushing the changes again.
+```
+npx prisma migrate reset
+npx prisma db push
+```
+(Don't forget to go to the db client on your machine and delete the generated tables)
+
+
+
 ## Learn More
 
 Take a peek of how it looks like - [Figma](https://www.figma.com/design/fJQO4e7Vcbi1yjkMmxxHdK/Figma-basics?node-id=1669-162202&t=4ubqdpaVINQNAwdg-0)
