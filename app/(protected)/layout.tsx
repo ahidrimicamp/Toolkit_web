@@ -1,15 +1,10 @@
-import { validateRequest } from "@/auth";
 import Header from "@/components/Shared/Profile/Header";
 import SideProfileBar from "@/components/Shared/Profile/SideProfileBar";
-import { redirect } from "next/navigation";
 import React from "react";
 
 const layout = async ({
   children,
 }: Readonly<{ children: React.ReactNode }>) => {
-  const session = await validateRequest();
-
-  if (!session.user) return redirect("/sign-in");
   return (
     <div>
       <section className="flex w-full items-center justify-center overflow-hidden p-4">
